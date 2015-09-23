@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 import pageObject.LoginPage;
 import pageObject.SampleSignInObject;
-import pageObject.SamplePageObject;
 import webDriver.Driver;
 
 public class SessionUtilities {
@@ -71,61 +70,6 @@ public class SessionUtilities {
 
 		String countryCode = null;
 		return countryCode;
-	}
-
-	public static void LoginAdminPortal(String username, String password) {
-
-		SamplePageObject admin = new SamplePageObject();
-
-		admin.Username().sendKeys(username);
-		SamplePageObject.Password(password);
-		admin.Login().click();
-
-	}
-
-	public static void CleanUpUsernameChange() {
-
-		SamplePageObject admin = new SamplePageObject();
-		admin.UsersSectionNavigation().click();
-		admin.UsernameSearchField().sendKeys("wprit12");
-		admin.SearchButton().click();
-		admin.EditUserButton().click();
-		SamplePageObject.EditUserButtons("Update user's username");
-		admin.NewUsernameField().sendKeys("wprit1");
-		admin.UpdateUsernameConfirm().get(0).click();
-		admin.ClosePopupWindow().get(0).click();
-		String username = admin.UsernameDisplayed().getAttribute("innerText");
-		username.equals("wprit1");
-	}
-
-	public static void CleanUpPasswordChange() {
-
-		SamplePageObject admin = new SamplePageObject();
-		admin.UsersSectionNavigation().click();
-		admin.UsernameSearchField().sendKeys("wprit1");
-		admin.SearchButton().click();
-		admin.EditUserButton().click();
-		SamplePageObject.EditUserButtons("Reset User Password");
-		SamplePageObject.Password("password");
-		admin.UpdateUsernameConfirm().get(0).click();
-		admin.ClosePopupWindow().get(0).click();
-	}
-
-	public static void CleanUpUserDetails() {
-
-		SamplePageObject admin = new SamplePageObject();
-		admin.UsersSectionNavigation().click();
-		admin.UsernameSearchField().sendKeys("wprit1");
-		admin.SearchButton().click();
-		admin.EditUserButton().click();
-		admin.EditFirstName().clear();
-		admin.EditFirstName().sendKeys("will");
-		admin.EditLastName().clear();
-		admin.EditLastName().sendKeys("prit");
-		admin.EditCountry().sendKeys("United Kingdom");
-		admin.SaveChanges().get(0).click();
-		admin.ClosePopupWindow().get(0).click();
-
 	}
 
 	public static void ApplicationUpdateMessageCheck() {
