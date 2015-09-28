@@ -30,16 +30,16 @@ public class SampleLoginStepDefs {
 		//Check element is present
 	}
 	
-	
-	@Given("^I have opened a webpage$")
-	public void i_have_opened_a_webpage(String environment) throws Throwable {
-
+	@Given("^I have opened a \"(.*?)\"$")
+	public void i_have_opened_a(String environment) throws Throwable {
+		
 		Driver.ChromeDriver();
 		Environment.environment = environment;
 		Driver.loadPage(SampleUrls.getUrl());
+		Thread.sleep(2000);
 		Assert.assertEquals("Incorrect URL.", SampleUrls.getUrl(), Driver.getCurrentUrl());
-		
 	}
+	
 
 	@When("^I check for something$")
 	public void i_check_for_something() throws Throwable {
