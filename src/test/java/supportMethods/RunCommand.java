@@ -1,4 +1,4 @@
-package webDriver;
+package supportMethods;
 
 import java.io.BufferedReader;
 import java.io.File;

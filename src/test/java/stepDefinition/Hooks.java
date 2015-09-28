@@ -1,20 +1,34 @@
 package stepDefinition;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriverException;
 
 import webDriver.Driver;
 import webDriver.GlobalVariables;
-import webDriver.ReadFiles;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import supportMethods.FileReader;
 
 
 public class Hooks {
+	
+	Boolean runOnce = false;
+	
+	@Before
+	public void readConfigFileAtStart() throws FileNotFoundException, IOException {
+		if (!runOnce) {
+			GlobalVariables.config = FileReader.readProperties();
+			runOnce = true;
+		}
+	}
+	
 	@Before
 	public void before(Scenario scenario) {
+		
 		GlobalVariables.scenario = scenario;
-		ReadFiles.readConfig("src/test/resources/config.txt");
 	}
 	
 	@After
@@ -31,24 +45,5 @@ public class Hooks {
 			System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 		}
 	}	
-	
-	@After
-	public void shutdown() {
-		if (!(Driver.chromiumDriver == null)) {
-			System.out.println("Shutting down MEE.");
-			Driver.chromiumDriver().quit();
-			Driver.chromiumDriver = null;
-		}
-		if (!(Driver.chromeDriver == null)) { 
-			System.out.println("Shutting down Chrome.");
-			Driver.ChromeDriver().quit();
-			Driver.chromeDriver = null;
-		}
-		Driver.currentDriver = null;
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+
 }

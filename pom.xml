@@ -2,18 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>mee</groupId>
-    <artifactId>mee-automation</artifactId>
+    <groupId>Selenium</groupId>
+    <artifactId>Selenium-Cucumber-Framework</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>${name}</name>
     <properties>
-        <name>MEE Integration Tests</name>
+        <name>Selenium Cucumber Framework</name>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
         <cucumber.extras>~@ignore</cucumber.extras>
-        <automation.browser>Chromium</automation.browser>
-        <automation.platform>Windows</automation.platform>
-                <bamboo.buildNumber>${maven.build.timestamp}</bamboo.buildNumber>
+        <bamboo.buildNumber>${maven.build.timestamp}</bamboo.buildNumber>
     </properties>
     <dependencies>
         <dependency>

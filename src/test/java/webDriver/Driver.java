@@ -25,75 +25,46 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import enums.Browser;
-import factory.BrowserFactory;
+import supportFactory.BrowserFactory;
+import supportFactory.PlatformFactory;
 
 public class Driver {
 
-	public static WebDriver chromiumDriver;
-	public static WebDriver chromeDriver;
-	public static DesiredCapabilities capabilities;
-	public static WebDriver currentDriver;
-
-	public synchronized static WebDriver chromiumDriver() {
-		if (chromiumDriver == null) {
-			chromiumDriver = launchDriver(Browser.mee);
-			if (!(chromeDriver == null)) {
-				chromeDriver.quit();
-				chromeDriver = null;
-			}
-		}
-		currentDriver = chromiumDriver;
-		return chromiumDriver;
-	}
+	public static WebDriver mDriver;
+	public static DesiredCapabilities browser;
+	public static Platform systemPlatform;
 	
-	public synchronized static WebDriver ChromeDriver() {
-		if (chromeDriver == null) {
-			chromeDriver = launchDriver(Browser.chrome);
-			if (!(chromiumDriver == null)) {
-				chromiumDriver.quit();
-				chromiumDriver = null;
-			}
-		}
-		currentDriver = chromeDriver;
-		return chromeDriver;
-	}
-		
-	public synchronized static WebDriver launchDriver(Browser browser) {
-		WebDriver driver = null;
-		BrowserFactory browserFactory = new BrowserFactory();
-		capabilities = browserFactory.setBrowser(browser);
-		
-		Platform platform = Platform.valueOf(System.getProperty("automation.platform", "WINDOWS"));
-		capabilities.setPlatform(platform);
-		
-		try {
-			driver = new RemoteWebDriver(new URL(
-					GlobalVariables.seleniumHub),
-					capabilities);
-			}
-		catch (WebDriverException e) {
-			Driver.writeToReport("WebDriverException: " + e.getMessage());
-			Assert.fail();
-		}
-		catch (Exception e) {
-			Driver.writeToReport(e.getMessage());
-		} 
-		finally {
-			Runtime.getRuntime().addShutdownHook(new Thread(new BrowserCleanup()));
-		}
-		return driver;
+	public static Boolean useBrowserStack() {
+		return Boolean.valueOf(GlobalVariables.config.get("useBrowserstack"));
 	}
 	
 	public synchronized static WebDriver getCurrentDriver() {
-		if (currentDriver == null) {
+		
+		if (mDriver == null) {
+			browser = new DesiredCapabilities();
+			if (useBrowserStack()) {
+				browser.setCapability("browserstack.local", "false");
+				GlobalVariables.config.put("seleniumHub", "http://richardspenceley1:BFyAMXBGyAS6P5B7w6Mx@hub.browserstack.com/wd/hub");
+			}		
+				
+			PlatformFactory.selectPlatform(browser);
+			BrowserFactory.selectBrowser(browser);
+						
 			try {
-				throw new Exception("No browser specified");
-			} catch (Exception e) {
-				e.printStackTrace();
+				mDriver = new RemoteWebDriver(new URL(GlobalVariables.config.get("seleniumHub")), browser);
+			} catch (WebDriverException e) {
+				Driver.writeToReport("WebDriverException: " + e.getMessage());
+				Assert.fail(e.getMessage());
+			}
+			catch (Exception e) {
+				Driver.writeToReport(e.getMessage());
+			} 
+			finally {
+				Runtime.getRuntime().addShutdownHook(
+						new Thread(new BrowserCleanup()));
 			}
 		}
-		return currentDriver;
+		return mDriver;
 	}
 	
 	private static class BrowserCleanup implements Runnable {
