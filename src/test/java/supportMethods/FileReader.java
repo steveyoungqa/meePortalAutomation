@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import webDriver.GlobalVariables;
 
 public class FileReader {
 
@@ -24,7 +23,7 @@ public class FileReader {
 		
 		Map<String, String> properties = new HashMap<String, String>();
 		
-		Enumeration KeyValues = prop.keys();
+		Enumeration<?> KeyValues = prop.keys();
 		while (KeyValues.hasMoreElements()) {
 			String key = (String) KeyValues.nextElement();
 			String value = prop.getProperty(key);

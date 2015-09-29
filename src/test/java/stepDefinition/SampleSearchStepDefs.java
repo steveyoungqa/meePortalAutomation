@@ -2,13 +2,11 @@ package stepDefinition;
 
 import org.junit.Assert;
 
-import pageObject.LoginPage;
 import pageObject.SampleGooglePageObject;
 import webDriver.Driver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import enums.SampleUrls;
 
 public class SampleSearchStepDefs {
 
