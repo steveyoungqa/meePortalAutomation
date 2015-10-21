@@ -53,7 +53,7 @@ public class BrowserFactory {
 			break;
 		case GoogleNexus7:
 			caps.setCapability("browserName", "android");
-			caps.setCapability("device", "Google Nexus 7");
+			caps.setCapability("deviceName", "Google Nexus 7");
 			break;
 		case HTCOneM8:
 			caps.setCapability("browserName", "android");

@@ -1,17 +1,17 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("SampleGoogleSearch.feature");
 formatter.feature({
   "line": 1,
   "name": "Sample feature file for writing tests",
-  "description": "As an automation tester\nI want to know how to write automation tests in Selenium with Cucumber\nSo that I can reduce my manual effort",
+  "description": "As an automation tester\r\nI want to know how to write automation tests in Selenium with Cucumber\r\nSo that I can reduce my manual effort",
   "id": "sample-feature-file-for-writing-tests",
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 146946,
+  "duration": 89877,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1221885,
+  "duration": 528689,
   "status": "passed"
 });
 formatter.scenario({
@@ -47,7 +47,7 @@ formatter.match({
   "location": "SampleSearchStepDefs.i_am_on(String)"
 });
 formatter.result({
-  "duration": 3019425073,
+  "duration": 9956309722,
   "status": "passed"
 });
 formatter.match({
@@ -60,7 +60,7 @@ formatter.match({
   "location": "SampleSearchStepDefs.i_search_for(String)"
 });
 formatter.result({
-  "duration": 1866043977,
+  "duration": 2853022144,
   "status": "passed"
 });
 formatter.match({
@@ -73,11 +73,11 @@ formatter.match({
   "location": "SampleSearchStepDefs.my_web_page_title_is(String)"
 });
 formatter.result({
-  "duration": 11550204,
+  "duration": 251822268,
   "status": "passed"
 });
 formatter.after({
-  "duration": 65220,
+  "duration": 91744,
   "status": "passed"
 });
 });

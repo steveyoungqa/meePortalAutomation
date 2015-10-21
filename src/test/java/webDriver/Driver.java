@@ -44,7 +44,7 @@ public class Driver {
 			browser = new DesiredCapabilities();
 			if (useBrowserStack()) {
 				browser.setCapability("browserstack.local", "false");
-				GlobalVariables.config.put("seleniumHub", "http://richardspenceley1:BFyAMXBGyAS6P5B7w6Mx@hub.browserstack.com/wd/hub");
+				GlobalVariables.config.put("seleniumHub", "http://browserstackaddress@hub.browserstack.com/wd/hub");
 			}		
 				
 			PlatformFactory.selectPlatform(browser);
