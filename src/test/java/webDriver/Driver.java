@@ -33,6 +33,7 @@ public class Driver {
 	public static WebDriver mDriver;
 	public static DesiredCapabilities browser;
 	public static Platform systemPlatform;
+	public static DesiredCapabilities additionalCapabilities = new DesiredCapabilities();
 	
 	public static Boolean useBrowserStack() {
 		return Boolean.valueOf(GlobalVariables.config.get("useBrowserstack"));
@@ -49,9 +50,13 @@ public class Driver {
 				
 			PlatformFactory.selectPlatform(browser);
 			BrowserFactory.selectBrowser(browser);
+			browser.merge(additionalCapabilities);
+			browser.setCapability("app", GlobalVariables.config.get("mobileApp"));
+			
+			String seleniumHub = GlobalVariables.config.get("seleniumHub");
 						
 			try {
-				mDriver = new RemoteWebDriver(new URL(GlobalVariables.config.get("seleniumHub")), browser);
+				mDriver = new RemoteWebDriver(new URL(seleniumHub), browser);
 			} catch (WebDriverException e) {
 				Driver.writeToReport("WebDriverException: " + e.getMessage());
 				Assert.fail(e.getMessage());
