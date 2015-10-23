@@ -28,6 +28,10 @@ public class BrowserFactory {
 			caps.setCapability("browserName", "android");
 			caps.setCapability("device", "Amazon Kindle Fire HDX 7");
 			break;
+		case Chrome46:
+			caps.setCapability("browserName", "chrome");
+			caps.setCapability("browser_version", "46.0");
+			break;
 		case Chrome45:
 			caps.setCapability("browserName", "chrome");
 			caps.setCapability("browser_version", "45.0");
@@ -37,11 +41,17 @@ public class BrowserFactory {
 			caps.setCapability("browser_version", "44.0");
 			break;
 		case Edge:
-			// Placeholder, need to set up locally
-			throw new WebDriverException("Microsoft Edge is not currently supported");
+			caps.setCapability("browser", "Edge");
+			caps.setCapability("browser_version", "12.0");
+			caps.setCapability("browserstack.ie.enablePopups", "true");
+			break;
 		case Firefox40:
 			 caps.setCapability("browserName", "firefox");
 			 caps.setCapability("browser_version", "40.0");
+			break;
+		case Firefox41:
+			 caps.setCapability("browserName", "firefox");
+			 caps.setCapability("browser_version", "41.0");
 			break;
 		case GoogleNexus4:
 			caps.setCapability("browserName", "android");
@@ -67,18 +77,22 @@ public class BrowserFactory {
 		case IE10:
 			caps.setCapability("browserName", "internet explorer");
 			caps.setCapability("browser_version", "10.0");
+			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case IE11:
 			caps.setCapability("browserName", "internet explorer");
 			caps.setCapability("browser_version", "11.0");
+			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case IE8:
 			caps.setCapability("browserName", "internet explorer");
 			caps.setCapability("browser_version", "8.0");
+			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case IE9:
 			caps.setCapability("browserName", "internet explorer");
 			caps.setCapability("browser_version", "9.0");
+			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case MotorolaRazr:
 			caps.setCapability("browserName", "android");
@@ -116,6 +130,10 @@ public class BrowserFactory {
 			caps.setCapability("browserName", "safari");
 			caps.setCapability("browser_version", "8.0");
 			break;
+		case Safari9:
+			caps.setCapability("browserName", "safari");
+			caps.setCapability("browser_version", "9.0");
+			break;
 		case SamsungGalaxyNote10_1:
 			caps.setCapability("browserName", "android");
 			caps.setCapability("device", "Samsung Galaxy Tab 4 10.1");
@@ -143,6 +161,10 @@ public class BrowserFactory {
 		case SamsungGalaxyS5Mini:
 			caps.setCapability("browserName", "android");
 			caps.setCapability("device", "Samsung Galaxy S5 Mini");
+			break;
+		case SamsungGalaxyTab3:
+			caps.setCapability("browserName", "android");
+			caps.setCapability("deviceName", "SamsungGalaxyTab3");
 			break;
 		case SamsungGalaxyTab410_1:
 			caps.setCapability("browserName", "android");
@@ -175,6 +197,9 @@ public class BrowserFactory {
 		case iPhone5S:
 			caps.setCapability("browserName", "iPhone");
 			caps.setCapability("device", "iPhone 5S");
+			break;
+		case PhantomJS:
+			caps.setCapability("browserName", "phantomjs");
 			break;
 		default:
 			throw new WebDriverException("No browser specified");
