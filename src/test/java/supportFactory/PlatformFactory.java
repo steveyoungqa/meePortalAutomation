@@ -17,7 +17,8 @@ public class PlatformFactory {
 		
 		switch (platform()) {
 		case Android:
-			caps.setCapability("platform", "ANDROID");
+			caps.setCapability("platformName", "ANDROID");
+			caps.setCapability("app", "Chrome");
 			break;
 		case OSX10_10:
 			caps.setCapability("os", "OS X");
