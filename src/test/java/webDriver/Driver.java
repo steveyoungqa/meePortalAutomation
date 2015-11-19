@@ -53,6 +53,7 @@ public class Driver {
 			PlatformFactory.selectPlatform(browser);
 			BrowserFactory.selectBrowser(browser);
 			browser.merge(additionalCapabilities);
+			browser.setCapability("app", GlobalVariables.config.get("mobileApp"));
 			
 			String seleniumHub = GlobalVariables.config.get("seleniumHub");
 						
