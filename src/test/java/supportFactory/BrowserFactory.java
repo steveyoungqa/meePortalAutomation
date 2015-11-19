@@ -30,28 +30,28 @@ public class BrowserFactory {
 			break;
 		case Chrome46:
 			caps.setCapability("browserName", "chrome");
-			caps.setCapability("browser_version", "46.0");
+			caps.setCapability("version", "46.0");
 			break;
 		case Chrome45:
 			caps.setCapability("browserName", "chrome");
-			caps.setCapability("browser_version", "45.0");
+			caps.setCapability("version", "45.0");
 			break;
 		case Chrome44:
 			caps.setCapability("browserName", "chrome");
-			caps.setCapability("browser_version", "44.0");
+			caps.setCapability("version", "44.0");
 			break;
 		case Edge:
 			caps.setCapability("browser", "Edge");
-			caps.setCapability("browser_version", "12.0");
+			caps.setCapability("version", "12.0");
 			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case Firefox40:
 			 caps.setCapability("browserName", "firefox");
-			 caps.setCapability("browser_version", "40.0");
+			 caps.setCapability("version", "40.0");
 			break;
 		case Firefox41:
 			 caps.setCapability("browserName", "firefox");
-			 caps.setCapability("browser_version", "41.0");
+			 caps.setCapability("version", "41.0");
 			break;
 		case GoogleNexus4:
 			caps.setCapability("browserName", "android");
@@ -63,7 +63,6 @@ public class BrowserFactory {
 			break;
 		case GoogleNexus7:
 			caps.setCapability("browserName", "android");
-			caps.setCapability("deviceName", "Google Nexus 7");
 			caps.setCapability("device", "Google Nexus 7");
 			break;
 		case HTCOneM8:
@@ -76,22 +75,22 @@ public class BrowserFactory {
 			break;
 		case IE10:
 			caps.setCapability("browserName", "internet explorer");
-			caps.setCapability("browser_version", "10.0");
+			caps.setCapability("version", "10.0");
 			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case IE11:
 			caps.setCapability("browserName", "internet explorer");
-			caps.setCapability("browser_version", "11.0");
+			caps.setCapability("version", "11.0");
 			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case IE8:
 			caps.setCapability("browserName", "internet explorer");
-			caps.setCapability("browser_version", "8.0");
+			caps.setCapability("version", "8.0");
 			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case IE9:
 			caps.setCapability("browserName", "internet explorer");
-			caps.setCapability("browser_version", "9.0");
+			caps.setCapability("version", "9.0");
 			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
 		case MotorolaRazr:
@@ -104,35 +103,35 @@ public class BrowserFactory {
 			break;
 		case Opera12_15:
 			caps.setCapability("browserName", "opera");
-			caps.setCapability("browser_version", "12.15");
+			caps.setCapability("version", "12.15");
 			break;
 		case Opera12_16:
 			caps.setCapability("browserName", "opera");
-			caps.setCapability("browser_version", "12.16");
+			caps.setCapability("version", "12.16");
 			break;
 		case Safari5_1:
 			caps.setCapability("browserName", "safari");
-			caps.setCapability("browser_version", "5.1");
+			caps.setCapability("version", "5.1");
 			break;
 		case Safari6:
 			caps.setCapability("browserName", "safari");
-			caps.setCapability("browser_version", "6.0");
+			caps.setCapability("version", "6.0");
 			break;
 		case Safari6_2:
 			caps.setCapability("browserName", "safari");
-			caps.setCapability("browser_version", "6.2");
+			caps.setCapability("version", "6.2");
 			break;
 		case Safari7_1:
 			caps.setCapability("browserName", "safari");
-			caps.setCapability("browser_version", "7.1");
+			caps.setCapability("version", "7.1");
 			break;
 		case Safari8:
 			caps.setCapability("browserName", "safari");
-			caps.setCapability("browser_version", "8.0");
+			caps.setCapability("version", "8.0");
 			break;
 		case Safari9:
 			caps.setCapability("browserName", "safari");
-			caps.setCapability("browser_version", "9.0");
+			caps.setCapability("version", "9.0");
 			break;
 		case SamsungGalaxyNote10_1:
 			caps.setCapability("browserName", "android");
