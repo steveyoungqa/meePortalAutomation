@@ -27,6 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import supportFactory.BrowserFactory;
 import supportFactory.PlatformFactory;
+import supportMethods.BrowserStack;
 
 public class Driver {
 
@@ -43,9 +44,10 @@ public class Driver {
 		
 		if (mDriver == null) {
 			browser = new DesiredCapabilities();
-			if (useBrowserStack()) {
-				browser.setCapability("browserstack.local", "false");
-				GlobalVariables.config.put("seleniumHub", "http://browserstackaddress@hub.browserstack.com/wd/hub");
+			if (BrowserStack.useBrowserStack()) {
+				browser.merge(BrowserStack.setBrowserCapabilities());
+				browser.merge(BrowserStack.setProjectDetails());
+				BrowserStack.setSeleniumHub();
 			}		
 				
 			PlatformFactory.selectPlatform(browser);

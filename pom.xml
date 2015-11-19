@@ -10,8 +10,9 @@
     <properties>
         <name>Selenium Cucumber Framework</name>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <cucumber.extras>~@ignore</cucumber.extras>
-        <bamboo.buildNumber>${maven.build.timestamp}</bamboo.buildNumber>
+        <build>${maven.build.timestamp}/${platform}/${browser}</build>
+        <cucumber.tags>~@ignore</cucumber.tags>
+        <report.directory>${project.build.directory}/../reports/${build}/</report.directory>
     </properties>
     <dependencies>
         <dependency>
@@ -42,12 +43,11 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>cucumber-reporting</artifactId>
-            <version>0.0.24</version>
-            <scope>test</scope>
-        </dependency>
+    	<dependency>
+        	<groupId>net.masterthought</groupId>
+        	<artifactId>maven-cucumber-reporting</artifactId>
+        	<version>0.1.0</version>
+    	</dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -72,9 +72,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.18.1</version>
                 <configuration>
-                    <reportsDirectory>${project.build.directory}/../reports/${bamboo.buildNumber}/${automation.platform}/${automation.browser}</reportsDirectory>
+                    <reportsDirectory>${report.directory}</reportsDirectory>
                     <systemPropertyVariables>
-                        <cucumber.options>--tags ${cucumber.tags} --plugin html:${project.build.directory}/../reports/${bamboo.buildNumber}/${automation.platform}/${automation.browser}/html1 --plugin json:${project.build.directory}/../reports/${bamboo.buildNumber}/${automation.platform}/${automation.browser}/cucumber.json --plugin junit:${project.build.directory}/../reports/${bamboo.buildNumber}/${automation.platform}/${automation.browser}/junit.xml</cucumber.options>
+                        <cucumber.options>--tags ${cucumber.tags} --plugin html:${report.directory}html1 --plugin json:${report.directory}cucumber.json --plugin junit:${report.directory}junit.xml</cucumber.options>
                     </systemPropertyVariables>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
@@ -82,7 +82,7 @@
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>0.0.5</version>
+                <version>0.1.0</version>
                 <executions>
                     <execution>
                         <id>execution</id>
@@ -91,9 +91,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                    <projectName>test</projectName>
-                            <outputDirectory>${project.build.directory}/../reports/${bamboo.buildNumber}/${automation.platform}/${automation.browser}/html2</outputDirectory>
-                            <cucumberOutput>${project.build.directory}/../reports/${bamboo.buildNumber}/${automation.platform}/${automation.browser}/cucumber.json</cucumberOutput>
+                    		<projectName>${name}</projectName>
+                            <outputDirectory>${report.directory}html2</outputDirectory>
+                            <cucumberOutput>${report.directory}cucumber.json</cucumberOutput>
                             <enableFlashCharts>false</enableFlashCharts>
                         </configuration>
                     </execution>
