@@ -15,7 +15,7 @@ import supportMethods.FileReader;
 
 public class Hooks {
 	
-	Boolean runOnce = false;
+	private static Boolean runOnce = false;
 	
 	@Before
 	public void readConfigFileAtStart() throws FileNotFoundException, IOException {

@@ -27,12 +27,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import supportFactory.BrowserFactory;
 import supportFactory.PlatformFactory;
+import supportMethods.BrowserStack;
 
 public class Driver {
 
 	public static WebDriver mDriver;
 	public static DesiredCapabilities browser;
 	public static Platform systemPlatform;
+	public static DesiredCapabilities additionalCapabilities = new DesiredCapabilities();
 	
 	public static Boolean useBrowserStack() {
 		return Boolean.valueOf(GlobalVariables.config.get("useBrowserstack"));
@@ -42,16 +44,20 @@ public class Driver {
 		
 		if (mDriver == null) {
 			browser = new DesiredCapabilities();
-			if (useBrowserStack()) {
-				browser.setCapability("browserstack.local", "false");
-				GlobalVariables.config.put("seleniumHub", "http://browserstackaddress@hub.browserstack.com/wd/hub");
+			if (BrowserStack.useBrowserStack()) {
+				browser.merge(BrowserStack.setBrowserCapabilities());
+				browser.merge(BrowserStack.setProjectDetails());
+				BrowserStack.setSeleniumHub();
 			}		
 				
 			PlatformFactory.selectPlatform(browser);
 			BrowserFactory.selectBrowser(browser);
+			browser.merge(additionalCapabilities);
+			
+			String seleniumHub = GlobalVariables.config.get("seleniumHub");
 						
 			try {
-				mDriver = new RemoteWebDriver(new URL(GlobalVariables.config.get("seleniumHub")), browser);
+				mDriver = new RemoteWebDriver(new URL(seleniumHub), browser);
 			} catch (WebDriverException e) {
 				Driver.writeToReport("WebDriverException: " + e.getMessage());
 				Assert.fail(e.getMessage());
