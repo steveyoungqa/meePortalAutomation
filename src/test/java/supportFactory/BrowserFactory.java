@@ -32,6 +32,9 @@ public class BrowserFactory {
 			caps.setCapability("browserName", "chrome");
 			caps.setCapability("version", "46.0");
 			break;
+		case Chrome:
+			caps.setCapability("browserName", "chrome");
+			break;
 		case Chrome45:
 			caps.setCapability("browserName", "chrome");
 			caps.setCapability("version", "45.0");
