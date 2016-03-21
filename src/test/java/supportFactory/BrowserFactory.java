@@ -48,13 +48,8 @@ public class BrowserFactory {
 			caps.setCapability("version", "12.0");
 			caps.setCapability("browserstack.ie.enablePopups", "true");
 			break;
-		case Firefox40:
+		case Firefox:
 			 caps.setCapability("browserName", "firefox");
-			 caps.setCapability("version", "40.0");
-			break;
-		case Firefox41:
-			 caps.setCapability("browserName", "firefox");
-			 caps.setCapability("version", "41.0");
 			break;
 		case GoogleNexus4:
 			caps.setCapability("browserName", "android");

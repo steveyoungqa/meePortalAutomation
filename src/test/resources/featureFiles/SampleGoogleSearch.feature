@@ -1,3 +1,4 @@
+@google
 Feature: Sample feature file for writing tests
   As an automation tester
   I want to know how to write automation tests in Selenium with Cucumber
@@ -7,3 +8,5 @@ Feature: Sample feature file for writing tests
     Given I am on "http://www.google.com"
     When I search for "Water on mars"
     Then my web page title is "Water on mars - Google Search"
+
+

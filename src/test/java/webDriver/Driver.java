@@ -27,10 +27,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import supportFactory.BrowserFactory;
 import supportFactory.PlatformFactory;
+import supportFactory.WebdriverFactory;
 import supportMethods.BrowserStack;
 
 public class Driver {
 
+    public static WebDriver webdriver;
 	public static WebDriver mDriver;
 	public static DesiredCapabilities browser;
 	public static Platform systemPlatform;
@@ -39,24 +41,24 @@ public class Driver {
 	public static Boolean useBrowserStack() {
 		return Boolean.valueOf(GlobalVariables.config.get("useBrowserstack"));
 	}
-	
+
 	public synchronized static WebDriver getCurrentDriver() {
-		
+
 		if (mDriver == null) {
 			browser = new DesiredCapabilities();
 			if (BrowserStack.useBrowserStack()) {
 				browser.merge(BrowserStack.setBrowserCapabilities());
 				browser.merge(BrowserStack.setProjectDetails());
 				BrowserStack.setSeleniumHub();
-			}		
-				
+			}
+
 			PlatformFactory.selectPlatform(browser);
 			BrowserFactory.selectBrowser(browser);
 			browser.merge(additionalCapabilities);
 			browser.setCapability("app", GlobalVariables.config.get("mobileApp"));
-			
+
 			String seleniumHub = GlobalVariables.config.get("seleniumHub");
-						
+
 			try {
 				mDriver = new RemoteWebDriver(new URL(seleniumHub), browser);
 			} catch (WebDriverException e) {
@@ -65,7 +67,7 @@ public class Driver {
 			}
 			catch (Exception e) {
 				Driver.writeToReport(e.getMessage());
-			} 
+			}
 			finally {
 				Runtime.getRuntime().addShutdownHook(
 						new Thread(new BrowserCleanup()));
@@ -97,6 +99,7 @@ public class Driver {
 
 	public static void loadPage(String url) {
 		getCurrentDriver().get(url);
+        maximise();
 	}
 
 	public static WebElement findElement(By element)  {
@@ -149,6 +152,11 @@ public class Driver {
 	public static String getCurrentUrl() {
 		return getCurrentDriver().getCurrentUrl();
 
+	}
+
+	public static void refreshPage ()
+	{
+		webdriver.navigate().refresh();
 	}
 
 	public static String getTitle() {
