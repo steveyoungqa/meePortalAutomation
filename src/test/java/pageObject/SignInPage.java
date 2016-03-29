@@ -22,15 +22,15 @@ public class SignInPage {
 	
 	public void LandingPageApp(){
 		
-		Login = Driver.findElements(By.cssSelector("a[href*='#/login']"));
-		Register = Driver.findElements(By.cssSelector("a[href*='#/register']"));
+		Login = Driver.findElements(By.xpath("//*[@data-reactid='.1.2.1.0']"));
+		Register = Driver.findElements(By.xpath("//*[@data-reactid='.1.2.0.0']"));
 
 	}
 	
 	public void LandingPagePortal(){
 
-		Login = Driver.findElements(By.cssSelector("a[href*='/Login']"));
-		Register = Driver.findElements(By.cssSelector("a[href*='/Registration']"));
+		Login = Driver.findElements(By.xpath("//*[@data-reactid='.1.2.1.0']"));
+		Register = Driver.findElements(By.xpath("//*[@data-reactid='.1.2.0.0']"));
 	}
 	
 	public void LoginPage(WebDriver mDriver){

@@ -12,7 +12,8 @@ import java.util.Map;
 @CucumberOptions(
 		features = { "src/test/resources/featureFiles" },
 		glue = { "webDriver", "stepDefinition", "testRunner" },
-		tags = { "@admin" },
+		tags = { "@meeportal" },
+		//"@adminportal
 		plugin = {"pretty", "html:Report/html"})
 public class TestRunner {
 

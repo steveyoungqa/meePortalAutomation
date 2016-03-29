@@ -27,19 +27,19 @@ public class LoginPage {
 		return Driver.findElement(By.xpath(".//input[@type='submit']"));
 	}
 	public WebElement ForgotUsername() {
-		return Driver.findElement(By.cssSelector("a[href*='/ForgotUsername']"));
+		return Driver.findElement(By.id("_ForgotUsername"));
 	}
 	public WebElement ForgotPassword() {
-		return Driver.findElement(By.cssSelector("a[href*='/ForgotPassword']"));
+		return Driver.findElement(By.id("_ForgotPassword"));
 	}
 	public WebElement ForgotUsernameAndPassword() {
-		return Driver.findElement(By.cssSelector("a[href*='/ForgotUsernameAndPassword']"));
+		return Driver.findElement(By.id("_ForgotUsernameAndPassword"));
 	}
-		
+
 	public static Select LanguageSelector() {
-		return new Select(Driver.findElement(By.id("languageSelector_CurrentLanguage")));
+		return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.0.0']")));
 	}
-	
+
 	public static WebElement errorMessage(String dataValmsgFor) {
 		return Driver.findElement(By.cssSelector(".mee-validation.field-validation-error[data-valmsg-for*='" + dataValmsgFor +  "']"));
 		
