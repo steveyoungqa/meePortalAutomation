@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dba373b-b0d4-4078-9c81-8b4bdc383c01" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/enums/Language.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/enums/MeePortal.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/findBy/Errors.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/LoginStepDefs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/featureFiles/WebViewLogin.feature" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/enums/MeeAdminPortal.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/pageObject/AdminPortal.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/AdminPortalStepDefs.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/resources/featureFiles/AdminPortal.feature" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Report/html/embedded0.png" afterPath="$PROJECT_DIR$/Report/html/embedded0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Report/html/report.js" afterPath="$PROJECT_DIR$/Report/html/report.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java" afterPath="$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/pageObject/SignInPage.java" afterPath="$PROJECT_DIR$/src/test/java/pageObject/SignInPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/supportMethods/SessionUtilities.java" afterPath="$PROJECT_DIR$/src/test/java/supportMethods/SessionUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="Selenium-Cucumber-Framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,15 +35,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
           </provider>
-          <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.95535713">
-                <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="5" />
+              <first_editor vertical-scroll-proportion="0.41284403">
+                <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -67,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Language.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Language.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/enums/Language.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21462639">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -155,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/test/java/supportFactory/WebdriverFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/enums/MeeAdminPortal.java" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/SampleGoogleSearch.feature" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/enums/Browser.java" />
         <option value="$PROJECT_DIR$/src/test/java/supportFactory/BrowserFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/webDriver/Driver.java" />
@@ -172,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/WebViewLogin.feature" />
         <option value="$PROJECT_DIR$/src/test/java/stepDefinition/LoginStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/supportMethods/SessionUtilities.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -188,10 +172,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="457" />
-    <option name="y" value="60" />
-    <option name="width" value="1105" />
-    <option name="height" value="775" />
+    <option name="x" value="132" />
+    <option name="y" value="24" />
+    <option name="width" value="1258" />
+    <option name="height" value="855" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1129,7 +1113,7 @@
       <workItem from="1458227210368" duration="26000" />
       <workItem from="1458227323353" duration="26072000" />
       <workItem from="1458570310889" duration="704000" />
-      <workItem from="1458574088513" duration="31043000" />
+      <workItem from="1458574088513" duration="31387000" />
     </task>
     <servers />
   </component>
@@ -1166,7 +1150,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83930000" />
+    <option name="totallyTimeSpent" value="84274000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1178,7 +1162,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="457" y="60" width="1105" height="775" extended-state="0" />
+    <frame x="132" y="24" width="1258" height="855" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1193,7 +1177,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40487063" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31890875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2787829" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3348554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1563,34 +1547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-41.896553">
-          <caret line="81" column="59" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.95535713">
-            <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="5" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/WebViewLogin.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/supportMethods/SessionUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1609,9 +1565,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/enums/Language.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21462639">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/WebViewLogin.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-41.896553">
+          <caret line="81" column="59" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.41284403">
+            <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
