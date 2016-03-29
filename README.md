@@ -55,12 +55,12 @@ OS name: "mac os x", version: "10.11.3", arch: "x86_64", family: "mac"*
 
 #### Set-up the Framework
 
-In Stash navigate to the MEE App mee-selenium repo and Clone
-https://stash.macmillan.education/projects/TM/repos/mee-selenium/browse
+In Stash navigate to the **MEE App mee-selenium** repo and Clone
+https://stash.macmillan.education/projects/QTT/repos/mee_portal_automation
 
 Example:
 Open a Terminal: 
-**git clone https://User.Name@stash.macmillan.education/scm/tm/mee-selenium.git** 
+**git clone https://User.Name@stash.macmillan.education/scm/qtt/mee_admin_portal_automation.git** 
 
 Next Clone this Repo which contains all of the required Selenium Servers and Drivers
 **https://stash.macmillan.education/projects/QTT/repos/selenium-server-and-drivers/browse**
