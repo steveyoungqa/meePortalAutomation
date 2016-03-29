@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1bf2707-8ba3-4cbe-9d1a-b30da606260a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="Selenium-Cucumber-Framework.iws" />
@@ -40,13 +37,13 @@
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
           </provider>
-          <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="1.0154394">
-                <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+              <first_editor vertical-scroll-proportion="0.587886">
+                <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -84,7 +81,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1757" />
+    <option name="x" value="1698" />
     <option name="y" value="23" />
     <option name="width" value="1576" />
     <option name="height" value="1043" />
@@ -360,15 +357,15 @@
       <created>1459257895219</created>
       <option name="number" value="Default" />
       <updated>1459257895219</updated>
-      <workItem from="1459257897803" duration="1332000" />
+      <workItem from="1459257897803" duration="1812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1332000" />
+    <option name="totallyTimeSpent" value="1812000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1757" y="23" width="1576" height="1043" extended-state="0" />
+    <frame x="1698" y="23" width="1576" height="1043" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -414,13 +411,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
         <state />
       </provider>
-      <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="1.0154394">
-            <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+          <first_editor vertical-scroll-proportion="0.587886">
+            <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
             <folding />
           </first_editor>
           <second_editor />

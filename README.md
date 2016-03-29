@@ -55,7 +55,7 @@ OS name: "mac os x", version: "10.11.3", arch: "x86_64", family: "mac"*
 
 #### Set-up the Framework
 
-In Stash navigate to the **MEE App mee-selenium** repo and Clone
+In Stash navigate to the **MEE Portal Automation** repo and Clone
 https://stash.macmillan.education/projects/QTT/repos/mee_portal_automation
 
 Example:
