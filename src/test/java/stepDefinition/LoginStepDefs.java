@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -86,4 +87,21 @@ public class LoginStepDefs {
 		String expectedUrl = MeePortal.getUrl() + link;
 		Assert.assertEquals("Incorrect URL.",  expectedUrl, Driver.getCurrentUrl());
 	}
+
+	@Then("^I am logged into MEE$")
+	public void iAmLoggedIntoMEE() throws Throwable {
+		LoginPage login = new LoginPage();
+		if (!login.LogoutButton().isDisplayed()) {
+			Assert.fail("Login not successfull!! Logout button not displayed");
+		}
+        if (!login.DownloadTitle().isDisplayed()) {
+            Assert.fail("Login not successfull!! Download link title not displayed");
+        }
+	}
+
+    @Then("^I log out of MEE$")
+    public void iLogOutOfMEE() throws Throwable {
+        LoginPage login = new LoginPage();
+        login.LogoutButton().click();
+    }
 }

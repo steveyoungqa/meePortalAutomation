@@ -14,17 +14,21 @@ public class LoginPage {
 	public WebElement UsernameApp() {
 		return Driver.findElement(By.xpath("//input['Username' = translate(@id, 'u', 'U')]"));
 	}
+
 	public WebElement PasswordApp() {
-		return Driver.findElement(By.id("password"));	
-	}	
-	public WebElement UsernamePortal() {
-		return Driver.findElement(By.id("Username"));
+		return Driver.findElement(By.id("password"));
 	}
+	public WebElement UsernamePortal() {return Driver.findElement(By.id("_Username"));}
 	public WebElement PasswordPortal() {
-		return Driver.findElement(By.id("Password"));	
+		return Driver.findElement(By.id("_Password"));
 	}
 	public WebElement LoginButton() {
 		return Driver.findElement(By.xpath(".//input[@type='submit']"));
+	}
+	public WebElement LogoutButton() {return Driver.findElement(By.xpath("//*[@class='mee-icon-logout']"));
+	}
+	public WebElement DownloadTitle () {
+		return Driver.findElement(By.xpath("//*[@class='mee-intro']//*[contains(text(), 'Download the Macmillan Education Everywhere App')]"));
 	}
 	public WebElement ForgotUsername() {
 		return Driver.findElement(By.id("_ForgotUsername"));
@@ -32,6 +36,7 @@ public class LoginPage {
 	public WebElement ForgotPassword() {
 		return Driver.findElement(By.id("_ForgotPassword"));
 	}
+
 	public WebElement ForgotUsernameAndPassword() {
 		return Driver.findElement(By.id("_ForgotUsernameAndPassword"));
 	}
@@ -41,7 +46,6 @@ public class LoginPage {
 	}
 
 	public static WebElement errorMessage(String dataValmsgFor) {
-		return Driver.findElement(By.cssSelector(".mee-validation.field-validation-error[data-valmsg-for*='" + dataValmsgFor +  "']"));
-		
+		return Driver.findElement(By.xpath("//*[@class='mee-validation field-validation-error'][contains(text(),'" + dataValmsgFor +  "')]"));
 	}
 }
