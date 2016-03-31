@@ -70,6 +70,9 @@ Next Clone this Repo which contains all of the required Selenium Servers and Dri
 In Terminal navigate to the project folder i.e:
 /Users/username/Documents/Repos/MacMillan/selenium_cucumber_framework
 
+Make sure you now download the latest Selenium Standalone Server into the above project folder
+http://www.seleniumhq.org/download/
+
 Start the node in Terminal with:
 **java -jar selenium-server-standalone-2.53.0.jar -role hub**
 

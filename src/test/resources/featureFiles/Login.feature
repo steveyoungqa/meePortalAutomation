@@ -52,7 +52,7 @@ Feature: Regression tests for the login feature
       | Chinese            |
       | ChineseTraditional |
 
-
+@coding
   Scenario: User failed login attempt (2a)
     Given I am on the MEE portal for "dev"
     And I have clicked on the login button

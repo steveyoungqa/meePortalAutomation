@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,8 +8,6 @@ import enums.MeePortal;
 import findBy.Errors;
 import org.junit.Assert;
 import pageObject.LoginPage;
-import pageObject.SignInPage;
-import supportMethods.SessionUtilities;
 import webDriver.Driver;
 
 public class LoginStepDefs {
@@ -18,10 +15,8 @@ public class LoginStepDefs {
 	
 	@Given("^I have clicked on the login button$")
 	public void i_have_clicked_on_the_login_button() throws Throwable {
-//		SessionUtilities.ApplicationUpdateMessageCheck();
-		SignInPage signIn = new SignInPage();
-		signIn.LandingPagePortal();
-		signIn.Login.get(0).click();
+        LoginPage login = new LoginPage();
+        login.LoginLandingPage().click();
 	}
 
 	@When("^I enter incorrect user credentials$")
@@ -67,7 +62,10 @@ public class LoginStepDefs {
 
 	@When("^I log in as username \"(.*?)\" and password \"(.*?)\"$")
 	public void i_log_in_as_username_and_password(String username, String password) {
-		SessionUtilities.Login(username, password);
+        LoginPage login = new LoginPage();
+        login.UsernamePortal().sendKeys(username);
+        login.PasswordPortal().sendKeys(password);
+        login.LoginButton().click();
 	}
 	
 

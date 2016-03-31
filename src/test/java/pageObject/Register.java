@@ -1,0 +1,17 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import webDriver.Driver;
+
+public class Register {
+
+    public WebElement FirstName () { return Driver.findElement(By.id("_FirstName"));}
+    public WebElement Surname () { return Driver.findElement(By.id("_LastName"));}
+    public WebElement NextButton () {return Driver.findElement(By.id("_nextBtn"));}
+    public static Select CountrySelector() {return new Select(Driver.findElement(By.xpath("//*[@data-flux-key='countryOfResidence']")));}
+    public static Select DaySelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Day']")));}
+    public static Select MonthSelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Month']")));}
+    public static Select YearSelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Year']")));}
+}

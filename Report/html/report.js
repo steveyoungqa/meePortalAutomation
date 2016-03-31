@@ -1,151 +1,166 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Register.feature");
 formatter.feature({
   "line": 2,
-  "name": "Regression tests for the login feature",
+  "name": "Regression tests for registering a new user",
   "description": "",
-  "id": "regression-tests-for-the-login-feature",
+  "id": "regression-tests-for-registering-a-new-user",
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
-      "name": "@login"
+      "name": "@register"
     }
   ]
 });
 formatter.scenarioOutline({
-  "line": 77,
-  "name": "User successful login attempt (3a)",
+  "line": 4,
+  "name": "Register a new user",
   "description": "",
-  "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a)",
+  "id": "regression-tests-for-registering-a-new-user;register-a-new-user",
   "type": "scenario_outline",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 76,
-      "name": "@coding"
-    }
-  ]
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 78,
+  "line": 5,
   "name": "I am on the MEE portal for \"dev\"",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 79,
-  "name": "I have clicked on the login button",
+  "line": 6,
+  "name": "I have clicked on the Register button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 80,
-  "name": "I log in as username \"\u003cusername\u003e\" and password \"\u003cpassword\u003e\"",
+  "line": 7,
+  "name": "I select language \"\u003cLanguage\u003e\"",
   "keyword": "When "
 });
 formatter.step({
-  "line": 81,
-  "name": "I am logged into MEE",
+  "line": 8,
+  "name": "I register a first name of \"\u003cFirstname\u003e\" and surname of \"\u003cSurname\u003e\"",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 82,
-  "name": "I log out of MEE",
+  "line": 9,
+  "name": "I select a Country of residence of \"\u003cCountry\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 10,
+  "name": "I select a date of birth of \"\u003cday\u003e\" \"\u003cmonth\u003e\" \"\u003cyear\u003e\"",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 11,
+  "name": "I have clicked on the Next button",
+  "keyword": "And "
+});
 formatter.examples({
-  "line": 84,
+  "line": 13,
   "name": "",
   "description": "",
-  "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);",
+  "id": "regression-tests-for-registering-a-new-user;register-a-new-user;",
   "rows": [
     {
       "cells": [
-        "username",
-        "password"
+        "Language",
+        "Firstname",
+        "Surname",
+        "Country",
+        "day",
+        "month",
+        "year"
       ],
-      "line": 85,
-      "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;1"
+      "line": 14,
+      "id": "regression-tests-for-registering-a-new-user;register-a-new-user;;1"
     },
     {
       "cells": [
-        "meeadmin",
-        "M4cmillan"
+        "English",
+        "Fred",
+        "Automation",
+        "Spain",
+        "10",
+        "August",
+        "1980"
       ],
-      "line": 86,
-      "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;2"
-    },
-    {
-      "cells": [
-        "meetest",
-        "meetest"
-      ],
-      "line": 87,
-      "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;3"
-    },
-    {
-      "cells": [
-        "tmomoh4",
-        "QWnjAZpg"
-      ],
-      "line": 88,
-      "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;4"
+      "line": 15,
+      "id": "regression-tests-for-registering-a-new-user;register-a-new-user;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 105247,
+  "duration": 118555,
   "status": "passed"
 });
 formatter.before({
-  "duration": 415880,
+  "duration": 424565,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 86,
-  "name": "User successful login attempt (3a)",
+  "line": 15,
+  "name": "Register a new user",
   "description": "",
-  "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;2",
+  "id": "regression-tests-for-registering-a-new-user;register-a-new-user;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 76,
-      "name": "@coding"
-    },
-    {
       "line": 1,
-      "name": "@login"
+      "name": "@register"
     }
   ]
 });
 formatter.step({
-  "line": 78,
+  "line": 5,
   "name": "I am on the MEE portal for \"dev\"",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 79,
-  "name": "I have clicked on the login button",
+  "line": 6,
+  "name": "I have clicked on the Register button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 80,
-  "name": "I log in as username \"meeadmin\" and password \"M4cmillan\"",
+  "line": 7,
+  "name": "I select language \"English\"",
   "matchedColumns": [
-    0,
-    1
+    0
   ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 81,
-  "name": "I am logged into MEE",
+  "line": 8,
+  "name": "I register a first name of \"Fred\" and surname of \"Automation\"",
+  "matchedColumns": [
+    1,
+    2
+  ],
   "keyword": "Then "
 });
 formatter.step({
-  "line": 82,
-  "name": "I log out of MEE",
+  "line": 9,
+  "name": "I select a Country of residence of \"Spain\"",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 10,
+  "name": "I select a date of birth of \"10\" \"August\" \"1980\"",
+  "matchedColumns": [
+    4,
+    5,
+    6
+  ],
   "keyword": "Then "
+});
+formatter.step({
+  "line": 11,
+  "name": "I have clicked on the Next button",
+  "keyword": "And "
 });
 formatter.match({
   "arguments": [
@@ -157,269 +172,89 @@ formatter.match({
   "location": "MeePortalStepDefs.i_am_on_the_MEE_portal_for(String)"
 });
 formatter.result({
-  "duration": 3844072136,
+  "duration": 3204611838,
   "status": "passed"
 });
 formatter.match({
-  "location": "LoginStepDefs.i_have_clicked_on_the_login_button()"
+  "location": "RegisterStepDefs.iHaveClickedOnTheRegisterButton()"
 });
 formatter.result({
-  "duration": 1154822548,
+  "duration": 1070680121,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "meeadmin",
-      "offset": 22
-    },
-    {
-      "val": "M4cmillan",
-      "offset": 46
+      "val": "English",
+      "offset": 19
     }
   ],
-  "location": "LoginStepDefs.i_log_in_as_username_and_password(String,String)"
+  "location": "LoginStepDefs.i_select_language(String)"
 });
 formatter.result({
-  "duration": 711995748,
+  "duration": 238533348,
   "status": "passed"
-});
-formatter.match({
-  "location": "LoginStepDefs.iAmLoggedIntoMEE()"
-});
-formatter.result({
-  "duration": 1037722567,
-  "status": "passed"
-});
-formatter.match({
-  "location": "LoginStepDefs.iLogOutOfMEE()"
-});
-formatter.result({
-  "duration": 760009689,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 72555,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 15434,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 6636,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 87,
-  "name": "User successful login attempt (3a)",
-  "description": "",
-  "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 76,
-      "name": "@coding"
-    },
-    {
-      "line": 1,
-      "name": "@login"
-    }
-  ]
-});
-formatter.step({
-  "line": 78,
-  "name": "I am on the MEE portal for \"dev\"",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 79,
-  "name": "I have clicked on the login button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 80,
-  "name": "I log in as username \"meetest\" and password \"meetest\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 81,
-  "name": "I am logged into MEE",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 82,
-  "name": "I log out of MEE",
-  "keyword": "Then "
 });
 formatter.match({
   "arguments": [
     {
-      "val": "dev",
+      "val": "Fred",
       "offset": 28
+    },
+    {
+      "val": "Automation",
+      "offset": 50
     }
   ],
-  "location": "MeePortalStepDefs.i_am_on_the_MEE_portal_for(String)"
+  "location": "RegisterStepDefs.iRegisterAFirstNameOfAndSurnameOf(String,String)"
 });
 formatter.result({
-  "duration": 447764124,
-  "status": "passed"
-});
-formatter.match({
-  "location": "LoginStepDefs.i_have_clicked_on_the_login_button()"
-});
-formatter.result({
-  "duration": 801545885,
+  "duration": 722317828,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "meetest",
-      "offset": 22
-    },
-    {
-      "val": "meetest",
-      "offset": 45
+      "val": "Spain",
+      "offset": 36
     }
   ],
-  "location": "LoginStepDefs.i_log_in_as_username_and_password(String,String)"
+  "location": "RegisterStepDefs.iSelectACountryOfResidenceOf(String)"
 });
 formatter.result({
-  "duration": 681026560,
+  "duration": 3002662231,
   "status": "passed"
 });
 formatter.match({
-  "location": "LoginStepDefs.iAmLoggedIntoMEE()"
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 29
+    },
+    {
+      "val": "August",
+      "offset": 34
+    },
+    {
+      "val": "1980",
+      "offset": 43
+    }
+  ],
+  "location": "RegisterStepDefs.iSelectADateOfBirthOf(String,String,String)"
 });
 formatter.result({
-  "duration": 1384872929,
+  "duration": 976645756,
   "status": "passed"
 });
 formatter.match({
-  "location": "LoginStepDefs.iLogOutOfMEE()"
+  "location": "RegisterStepDefs.iHaveClickedOnTheNextButton()"
 });
 formatter.result({
-  "duration": 671642291,
+  "duration": 5238520355,
   "status": "passed"
 });
 formatter.after({
-  "duration": 17318,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 13563,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 6455,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 88,
-  "name": "User successful login attempt (3a)",
-  "description": "",
-  "id": "regression-tests-for-the-login-feature;user-successful-login-attempt-(3a);;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 76,
-      "name": "@coding"
-    },
-    {
-      "line": 1,
-      "name": "@login"
-    }
-  ]
-});
-formatter.step({
-  "line": 78,
-  "name": "I am on the MEE portal for \"dev\"",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 79,
-  "name": "I have clicked on the login button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 80,
-  "name": "I log in as username \"tmomoh4\" and password \"QWnjAZpg\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 81,
-  "name": "I am logged into MEE",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 82,
-  "name": "I log out of MEE",
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "dev",
-      "offset": 28
-    }
-  ],
-  "location": "MeePortalStepDefs.i_am_on_the_MEE_portal_for(String)"
-});
-formatter.result({
-  "duration": 399484140,
-  "status": "passed"
-});
-formatter.match({
-  "location": "LoginStepDefs.i_have_clicked_on_the_login_button()"
-});
-formatter.result({
-  "duration": 628200473,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "tmomoh4",
-      "offset": 22
-    },
-    {
-      "val": "QWnjAZpg",
-      "offset": 45
-    }
-  ],
-  "location": "LoginStepDefs.i_log_in_as_username_and_password(String,String)"
-});
-formatter.result({
-  "duration": 676114000,
-  "status": "passed"
-});
-formatter.match({
-  "location": "LoginStepDefs.iAmLoggedIntoMEE()"
-});
-formatter.result({
-  "duration": 776205930,
-  "status": "passed"
-});
-formatter.match({
-  "location": "LoginStepDefs.iLogOutOfMEE()"
-});
-formatter.result({
-  "duration": 597268935,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 19293,
+  "duration": 117179,
   "status": "passed"
 });
 });
