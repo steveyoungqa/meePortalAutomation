@@ -41,6 +41,33 @@ public class RegisterStepDefs {
     public void iHaveClickedOnTheNextButton() throws Throwable {
         Register register = new Register();
         register.NextButton().click();
+    }
+
+    @Then("^I enter an email address and confirmation of \"([^\"]*)\"$")
+    public void iEnterAnEmailAddressAndConfirmationOf(String email) throws Throwable {
+        Register register = new Register();
+        register.EmailAddress().sendKeys(email);
+        register.ConfirmEmail().sendKeys(email);
+    }
+
+    @And("^I select the marketing checkbox$")
+    public void iSelectTheMarketingCheckbox() throws Throwable {
+        Register register = new Register();
+        register.OptInCheckbox().click();
+
+    }
+
+    @Then("^I select the Submit button$")
+    public void iSelectTheSubmitButton() throws Throwable {
+        Register register = new Register();
+        register.SubmitButton().click();
         Thread.sleep(5000);
+
+    }
+
+    @Then("^I select the Back button$")
+    public void iSelectTheBackButton() throws Throwable {
+        Register register = new Register();
+        register.BackButton().click();
     }
 }

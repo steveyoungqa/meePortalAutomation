@@ -55,8 +55,28 @@ formatter.step({
   "name": "I have clicked on the Next button",
   "keyword": "And "
 });
-formatter.examples({
+formatter.step({
+  "line": 12,
+  "name": "I enter an email address and confirmation of \"\u003cemail\u003e\"",
+  "keyword": "Then "
+});
+formatter.step({
   "line": 13,
+  "name": "I select the marketing checkbox",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 14,
+  "name": "I select the Submit button",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 15,
+  "name": "I select the Back button",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 17,
   "name": "",
   "description": "",
   "id": "regression-tests-for-registering-a-new-user;register-a-new-user;",
@@ -69,9 +89,10 @@ formatter.examples({
         "Country",
         "day",
         "month",
-        "year"
+        "year",
+        "email"
       ],
-      "line": 14,
+      "line": 18,
       "id": "regression-tests-for-registering-a-new-user;register-a-new-user;;1"
     },
     {
@@ -82,24 +103,25 @@ formatter.examples({
         "Spain",
         "10",
         "August",
-        "1980"
+        "1980",
+        "test@test.com"
       ],
-      "line": 15,
+      "line": 19,
       "id": "regression-tests-for-registering-a-new-user;register-a-new-user;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 118555,
+  "duration": 290617,
   "status": "passed"
 });
 formatter.before({
-  "duration": 424565,
+  "duration": 1968058,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 15,
+  "line": 19,
   "name": "Register a new user",
   "description": "",
   "id": "regression-tests-for-registering-a-new-user;register-a-new-user;;2",
@@ -162,6 +184,29 @@ formatter.step({
   "name": "I have clicked on the Next button",
   "keyword": "And "
 });
+formatter.step({
+  "line": 12,
+  "name": "I enter an email address and confirmation of \"test@test.com\"",
+  "matchedColumns": [
+    7
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 13,
+  "name": "I select the marketing checkbox",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 14,
+  "name": "I select the Submit button",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 15,
+  "name": "I select the Back button",
+  "keyword": "Then "
+});
 formatter.match({
   "arguments": [
     {
@@ -172,14 +217,14 @@ formatter.match({
   "location": "MeePortalStepDefs.i_am_on_the_MEE_portal_for(String)"
 });
 formatter.result({
-  "duration": 3204611838,
+  "duration": 8366944144,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDefs.iHaveClickedOnTheRegisterButton()"
 });
 formatter.result({
-  "duration": 1070680121,
+  "duration": 2897575930,
   "status": "passed"
 });
 formatter.match({
@@ -192,7 +237,7 @@ formatter.match({
   "location": "LoginStepDefs.i_select_language(String)"
 });
 formatter.result({
-  "duration": 238533348,
+  "duration": 489328971,
   "status": "passed"
 });
 formatter.match({
@@ -209,7 +254,7 @@ formatter.match({
   "location": "RegisterStepDefs.iRegisterAFirstNameOfAndSurnameOf(String,String)"
 });
 formatter.result({
-  "duration": 722317828,
+  "duration": 1619435602,
   "status": "passed"
 });
 formatter.match({
@@ -222,7 +267,7 @@ formatter.match({
   "location": "RegisterStepDefs.iSelectACountryOfResidenceOf(String)"
 });
 formatter.result({
-  "duration": 3002662231,
+  "duration": 5796999229,
   "status": "passed"
 });
 formatter.match({
@@ -243,18 +288,52 @@ formatter.match({
   "location": "RegisterStepDefs.iSelectADateOfBirthOf(String,String,String)"
 });
 formatter.result({
-  "duration": 976645756,
+  "duration": 1757842080,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDefs.iHaveClickedOnTheNextButton()"
 });
 formatter.result({
-  "duration": 5238520355,
+  "duration": 364489412,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "test@test.com",
+      "offset": 46
+    }
+  ],
+  "location": "RegisterStepDefs.iEnterAnEmailAddressAndConfirmationOf(String)"
+});
+formatter.result({
+  "duration": 1062073355,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegisterStepDefs.iSelectTheMarketingCheckbox()"
+});
+formatter.result({
+  "duration": 5273634813,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegisterStepDefs.iSelectTheSubmitButton()"
+});
+formatter.result({
+  "duration": 274183019,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegisterStepDefs.iSelectTheBackButton()"
+});
+formatter.result({
+  "duration": 43916,
   "status": "passed"
 });
 formatter.after({
-  "duration": 117179,
+  "duration": 282692,
   "status": "passed"
 });
 });
