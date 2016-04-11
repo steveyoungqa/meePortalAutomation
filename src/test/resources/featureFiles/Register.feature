@@ -9,7 +9,6 @@ Feature: Regression tests for registering a new user
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
     And I have clicked on the Next button
-<<<<<<< HEAD
     Then I enter an email address of "<email>"
     Then I enter a confirmation email address of "<email>"
     And I select the Opt In checkbox
@@ -28,20 +27,5 @@ Feature: Regression tests for registering a new user
       | Chinese            | Zhang Wei | Robot      | CN      | 28  | July   | 1942 | test@test.net |
       | ChineseTraditional | Liu Fang  | QA         | HK      | 2   | April  | 1980 | test@test.net |
 
-=======
-    Then I enter an email address and confirmation of "<email>"
-    And I select the marketing checkbox
-    Then I select the Submit button
-    Then I select the Back button
 
-    Examples:
-      | Language           | Firstname | Surname    | Country  | day | month  | year | email         |
-      | English            | Fred      | Automation | Spain    | 10  | August | 1980 | test@test.com |
-#      | Spanish            | Jose      | Tester     | UK       |     |        |      |               |
-#      | Japanese           | Kim       | QA         | Japan    |     |        |      |               |
-#      | Korean             | Seung     | Tester     | Korea    |     |        |      |               |
-#      | Taiwanese          | Huang     | Selenium   | Taiwan   |     |        |      |               |
-#      | Vitenamese         | Nguyen    | Automation | Vietnam  |     |        |      |               |
-#      | Chinese            | Zhang Wei | Robot      | China    |     |        |      |               |
-#      | ChineseTraditional | Liu Fang  | QA         | HongKong |     |        |      |               |
->>>>>>> 6fab2eed81fe608e0985ec99a475c3c75a751afd
+
