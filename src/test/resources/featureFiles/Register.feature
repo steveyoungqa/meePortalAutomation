@@ -9,8 +9,11 @@ Feature: Regression tests for registering a new user
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
     And I have clicked on the Next button
+    Then I select the Help icon
     Then I enter an email address of "<email>"
     Then I enter a confirmation email address of "<email>"
+#    Then I select the Terms of Use link
+#    Then I select the Privacy Policy link
     And I select the Opt In checkbox
 #    And I select the Submit button
     And I select the Back button

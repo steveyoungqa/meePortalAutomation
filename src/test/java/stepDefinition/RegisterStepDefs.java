@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import enums.Month;
@@ -82,5 +83,23 @@ public class RegisterStepDefs {
     public void iSelectTheOptInCheckbox() throws Throwable {
         Register register = new Register();
         register.optInCheckbox().click();
+    }
+
+    @Then("^I select the Help icon$")
+    public void iSelectTheHelpIcon() throws Throwable {
+        Register register = new Register();
+        register.helpIcon().click();
+    }
+
+    @Then("^I select the Terms of Use link$")
+    public void iSelectTheTermsOfUseLink() throws Throwable {
+        Register register = new Register();
+        register.TermsLink().click();
+    }
+
+    @Then("^I select the Privacy Policy link$")
+    public void iSelectThePrivacyPolicyLink() throws Throwable {
+        Register register = new Register();
+        register.PrivacyPolicy().click();
     }
 }
