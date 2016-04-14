@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,6 +9,7 @@ import enums.MeePortal;
 import findBy.Errors;
 import org.junit.Assert;
 import pageObject.LoginPage;
+import supportMethods.FileReader;
 import webDriver.Driver;
 
 public class LoginStepDefs {
@@ -102,4 +104,14 @@ public class LoginStepDefs {
         LoginPage login = new LoginPage();
         login.LogoutButton().click();
     }
+
+	@Then("^I log with the newly created username and password$")
+	public void iLogInAsNewlyCreatedUsernameAndPassword() throws Throwable {
+		LoginPage login = new LoginPage();
+        String username = FileReader.readProperties().get("username");
+        String password = FileReader.readProperties().get("password");
+        login.UsernamePortal().sendKeys(username);
+        login.PasswordPortal().sendKeys(password);
+        login.LoginButton().click();
+	}
 }

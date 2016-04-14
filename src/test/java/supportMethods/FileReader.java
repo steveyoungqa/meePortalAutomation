@@ -1,13 +1,7 @@
 package supportMethods;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.io.*;
+import java.util.*;
 
 
 public class FileReader {
@@ -32,6 +26,18 @@ public class FileReader {
 		
 		return properties;
 	}
-	
-	
+
+    public static void addData(String key, String val) {
+        try {
+            File file = new File("src/test/resources/config.properties");
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(file));
+            FileOutputStream obj = new FileOutputStream(file);
+            properties.setProperty(key, val);
+            properties.store(obj, "Update data into file ");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

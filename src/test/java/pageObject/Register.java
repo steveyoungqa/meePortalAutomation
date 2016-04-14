@@ -21,8 +21,22 @@ public class Register {
     public WebElement OptInCheckbox () {return Driver.findElement(By.id("_MacmillanOptIn"));}
     public WebElement SubmitButton () {return Driver.findElement(By.id("_submitBtn"));}
     public WebElement BackButton () {return Driver.findElement(By.id("_backBtn"));}
+    public WebElement RegistrationComplete () {return  Driver.findElement(By.xpath("//*[@class='mee-mail-notification']//*[contains(text(), 'You have completed your registration.')]"));}
+    public WebElement CloseButton () {return Driver.findElement(By.xpath("//*[@class='mee-button mee-app-home'][contains(text(), 'Close')]"));}
+
+
+    public WebElement MailNotification () {return Driver.findElement(By.className("mee-module-mail-notification"));}
     public static Select CountrySelector() {return new Select(Driver.findElement(By.xpath("//*[@data-flux-key='countryOfResidence']")));}
     public static Select DaySelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Day']")));}
     public static Select MonthSelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Month']")));}
     public static Select YearSelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Year']")));}
+
+    //Mailinator selectors
+    public WebElement MailinatorInboxField () {return Driver.findElement(By.id("inboxfield"));}
+    public WebElement MailinatorGoButton () {return Driver.findElement(By.xpath("//*[@class='btn btn-dark'][contains(text(), 'Go')]"));}
+    public WebElement MailinatorEmailLink () {return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Your Macmillan Education Everywhere')]"));}
+    public WebElement MailinatorClickEmailLink () {return Driver.findElement(By.xpath("//*[contains(text(), 'Click this link to confirm your email address.')]"));}
+
+
+
 }

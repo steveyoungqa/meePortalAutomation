@@ -52,7 +52,7 @@ Feature: Regression tests for the login feature
       | Chinese            |
       | ChineseTraditional |
 
-@coding
+@negative
   Scenario: User failed login attempt (2a)
     Given I am on the MEE portal for "dev"
     And I have clicked on the login button
@@ -60,7 +60,7 @@ Feature: Regression tests for the login feature
     When I log in as username "blahblahblah" and password "asdasdasd"
     Then A message is displayed informing the user that the login process has failed
 
-
+@negative
   Scenario Outline: User failed login attempt (2b)
     Given I am on the MEE portal for "dev"
     And I have clicked on the login button
@@ -73,6 +73,7 @@ Feature: Regression tests for the login feature
       | username |          | Please enter your password                             |
       |          |          | Please enter your username, Please enter your password |
 
+@postive
   Scenario Outline: User successful login attempt (3a)
     Given I am on the MEE portal for "dev"
     And I have clicked on the login button
