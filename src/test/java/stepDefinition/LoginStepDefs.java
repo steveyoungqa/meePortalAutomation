@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -40,6 +41,7 @@ public class LoginStepDefs {
 	@When("^I select language \"(.*?)\"$")
 	public void i_select_language(String language) throws Throwable {
         int languageValue = Language.valueOf(language).getLanguageValue();
+        FileReader.addData("language", language);
         LoginPage.LanguageSelector().selectByIndex(languageValue);
 	}
 
@@ -114,4 +116,9 @@ public class LoginStepDefs {
         login.PasswordPortal().sendKeys(password);
         login.LoginButton().click();
 	}
+
+    @And("^I close the browser$")
+    public void iCloseTheBrowser() throws Throwable {
+        Driver.mainTab();
+    }
 }

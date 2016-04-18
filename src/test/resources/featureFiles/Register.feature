@@ -1,5 +1,6 @@
 @register @regression
 Feature: Regression tests for registering a new user
+  SIN-2078 - Email Address Handling
 
   Scenario Outline: Register a new user
     Given I am on the MEE portal for "dev"
@@ -17,28 +18,29 @@ Feature: Regression tests for registering a new user
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
-    And I store the Username and Password
     Then I should see the Registration Completed screen
     And I select the Close button
-
-    #LogIn with new UserName & Password
-    Given I am on the MEE portal for "dev"
+#
+#    #LogIn with new UserName & Password
     And I have clicked on the login button
-    And I select language "English"
+    And I select language "<Language>"
     Then I log with the newly created username and password
-    Then I Pause for 5 seconds
+    Then I log out of MEE
 
 
     Examples:
       | Language           | Firstname | Surname    | Country | day | month  | year |
-      | English            | Fred      | Automation | GB      | 10  | August | 1980 |
-#      | Spanish            | Jose      | Tester     | ES      | 7   | May    | 1956 |
-#      | Japanese           | Kim       | QA         | JP      | 1   | June   | 1975 |
-#      | Korean             | Seung     | Tester     | KR      | 24  | Oct    | 1989 |
-#      | Taiwanese          | Huang     | Selenium   | TW      | 3   | Dec    | 1990 |
-#      | Vitenamese         | Nguyen    | Automation | VN      | 17  | Feb    | 1997 |
-#      | Chinese            | Zhang Wei | Robot      | CN      | 28  | July   | 1942 |
-#      | ChineseTraditional | Liu Fang  | QA         | HK      | 2   | April  | 1980 |
+      | English            | Bill      | Tester     | GB      | 7   | May    | 1956 |
+      | Spanish            | Jose      | Automation | ES      | 10  | August | 1980 |
+      | Japanese           | Kim       | QA         | JP      | 1   | June   | 1975 |
+      | Korean             | Seung     | Tester     | KR      | 24  | Oct    | 1989 |
+      | Taiwanese          | Huang     | Selenium   | TW      | 3   | Dec    | 1990 |
+      | Vitenamese         | Nguyen    | Automation | VN      | 17  | Feb    | 1997 |
+      | Chinese            | Zhang Wei | Robot      | CN      | 28  | July   | 1942 |
+      | ChineseTraditional | Liu Fang  | QA         | HK      | 2   | April  | 1980 |
+
+#    And I close the browser
+
 
 #  Scenario: Link Checkers
 #    Given I am on the MEE portal for "dev"

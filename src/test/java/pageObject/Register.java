@@ -21,8 +21,8 @@ public class Register {
     public WebElement OptInCheckbox () {return Driver.findElement(By.id("_MacmillanOptIn"));}
     public WebElement SubmitButton () {return Driver.findElement(By.id("_submitBtn"));}
     public WebElement BackButton () {return Driver.findElement(By.id("_backBtn"));}
-    public WebElement RegistrationComplete () {return  Driver.findElement(By.xpath("//*[@class='mee-mail-notification']//*[contains(text(), 'You have completed your registration.')]"));}
-    public WebElement CloseButton () {return Driver.findElement(By.xpath("//*[@class='mee-button mee-app-home'][contains(text(), 'Close')]"));}
+    public WebElement RegistrationComplete () {return  Driver.findElement(By.xpath("//*[@class='mee-mail-notification']"));}
+    public WebElement CloseButton () {return Driver.findElement(By.xpath("//*[@class='mee-button mee-app-home']"));}
 
 
     public WebElement MailNotification () {return Driver.findElement(By.className("mee-module-mail-notification"));}
@@ -34,8 +34,15 @@ public class Register {
     //Mailinator selectors
     public WebElement MailinatorInboxField () {return Driver.findElement(By.id("inboxfield"));}
     public WebElement MailinatorGoButton () {return Driver.findElement(By.xpath("//*[@class='btn btn-dark'][contains(text(), 'Go')]"));}
-    public WebElement MailinatorEmailLink () {return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Your Macmillan Education Everywhere')]"));}
+    public WebElement MailinatorEmailLink() {return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education')]"));}
     public WebElement MailinatorClickEmailLink () {return Driver.findElement(By.xpath("//*[contains(text(), 'Click this link to confirm your email address.')]"));}
+    public WebElement MailinatorClickEmailLinkSpanish () {return Driver.findElement(By.xpath("//*[contains(text(), 'Haz clic en este enlace para confirmar tu correo electrónico.')]"));}
+    public WebElement MailinatorClickEmailLinkJapanese () {return Driver.findElement(By.xpath("//*[contains(text(), 'このリンクをクリックして、Eメールアドレスを確認してください。')]"));}
+    public WebElement MailinatorClickEmailLinkKorean () {return Driver.findElement(By.xpath("//*[contains(text(), '이 링크를 클릭해서 귀하의 이메일 주소를 확인해 주십시오.')]"));}
+    public WebElement MailinatorClickEmailLinkTaiwan () {return Driver.findElement(By.xpath("//*[contains(text(), 'คลิกที่ลิงก์นี้เพื่อยืนยันอีเมลแอดเดรสของคุณ')]"));}
+    public WebElement MailinatorClickEmailLinkVietnamese () {return Driver.findElement(By.xpath("//*[contains(text(), 'Bấm vào liên kết này để xác nhận địa chỉ email của bạn.')]"));}
+    public WebElement MailinatorClickEmailLinkChinese () {return Driver.findElement(By.xpath("//*[contains(text(), '点击此链接，确认您的电子邮件地址。')]"));}
+    public WebElement MailinatorClickEmailLinkChineseTraditional () {return Driver.findElement(By.xpath("//*[contains(text(), '點擊此連結確認您的電郵地址。')]"));}
 
 
 

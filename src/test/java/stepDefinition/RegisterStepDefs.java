@@ -1,23 +1,18 @@
 package stepDefinition;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.BindYellow;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import cucumber.deps.com.thoughtworks.xstream.mapper.SystemAttributeAliasingMapper;
 import enums.Month;
-import gherkin.lexer.Th;
 import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
-
-import java.io.FileWriter;
-import java.util.ArrayList;
 
 
 public class RegisterStepDefs {
@@ -82,9 +77,9 @@ public class RegisterStepDefs {
     public void iEnterAnEmailAddressOf() throws Throwable {
         String email = "";
         Register register = new Register();
-        email = RandomStringUtils.randomAlphabetic(10)+RandomStringUtils.randomNumeric(2)+"SPRINGER@mailinator.com";
+        email = RandomStringUtils.randomAlphabetic(10) + RandomStringUtils.randomNumeric(2) + "SPRINGER@mailinator.com";
         FileReader.addData("emailAddress", email);
-        System.out.println("Unique Test Email address used: "+email);
+        System.out.println("Unique Test Email address used: " + email);
         register.Email().sendKeys(email);
     }
 
@@ -134,15 +129,16 @@ public class RegisterStepDefs {
         Driver.loadPage("https://www.mailinator.com/");
         register.MailinatorInboxField().sendKeys(email);
         register.MailinatorGoButton().click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
+        register.MailinatorEmailLink().click();
     }
 
     @Then("^I should see the Registration Completed screen$")
     public void iShouldSeeTheRegistrationCompletedScreen() throws Throwable {
         Register register = new Register();
-        String windowHandleBefore= Driver.getWindowHandle();
+        String windowHandleBefore = Driver.getWindowHandle();
         Driver.switchToWindow(windowHandleBefore);
-        for (String winHandle : Driver.getWindowHandles()){
+        for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
         }
         Thread.sleep(1000);
@@ -158,20 +154,152 @@ public class RegisterStepDefs {
     @And("^I click on the link to confirm the email address$")
     public void iClickOnTheLinkToConfirmTheEmailAddress() throws Throwable {
         Register register = new Register();
-        register.MailinatorEmailLink().click();
-        Driver.switchToFrame("publicshowmaildivcontent");
-        register.MailinatorClickEmailLink().click();
+        String language = FileReader.readProperties().get("language");
+                Driver.switchToFrame("publicshowmaildivcontent");
+                Thread.sleep(2000);
+
+        switch (language) {
+            case "English":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLink().click();
+                break;
+            case "Spanish":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkSpanish().click();
+                break;
+            case "Japanese":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkJapanese().click();
+                break;
+            case "Korean":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkKorean().click();
+                break;
+            case "Taiwanese":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkTaiwan().click();
+                break;
+            case "Vitenamese":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkVietnamese().click();
+                break;
+            case "Chinese":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkChinese().click();
+                break;
+            case "ChineseTraditional":
+                iStoreTheUsernameAndPassword();
+                register.MailinatorClickEmailLinkChineseTraditional().click();
+                break;
+
+        }
     }
 
-    @And("^I store the Username and Password$")
     public void iStoreTheUsernameAndPassword() throws Throwable {
-        Register register = new Register();
-        String username=Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Username: ", "");
-        String password=Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Password: ", "");
-        FileReader.addData("username", username);
-        FileReader.addData("password", password);
-        System.out.println("\n"+"Username from Email= "+username);
-        System.out.println("\n"+"Password from Email= "+password);
+        String language = FileReader.readProperties().get("language");
+        Thread.sleep(2000);
+        switch (language) {
+            case "English":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Username: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Password: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "Spanish":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Nombre de usuario: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Contraseña: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "Japanese":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("ユーザー名: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("パスワード: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "Korean":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("사용자명: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("비밀번호: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "Taiwanese":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("ชื่อผู้ใช้: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("รหัสผ่าน: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "Vitenamese":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Tên người dùng: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Mật khẩu: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "Chinese":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("用户名: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("密码: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
+
+        switch (language) {
+            case "ChineseTraditional":
+
+                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("使用者名稱:: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("密碼:: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+
+                System.out.println("\n" + "Username from Email= " + username);
+                System.out.println("\n" + "Password from Email= " + password);
+                break;
+        }
     }
 
 }
