@@ -120,7 +120,7 @@ public class LoginStepDefs {
 
     @And("^I close the browser$")
     public void iCloseTheBrowser() throws Throwable {
-        Driver.mainTab();
+        Driver.close();
     }
 
     @And("^I enter the newly created Email address$")

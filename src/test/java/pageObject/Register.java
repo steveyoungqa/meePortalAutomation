@@ -19,7 +19,7 @@ public class Register {
     public WebElement TermsLink () {return Driver.findElement(By.id("_TermsOfUse"));}
     public WebElement PrivacyPolicy () {return Driver.findElement(By.id("_PrivacyPolicy"));}
     public WebElement OptInCheckbox () {return Driver.findElement(By.id("_MacmillanOptIn"));}
-    public WebElement SubmitButton () {return Driver.findElement(By.id("_submitBtn"));}
+    public WebElement SubmitButton () {return Driver.findElement(By.xpath("//*[@type='submit']"));}
     public WebElement ForgotSubmitButton () {return Driver.findElement(By.xpath("//*[@type='submit']"));}
     public WebElement BackButton () {return Driver.findElement(By.id("_backBtn"));}
     public WebElement RegistrationComplete () {return  Driver.findElement(By.xpath("//*[@class='mee-mail-notification']"));}

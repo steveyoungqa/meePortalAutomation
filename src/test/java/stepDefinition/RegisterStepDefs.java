@@ -21,9 +21,6 @@ import static org.junit.Assert.*;
 
 public class RegisterStepDefs {
 
-    public static boolean Forget = false;
-    public static boolean ForgotUserAndPass = false;
-
     @And("^I have clicked on the Register button$")
     public void iHaveClickedOnTheRegisterButton() throws Throwable {
         LoginPage login = new LoginPage();
@@ -72,32 +69,23 @@ public class RegisterStepDefs {
     @Then("^I select the Submit button$")
     public void iSelectTheSubmitButton() throws Throwable {
         Register register = new Register();
-
-        if (Forget = true) {
-            register.ForgotSubmitButton().click();
-            Forget = false;
-        } else
-            register.SubmitButton().click();
-
+        register.SubmitButton().click();
     }
 
     @Then("^I select the Forgot Username link$")
     public void iSelectTheForgotUsernameLink() throws Throwable {
-        Forget = true;
         LoginPage login = new LoginPage();
         login.ForgotUsername().click();
     }
 
     @Then("^I select the Forgot Password link$")
     public void iSelectTheForgotPasswordLink() throws Throwable {
-        ForgotUserAndPass = false;
         LoginPage login = new LoginPage();
         login.ForgotPassword().click();
     }
 
     @Then("^I select the Forgot UserName and Password link$")
     public void iSelectTheForgotUserNameAndPasswordLink() throws Throwable {
-        ForgotUserAndPass = true;
         LoginPage login = new LoginPage();
         login.ForgotUsernameAndPassword().click();
     }
@@ -117,10 +105,26 @@ public class RegisterStepDefs {
         register.Email().sendKeys(email);
     }
 
+    @Then("^I enter a Parent/Guardian email address$")
+    public void iEnterAParentEmailAddressOf() throws Throwable {
+        Register register = new Register();
+        String email = RandomStringUtils.randomAlphabetic(7) + RandomStringUtils.randomNumeric(4) + "@mailinator.com";
+        FileReader.addData("parentEmailAddress", email);
+        System.out.println("Parent Unique Test Email address used: " + email);
+        register.Email().sendKeys(email);
+    }
+
     @Then("^I enter a confirmation of the unique email address$")
     public void iEnterAConfirmationEmailAddressOf() throws Throwable {
         Register register = new Register();
         String emailConfirm = FileReader.readProperties().get("emailAddress");
+        register.EmailConfirm().sendKeys(emailConfirm);
+    }
+
+    @Then("^I enter a confirmation of the unique Parent/Guardian email address$")
+    public void iEnterAConfirmationParentEmailAddressOf() throws Throwable {
+        Register register = new Register();
+        String emailConfirm = FileReader.readProperties().get("parentEmailAddress");
         register.EmailConfirm().sendKeys(emailConfirm);
     }
 
@@ -167,9 +171,22 @@ public class RegisterStepDefs {
         register.MailinatorEmailLink().click();
     }
 
+    @Then("^I check the Parent/Guardian Mailinator account for the email$")
+    public void iCheckTheParentMailinatorAccountForTheEmail() throws Throwable {
+        Register register = new Register();
+        String email = FileReader.readProperties().get("parentEmailAddress");
+        Driver.loadPage("https://www.mailinator.com/");
+        Thread.sleep(20000);
+        register.MailinatorInboxField().sendKeys(email);
+        register.MailinatorGoButton().click();
+        Thread.sleep(2000);
+        register.MailinatorEmailLink().click();
+    }
+
     @Then("^I should see the Registration Completed screen$")
     public void iShouldSeeTheRegistrationCompletedScreen() throws Throwable {
         Register register = new Register();
+        Thread.sleep(5000);
         String windowHandleBefore = Driver.getWindowHandle();
         Driver.switchToWindow(windowHandleBefore);
         Driver.close();
