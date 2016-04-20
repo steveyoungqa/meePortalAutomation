@@ -1,6 +1,7 @@
 @register @regression
 Feature: Regression tests for registering a new user
   SIN-2078 - Email Address Handling
+  Register a new User with unique email address and Login in each language
 
   Scenario Outline: Register a new user
     Given I am on the MEE portal for "dev"
@@ -20,11 +21,11 @@ Feature: Regression tests for registering a new user
     And I click on the link to confirm the email address
     Then I should see the Registration Completed screen
     And I select the Close button
-#
-#    #LogIn with new UserName & Password
+
+    #LogIn with new UserName & Password
     And I have clicked on the login button
     And I select language "<Language>"
-    Then I log with the newly created username and password
+    Then I Login with the newly created username and password
     Then I log out of MEE
 
 
@@ -38,8 +39,6 @@ Feature: Regression tests for registering a new user
       | Vitenamese         | Nguyen    | Automation | VN      | 17  | Feb    | 1997 |
       | Chinese            | Zhang Wei | Robot      | CN      | 28  | July   | 1942 |
       | ChineseTraditional | Liu Fang  | QA         | HK      | 2   | April  | 1980 |
-
-#    And I close the browser
 
 
 #  Scenario: Link Checkers

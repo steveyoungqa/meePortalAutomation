@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import com.sun.media.jfxmedia.logging.Logger;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import enums.Month;
@@ -14,15 +16,21 @@ import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
 
+import static org.junit.Assert.*;
+
 
 public class RegisterStepDefs {
+
+    public static boolean Forget = false;
+    public static boolean ForgotUserAndPass = false;
+
     @And("^I have clicked on the Register button$")
     public void iHaveClickedOnTheRegisterButton() throws Throwable {
         LoginPage login = new LoginPage();
         login.RegisterLandingPage().click();
     }
 
-    @Then("^I register a first name of \"([^\"]*)\" and surname of \"([^\"]*)\"$")
+    @Then("^I (?:register|enter) a first name of \"([^\"]*)\" and surname of \"([^\"]*)\"$")
     public void iRegisterAFirstNameOfAndSurnameOf(String first, String last) throws Throwable {
         Register register = new Register();
         register.FirstName().sendKeys(first);
@@ -64,7 +72,34 @@ public class RegisterStepDefs {
     @Then("^I select the Submit button$")
     public void iSelectTheSubmitButton() throws Throwable {
         Register register = new Register();
-        register.SubmitButton().click();
+
+        if (Forget = true) {
+            register.ForgotSubmitButton().click();
+            Forget = false;
+        } else
+            register.SubmitButton().click();
+
+    }
+
+    @Then("^I select the Forgot Username link$")
+    public void iSelectTheForgotUsernameLink() throws Throwable {
+        Forget = true;
+        LoginPage login = new LoginPage();
+        login.ForgotUsername().click();
+    }
+
+    @Then("^I select the Forgot Password link$")
+    public void iSelectTheForgotPasswordLink() throws Throwable {
+        ForgotUserAndPass = false;
+        LoginPage login = new LoginPage();
+        login.ForgotPassword().click();
+    }
+
+    @Then("^I select the Forgot UserName and Password link$")
+    public void iSelectTheForgotUserNameAndPasswordLink() throws Throwable {
+        ForgotUserAndPass = true;
+        LoginPage login = new LoginPage();
+        login.ForgotUsernameAndPassword().click();
     }
 
     @Then("^I select the Back button$")
@@ -75,9 +110,8 @@ public class RegisterStepDefs {
 
     @Then("^I enter a unique email address$")
     public void iEnterAnEmailAddressOf() throws Throwable {
-        String email = "";
         Register register = new Register();
-        email = RandomStringUtils.randomAlphabetic(10) + RandomStringUtils.randomNumeric(2) + "SPRINGER@mailinator.com";
+        String email = RandomStringUtils.randomAlphabetic(10) + RandomStringUtils.randomNumeric(2) + "@mailinator.com";
         FileReader.addData("emailAddress", email);
         System.out.println("Unique Test Email address used: " + email);
         register.Email().sendKeys(email);
@@ -85,9 +119,8 @@ public class RegisterStepDefs {
 
     @Then("^I enter a confirmation of the unique email address$")
     public void iEnterAConfirmationEmailAddressOf() throws Throwable {
-        String emailConfirm = "";
         Register register = new Register();
-        emailConfirm = FileReader.readProperties().get("emailAddress");
+        String emailConfirm = FileReader.readProperties().get("emailAddress");
         register.EmailConfirm().sendKeys(emailConfirm);
     }
 
@@ -127,9 +160,10 @@ public class RegisterStepDefs {
         Register register = new Register();
         String email = FileReader.readProperties().get("emailAddress");
         Driver.loadPage("https://www.mailinator.com/");
+        Thread.sleep(20000);
         register.MailinatorInboxField().sendKeys(email);
         register.MailinatorGoButton().click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         register.MailinatorEmailLink().click();
     }
 
@@ -138,6 +172,7 @@ public class RegisterStepDefs {
         Register register = new Register();
         String windowHandleBefore = Driver.getWindowHandle();
         Driver.switchToWindow(windowHandleBefore);
+        Driver.close();
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
         }
@@ -155,8 +190,12 @@ public class RegisterStepDefs {
     public void iClickOnTheLinkToConfirmTheEmailAddress() throws Throwable {
         Register register = new Register();
         String language = FileReader.readProperties().get("language");
-                Driver.switchToFrame("publicshowmaildivcontent");
-                Thread.sleep(2000);
+
+        String windowHandleBefore = Driver.getWindowHandle();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToFrame("publicshowmaildivcontent");
+            Thread.sleep(2000);
+        }
 
         switch (language) {
             case "English":
@@ -193,6 +232,7 @@ public class RegisterStepDefs {
                 break;
 
         }
+//        Driver.switchToWindow(windowHandleBefore);
     }
 
     public void iStoreTheUsernameAndPassword() throws Throwable {
@@ -302,4 +342,39 @@ public class RegisterStepDefs {
         }
     }
 
+    @And("^a check is made that the Username reminder is correct$")
+    public void aCheckIsMadeThatTheUsernameReminderIsCorrect() throws Throwable {
+        Register register = new Register();
+        Driver.switchToFrame("publicshowmaildivcontent");
+        Thread.sleep(2000);
+
+        String username = Driver.findElement(By.xpath("//html/body/p[1]/span[1]")).getText().replace("Username: ", "");
+        String forgotUsername = Driver.findElement(By.xpath("//html/body/b")).getText();
+        FileReader.addData("ForgotUsername", forgotUsername);
+        assertEquals(forgotUsername, username);
+    }
+
+    @And("^I reset the password by following the link and Login$")
+    public void aCheckIsMadeThatThePasswordReminderIsCorrect() throws Throwable {
+        Register register = new Register();
+        LoginPage login = new LoginPage();
+
+        String windowHandleBefore = Driver.getWindowHandle();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToFrame("publicshowmaildivcontent");
+            Thread.sleep(2000);
+        }
+        register.ResetPasswordLink().click();
+
+        Thread.sleep(1000);
+        Driver.switchToWindow(windowHandleBefore);
+        Thread.sleep(5000);
+        String username = FileReader.readProperties().get("username");
+        login.ChangePasswordUsernameField().sendKeys(username);
+        String resetPassword = RandomStringUtils.randomAlphabetic(5) + RandomStringUtils.randomNumeric(2);
+        FileReader.addData("resetPassword", resetPassword);
+        login.NewPasswordField().sendKeys(resetPassword);
+        login.ConfirmNewPasswordField().sendKeys(resetPassword);
+
+    }
 }

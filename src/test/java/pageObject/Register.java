@@ -20,12 +20,17 @@ public class Register {
     public WebElement PrivacyPolicy () {return Driver.findElement(By.id("_PrivacyPolicy"));}
     public WebElement OptInCheckbox () {return Driver.findElement(By.id("_MacmillanOptIn"));}
     public WebElement SubmitButton () {return Driver.findElement(By.id("_submitBtn"));}
+    public WebElement ForgotSubmitButton () {return Driver.findElement(By.xpath("//*[@type='submit']"));}
     public WebElement BackButton () {return Driver.findElement(By.id("_backBtn"));}
     public WebElement RegistrationComplete () {return  Driver.findElement(By.xpath("//*[@class='mee-mail-notification']"));}
     public WebElement CloseButton () {return Driver.findElement(By.xpath("//*[@class='mee-button mee-app-home']"));}
 
 
     public WebElement MailNotification () {return Driver.findElement(By.className("mee-module-mail-notification"));}
+    public WebElement ForgotEmailSent () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Check your email for your username.')]"));}
+    public WebElement ForgotEmailUserAndPassword () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Check your email for your username and password.')]"));}
+    public WebElement ResetPasswordSent () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Check your email for a link to reset your password.')]"));}
+    public WebElement ResetPasswordLink () {return Driver.findElement(By.xpath("//*[text()='here']"));}
     public static Select CountrySelector() {return new Select(Driver.findElement(By.xpath("//*[@data-flux-key='countryOfResidence']")));}
     public static Select DaySelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Day']")));}
     public static Select MonthSelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Month']")));}
@@ -35,7 +40,9 @@ public class Register {
     public WebElement MailinatorInboxField () {return Driver.findElement(By.id("inboxfield"));}
     public WebElement MailinatorGoButton () {return Driver.findElement(By.xpath("//*[@class='btn btn-dark'][contains(text(), 'Go')]"));}
     public WebElement MailinatorEmailLink() {return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education')]"));}
+    public WebElement MailinatorEmailUsernameLink() {return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education Everywhere - Your username')]"));}
     public WebElement MailinatorClickEmailLink () {return Driver.findElement(By.xpath("//*[contains(text(), 'Click this link to confirm your email address.')]"));}
+    public WebElement MailinatorGoHereToLoginLink () {return Driver.findElement(By.xpath("//*[contains(text(), 'Go here to login')]"));}
     public WebElement MailinatorClickEmailLinkSpanish () {return Driver.findElement(By.xpath("//*[contains(text(), 'Haz clic en este enlace para confirmar tu correo electrónico.')]"));}
     public WebElement MailinatorClickEmailLinkJapanese () {return Driver.findElement(By.xpath("//*[contains(text(), 'このリンクをクリックして、Eメールアドレスを確認してください。')]"));}
     public WebElement MailinatorClickEmailLinkKorean () {return Driver.findElement(By.xpath("//*[contains(text(), '이 링크를 클릭해서 귀하의 이메일 주소를 확인해 주십시오.')]"));}
