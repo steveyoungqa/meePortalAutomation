@@ -30,7 +30,9 @@ public class RegisterStepDefs {
     @Then("^I (?:register|enter) a first name of \"([^\"]*)\" and surname of \"([^\"]*)\"$")
     public void iRegisterAFirstNameOfAndSurnameOf(String first, String last) throws Throwable {
         Register register = new Register();
+        register.FirstName().clear();
         register.FirstName().sendKeys(first);
+        register.Surname().clear();
         register.Surname().sendKeys(last);
     }
 
@@ -102,6 +104,7 @@ public class RegisterStepDefs {
         String email = RandomStringUtils.randomAlphabetic(10) + RandomStringUtils.randomNumeric(2) + "@mailinator.com";
         FileReader.addData("emailAddress", email);
         System.out.println("Unique Test Email address used: " + email);
+        register.Email().clear();
         register.Email().sendKeys(email);
     }
 
@@ -118,6 +121,7 @@ public class RegisterStepDefs {
     public void iEnterAConfirmationEmailAddressOf() throws Throwable {
         Register register = new Register();
         String emailConfirm = FileReader.readProperties().get("emailAddress");
+        register.EmailConfirm().clear();
         register.EmailConfirm().sendKeys(emailConfirm);
     }
 
@@ -392,6 +396,50 @@ public class RegisterStepDefs {
         FileReader.addData("resetPassword", resetPassword);
         login.NewPasswordField().sendKeys(resetPassword);
         login.ConfirmNewPasswordField().sendKeys(resetPassword);
+
+    }
+
+    @Then("^I select Change Password$")
+    public void iSelectChangePassword() throws Throwable {
+        Register register = new Register();
+        register.ChangePassword().click();
+    }
+
+    @Then("^I select Edit Details$")
+    public void iSelectEditDetails() throws Throwable {
+        Register register = new Register();
+        register.EditPassword().click();
+    }
+
+    @And("^I change the current password to a new one and confirm$")
+    public void iChangeTheCurrentPasswordToANewOneAndConfirm() throws Throwable {
+        LoginPage login = new LoginPage();
+        String currentPassword = FileReader.readProperties().get("password");
+        login.CurrentPassword().sendKeys(currentPassword);
+        String resetPassword = RandomStringUtils.randomAlphabetic(5) + RandomStringUtils.randomNumeric(2);
+        FileReader.addData("resetPassword", resetPassword);
+        login.NewPasswordField().sendKeys(resetPassword);
+        login.ConfirmNewPasswordField().sendKeys(resetPassword);
+
+    }
+
+    @Then("^I should see the Password changed Success message$")
+    public void iShouldSeeThePasswordChangedSuccessMessage() throws Throwable {
+        Register register = new Register();
+        register.PasswordChangedMessage().isDisplayed();
+    }
+
+    @And("^I click on the link to confirm the Edited email address$")
+    public void iClickOnTheLinkToConfirmTheEditedEmailAddress() throws Throwable {
+        Register register = new Register();
+        String language = FileReader.readProperties().get("language");
+
+        String windowHandleBefore = Driver.getWindowHandle();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToFrame("publicshowmaildivcontent");
+            Thread.sleep(2000);
+        }
+        register.MailinatorClickEmailLink().click();
 
     }
 }

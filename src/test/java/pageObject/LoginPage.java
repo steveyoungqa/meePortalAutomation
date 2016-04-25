@@ -38,6 +38,9 @@ public class LoginPage {
     public WebElement PasswordField() {
         return Driver.findElement(By.id("_Password"));
     }
+    public WebElement CurrentPassword() {
+        return Driver.findElement(By.id("_CurrentPassword"));
+    }
     public WebElement NewPasswordField() {
         return Driver.findElement(By.id("_NewPassword"));
     }

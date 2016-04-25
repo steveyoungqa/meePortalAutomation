@@ -173,4 +173,20 @@ public class LoginStepDefs {
         Register register = new Register();
         register.ForgotEmailUserAndPassword().isDisplayed();
     }
+
+    @And("^I select the Profile icon$")
+    public void iSelectTheProfileIcon() throws Throwable {
+        Register register = new Register();
+        register.ProfileIcon().click();
+    }
+
+    @Then("^I Login with the username and edited password$")
+    public void iLoginWithTheUsernameAndEditedPassword() throws Throwable {
+        LoginPage login = new LoginPage();
+        String username = FileReader.readProperties().get("username");
+        String password = FileReader.readProperties().get("resetPassword");
+        login.UsernameField().sendKeys(username);
+        login.PasswordField().sendKeys(password);
+        login.LoginButton().click();
+    }
 }

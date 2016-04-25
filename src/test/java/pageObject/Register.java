@@ -27,10 +27,15 @@ public class Register {
 
 
     public WebElement MailNotification () {return Driver.findElement(By.className("mee-module-mail-notification"));}
+    public WebElement PasswordChangedMessage () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'You have changed your password')]"));}
     public WebElement ForgotEmailSent () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Check your email for your username.')]"));}
     public WebElement ForgotEmailUserAndPassword () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Check your email for your username and password.')]"));}
     public WebElement ResetPasswordSent () {return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Check your email for a link to reset your password.')]"));}
     public WebElement ResetPasswordLink () {return Driver.findElement(By.xpath("//*[text()='here']"));}
+    public WebElement ProfileIcon () {return Driver.findElement(By.xpath("//*[@class='mee-icon-profile']"));}
+    public WebElement ChangePassword () {return Driver.findElement(By.xpath("//*[@class='mee-button'][contains(text(), 'Change password')]"));}
+    public WebElement EditPassword () {return Driver.findElement(By.xpath("//*[@class='mee-button'][contains(text(), 'Edit details')]"));}
+
     public static Select CountrySelector() {return new Select(Driver.findElement(By.xpath("//*[@data-flux-key='countryOfResidence']")));}
     public static Select DaySelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Day']")));}
     public static Select MonthSelector () {return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Month']")));}
