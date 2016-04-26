@@ -34,6 +34,11 @@ Feature: Forgot Password Journey
     And I select the Submit button
     And I select the Close button
 
+    And I have clicked on the login button
+    And I select language "<Language>"
+    Then I Login with the username and edited password
+    Then I log out of MEE
+
     Examples:
       | Language | Firstname | Surname | Country | day | month  | year |
       | English  | Larry     | Lost    | GB      | 11  | August | 1943 |
