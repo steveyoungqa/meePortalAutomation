@@ -19,11 +19,8 @@ Feature: Forgot UserName
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
-    Then I should see the Registration Completed screen
-    And I select the Close button
 
-    And I have clicked on the login button
-    And I select language "<Language>"
+    Then I switch Windows back to the MEE Portal
     Then I select the Forgot Username link
     Then I enter a first name of "<Firstname>" and surname of "<Surname>"
     Then I select a date of birth of "<day>" "<month>" "<year>"

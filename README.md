@@ -73,10 +73,10 @@ In Terminal navigate to the project folder i.e:
 Make sure you now download the latest Selenium Standalone Server into the above project folder
 http://www.seleniumhq.org/download/
 
-Start the node in Terminal with:
+Start the HUB in Terminal with:
 **java -jar selenium-server-standalone-2.53.0.jar -role hub**
 
-Start the hub in a new Terminal window with:
+Start the NODE in a new Terminal window with:
 **java -jar selenium-server-standalone-2.53.0.jar -role node -nodeConfig macNodeConfig.json**
 
 The output should inform you that the node is registered and ready to use

@@ -17,7 +17,7 @@ Feature: U16 Registration Journey
     Then I should see the Email sent confirmation page
 
     Then I check the Parent/Guardian Mailinator account for the email
-    And I click on the link to confirm the email address
+    Then I switch Windows back to the MEE Portal
     Then I should see the Registration Completed screen
     And I select the Close button
 

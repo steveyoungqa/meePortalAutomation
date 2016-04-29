@@ -14,16 +14,15 @@ Feature: Forgot Password Journey
     Then I enter a unique email address
     Then I enter a confirmation of the unique email address
     And I select the Opt In checkbox
+
     And I select the Submit button
     Then I should see the Email sent confirmation page
+    And I select the Close button
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
-    Then I should see the Registration Completed screen
-    And I select the Close button
 
-    And I have clicked on the login button
-    And I select language "<Language>"
+    Then I switch Windows back to the MEE Portal
     Then I select the Forgot Password link
     Then I enter then newly created Username
     And I select the Submit button

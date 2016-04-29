@@ -8,11 +8,22 @@ import cucumber.api.java.en.When;
 import enums.Language;
 import enums.MeePortal;
 import findBy.Errors;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.SystemDefaultCredentialsProvider;
+import org.apache.http.impl.entity.StrictContentLengthStrategy;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
 
 public class LoginStepDefs {
 	
@@ -188,5 +199,30 @@ public class LoginStepDefs {
         login.UsernameField().sendKeys(username);
         login.PasswordField().sendKeys(password);
         login.LoginButton().click();
+    }
+
+    @Then("^I should be redirected to the Download App page$")
+    public void iShouldBeRedirectedToTheDownloadAppPage() throws Throwable {
+        LoginPage login = new LoginPage();
+        login.DownloadTitle().isDisplayed();
+    }
+
+    @And("^I confirm the Download for Windows is functioning$")
+    public void iConfirmTheDownloadForWindowsIsFunctioning() throws Throwable {
+        LoginPage login = new LoginPage();
+        String link = login.WindowsDownload();
+//        String link = Driver.findElement(By.xpath("//*[@class='mee-quarter']/*[contains(text(),'Download for Windows')]")).getAttribute("href");
+
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        HttpHead request = new HttpHead(link);
+        HttpResponse response = httpClient.execute(request);
+        String contentType = response.getFirstHeader("Content-Type").getValue();
+        int contentLength = Integer.parseInt(response.getFirstHeader("Content-Length").getValue());
+        System.out.println("\n" + "Content Type: "+ contentType);
+        System.out.println("\n" + "Content Length: "+contentLength);
+        assertThat(contentType, is("text/html; charset=utf-8"));
+        assertThat(contentLength, is((1902)));
+
+
     }
 }

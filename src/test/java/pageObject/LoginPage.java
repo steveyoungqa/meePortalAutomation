@@ -31,6 +31,7 @@ public class LoginPage {
     public WebElement UsernameField() {
         return Driver.findElement(By.id("_Username"));
     }
+
     public WebElement ChangePasswordUsernameField() {
         return Driver.findElement(By.id("_UserName"));
     }
@@ -38,12 +39,15 @@ public class LoginPage {
     public WebElement PasswordField() {
         return Driver.findElement(By.id("_Password"));
     }
+
     public WebElement CurrentPassword() {
         return Driver.findElement(By.id("_CurrentPassword"));
     }
+
     public WebElement NewPasswordField() {
         return Driver.findElement(By.id("_NewPassword"));
     }
+
     public WebElement ConfirmNewPasswordField() {
         return Driver.findElement(By.id("_ConfirmPassword"));
     }
@@ -58,6 +62,10 @@ public class LoginPage {
 
     public WebElement DownloadTitle() {
         return Driver.findElement(By.xpath("//*[@class='mee-intro']//*[contains(text(), 'Download the Macmillan Education Everywhere App')]"));
+    }
+
+    public String WindowsDownload() {
+        return Driver.findElement(By.xpath("//*[@class='mee-quarter']//*[contains(text(),'Download for Windows')]")).getAttribute("href");
     }
 
     public WebElement ForgotUsername() {

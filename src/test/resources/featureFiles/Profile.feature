@@ -19,11 +19,9 @@ Feature: Edit User Profile
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
-    Then I should see the Registration Completed screen
-    And I select the Close button
 
     #LogIn with new UserName & Password
-    And I have clicked on the login button
+    Then I switch Windows back to the MEE Portal
     And I select language "<Language>"
     Then I Login with the newly created username and password
 

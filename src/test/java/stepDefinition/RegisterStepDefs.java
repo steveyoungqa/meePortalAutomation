@@ -21,6 +21,8 @@ import static org.junit.Assert.*;
 
 public class RegisterStepDefs {
 
+    public static String windowHandleBefore = "";
+
     @And("^I have clicked on the Register button$")
     public void iHaveClickedOnTheRegisterButton() throws Throwable {
         LoginPage login = new LoginPage();
@@ -103,7 +105,6 @@ public class RegisterStepDefs {
         Register register = new Register();
         String email = RandomStringUtils.randomAlphabetic(10) + RandomStringUtils.randomNumeric(2) + "@mailinator.com";
         FileReader.addData("emailAddress", email);
-        System.out.println("Unique Test Email address used: " + email);
         register.Email().clear();
         register.Email().sendKeys(email);
     }
@@ -113,7 +114,6 @@ public class RegisterStepDefs {
         Register register = new Register();
         String email = RandomStringUtils.randomAlphabetic(7) + RandomStringUtils.randomNumeric(4) + "@mailinator.com";
         FileReader.addData("parentEmailAddress", email);
-        System.out.println("Parent Unique Test Email address used: " + email);
         register.Email().sendKeys(email);
     }
 
@@ -161,6 +161,7 @@ public class RegisterStepDefs {
     public void iShouldSeeTheEmailSentConfirmationPage() throws Throwable {
         Register register = new Register();
         register.MailNotification().isDisplayed();
+        windowHandleBefore = Driver.getWindowHandle();
     }
 
     @Then("^I check the Mailinator account for the email$")
@@ -185,21 +186,38 @@ public class RegisterStepDefs {
         register.MailinatorGoButton().click();
         Thread.sleep(2000);
         register.MailinatorEmailLink().click();
+
+        String language = FileReader.readProperties().get("language");
+
+        Driver.switchToFrame("publicshowmaildivcontent");
+
+        switch (language) {
+            case "English":
+                iStoreTheMinorUsernameAndPassword();
+                register.MailinatorMinorClickEmailLink().click();
+                break;
+        }
+    }
+
+    @Then("^I switch Windows back to the MEE Portal$")
+    public void iSwitchWindows() throws Throwable {
+        Thread.sleep(5000);
+        String windowHandleBefore = Driver.getWindowHandle();
+        Driver.switchToWindow(windowHandleBefore);
+        Thread.sleep(2000);
+//        Driver.close();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+        }
     }
 
     @Then("^I should see the Registration Completed screen$")
     public void iShouldSeeTheRegistrationCompletedScreen() throws Throwable {
         Register register = new Register();
-        Thread.sleep(5000);
-        String windowHandleBefore = Driver.getWindowHandle();
-        Driver.switchToWindow(windowHandleBefore);
-        Driver.close();
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToWindow(winHandle);
-        }
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         register.RegistrationComplete().isDisplayed();
     }
+
 
     @And("^I select the Close button$")
     public void iSelectTheCloseButton() throws Throwable {
@@ -212,11 +230,8 @@ public class RegisterStepDefs {
         Register register = new Register();
         String language = FileReader.readProperties().get("language");
 
-        String windowHandleBefore = Driver.getWindowHandle();
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToFrame("publicshowmaildivcontent");
-            Thread.sleep(2000);
-        }
+        Driver.switchToFrame("publicshowmaildivcontent");
+        Thread.sleep(1000);
 
         switch (language) {
             case "English":
@@ -255,110 +270,100 @@ public class RegisterStepDefs {
         }
 //        Driver.switchToWindow(windowHandleBefore);
     }
-
-    public void iStoreTheUsernameAndPassword() throws Throwable {
+    public void iStoreTheMinorUsernameAndPassword() throws Throwable {
         String language = FileReader.readProperties().get("language");
         Thread.sleep(2000);
         switch (language) {
             case "English":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Username: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Password: ", "");
+                String username = Driver.findElement(By.xpath("html/body/p[4]/span[1]")).getText().replace("Username: ", "");
+                String password = Driver.findElement(By.xpath("html/body/p[4]/span[2]")).getText().replace("Password: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
+                break;
+        }
+    }
 
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
+    public void iStoreTheUsernameAndPassword() throws Throwable {
+        String language = FileReader.readProperties().get("language");
+
+        switch (language) {
+            case "English":
+
+                String username = Driver.findElement(By.xpath("html/body/p[3]/span[1]")).getText().replace("Username: ", "");
+                String password = Driver.findElement(By.xpath("html/body/p[3]/span[2]")).getText().replace("Password: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
                 break;
         }
 
         switch (language) {
             case "Spanish":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Nombre de usuario: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Contraseña: ", "");
+                String username = Driver.findElement(By.xpath("html/body/p[3]/span[1]")).getText().replace("Nombre de usuario: ", "");
+                String password = Driver.findElement(By.xpath("html/body/p[3]/span[2]")).getText().replace("Contraseña: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
 
         switch (language) {
             case "Japanese":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("ユーザー名: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("パスワード: ", "");
+                String username = Driver.findElement(By.xpath("html/body/p[3]/span[1]")).getText().replace("ユーザー名: ", "");
+                String password = Driver.findElement(By.xpath("html/body/p[3]/span[2]")).getText().replace("パスワード: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
 
         switch (language) {
             case "Korean":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("사용자명: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("비밀번호: ", "");
+                String username = Driver.findElement(By.xpath("html/body/p[3]/span[1]")).getText().replace("사용자명: ", "");
+                String password = Driver.findElement(By.xpath("html/body/p[3]/span[2]")).getText().replace("비밀번호: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
 
         switch (language) {
             case "Taiwanese":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("ชื่อผู้ใช้: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("รหัสผ่าน: ", "");
+                String username = Driver.findElement(By.xpath("html/body/p[3]/span[1]")).getText().replace("ชื่อผู้ใช้: ", "");
+                String password = Driver.findElement(By.xpath("html/body/p[3]/span[2]")).getText().replace("รหัสผ่าน: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
 
         switch (language) {
             case "Vitenamese":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("Tên người dùng: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("Mật khẩu: ", "");
+                String username = Driver.findElement(By.xpath("//html/body/p[3]/span[1]")).getText().replace("Tên người dùng: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[3]/span[2]")).getText().replace("Mật khẩu: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
 
         switch (language) {
             case "Chinese":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("用户名: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("密码: ", "");
+                String username = Driver.findElement(By.xpath("//html/body/p[3]/span[1]")).getText().replace("用户名: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[3]/span[2]")).getText().replace("密码: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
 
         switch (language) {
             case "ChineseTraditional":
 
-                String username = Driver.findElement(By.xpath("//html/body/p[4]/span[1]")).getText().replace("使用者名稱:: ", "");
-                String password = Driver.findElement(By.xpath("//html/body/p[4]/span[2]")).getText().replace("密碼:: ", "");
+                String username = Driver.findElement(By.xpath("//html/body/p[3]/span[1]")).getText().replace("使用者名稱:: ", "");
+                String password = Driver.findElement(By.xpath("//html/body/p[3]/span[2]")).getText().replace("密碼:: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
-
-                System.out.println("\n" + "Username from Email= " + username);
-                System.out.println("\n" + "Password from Email= " + password);
                 break;
         }
     }
@@ -439,7 +444,7 @@ public class RegisterStepDefs {
             Driver.switchToFrame("publicshowmaildivcontent");
             Thread.sleep(2000);
         }
-        register.MailinatorClickEmailLink().click();
+        register.MailinatorMinorClickEmailLink().click();
 
     }
 }

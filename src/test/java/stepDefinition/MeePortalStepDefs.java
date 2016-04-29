@@ -13,8 +13,14 @@ public class MeePortalStepDefs {
 	@Given("^I am on the MEE portal for \"(.*?)\"$")
 	public void i_am_on_the_MEE_portal_for(String environment) throws Throwable {
 
-//		Driver.ChromeDriver();
 		Environment.environment = environment;
+		Thread.sleep(5000);
+		String windowHandleBefore = Driver.getWindowHandle();
+		Driver.switchToWindow(windowHandleBefore);
+		Thread.sleep(2000);
+//        Driver.close();
+		for (String winHandle : Driver.getWindowHandles()) {
+			Driver.switchToWindow(winHandle);}
 		Driver.loadPage(MeePortal.getUrl());
 		Assert.assertEquals("Incorrect URL.", MeePortal.getUrl(), Driver.getCurrentUrl());
 	}
