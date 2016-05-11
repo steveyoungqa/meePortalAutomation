@@ -1,4 +1,4 @@
-@regression
+
 Feature: Forgot UserName
   SIN-2008 - Automation - Forgot UserName/Password journey
 

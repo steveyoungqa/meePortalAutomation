@@ -1,10 +1,10 @@
-@regression @u16
+
 Feature: U16 Registration Journey
   SIN-2006 - Automation - U16 Registration Journey
 
   @u16
   Scenario Outline: U16 Registration
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
     Then I register a first name of "<Firstname>" and surname of "<Surname>"

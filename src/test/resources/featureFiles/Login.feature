@@ -2,7 +2,7 @@
 Feature: Regression tests for the login feature
 
   Scenario Outline: User is diverted to the forgot username webpage (1a)
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the login button
     When I select language "<Language>"
     And I click the forgot username link
@@ -19,7 +19,7 @@ Feature: Regression tests for the login feature
       | ChineseTraditional |
 
   Scenario Outline: User is diverted to the forgot username webpage (1b)
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the login button
     When I select language "<Language>"
     And I click the forgot password link
@@ -36,7 +36,7 @@ Feature: Regression tests for the login feature
       | ChineseTraditional |
 
   Scenario Outline: User is diverted to the forgot username webpage (1c)
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the login button
     When I select language "<Language>"
     And I click the forgot username and password link
@@ -54,7 +54,7 @@ Feature: Regression tests for the login feature
 
 @negative
   Scenario: User failed login attempt (2a)
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the login button
     And I select language "English"
     When I log in as username "blahblahblah" and password "asdasdasd"
@@ -62,7 +62,7 @@ Feature: Regression tests for the login feature
 
 @negative
   Scenario Outline: User failed login attempt (2b)
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the login button
     When I log in as username "<username>" and password "<password>"
     Then A "<validation error>" is displayed
@@ -75,7 +75,7 @@ Feature: Regression tests for the login feature
 
 @postive
   Scenario Outline: User successful login attempt (3a)
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the login button
     When I log in as username "<username>" and password "<password>"
     Then I am logged into MEE

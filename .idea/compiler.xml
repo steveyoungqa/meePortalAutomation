@@ -24,8 +24,16 @@
         <processorPath useClasspath="true" />
         <module name="Selenium-Cucumber-Framework" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="MeePortalAutomation" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="MeePortalAutomation" target="1.7" />
       <module name="Selenium-Cucumber-Framework" target="1.7" />
     </bytecodeTargetLevel>
   </component>

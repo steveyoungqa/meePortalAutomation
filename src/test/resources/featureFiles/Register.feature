@@ -4,7 +4,7 @@ Feature: Regression tests for registering a new user
   Register a new User with unique email address and Login in each language
 
   Scenario Outline: Register a new user
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
     Then I register a first name of "<Firstname>" and surname of "<Surname>"

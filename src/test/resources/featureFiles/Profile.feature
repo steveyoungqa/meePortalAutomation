@@ -1,10 +1,10 @@
-@profile @regression
+@profile
 Feature: Edit User Profile
   SIN-2009 - Profile, including change password
   Register a new User with unique email address, Login, View Profile and change password
 
   Scenario Outline: Register a new user
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
     Then I register a first name of "<Firstname>" and surname of "<Surname>"

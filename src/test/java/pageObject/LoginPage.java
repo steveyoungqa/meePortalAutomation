@@ -2,6 +2,7 @@ package pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import webDriver.Driver;
@@ -64,10 +65,6 @@ public class LoginPage {
         return Driver.findElement(By.xpath("//*[@class='mee-intro']//*[contains(text(), 'Download the Macmillan Education Everywhere App')]"));
     }
 
-    public String WindowsDownload() {
-        return Driver.findElement(By.xpath("//*[@class='mee-quarter']//*[contains(text(),'Download for Windows')]")).getAttribute("href");
-    }
-
     public WebElement ForgotUsername() {
         return Driver.findElement(By.id("_ForgotUsername"));
     }
@@ -81,7 +78,7 @@ public class LoginPage {
     }
 
     public static Select LanguageSelector() {
-        return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.0.0']")));
+        return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.0.1.0']")));
     }
 
     public static WebElement errorMessage(String dataValmsgFor) {

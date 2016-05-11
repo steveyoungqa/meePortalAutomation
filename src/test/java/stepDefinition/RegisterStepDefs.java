@@ -6,6 +6,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import enums.Month;
 import org.apache.commons.lang.RandomStringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -270,6 +271,7 @@ public class RegisterStepDefs {
         }
 //        Driver.switchToWindow(windowHandleBefore);
     }
+
     public void iStoreTheMinorUsernameAndPassword() throws Throwable {
         String language = FileReader.readProperties().get("language");
         Thread.sleep(2000);
@@ -447,4 +449,34 @@ public class RegisterStepDefs {
         register.MailinatorMinorClickEmailLink().click();
 
     }
+
+
+    @Then("^a message \"([^\"]*)\" is displayed$")
+    public void aMessageIsDisplayed(String message) throws Throwable {
+        Register register = new Register();
+        register.message(message).isDisplayed();
+    }
+
+    @Then("^I enter an Access code of \"([^\"]*)\"$")
+    public void iEnterAnAccessCodeOf(String code) throws Throwable {
+        Register register = new Register();
+        register.AccessCodeField().clear();
+        register.AccessCodeField().sendKeys(code);
+    }
+
+    @Then("^I should see an Activate message for \"([^\"]*)\"$")
+    public void iShouldSeeAnActivateMessageFor(String activate) throws Throwable {
+        Register register = new Register();
+        register.activate(activate).isDisplayed();
+    }
+
+    @And("^I select Activate$")
+    public void iSelectActivateAndShouldSeeAActivateSuccessMessage() throws Throwable {
+        Register register = new Register();
+        register.SubmitButton().click();
+
+    }
 }
+
+
+

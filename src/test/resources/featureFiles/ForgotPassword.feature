@@ -1,10 +1,10 @@
-@regression
+
 Feature: Forgot Password Journey
   SIN-2008 - Automation - Forgot UserName/Password journey
 
   @forgotPassword
   Scenario Outline: Forgotten Password Journey
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
