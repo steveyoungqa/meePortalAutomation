@@ -31,10 +31,6 @@ public class Register {
         return Driver.findElement(By.id("_MacmillanOptIn"));
     }
 
-    public WebElement helpIcon() {
-        return Driver.findElement(By.id("help"));
-    }
-
     public WebElement EmailAddress() {
         return Driver.findElement(By.id("_EmailAddress"));
     }
@@ -207,6 +203,15 @@ public class Register {
 
     public WebElement MailinatorClickEmailLinkChineseTraditional() {
         return Driver.findElement(By.xpath("//*[contains(text(), '請點這裡登入')]"));
+    }
+
+    //Help Section links
+
+    public WebElement SystemReqs() {
+        return Driver.findElement(By.cssSelector("a[href*='#_System_Requirements']"));
+    }
+    public WebElement HowAccess() {
+        return Driver.findElement(By.cssSelector("a[href*='#_How_do_I']"));
     }
 
 

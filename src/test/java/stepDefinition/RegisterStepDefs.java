@@ -8,7 +8,10 @@ import enums.Month;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -142,8 +145,14 @@ public class RegisterStepDefs {
 
     @Then("^I select the Help icon$")
     public void iSelectTheHelpIcon() throws Throwable {
-        Register register = new Register();
-        register.helpIcon().click();
+        LoginPage login = new LoginPage();
+        windowHandleBefore = Driver.getWindowHandle();
+        login.helpIcon().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+        Thread.sleep(3000);
     }
 
     @Then("^I select the Terms of Use link$")
@@ -475,6 +484,15 @@ public class RegisterStepDefs {
         Register register = new Register();
         register.SubmitButton().click();
 
+    }
+
+    @And("^I select all of the Help section links$")
+    public void iSelectTheHelpSectionLink() throws Throwable {
+        Register register = new Register();
+        register.SystemReqs().click();
+        new Actions(Driver.webdriver).moveToElement(register.HowAccess()).perform();
+        Thread.sleep(1000);
+        register.HowAccess().click();
     }
 }
 

@@ -84,4 +84,8 @@ public class LoginPage {
     public static WebElement errorMessage(String dataValmsgFor) {
         return Driver.findElement(By.xpath("//*[@class='mee-validation field-validation-error'][contains(text(),'" + dataValmsgFor + "')]"));
     }
+
+    public WebElement helpIcon() {
+        return Driver.findElement(By.xpath("//*[@class='mee-icon-help-white mee-vertical-center mee-app-help mee-app-systembrowser']"));
+    }
 }
