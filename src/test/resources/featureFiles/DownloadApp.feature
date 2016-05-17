@@ -1,4 +1,4 @@
-@download @regression
+@download
 Feature: Login and download the MEE app
   SIN-2108 - Download MEE App
 

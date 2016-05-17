@@ -8,10 +8,13 @@ import enums.Month;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.internal.Coordinates;
+import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +22,10 @@ import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -489,10 +496,21 @@ public class RegisterStepDefs {
     @And("^I select all of the Help section links$")
     public void iSelectTheHelpSectionLink() throws Throwable {
         Register register = new Register();
-        register.SystemReqs().click();
-        new Actions(Driver.webdriver).moveToElement(register.HowAccess()).perform();
-        Thread.sleep(1000);
-        register.HowAccess().click();
+
+        WebElement links[] =
+                {register.SystemReqs(), register.HowAccess(), register.GetMoreHelp(),
+                register.CloseMeeApp(), register.HowMeeLinux(), register.WhyResource(), register.HowFindCode(),
+                register.WhyNoDownload(), register.HowRegister(), register.ChangeLanguage(), register.HowActivateCode(),
+                register.HowLogin(), register.UpdateLinux(), register.HowRequestUserPass(), register.HowChangeProfile(),
+                register.RemoveResource(), register.HowAccessResource(), register.HowNewVersion()};
+
+        int loopVal;
+        int endVal = 18;
+
+        for (loopVal = 0; loopVal < endVal; loopVal++) {
+            Driver.scrollToElement(links[loopVal]);
+            Thread.sleep(1000);
+        }
     }
 }
 

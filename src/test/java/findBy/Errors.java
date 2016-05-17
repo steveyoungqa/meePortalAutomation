@@ -8,7 +8,7 @@ import webDriver.Driver;
 public class Errors {
 	
 	public static WebElement incorrectLoginDetails() {
-		return Driver.findElement(By.xpath("//*[contains(@class,'mee-error') and contains(text(),'Your details do not match our database.')]"));
+		return Driver.findElement(By.xpath("//*[contains(@class,'mee-error')]//*[contains(text(),'Your details do not match our database.')]"));
 	}
 	
 }

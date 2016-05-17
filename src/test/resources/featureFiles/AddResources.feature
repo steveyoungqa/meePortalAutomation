@@ -1,8 +1,8 @@
 @resources
-Feature: Login and download the MEE app
-  SIN-2108 - Download MEE App
+Feature: Activate an Access code and Access Resource
+  SIN-2010 - Add Resources
 
-  Scenario Outline: Register a new user
+  Scenario Outline: Login, enter Access code for Resource
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the login button
