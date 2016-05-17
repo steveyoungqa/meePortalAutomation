@@ -49,7 +49,7 @@ Feature: Edit User Profile
     And I click on the link to confirm the Edited email address
     And I select the Close button
 
-    And I have clicked on the login button
+    Then I have clicked on the Landing Page login button
     And I select language "<Language>"
     Then I Login with the username and edited password
     Then I log out of MEE

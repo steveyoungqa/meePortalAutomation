@@ -1,10 +1,27 @@
 
 Feature: Forgot UserName
   SIN-2008 - Automation - Forgot UserName/Password journey
+  SIN-2107 - Automation - Forgot User/Pass Validation errors
+
+  @validation
+  Scenario: Forgot User/Pass Validation errors
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    And I press the Login button
+    Then a message "Please enter your username" is displayed
+    Then a message "Please enter your password" is displayed
+    Then I select the Forgot Username link
+    And I select the Submit button
+    Then a message "Please enter your first name" is displayed
+    Then a message "Please enter your last name" is displayed
+    Then a message "Please enter a valid date of birth" is displayed
+    Then a message "Email address required" is displayed
+    And I click on the Close form icon
+
 
   @forgotUsername
   Scenario Outline: Forgotten Username Journey
-    Given I am on the MEE portal for "dev"
+    Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
     Then I register a first name of "<Firstname>" and surname of "<Surname>"

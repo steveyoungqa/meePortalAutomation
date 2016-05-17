@@ -17,6 +17,10 @@ public class LoginPage {
         return Driver.findElement(By.xpath("//*[@data-reactid='.1.2.1.0']"));
     }
 
+    public WebElement CloseForm() {
+        return Driver.findElement(By.xpath("//*[@class='mee-icon-close mee-app-home']"));
+    }
+
     public WebElement RegisterLandingPage() {
         return Driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
     }

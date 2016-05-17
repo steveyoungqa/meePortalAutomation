@@ -1,6 +1,16 @@
 
 Feature: Forgot Password Journey
   SIN-2008 - Automation - Forgot UserName/Password journey
+  SIN-2107 - Automation - Forgot User/Pass Validation errors
+
+  @validation
+  Scenario: Forgot User/Pass Validation errors
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    Then I select the Forgot Password link
+    And I select the Submit button
+    Then a message "Please enter your username" is displayed
+    And I click on the Close form icon
 
   @forgotPassword
   Scenario Outline: Forgotten Password Journey
@@ -33,7 +43,7 @@ Feature: Forgot Password Journey
     And I select the Submit button
     And I select the Close button
 
-    And I have clicked on the login button
+    Then I have clicked on the Landing Page login button
     And I select language "<Language>"
     Then I Login with the username and edited password
     Then I log out of MEE

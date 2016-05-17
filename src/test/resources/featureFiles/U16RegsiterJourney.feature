@@ -21,7 +21,7 @@ Feature: U16 Registration Journey
     Then I should see the Registration Completed screen
     And I select the Close button
 
-    And I have clicked on the login button
+    Then I have clicked on the Landing Page login button
     And I select language "<Language>"
     Then I Login with the newly created username and password
     Then I log out of MEE

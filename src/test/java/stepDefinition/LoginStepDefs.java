@@ -28,7 +28,7 @@ import static org.junit.Assert.assertThat;
 public class LoginStepDefs {
 
 
-    @Given("^I have clicked on the login button$")
+    @Given("^I have clicked on the Landing Page login button$")
     public void i_have_clicked_on_the_login_button() throws Throwable {
         LoginPage login = new LoginPage();
         login.LoginLandingPage().click();
@@ -117,6 +117,12 @@ public class LoginStepDefs {
     public void iLogOutOfMEE() throws Throwable {
         LoginPage login = new LoginPage();
         login.LogoutButton().click();
+    }
+
+    @Then("^I press the Login button")
+    public void iLogin() throws Throwable {
+        LoginPage login = new LoginPage();
+        login.LoginButton().click();
     }
 
     @Then("^I Login with the newly created username and password$")
@@ -262,5 +268,11 @@ public class LoginStepDefs {
     public void iHaveClickedOnTheAcessCodeNextButton() throws Throwable {
         Register register = new Register();
         register.AccessCodeNextButton().click();
+    }
+
+    @And("^I click on the Close form icon$")
+    public void iClickOnTheCloseFormIcon() throws Throwable {
+        LoginPage login = new LoginPage();
+        login.CloseForm().click();
     }
 }

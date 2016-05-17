@@ -25,7 +25,7 @@ Feature: Regression tests for registering a new user
     #LogIn with new UserName & Password
 #    Then I switch Windows back to the MEE Portal
     Given I am on the MEE portal for "dev"
-    Then I have clicked on the login button
+    Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
     Then I log out of MEE
 

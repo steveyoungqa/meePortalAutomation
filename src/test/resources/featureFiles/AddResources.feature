@@ -5,7 +5,7 @@ Feature: Activate an Access code and Access Resource
   Scenario Outline: Login, enter Access code for Resource
 
     Given I am on the MEE portal for "test"
-    Then I have clicked on the login button
+    Then I have clicked on the Landing Page login button
     When I log in as username "<username>" and password "<password>"
     Then I am logged into MEE
     And I select the Add Resource icon

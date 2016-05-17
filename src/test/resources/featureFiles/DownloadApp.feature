@@ -5,7 +5,7 @@ Feature: Login and download the MEE app
   Scenario Outline: Register a new user
 
     Given I am on the MEE portal for "test"
-    Then I have clicked on the login button
+    Then I have clicked on the Landing Page login button
     When I log in as username "<username>" and password "<password>"
     Then I am logged into MEE
 
