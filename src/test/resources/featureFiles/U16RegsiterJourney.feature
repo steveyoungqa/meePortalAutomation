@@ -1,8 +1,7 @@
-
+@u16 @regression
 Feature: U16 Registration Journey
   SIN-2006 - Automation - U16 Registration Journey
 
-  @u16
   Scenario Outline: U16 Registration
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button

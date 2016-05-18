@@ -42,14 +42,7 @@ Feature: Regression tests for registering a new user
       | ChineseTraditional | Liu Fang  | QA         | HK      | 2   | April  | 1980 |
 
 
-#  Scenario: Link Checkers
-#    Given I am on the MEE portal for "dev"
-#    And I have clicked on the Register button
-#    Then I select the Help icon
-#    Then I select the Privacy Policy link
-#    Then I select the Terms of Use link
 
-#    And I select the Back button
 
 
 

@@ -165,13 +165,31 @@ public class RegisterStepDefs {
     @Then("^I select the Terms of Use link$")
     public void iSelectTheTermsOfUseLink() throws Throwable {
         Register register = new Register();
+        windowHandleBefore = Driver.getWindowHandle();
         register.TermsLink().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+        Driver.waitForUrlToContain("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/en/Docs/Terms",50);
+        Driver.close();
+        Driver.switchToWindow(windowHandleBefore);
+        Thread.sleep(2000);
+
     }
 
     @Then("^I select the Privacy Policy link$")
     public void iSelectThePrivacyPolicyLink() throws Throwable {
         Register register = new Register();
+        windowHandleBefore = Driver.getWindowHandle();
         register.PrivacyPolicy().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+        Driver.waitForUrlToContain("http://www.macmillanenglish.com/privacy-policy/",50);
+        Driver.close();
+        Thread.sleep(2000);
     }
 
     @Then("^I should see the Email sent confirmation page$")
