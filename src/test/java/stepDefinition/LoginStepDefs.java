@@ -50,20 +50,13 @@ public class LoginStepDefs {
         }
     }
 
-    @When("^I select language \"(.*?)\"$")
-    public void i_select_language(String language) throws Throwable {
-        int languageValue = Language.valueOf(language).getLanguageValue();
-        FileReader.addData("language", language);
-        LoginPage.LanguageSelector().selectByIndex(languageValue);
-    }
-
-    @When("^I click the forgot username link$")
+    @When("^I click the Forgot username link$")
     public void i_click_the_forgot_username_link() throws Throwable {
         LoginPage login = new LoginPage();
         login.ForgotUsername().click();
     }
 
-    @When("^I click the forgot password link$")
+    @When("^I click the Forgot Password link$")
     public void i_click_the_forgot_password_link() throws Throwable {
         LoginPage login = new LoginPage();
         login.ForgotPassword().click();
@@ -75,7 +68,6 @@ public class LoginStepDefs {
         login.ForgotUsernameAndPassword().click();
     }
 
-
     @When("^I log in as username \"(.*?)\" and password \"(.*?)\"$")
     public void i_log_in_as_username_and_password(String username, String password) {
         LoginPage login = new LoginPage();
@@ -83,7 +75,6 @@ public class LoginStepDefs {
         login.PasswordField().sendKeys(password);
         login.LoginButton().click();
     }
-
 
     @Then("^A \"(.*?)\" is displayed$")
     public static void a_is_displayed(String error) throws Throwable {
@@ -100,17 +91,6 @@ public class LoginStepDefs {
         Thread.sleep(500);
         String expectedUrl = MeePortal.getUrl() + link;
         Assert.assertEquals("Incorrect URL.", expectedUrl, Driver.getCurrentUrl());
-    }
-
-    @Then("^I am logged into MEE$")
-    public void iAmLoggedIntoMEE() throws Throwable {
-        LoginPage login = new LoginPage();
-        if (!login.LogoutButton().isDisplayed()) {
-            Assert.fail("Login not successfull!! Logout button not displayed");
-        }
-        if (!login.DownloadTitle().isDisplayed()) {
-            Assert.fail("Login not successfull!! Download link title not displayed");
-        }
     }
 
     @Then("^I log out of MEE$")
@@ -145,14 +125,12 @@ public class LoginStepDefs {
         Register register = new Register();
         String forgotEmail = FileReader.readProperties().get("emailAddress");
         register.EmailAddress().sendKeys(forgotEmail);
-
     }
 
     @And("^a Success screen that the email has been sent is shown$")
     public void aSuccessScreenThatTheEmailHasBeenSentIsShown() throws Throwable {
         Register register = new Register();
         register.ForgotEmailSent().isDisplayed();
-
     }
 
     @Then("^I Login with the forgotten details$")
@@ -165,8 +143,6 @@ public class LoginStepDefs {
         login.UsernameField().sendKeys(username);
         login.PasswordField().sendKeys(password);
         login.LoginButton().click();
-
-
     }
 
     @Then("^I enter then newly created Username$")
@@ -174,15 +150,7 @@ public class LoginStepDefs {
         LoginPage login = new LoginPage();
         String username = FileReader.readProperties().get("username");
         login.UsernameField().sendKeys(username);
-
     }
-
-    @And("^a Success screen that the password reset link has been sent is shown$")
-    public void aSuccessScreenThatThePasswordResetLinkHasBeenSentIsShown() throws Throwable {
-        Register register = new Register();
-        register.ResetPasswordSent().isDisplayed();
-    }
-
 
     @And("^a Success screen that the email with the username and password has been sent is shown$")
     public void aSuccessScreenThatTheEmailWithTheUsernameAndPasswordHasBeenSentIsShown() throws Throwable {
@@ -196,13 +164,6 @@ public class LoginStepDefs {
         register.ProfileIcon().click();
     }
 
-    @And("^I select the Add Resource icon$")
-    public void iSelectTheAddResourceIcon() throws Throwable {
-        Register register = new Register();
-        register.AddResourceIcon().click();
-
-    }
-
     @Then("^I Login with the username and edited password$")
     public void iLoginWithTheUsernameAndEditedPassword() throws Throwable {
         LoginPage login = new LoginPage();
@@ -213,66 +174,5 @@ public class LoginStepDefs {
         login.LoginButton().click();
     }
 
-    @Then("^I should be redirected to the Download App page$")
-    public void iShouldBeRedirectedToTheDownloadAppPage() throws Throwable {
-        LoginPage login = new LoginPage();
-        login.DownloadTitle().isDisplayed();
-    }
 
-    @And("^I confirm the Download is functioning for \"([^\"]*)\"$")
-    public void iConfirmTheDownloadIsFunctioningFor(String Platform) throws Throwable {
-        String link = "";
-        String type = "";
-        Integer size = 0;
-//        LoginPage login = new LoginPage();
-//
-        if (Platform.equals("Windows")) {
-             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.exe";
-             type = "application/octet-stream";
-             size = 29455520;
-        }
-        if (Platform.equals("MAC")) {
-            link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.dmg";
-            type = "application/x-apple-diskimage";
-            size = 40586626;
-        }
-        if (Platform.equals("Linux32")) {
-            link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest32.deb";
-            type = "application/x-debian-package";
-            size = 46613672;
-        }
-        if (Platform.equals("Linux64")) {
-            link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest64.deb";
-            type = "application/x-debian-package";
-            size = 44405482;
-        }
-
-        HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpHead request = new HttpHead(link);
-        HttpResponse response = httpClient.execute(request);
-        String contentType = response.getFirstHeader("Content-Type").getValue();
-        int contentLength = Integer.parseInt(response.getFirstHeader("Content-Length").getValue());
-        System.out.println("\n" + "Content Type: " + contentType);
-        System.out.println("\n" + "Content Length: " + contentLength);
-        assertThat(contentType, is(type));
-        assertThat(contentLength, is((size)));
-    }
-
-    @Then("^I enter an incorrect Access code$")
-    public void iEnterAnIncorrectAccessCode() throws Throwable {
-        Register register = new Register();
-        register.AccessCodeField().sendKeys("MAXP123234345435657");
-    }
-
-    @And("^I have clicked on the Access code Next button$")
-    public void iHaveClickedOnTheAcessCodeNextButton() throws Throwable {
-        Register register = new Register();
-        register.AccessCodeNextButton().click();
-    }
-
-    @And("^I click on the Close form icon$")
-    public void iClickOnTheCloseFormIcon() throws Throwable {
-        LoginPage login = new LoginPage();
-        login.CloseForm().click();
-    }
 }

@@ -4,13 +4,12 @@ import com.sun.media.jfxmedia.logging.Logger;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import enums.Language;
 import enums.Month;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.internal.Coordinates;
@@ -22,17 +21,14 @@ import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.junit.Assert.*;
-
 
 public class RegisterStepDefs {
 
-    public static String windowHandleBefore = "";
+    private static String windowHandleBefore = "";
 
     @And("^I have clicked on the Register button$")
     public void iHaveClickedOnTheRegisterButton() throws Throwable {
@@ -81,30 +77,6 @@ public class RegisterStepDefs {
         register.OptInCheckbox().click();
     }
 
-    @Then("^I select the Submit button$")
-    public void iSelectTheSubmitButton() throws Throwable {
-        Register register = new Register();
-        register.SubmitButton().click();
-    }
-
-    @Then("^I select the Forgot Username link$")
-    public void iSelectTheForgotUsernameLink() throws Throwable {
-        LoginPage login = new LoginPage();
-        login.ForgotUsername().click();
-    }
-
-    @Then("^I select the Forgot Password link$")
-    public void iSelectTheForgotPasswordLink() throws Throwable {
-        LoginPage login = new LoginPage();
-        login.ForgotPassword().click();
-    }
-
-    @Then("^I select the Forgot UserName and Password link$")
-    public void iSelectTheForgotUserNameAndPasswordLink() throws Throwable {
-        LoginPage login = new LoginPage();
-        login.ForgotUsernameAndPassword().click();
-    }
-
     @Then("^I select the Back button$")
     public void iSelectTheBackButton() throws Throwable {
         Register register = new Register();
@@ -143,23 +115,10 @@ public class RegisterStepDefs {
         register.EmailConfirm().sendKeys(emailConfirm);
     }
 
-
     @And("^I select the Opt In checkbox$")
     public void iSelectTheOptInCheckbox() throws Throwable {
         Register register = new Register();
         register.optInCheckbox().click();
-    }
-
-    @Then("^I select the Help icon$")
-    public void iSelectTheHelpIcon() throws Throwable {
-        LoginPage login = new LoginPage();
-        windowHandleBefore = Driver.getWindowHandle();
-        login.helpIcon().click();
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToWindow(winHandle);
-            System.out.println(winHandle);
-        }
-        Thread.sleep(3000);
     }
 
     @Then("^I select the Terms of Use link$")
@@ -171,11 +130,10 @@ public class RegisterStepDefs {
             Driver.switchToWindow(winHandle);
             System.out.println(winHandle);
         }
-        Driver.waitForUrlToContain("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/en/Docs/Terms",50);
+        Driver.waitForUrlToContain("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/en/Docs/Terms", 50);
         Driver.close();
         Driver.switchToWindow(windowHandleBefore);
         Thread.sleep(2000);
-
     }
 
     @Then("^I select the Privacy Policy link$")
@@ -187,7 +145,7 @@ public class RegisterStepDefs {
             Driver.switchToWindow(winHandle);
             System.out.println(winHandle);
         }
-        Driver.waitForUrlToContain("http://www.macmillanenglish.com/privacy-policy/",50);
+        Driver.waitForUrlToContain("http://www.macmillanenglish.com/privacy-policy/", 50);
         Driver.close();
         Thread.sleep(2000);
     }
@@ -199,53 +157,6 @@ public class RegisterStepDefs {
         windowHandleBefore = Driver.getWindowHandle();
     }
 
-    @Then("^I check the Mailinator account for the email$")
-    public void iCheckTheMailinatorAccountForTheEmail() throws Throwable {
-        Register register = new Register();
-        String email = FileReader.readProperties().get("emailAddress");
-        Driver.loadPage("https://www.mailinator.com/");
-        Thread.sleep(20000);
-        register.MailinatorInboxField().sendKeys(email);
-        register.MailinatorGoButton().click();
-        Thread.sleep(2000);
-        register.MailinatorEmailLink().click();
-    }
-
-    @Then("^I check the Parent/Guardian Mailinator account for the email$")
-    public void iCheckTheParentMailinatorAccountForTheEmail() throws Throwable {
-        Register register = new Register();
-        String email = FileReader.readProperties().get("parentEmailAddress");
-        Driver.loadPage("https://www.mailinator.com/");
-        Thread.sleep(20000);
-        register.MailinatorInboxField().sendKeys(email);
-        register.MailinatorGoButton().click();
-        Thread.sleep(2000);
-        register.MailinatorEmailLink().click();
-
-        String language = FileReader.readProperties().get("language");
-
-        Driver.switchToFrame("publicshowmaildivcontent");
-
-        switch (language) {
-            case "English":
-                iStoreTheMinorUsernameAndPassword();
-                register.MailinatorMinorClickEmailLink().click();
-                break;
-        }
-    }
-
-    @Then("^I switch Windows back to the MEE Portal$")
-    public void iSwitchWindows() throws Throwable {
-        Thread.sleep(5000);
-        String windowHandleBefore = Driver.getWindowHandle();
-        Driver.switchToWindow(windowHandleBefore);
-        Thread.sleep(2000);
-//        Driver.close();
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToWindow(winHandle);
-        }
-    }
-
     @Then("^I should see the Registration Completed screen$")
     public void iShouldSeeTheRegistrationCompletedScreen() throws Throwable {
         Register register = new Register();
@@ -253,60 +164,7 @@ public class RegisterStepDefs {
         register.RegistrationComplete().isDisplayed();
     }
 
-
-    @And("^I select the Close button$")
-    public void iSelectTheCloseButton() throws Throwable {
-        Register register = new Register();
-        register.CloseButton().click();
-    }
-
-    @And("^I click on the link to confirm the email address$")
-    public void iClickOnTheLinkToConfirmTheEmailAddress() throws Throwable {
-        Register register = new Register();
-        String language = FileReader.readProperties().get("language");
-
-        Driver.switchToFrame("publicshowmaildivcontent");
-        Thread.sleep(1000);
-
-        switch (language) {
-            case "English":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLink().click();
-                break;
-            case "Spanish":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkSpanish().click();
-                break;
-            case "Japanese":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkJapanese().click();
-                break;
-            case "Korean":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkKorean().click();
-                break;
-            case "Taiwanese":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkTaiwan().click();
-                break;
-            case "Vitenamese":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkVietnamese().click();
-                break;
-            case "Chinese":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkChinese().click();
-                break;
-            case "ChineseTraditional":
-                iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkChineseTraditional().click();
-                break;
-
-        }
-//        Driver.switchToWindow(windowHandleBefore);
-    }
-
-    public void iStoreTheMinorUsernameAndPassword() throws Throwable {
+    public static void iStoreTheMinorUsernameAndPassword() throws Throwable {
         String language = FileReader.readProperties().get("language");
         Thread.sleep(2000);
         switch (language) {
@@ -320,7 +178,7 @@ public class RegisterStepDefs {
         }
     }
 
-    public void iStoreTheUsernameAndPassword() throws Throwable {
+    public static void iStoreTheUsernameAndPassword() throws Throwable {
         String language = FileReader.readProperties().get("language");
 
         switch (language) {
@@ -404,42 +262,6 @@ public class RegisterStepDefs {
         }
     }
 
-    @And("^a check is made that the Username reminder is correct$")
-    public void aCheckIsMadeThatTheUsernameReminderIsCorrect() throws Throwable {
-        Register register = new Register();
-        Driver.switchToFrame("publicshowmaildivcontent");
-        Thread.sleep(2000);
-
-        String username = Driver.findElement(By.xpath("//html/body/p[1]/span[1]")).getText().replace("Username: ", "");
-        String forgotUsername = Driver.findElement(By.xpath("//html/body/b")).getText();
-        FileReader.addData("ForgotUsername", forgotUsername);
-        assertEquals(forgotUsername, username);
-    }
-
-    @And("^I reset the password by following the link and Login$")
-    public void aCheckIsMadeThatThePasswordReminderIsCorrect() throws Throwable {
-        Register register = new Register();
-        LoginPage login = new LoginPage();
-
-        String windowHandleBefore = Driver.getWindowHandle();
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToFrame("publicshowmaildivcontent");
-            Thread.sleep(2000);
-        }
-        register.ResetPasswordLink().click();
-
-        Thread.sleep(1000);
-        Driver.switchToWindow(windowHandleBefore);
-        Thread.sleep(5000);
-        String username = FileReader.readProperties().get("username");
-        login.ChangePasswordUsernameField().sendKeys(username);
-        String resetPassword = RandomStringUtils.randomAlphabetic(5) + RandomStringUtils.randomNumeric(2);
-        FileReader.addData("resetPassword", resetPassword);
-        login.NewPasswordField().sendKeys(resetPassword);
-        login.ConfirmNewPasswordField().sendKeys(resetPassword);
-
-    }
-
     @Then("^I select Change Password$")
     public void iSelectChangePassword() throws Throwable {
         Register register = new Register();
@@ -481,53 +303,5 @@ public class RegisterStepDefs {
             Thread.sleep(2000);
         }
         register.MailinatorMinorClickEmailLink().click();
-
-    }
-
-
-    @Then("^a message \"([^\"]*)\" is displayed$")
-    public void aMessageIsDisplayed(String message) throws Throwable {
-        Register register = new Register();
-        register.message(message).isDisplayed();
-    }
-
-    @Then("^I enter an Access code of \"([^\"]*)\"$")
-    public void iEnterAnAccessCodeOf(String code) throws Throwable {
-        Register register = new Register();
-        register.AccessCodeField().clear();
-        register.AccessCodeField().sendKeys(code);
-    }
-
-    @Then("^I should see an Activate message for \"([^\"]*)\"$")
-    public void iShouldSeeAnActivateMessageFor(String activate) throws Throwable {
-        Register register = new Register();
-        register.activate(activate).isDisplayed();
-    }
-
-    @And("^I select Activate$")
-    public void iSelectActivateAndShouldSeeAActivateSuccessMessage() throws Throwable {
-        Register register = new Register();
-        register.SubmitButton().click();
-
-    }
-
-    @And("^I select all of the Help section links$")
-    public void iSelectTheHelpSectionLink() throws Throwable {
-        Register register = new Register();
-
-        WebElement links[] =
-                {register.SystemReqs(), register.HowAccess(), register.GetMoreHelp(),
-                register.CloseMeeApp(), register.HowMeeLinux(), register.WhyResource(), register.HowFindCode(),
-                register.WhyNoDownload(), register.HowRegister(), register.ChangeLanguage(), register.HowActivateCode(),
-                register.HowLogin(), register.UpdateLinux(), register.HowRequestUserPass(), register.HowChangeProfile(),
-                register.RemoveResource(), register.HowAccessResource(), register.HowNewVersion()};
-
-        int loopVal;
-        int endVal = 18;
-
-        for (loopVal = 0; loopVal < endVal; loopVal++) {
-            Driver.scrollToElement(links[loopVal]);
-            Thread.sleep(1000);
-        }
     }
 }

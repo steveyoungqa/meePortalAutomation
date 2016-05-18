@@ -1,6 +1,6 @@
 package enums;
 
-import stepDefinition.Environment;
+import stepDefinition.EnvironmentStepDefs;
 
 public enum MeePortal {
 	test("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/"),
@@ -20,6 +20,6 @@ public enum MeePortal {
 	}
 	
 	public static String getUrl() {
-		return MeePortal.valueOf(Environment.environment).getValue();
+		return MeePortal.valueOf(EnvironmentStepDefs.environment).getValue();
 	}
 }

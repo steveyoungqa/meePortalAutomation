@@ -7,7 +7,7 @@ Feature: Forgot Password Journey
   Scenario: Forgot User/Pass Validation errors
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    Then I select the Forgot Password link
+    Then I click the Forgot Password link
     And I select the Submit button
     Then a message "Please enter your username" is displayed
     And I click on the Close form icon
@@ -32,8 +32,8 @@ Feature: Forgot Password Journey
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
 
-    Then I switch Windows back to the MEE Portal
-    Then I select the Forgot Password link
+#    Then I switch Windows back to the MEE Portal
+    Then I click the Forgot Password link
     Then I enter then newly created Username
     And I select the Submit button
     And a Success screen that the password reset link has been sent is shown

@@ -10,7 +10,7 @@ Feature: Forgot UserName
     And I press the Login button
     Then a message "Please enter your username" is displayed
     Then a message "Please enter your password" is displayed
-    Then I select the Forgot Username link
+    Then I click the Forgot username link
     And I select the Submit button
     Then a message "Please enter your first name" is displayed
     Then a message "Please enter your last name" is displayed
@@ -37,8 +37,8 @@ Feature: Forgot UserName
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
 
-    Then I switch Windows back to the MEE Portal
-    Then I select the Forgot Username link
+#    Then I switch Windows back to the MEE Portal
+    Then I click the Forgot username link
     Then I enter a first name of "<Firstname>" and surname of "<Surname>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
     And I enter the newly created Email address

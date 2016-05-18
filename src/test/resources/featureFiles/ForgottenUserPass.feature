@@ -33,9 +33,9 @@ Feature: Forgot UserName & Password Journey
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
 
-    Then I switch Windows back to the MEE Portal
+#    Then I switch Windows back to the MEE Portal
     And I select language "<Language>"
-    Then I select the Forgot UserName and Password link
+    Then I click the forgot username and password link
     Then I enter a first name of "<Firstname>" and surname of "<Surname>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
     And I enter the newly created Email address
@@ -51,7 +51,6 @@ Feature: Forgot UserName & Password Journey
     And I select language "<Language>"
     Then I Login with the username and edited password
     Then I log out of MEE
-    Then I Pause for 10 seconds
 
     Examples:
       | Language | Firstname | Surname | Country | day | month  | year |

@@ -5,7 +5,7 @@ Feature: Regression tests for the login feature
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     When I select language "<Language>"
-    And I click the forgot username link
+    And I click the Forgot username link
 
     Examples:
       | Language           |
@@ -22,7 +22,7 @@ Feature: Regression tests for the login feature
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     When I select language "<Language>"
-    And I click the forgot password link
+    And I click the Forgot Password link
 
     Examples:
       | Language           |
