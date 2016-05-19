@@ -79,7 +79,6 @@ public class Register {
         return Driver.findElement(By.xpath("//*[contains(text(),'" + activate + "')]"));
     }
 
-
     public WebElement MailNotification() {
         return Driver.findElement(By.className("mee-module-mail-notification"));
     }

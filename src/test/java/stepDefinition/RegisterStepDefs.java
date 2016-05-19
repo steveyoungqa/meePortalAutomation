@@ -155,7 +155,6 @@ public class RegisterStepDefs {
     public void iShouldSeeTheEmailSentConfirmationPage() throws Throwable {
         Register register = new Register();
         register.MailNotification().isDisplayed();
-        windowHandleBefore = Driver.getWindowHandle();
     }
 
     @Then("^I should see the Registration Completed screen$")

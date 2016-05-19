@@ -17,14 +17,11 @@ Feature: Regression tests for registering a new user
 
     And I select the Submit button
     Then I should see the Email sent confirmation page
-#    Then I switch Windows back to the MEE Portal
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
 
-    #LogIn with new UserName & Password
-#    Then I switch Windows back to the MEE Portal
-#    Given I am on the MEE portal for "test"
+    Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
     Then I log out of MEE

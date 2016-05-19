@@ -3,6 +3,9 @@ Feature: Edit User Profile
   SIN-2009 - Profile, including change password
   Register a new User with unique email address, Login, View Profile and change password
 
+#  This Test opens up multiple Mailinator windows and is problematic if run with other Tags
+#  So run on its own @profile tag only
+
   Scenario Outline: Register a new user
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
@@ -19,10 +22,11 @@ Feature: Edit User Profile
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
+    And I switch Windows back to the MEE Portal
 
     #LogIn with new UserName & Password
-    Then I switch Windows back to the MEE Portal
-    And I select language "<Language>"
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
 
     #Change Password in Profile section
@@ -34,6 +38,7 @@ Feature: Edit User Profile
     And I select the Close button
 
     #Edit Details
+    Then I Login with the username and edited password
     And I select the Profile icon
     Then I select Edit Details
     Then I register a first name of "<EditFirstName>" and surname of "<EditSurname>"
@@ -43,14 +48,15 @@ Feature: Edit User Profile
     Then I enter a confirmation of the unique email address
     And I select the Opt In checkbox
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+    Then a message "Personal details updated" is displayed
+    And I log out of MEE
+    And I switch Windows back to the MEE Portal
 
     Then I check the Mailinator account for the email
-    And I click on the link to confirm the Edited email address
-    And I select the Close button
+    And I switch Windows back to the MEE Portal
 
+    Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    And I select language "<Language>"
     Then I Login with the username and edited password
     Then I log out of MEE
 

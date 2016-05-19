@@ -21,6 +21,7 @@ public class MailClientsStepDefs {
     public void iCheckTheMailinatorAccountForTheEmail() throws Throwable {
         Mailinator mailinator = new Mailinator();
         String email = FileReader.readProperties().get("emailAddress");
+
         windowHandleBefore = Driver.getWindowHandle();
         Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
         Driver.loadPage("https://www.mailinator.com/");
@@ -28,6 +29,7 @@ public class MailClientsStepDefs {
             Driver.switchToWindow(winHandle);
             System.out.println(winHandle);
         }
+
         Thread.sleep(20000);
         mailinator.MailinatorInboxField().sendKeys(email);
         mailinator.MailinatorGoButton().click();
@@ -101,8 +103,8 @@ public class MailClientsStepDefs {
                 break;
 
         }
-        Driver.close();
-        Driver.switchToWindow(windowHandleBefore);
+//        Driver.close();
+//        Driver.switchToWindow(windowHandleBefore);
     }
 
     @And("^I reset the password by following the link and Login$")
@@ -126,7 +128,6 @@ public class MailClientsStepDefs {
         FileReader.addData("resetPassword", resetPassword);
         login.NewPasswordField().sendKeys(resetPassword);
         login.ConfirmNewPasswordField().sendKeys(resetPassword);
-
     }
 
     @And("^a check is made that the Username reminder is correct$")
