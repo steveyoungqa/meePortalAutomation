@@ -17,6 +17,7 @@ import org.apache.http.impl.entity.StrictContentLengthStrategy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import pageObject.LoginPage;
+import pageObject.Mailinator;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
@@ -135,9 +136,9 @@ public class LoginStepDefs {
 
     @Then("^I Login with the forgotten details$")
     public void iLoginWithTheForgottenDetails() throws Throwable {
-        Register register = new Register();
+        Mailinator mailinator = new Mailinator();
         LoginPage login = new LoginPage();
-        register.MailinatorGoHereToLoginLink().click();
+        mailinator.MailinatorGoHereToLoginLink().click();
         String username = FileReader.readProperties().get("ForgotUsername");
         String password = FileReader.readProperties().get("password");
         login.UsernameField().sendKeys(username);

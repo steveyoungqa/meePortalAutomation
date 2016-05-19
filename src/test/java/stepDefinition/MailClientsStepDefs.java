@@ -6,6 +6,7 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import pageObject.LoginPage;
+import pageObject.Mailinator;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
@@ -18,7 +19,7 @@ public class MailClientsStepDefs {
 
     @Then("^I check the Mailinator account for the email$")
     public void iCheckTheMailinatorAccountForTheEmail() throws Throwable {
-        Register register = new Register();
+        Mailinator mailinator = new Mailinator();
         String email = FileReader.readProperties().get("emailAddress");
         windowHandleBefore = Driver.getWindowHandle();
         Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
@@ -28,22 +29,22 @@ public class MailClientsStepDefs {
             System.out.println(winHandle);
         }
         Thread.sleep(20000);
-        register.MailinatorInboxField().sendKeys(email);
-        register.MailinatorGoButton().click();
+        mailinator.MailinatorInboxField().sendKeys(email);
+        mailinator.MailinatorGoButton().click();
         Thread.sleep(2000);
-        register.MailinatorEmailLink().click();
+        mailinator.MailinatorEmailLink().click();
     }
 
     @Then("^I check the Parent/Guardian Mailinator account for the email$")
     public void iCheckTheParentMailinatorAccountForTheEmail() throws Throwable {
-        Register register = new Register();
+        Mailinator mailinator = new Mailinator();
         String email = FileReader.readProperties().get("parentEmailAddress");
         Driver.loadPage("https://www.mailinator.com/");
         Thread.sleep(20000);
-        register.MailinatorInboxField().sendKeys(email);
-        register.MailinatorGoButton().click();
+        mailinator.MailinatorInboxField().sendKeys(email);
+        mailinator.MailinatorGoButton().click();
         Thread.sleep(2000);
-        register.MailinatorEmailLink().click();
+        mailinator.MailinatorEmailLink().click();
 
         String language = FileReader.readProperties().get("language");
 
@@ -52,14 +53,14 @@ public class MailClientsStepDefs {
         switch (language) {
             case "English":
                 RegisterStepDefs.iStoreTheMinorUsernameAndPassword();
-                register.MailinatorMinorClickEmailLink().click();
+                mailinator.MailinatorMinorClickEmailLink().click();
                 break;
         }
     }
 
     @And("^I click on the link to confirm the email address$")
     public void iClickOnTheLinkToConfirmTheEmailAddress() throws Throwable {
-        Register register = new Register();
+        Mailinator mailinator = new Mailinator();
         String language = FileReader.readProperties().get("language");
 
         Driver.switchToFrame("publicshowmaildivcontent");
@@ -68,35 +69,35 @@ public class MailClientsStepDefs {
         switch (language) {
             case "English":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLink().click();
+                mailinator.MailinatorClickEmailLink().click();
                 break;
             case "Spanish":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkSpanish().click();
+                mailinator.MailinatorClickEmailLinkSpanish().click();
                 break;
             case "Japanese":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkJapanese().click();
+                mailinator.MailinatorClickEmailLinkJapanese().click();
                 break;
             case "Korean":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkKorean().click();
+                mailinator.MailinatorClickEmailLinkKorean().click();
                 break;
             case "Taiwanese":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkTaiwan().click();
+                mailinator.MailinatorClickEmailLinkTaiwan().click();
                 break;
             case "Vitenamese":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkVietnamese().click();
+                mailinator.MailinatorClickEmailLinkVietnamese().click();
                 break;
             case "Chinese":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkChinese().click();
+                mailinator.MailinatorClickEmailLinkChinese().click();
                 break;
             case "ChineseTraditional":
                 RegisterStepDefs.iStoreTheUsernameAndPassword();
-                register.MailinatorClickEmailLinkChineseTraditional().click();
+                mailinator.MailinatorClickEmailLinkChineseTraditional().click();
                 break;
 
         }
@@ -130,7 +131,6 @@ public class MailClientsStepDefs {
 
     @And("^a check is made that the Username reminder is correct$")
     public void aCheckIsMadeThatTheUsernameReminderIsCorrect() throws Throwable {
-        Register register = new Register();
         Driver.switchToFrame("publicshowmaildivcontent");
         Thread.sleep(2000);
 

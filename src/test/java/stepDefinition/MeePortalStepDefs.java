@@ -8,6 +8,7 @@ import enums.Language;
 import enums.MeePortal;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import pageObject.HelpPage;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
@@ -55,16 +56,17 @@ public class MeePortalStepDefs {
     @And("^I select all of the Help section links$")
     public void iSelectTheHelpSectionLink() throws Throwable {
         Register register = new Register();
+        HelpPage helpPage = new HelpPage();
 
         WebElement links[] =
-                {register.SystemReqs(), register.HowAccess(), register.GetMoreHelp(),
-                        register.CloseMeeApp(), register.HowMeeLinux(), register.WhyResource(), register.HowFindCode(),
-                        register.WhyNoDownload(), register.HowRegister(), register.ChangeLanguage(), register.HowActivateCode(),
-                        register.HowLogin(), register.UpdateLinux(), register.HowRequestUserPass(), register.HowChangeProfile(),
-                        register.RemoveResource(), register.HowAccessResource(), register.HowNewVersion()};
+                {helpPage.SystemReqs(), helpPage.HowAccess(), helpPage.GetMoreHelp(),
+                        helpPage.CloseMeeApp(), helpPage.HowMeeLinux(), helpPage.WhyResource(), helpPage.HowFindCode(),
+                        helpPage.WhyNoDownload(), helpPage.ChangeLanguage(), helpPage.HowActivateCode(),
+                        helpPage.HowLogin(), helpPage.UpdateLinux(), helpPage.HowRequestUserPass(), helpPage.HowChangeProfile(),
+                        helpPage.RemoveResource(), helpPage.HowAccessResource(), helpPage.HowNewVersion()};
 
         int loopVal;
-        int endVal = 18;
+        int endVal = 17;
 
         for (loopVal = 0; loopVal < endVal; loopVal++) {
             Driver.scrollToElement(links[loopVal]);

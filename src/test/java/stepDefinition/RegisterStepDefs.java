@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.LoginPage;
+import pageObject.Mailinator;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
@@ -294,7 +295,7 @@ public class RegisterStepDefs {
 
     @And("^I click on the link to confirm the Edited email address$")
     public void iClickOnTheLinkToConfirmTheEditedEmailAddress() throws Throwable {
-        Register register = new Register();
+        Mailinator mailinator = new Mailinator();
         String language = FileReader.readProperties().get("language");
 
         String windowHandleBefore = Driver.getWindowHandle();
@@ -302,6 +303,6 @@ public class RegisterStepDefs {
             Driver.switchToFrame("publicshowmaildivcontent");
             Thread.sleep(2000);
         }
-        register.MailinatorMinorClickEmailLink().click();
+        mailinator.MailinatorMinorClickEmailLink().click();
     }
 }
