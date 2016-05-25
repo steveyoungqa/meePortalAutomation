@@ -23,7 +23,7 @@ public class MailClientsStepDefs {
         String email = FileReader.readProperties().get("emailAddress");
 
         windowHandleBefore = Driver.getWindowHandle();
-        Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND +"t");
+//        Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND + "t");
         Driver.loadPage("https://www.mailinator.com/");
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
@@ -35,6 +35,26 @@ public class MailClientsStepDefs {
         mailinator.MailinatorGoButton().click();
         Thread.sleep(2000);
         mailinator.MailinatorEmailLink().click();
+    }
+
+    @Then("^I check the Mailinator account for the Reset Password email$")
+    public void iCheckTheMailinatorAccountForResetPasswordEmail() throws Throwable {
+        Mailinator mailinator = new Mailinator();
+        String email = FileReader.readProperties().get("emailAddress");
+
+        windowHandleBefore = Driver.getWindowHandle();
+//        Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND + "t");
+        Driver.loadPage("https://www.mailinator.com/");
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+
+        Thread.sleep(20000);
+        mailinator.MailinatorInboxField().sendKeys(email);
+        mailinator.MailinatorGoButton().click();
+        Thread.sleep(2000);
+        mailinator.MailinatorResetPasswordEmailLink().click();
     }
 
     @Then("^I check the Parent/Guardian Mailinator account for the email$")
@@ -103,31 +123,48 @@ public class MailClientsStepDefs {
                 break;
 
         }
+        String windowHandleBefore = Driver.getWindowHandle();
+        Driver.switchToWindow(windowHandleBefore);
 //        Driver.close();
-//        Driver.switchToWindow(windowHandleBefore);
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            Thread.sleep(2000);
+        }
     }
+
+    @And("^I click the Reset Password link$")
+    public void iClickTheResetPasswordLink() throws Throwable {
+        Register register = new Register();
+        Driver.switchToFrame("publicshowmaildivcontent");
+        Thread.sleep(2000);
+        String windowHandleBefore = Driver.getWindowHandle();
+        register.ResetPasswordLink().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            Thread.sleep(2000);
+        }
+
+    }
+
 
     @And("^I reset the password by following the link and Login$")
     public void aCheckIsMadeThatThePasswordReminderIsCorrect() throws Throwable {
         Register register = new Register();
         LoginPage login = new LoginPage();
 
+        Driver.switchToFrame("publicshowmaildivcontent");
         String windowHandleBefore = Driver.getWindowHandle();
+        register.ResetPasswordLink().click();
         for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToFrame("publicshowmaildivcontent");
+            Driver.switchToWindow(winHandle);
             Thread.sleep(2000);
         }
-        register.ResetPasswordLink().click();
 
-        Thread.sleep(1000);
-        Driver.switchToWindow(windowHandleBefore);
-        Thread.sleep(5000);
-        String username = FileReader.readProperties().get("username");
-        login.ChangePasswordUsernameField().sendKeys(username);
-        String resetPassword = RandomStringUtils.randomAlphabetic(5) + RandomStringUtils.randomNumeric(2);
+        String resetPassword = RandomStringUtils.randomAlphabetic(6) + RandomStringUtils.randomNumeric(2);
         FileReader.addData("resetPassword", resetPassword);
-        login.NewPasswordField().sendKeys(resetPassword);
-        login.ConfirmNewPasswordField().sendKeys(resetPassword);
+        String username = FileReader.readProperties().get("username");
+        String Newpassword = FileReader.readProperties().get("resetPassword");
+        login.UsernameField().sendKeys(username);
     }
 
     @And("^a check is made that the Username reminder is correct$")

@@ -8,6 +8,7 @@ import cucumber.api.java.en.When;
 import enums.Language;
 import enums.MeePortal;
 import findBy.Errors;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpHead;
@@ -134,7 +135,21 @@ public class LoginStepDefs {
         register.ForgotEmailSent().isDisplayed();
     }
 
-    @Then("^I Login with the forgotten details$")
+    @Then("^I Login and change my Password$")
+    public void iLoginWithNewPassword() throws Throwable {
+        LoginPage login = new LoginPage();
+
+        String resetPassword = RandomStringUtils.randomAlphabetic(6) + RandomStringUtils.randomNumeric(2);
+        FileReader.addData("resetPassword", resetPassword);
+        String username = FileReader.readProperties().get("username");
+        resetPassword = FileReader.readProperties().get("resetPassword");
+        login.ChangePasswordUsernameField().sendKeys(username);
+        login.NewPasswordField().sendKeys(resetPassword);
+        login.ConfirmNewPasswordField().sendKeys(resetPassword);
+        login.LoginButton().click();
+    }
+
+    @Then("^I Login with the forgotten Username details$")
     public void iLoginWithTheForgottenDetails() throws Throwable {
         Mailinator mailinator = new Mailinator();
         LoginPage login = new LoginPage();
@@ -145,6 +160,17 @@ public class LoginStepDefs {
         login.PasswordField().sendKeys(password);
         login.LoginButton().click();
     }
+
+    @Then("^I Login with the forgotten Password details$")
+    public void iLoginWithTheForgottenPasswordDetails() throws Throwable {
+        LoginPage login = new LoginPage();
+        String username = FileReader.readProperties().get("username");
+        String password = FileReader.readProperties().get("resetPassword");
+        login.UsernameField().sendKeys(username);
+        login.PasswordField().sendKeys(password);
+        login.LoginButton().click();
+    }
+
 
     @Then("^I enter then newly created Username$")
     public void iEnterThenNewlyCreatedUsername() throws Throwable {
@@ -159,21 +185,18 @@ public class LoginStepDefs {
         register.ForgotEmailUserAndPassword().isDisplayed();
     }
 
+    @And("^a Success screen that the email to reset the password has been sent is shown$")
+    public void aEmailResetPassword() throws Throwable {
+        Register register = new Register();
+        register.ForgotEmailUserAndPassword().isDisplayed();
+    }
+
     @And("^I select the Profile icon$")
     public void iSelectTheProfileIcon() throws Throwable {
         Register register = new Register();
         register.ProfileIcon().click();
     }
 
-    @Then("^I Login with the username and edited password$")
-    public void iLoginWithTheUsernameAndEditedPassword() throws Throwable {
-        LoginPage login = new LoginPage();
-        String username = FileReader.readProperties().get("username");
-        String password = FileReader.readProperties().get("resetPassword");
-        login.UsernameField().sendKeys(username);
-        login.PasswordField().sendKeys(password);
-        login.LoginButton().click();
-    }
 
 
 }

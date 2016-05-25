@@ -1,6 +1,6 @@
-@regression
+@wip
 Feature: Regression End to End Test Pack
-  SIN-22255 - Regression Test Pack
+  SIN-2255 - Regression Test Pack
 
   Scenario Outline: Register a new user
     Given I am on the MEE portal for "test"

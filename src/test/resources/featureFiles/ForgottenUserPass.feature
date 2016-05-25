@@ -27,13 +27,13 @@ Feature: Forgot UserName & Password Journey
     Then I enter a unique email address
     Then I enter a confirmation of the unique email address
     And I select the Opt In checkbox
+
     And I select the Submit button
     Then I should see the Email sent confirmation page
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
 
-#    Then I switch Windows back to the MEE Portal
     And I select language "<Language>"
     Then I click the forgot username and password link
     Then I enter a first name of "<Firstname>" and surname of "<Surname>"
@@ -42,14 +42,12 @@ Feature: Forgot UserName & Password Journey
     And I select the Submit button
     And a Success screen that the email with the username and password has been sent is shown
 
-    Then I check the Mailinator account for the email
-    And I reset the password by following the link and Login
-    And I select the Submit button
+    Then I check the Mailinator account for the Reset Password email
+    And I click the Reset Password link
+    Then I Login and change my Password
     And I select the Close button
-
-    And I have clicked on the Landing Page login button
-    And I select language "<Language>"
-    Then I Login with the username and edited password
+    Then I have clicked on the Landing Page login button
+    And I Login with the forgotten Password details
     Then I log out of MEE
 
     Examples:

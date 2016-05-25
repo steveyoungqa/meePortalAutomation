@@ -1,4 +1,4 @@
-@register
+@register @regression
 Feature: Regression tests for registering a new user
   SIN-2078 - Email Address Handling
   Register a new User with unique email address and Login in each language

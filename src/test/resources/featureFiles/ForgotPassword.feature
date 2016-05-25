@@ -27,25 +27,21 @@ Feature: Forgot Password Journey
 
     And I select the Submit button
     Then I should see the Email sent confirmation page
-    And I select the Close button
 
     Then I check the Mailinator account for the email
     And I click on the link to confirm the email address
 
-#    Then I switch Windows back to the MEE Portal
     Then I click the Forgot Password link
-    Then I enter then newly created Username
+    And I enter then newly created Username
     And I select the Submit button
     And a Success screen that the password reset link has been sent is shown
 
-    Then I check the Mailinator account for the email
-    And I reset the password by following the link and Login
-    And I select the Submit button
+    Then I check the Mailinator account for the Reset Password email
+    And I click the Reset Password link
+    Then I Login and change my Password
     And I select the Close button
-
     Then I have clicked on the Landing Page login button
-    And I select language "<Language>"
-    Then I Login with the username and edited password
+    And I Login with the forgotten Password details
     Then I log out of MEE
 
     Examples:

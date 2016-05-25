@@ -1,4 +1,4 @@
-@resources
+@resources @regression
 Feature: Activate an Access code and Access Resource
   SIN-2010 - Add Resources
 

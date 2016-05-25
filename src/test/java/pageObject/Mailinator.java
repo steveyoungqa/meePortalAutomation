@@ -19,6 +19,10 @@ public class Mailinator {
         return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education')]"));
     }
 
+    public WebElement MailinatorResetPasswordEmailLink() {
+        return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education Everywhere - Reset your password')]"));
+    }
+
     public WebElement MailinatorEmailUsernameLink() {
         return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education Everywhere - Your username')]"));
     }
@@ -33,6 +37,9 @@ public class Mailinator {
 
     public WebElement MailinatorGoHereToLoginLink() {
         return Driver.findElement(By.xpath("//*[contains(text(), 'Go here to login')]"));
+    }
+    public WebElement MailinatorResetYourPasswordHereLink() {
+        return Driver.findElement(By.xpath("//span[1]//*[contains(text(), 'here')]"));
     }
 
     public WebElement MailinatorClickEmailLinkSpanish() {

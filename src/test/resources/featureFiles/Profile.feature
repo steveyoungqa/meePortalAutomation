@@ -38,7 +38,7 @@ Feature: Edit User Profile
     And I select the Close button
 
     #Edit Details
-    Then I Login with the username and edited password
+    Then I Login with the forgotten Password details
     And I select the Profile icon
     Then I select Edit Details
     Then I register a first name of "<EditFirstName>" and surname of "<EditSurname>"
@@ -57,7 +57,7 @@ Feature: Edit User Profile
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    Then I Login with the username and edited password
+    Then I Login with the forgotten Password details
     Then I log out of MEE
 
     Examples:
