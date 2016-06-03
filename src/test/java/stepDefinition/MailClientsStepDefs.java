@@ -5,6 +5,9 @@ import cucumber.api.java.en.Then;
 import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.LoginPage;
 import pageObject.Mailinator;
 import pageObject.Register;
@@ -23,18 +26,18 @@ public class MailClientsStepDefs {
         String email = FileReader.readProperties().get("emailAddress");
 
         windowHandleBefore = Driver.getWindowHandle();
-//        Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND + "t");
         Driver.loadPage("https://www.mailinator.com/");
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
             System.out.println(winHandle);
         }
 
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         mailinator.MailinatorInboxField().sendKeys(email);
         mailinator.MailinatorGoButton().click();
         Thread.sleep(2000);
         mailinator.MailinatorEmailLink().click();
+        Thread.sleep(2000);
     }
 
     @Then("^I check the Mailinator account for the Reset Password email$")
@@ -43,14 +46,13 @@ public class MailClientsStepDefs {
         String email = FileReader.readProperties().get("emailAddress");
 
         windowHandleBefore = Driver.getWindowHandle();
-//        Driver.findElement(By.cssSelector("body")).sendKeys(Keys.COMMAND + "t");
         Driver.loadPage("https://www.mailinator.com/");
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
             System.out.println(winHandle);
         }
 
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         mailinator.MailinatorInboxField().sendKeys(email);
         mailinator.MailinatorGoButton().click();
         Thread.sleep(2000);
@@ -62,16 +64,16 @@ public class MailClientsStepDefs {
         Mailinator mailinator = new Mailinator();
         String email = FileReader.readProperties().get("parentEmailAddress");
         Driver.loadPage("https://www.mailinator.com/");
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         mailinator.MailinatorInboxField().sendKeys(email);
         mailinator.MailinatorGoButton().click();
         Thread.sleep(2000);
         mailinator.MailinatorEmailLink().click();
-
+        Thread.sleep(2000);
         String language = FileReader.readProperties().get("language");
 
         Driver.switchToFrame("publicshowmaildivcontent");
-
+        Thread.sleep(2000);
         switch (language) {
             case "English":
                 RegisterStepDefs.iStoreTheMinorUsernameAndPassword();
@@ -86,7 +88,7 @@ public class MailClientsStepDefs {
         String language = FileReader.readProperties().get("language");
 
         Driver.switchToFrame("publicshowmaildivcontent");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         switch (language) {
             case "English":
@@ -125,7 +127,6 @@ public class MailClientsStepDefs {
         }
         String windowHandleBefore = Driver.getWindowHandle();
         Driver.switchToWindow(windowHandleBefore);
-//        Driver.close();
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
             Thread.sleep(2000);

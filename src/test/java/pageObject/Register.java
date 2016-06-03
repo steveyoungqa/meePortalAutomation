@@ -68,7 +68,7 @@ public class Register {
     }
 
     public WebElement CloseButton() {
-        return Driver.findElement(By.xpath("//*[@class='mee-button mee-app-home']"));
+        return Driver.findElement(By.xpath("//*[@class='mee-button'][contains(text(), 'Close')]"));
     }
 
     public WebElement message(String message) {

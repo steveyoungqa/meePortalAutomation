@@ -14,6 +14,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,6 +22,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import supportFactory.BrowserFactory;
 import supportFactory.PlatformFactory;
 import supportMethods.BrowserStack;
+
+import static org.apache.commons.io.FileUtils.waitFor;
 
 public class Driver {
 
@@ -272,6 +275,23 @@ public class Driver {
 
     public static Boolean waitForUrlToContain(String url, int time) {
         return new WebDriverWait(getCurrentDriver(), time).until(ExpectedConditions.urlContains(url));
+    }
+
+    public static Boolean waitForIsDisplayed (By locator, Integer...timeout) {
+       try {
+           waitFor( ExpectedConditions.visibilityOfElementLocated(locator),
+                   (timeout.length > 0 ? timeout[0] : null));
+       }
+       catch (org.openqa.selenium.TimeoutException exception) {
+           return false;
+       }
+        return true;
+    }
+
+   public static void waitFor(ExpectedCondition<WebElement> condition, Integer timeout) {
+        timeout = timeout != null ? timeout : 5;
+        WebDriverWait wait = new WebDriverWait(Driver.mDriver, timeout);
+        wait.until(condition);
     }
 
 }

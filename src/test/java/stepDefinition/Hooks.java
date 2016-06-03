@@ -3,6 +3,7 @@ package stepDefinition;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
 import org.openqa.selenium.WebDriverException;
 
 import webDriver.Driver;
@@ -32,7 +33,7 @@ public class Hooks {
 	}
 	
 	@After
-	public void after(Scenario scenario) {
+	public void after(Scenario scenario) throws Exception {
 		try
 		{
 			if (scenario.isFailed())
@@ -44,6 +45,6 @@ public class Hooks {
 		{
 			System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 		}
-	}	
+	}
 
 }

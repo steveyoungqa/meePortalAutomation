@@ -82,7 +82,7 @@ public class LoginPage {
     }
 
     public static Select LanguageSelector() {
-        return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.0.1.0']")));
+        return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.1.0']")));
     }
 
     public static WebElement errorMessage(String dataValmsgFor) {
@@ -90,6 +90,6 @@ public class LoginPage {
     }
 
     public WebElement helpIcon() {
-        return Driver.findElement(By.xpath("//*[@class='mee-icon-help-white mee-vertical-center mee-app-help mee-app-systembrowser']"));
+        return Driver.findElement(By.xpath("//*[@class='mee-icon-help-white mee-vertical-center']"));
     }
 }

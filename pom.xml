@@ -10,15 +10,21 @@
     <properties>
         <name>Selenium Cucumber Framework</name>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <build>${maven.build.timestamp}/${platform}/${browser}</build>
+        <build>${maven.build.timestamp}</build>
         <cucumber.tags>~@ignore</cucumber.tags>
-        <report.directory>${project.build.directory}/../reports/${build}/</report.directory>
+        <report.directory>${project.build.directory}/reports/</report.directory>
+        <!--<report.directory>${project.build.directory}/reports/${build}/</report.directory>-->
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>2.47.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.mkolisnyk</groupId>
+            <artifactId>cucumber-reports</artifactId>
+            <version>0.0.11</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
