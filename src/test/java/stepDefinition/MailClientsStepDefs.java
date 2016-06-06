@@ -88,7 +88,7 @@ public class MailClientsStepDefs {
         String language = FileReader.readProperties().get("language");
 
         Driver.switchToFrame("publicshowmaildivcontent");
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         switch (language) {
             case "English":

@@ -18,7 +18,7 @@ public class LoginPage {
     }
 
     public WebElement CloseForm() {
-        return Driver.findElement(By.xpath("//*[@class='mee-icon-close mee-app-home']"));
+        return Driver.findElement(By.xpath("//*[@class='mee-icon-close']"));
     }
 
     public WebElement RegisterLandingPage() {
