@@ -2,6 +2,44 @@
 Feature: Regression End to End Test Pack
   SIN-2255 - Regression Test Pack
 
+  Scenario: Login Validation Errors
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    And I press the Login button
+    Then a message "Please enter your username" is displayed
+    Then a message "Please enter your password" is displayed
+    Then I click the Forgot username link
+    And I select the Submit button
+    Then a message "Please enter your first name" is displayed
+    Then a message "Please enter your last name" is displayed
+    Then a message "Please enter a valid date of birth" is displayed
+    Then a message "Email address required" is displayed
+    And I click on the Close form icon
+
+  Scenario: Registration Validation Errors
+    Given I am on the MEE portal for "test"
+    And I have clicked on the Register button
+    And I have clicked on the Next button
+    Then a message "Please enter your first name" is displayed
+    Then a message "Please enter your last name" is displayed
+    Then a message "Please select your country of residence" is displayed
+    Then a message "Please enter a valid date of birth" is displayed
+    Then I register a first name of "Vera&" and surname of "Validation<"
+    And I have clicked on the Next button
+    Then a message "First name must not contain special characters" is displayed
+    Then a message "Last name must not contain special characters" is displayed
+
+    Given I am on the MEE portal for "test"
+    And I have clicked on the Register button
+    Then I register a first name of "Vera" and surname of "Validation"
+    And I select a Country of residence of "GB"
+    Then I select a date of birth of "3" "Oct" "1994"
+    And I have clicked on the Next button
+    Then I Pause for 3 seconds
+    And I select the Submit button
+    Then a message "Email address required" is displayed
+
+
   Scenario Outline: Mandatory fields Login validation
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button

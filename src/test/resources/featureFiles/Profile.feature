@@ -32,6 +32,10 @@ Feature: Edit User Profile
     #Change Password in Profile section
     And I select the Profile icon
     Then I select Change Password
+    And I select the Submit button
+    Then a message "Please enter your password" is displayed
+    Then a message "New password required" is displayed
+    Then a message "New confirm password required" is displayed
     And I change the current password to a new one and confirm
     And I select the Submit button
     Then I should see the Password changed Success message
