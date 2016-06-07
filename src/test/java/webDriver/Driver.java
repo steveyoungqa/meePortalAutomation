@@ -145,7 +145,7 @@ public class Driver {
     }
 
     public static void refreshPage() {
-        webdriver.navigate().refresh();
+        mDriver.navigate().refresh();
     }
 
     public static String getTitle() {

@@ -286,6 +286,16 @@ public class RegisterStepDefs {
 
     }
 
+    @And("^I try to change the new password to include invalid characters$")
+    public void iTryToChangeTheNewPasswordToIncludeInvalidCharacters() throws Throwable {
+        LoginPage login = new LoginPage();
+        String currentPassword = FileReader.readProperties().get("password");
+        login.CurrentPassword().sendKeys(currentPassword);
+        String resetPassword = RandomStringUtils.randomAlphabetic(5) + "&";
+        login.NewPasswordField().sendKeys(resetPassword);
+        login.ConfirmNewPasswordField().sendKeys(resetPassword);
+    }
+
     @Then("^I should see the Password changed Success message$")
     public void iShouldSeeThePasswordChangedSuccessMessage() throws Throwable {
         Register register = new Register();
@@ -304,4 +314,5 @@ public class RegisterStepDefs {
         }
         mailinator.MailinatorMinorClickEmailLink().click();
     }
+
 }

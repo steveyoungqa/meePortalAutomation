@@ -1,6 +1,7 @@
 @resources @regression
 Feature: Activate an Access code and Access Resource
   SIN-2010 - Add Resources
+  SIN-2631 - Sprint 10 Functionality
 
   Scenario Outline: Login, enter Access code for Resource
 
@@ -11,7 +12,17 @@ Feature: Activate an Access code and Access Resource
     And I select the Add Resource icon
     Then I enter an incorrect Access code
     And I have clicked on the Access code Next button
-    Then a message "<validation error>" is displayed
+    Then a message "Invalid access code. Please check your code and try again." is displayed
+    And I refresh the page
+
+    And I enter a not yet published code of "<NotPubCode>"
+    And I have clicked on the Access code Next button
+    Then a message "The digital content for this code has not yet been published." is displayed
+    And I select the Contact our Customer Service Team link
+
+    Then I switch Windows back to the MEE Portal
+    Given I am on the MEE portal for "test"
+    And I select the Add Resource icon
     Then I enter an Access code of "<AccessCode>"
     And I have clicked on the Access code Next button
     Then I should see an Activate message for "<Resource>"
@@ -22,5 +33,5 @@ Feature: Activate an Access code and Access Resource
 
 
     Examples:
-      | username | password  | validation error                                           | AccessCode        | Resource                      | Resource2                       |
-      | meeadmin | M4cmillan | Invalid access code. Please check your code and try again. | HFTL1199319198437 | TEST High Five! Level 1 Pupil | TEST High Five! Level 1 Teacher |
+      | username | password  |  AccessCode        | Resource                      | Resource2                       | NotPubCode       |
+      | meeadmin | M4cmillan |  HFTL1199319198437 | TEST High Five! Level 1 Pupil | TEST High Five! Level 1 Teacher | TEST395894165646 |

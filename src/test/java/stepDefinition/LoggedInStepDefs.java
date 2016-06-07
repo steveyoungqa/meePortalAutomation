@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.apache.http.HttpResponse;
@@ -9,11 +10,14 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.Assert;
 import pageObject.LoginPage;
 import pageObject.Register;
+import webDriver.Driver;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class LoggedInStepDefs {
+
+    private static String windowHandleBefore = "";
 
     @Then("^I am logged into MEE$")
     public void iAmLoggedIntoMEE() throws Throwable {
@@ -37,6 +41,13 @@ public class LoggedInStepDefs {
     public void iEnterAnIncorrectAccessCode() throws Throwable {
         Register register = new Register();
         register.AccessCodeField().sendKeys("MAXP123234345435657");
+    }
+
+    @And("^I enter a not yet published code of \"([^\"]*)\"$")
+    public void iEnterANotYetPublishedCodeOf(String code) throws Throwable {
+        Register register = new Register();
+        register.AccessCodeField().sendKeys(code);
+
     }
 
     @And("^I have clicked on the Access code Next button$")
@@ -114,5 +125,17 @@ public class LoggedInStepDefs {
     public void aSuccessScreenThatThePasswordResetLinkHasBeenSentIsShown() throws Throwable {
         Register register = new Register();
         register.ResetPasswordSent().isDisplayed();
+    }
+
+    @And("^I select the Contact our Customer Service Team link$")
+    public void iSelectTheContactOurCustomerServiceTeamLink() throws Throwable {
+        Register register = new Register();
+        windowHandleBefore = Driver.getWindowHandle();
+        register.CustomerServiceLink().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+
     }
 }

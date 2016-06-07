@@ -147,6 +147,11 @@ public class Register {
         return new Select(Driver.findElement(By.xpath("//*[@id='_DateOfBirth_Year']")));
     }
 
+    public WebElement CustomerServiceLink () {
+        return Driver.findElement(By.xpath("//*[@class='mee-footer mee-error mee-align-text-center mee-error-container']//*[contains(text(), 'contact our Customer Service team')]"));
+
+    }
+
 
 
 

@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -113,5 +114,10 @@ public class MeePortalStepDefs {
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
         }
+    }
+
+    @And("^I refresh the page$")
+    public void iRefreshThePage() throws Throwable {
+        Driver.refreshPage();
     }
 }

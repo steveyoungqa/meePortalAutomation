@@ -2,6 +2,7 @@
 Feature: Edit User Profile
   SIN-2009 - Profile, including change password
   Register a new User with unique email address, Login, View Profile and change password
+  SIN-2631 - Validation on edit Password for special characters
 
 #  This Test opens up multiple Mailinator windows and is problematic if run with other Tags
 #  So run on its own @profile tag only
@@ -36,6 +37,10 @@ Feature: Edit User Profile
     Then a message "Please enter your password" is displayed
     Then a message "New password required" is displayed
     Then a message "New confirm password required" is displayed
+    And I try to change the new password to include invalid characters
+    Then a message "Password must not contain special characters" is displayed
+    And I refresh the page
+    Then I select Change Password
     And I change the current password to a new one and confirm
     And I select the Submit button
     Then I should see the Password changed Success message
