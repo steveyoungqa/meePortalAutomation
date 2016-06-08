@@ -2,4 +2,6 @@
 /Reports/
 /report/
 .idea/
+/.idea/workspace.xml
 .DS_Store
+/src/test/resources/config.properties

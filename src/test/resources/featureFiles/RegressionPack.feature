@@ -1,4 +1,4 @@
-@end2end
+@regression
 Feature: Regression End to End Test Pack
   SIN-2255 - Regression Test Pack
 

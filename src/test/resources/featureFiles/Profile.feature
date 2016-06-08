@@ -1,4 +1,4 @@
-@profile @regression
+@profile
 Feature: Edit User Profile
   SIN-2009 - Profile, including change password
   Register a new User with unique email address, Login, View Profile and change password

@@ -18,7 +18,7 @@ import java.util.Map;
 @CucumberOptions(
 		features = { "src/test/resources/featureFiles" },
 		glue = { "webDriver", "stepDefinition", "testRunner" },
-		tags = { "@end2end" },
+		tags = { "@regression" },
 		plugin = {"pretty", "html:target/html", "json:target/reports/cucumber.json" })
 public class TestRunner {
 

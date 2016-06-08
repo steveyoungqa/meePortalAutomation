@@ -1,4 +1,4 @@
-@login @regression
+@login
 Feature: Regression tests for the login feature
 
   Scenario Outline: User is diverted to the forgot username webpage (1a)

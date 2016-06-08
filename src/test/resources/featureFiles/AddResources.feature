@@ -1,4 +1,4 @@
-@resources @regression
+@resources
 Feature: Activate an Access code and Access Resource
   SIN-2010 - Add Resources
   SIN-2631 - Sprint 10 Functionality

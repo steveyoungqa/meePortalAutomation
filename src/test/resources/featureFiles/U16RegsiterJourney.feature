@@ -1,4 +1,4 @@
-@u16 @regression
+@u16
 Feature: U16 Registration Journey
   SIN-2006 - Automation - U16 Registration Journey
 
