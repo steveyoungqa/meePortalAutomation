@@ -3,5 +3,8 @@
 /report/
 .idea/
 /.idea/workspace.xml
-.DS_Store
+/.DS_Store
+/.classpath
+/.project
+/.MeePortalAutomation.iml
 /src/test/resources/config.properties
