@@ -93,6 +93,15 @@ public class RegisterStepDefs {
         register.Email().sendKeys(email);
     }
 
+    @Then("^I enter a unique Gmail email address$")
+    public void iEnterAUniqueGmailEmailAddress() throws Throwable {
+        Register register = new Register();
+        String email = "springertester" + "+" +RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "@gmail.com";
+        FileReader.addData("uniqueEmailAddress", email);
+        register.Email().clear();
+        register.Email().sendKeys(email);
+    }
+
     @Then("^I enter a Parent/Guardian email address$")
     public void iEnterAParentEmailAddressOf() throws Throwable {
         Register register = new Register();
@@ -105,6 +114,14 @@ public class RegisterStepDefs {
     public void iEnterAConfirmationEmailAddressOf() throws Throwable {
         Register register = new Register();
         String emailConfirm = FileReader.readProperties().get("emailAddress");
+        register.EmailConfirm().clear();
+        register.EmailConfirm().sendKeys(emailConfirm);
+    }
+
+    @Then("^I enter a confirmation of the unique Gmail email address$")
+    public void iEnterAConfirmationGmailEmailAddressOf() throws Throwable {
+        Register register = new Register();
+        String emailConfirm = FileReader.readProperties().get("uniqueEmailAddress");
         register.EmailConfirm().clear();
         register.EmailConfirm().sendKeys(emailConfirm);
     }

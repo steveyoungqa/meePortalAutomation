@@ -18,8 +18,7 @@ import webDriver.Driver;
 public class MeePortalStepDefs {
 
     private static String windowHandleBefore = "";
-	
-	
+
 	@Given("^I am on the MEE portal for \"(.*?)\"$")
 	public void i_am_on_the_MEE_portal_for(String environment) throws Throwable {
 
@@ -28,11 +27,11 @@ public class MeePortalStepDefs {
 		String windowHandleBefore = Driver.getWindowHandle();
 		Driver.switchToWindow(windowHandleBefore);
 		Thread.sleep(2000);
-//        Driver.close();
 		for (String winHandle : Driver.getWindowHandles()) {
 			Driver.switchToWindow(winHandle);}
 		Driver.loadPage(MeePortal.getUrl());
 		Assert.assertEquals("Incorrect URL.", MeePortal.getUrl(), Driver.getCurrentUrl());
+        System.out.println("DRIVER USED IS: " + Driver.mDriver);
 	}
 
 	@When("^I select language \"(.*?)\"$")
@@ -56,11 +55,10 @@ public class MeePortalStepDefs {
 
     @And("^I select all of the Help section links$")
     public void iSelectTheHelpSectionLink() throws Throwable {
-        Register register = new Register();
         HelpPage helpPage = new HelpPage();
 
         WebElement links[] =
-                {helpPage.SystemReqs(), helpPage.HowAccess(), helpPage.GetMoreHelp(),
+                {helpPage.SystemReqs(), helpPage.GetMoreHelp(),helpPage.HowAccess(),
                         helpPage.CloseMeeApp(), helpPage.HowMeeLinux(), helpPage.WhyResource(), helpPage.HowFindCode(),
                         helpPage.WhyNoDownload(), helpPage.ChangeLanguage(), helpPage.HowActivateCode(),
                         helpPage.HowLogin(), helpPage.UpdateLinux(), helpPage.HowRequestUserPass(), helpPage.HowChangeProfile(),

@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -269,9 +271,11 @@ public class Driver {
 
     public static void scrollToElement(WebElement element) throws Throwable {
         Actions actions = new Actions(mDriver);
-        actions.moveToElement(element).click().perform();
+//        actions.moveToElement(element).perform();
+        actions.moveToElement(element).click(element).perform();
         Thread.sleep(2000);
     }
+
 
     public static Boolean waitForUrlToContain(String url, int time) {
         return new WebDriverWait(getCurrentDriver(), time).until(ExpectedConditions.urlContains(url));

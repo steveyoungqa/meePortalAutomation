@@ -172,10 +172,10 @@ Feature: Regression End to End Test Pack
       | Language | Firstname | Surname | Country | day | month  | year |
       | English  | Mikey     | Minor   | GB      | 11  | August | 2004 |
 
-  Scenario: SIN-2109 Help Page Links Test
-    Given I am on the MEE portal for "test"
-    Then I select the Help icon
-    And I select all of the Help section links
+#  Scenario: SIN-2109 Help Page Links Test
+#    Given I am on the MEE portal for "test"
+#    Then I select the Help icon
+#    And I select all of the Help section links
 
   Scenario Outline: SIN-2423 Privacy Policy and T&C's
     Given I am on the MEE portal for "test"

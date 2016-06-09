@@ -63,7 +63,7 @@ Open a Terminal:
 **git clone https://User.Name@stash.macmillan.education/scm/qtt/mee_admin_portal_automation.git** 
 
 Next Clone this Repo which contains all of the required Selenium Servers and Drivers
-**https://stash.macmillan.education/projects/QTT/repos/selenium-server-and-drivers/browse**
+**git clone https://User.Name@stash.macmillan.education/scm/qtt/selenium-server-and-drivers.git**
 
 
 #### Start the Selenium Hub and Node

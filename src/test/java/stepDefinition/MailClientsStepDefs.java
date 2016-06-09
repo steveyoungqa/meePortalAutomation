@@ -3,11 +3,9 @@ package stepDefinition;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.apache.commons.lang.RandomStringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObject.Gmail;
 import pageObject.LoginPage;
 import pageObject.Mailinator;
 import pageObject.Register;
@@ -39,6 +37,27 @@ public class MailClientsStepDefs {
         mailinator.MailinatorEmailLink().click();
         Thread.sleep(2000);
     }
+
+    @Then("^I check the Test Gmail account for the email$")
+    public void iCheckTheGmail() throws Throwable {
+        Gmail gmail = new Gmail();
+        String email = FileReader.readProperties().get("gmailTestAccount");
+        String password = FileReader.readProperties().get("emailPassword");
+
+        windowHandleBefore = Driver.getWindowHandle();
+        Driver.loadPage("https://mail.google.com/");
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+
+            gmail.GmailInboxField().sendKeys(email);
+            gmail.GmailNextButton().click();
+            gmail.GmailPasswordField().sendKeys(password);
+            gmail.GmailStaySignedInCheckbox().click();
+            gmail.GmailSignIn().click();
+
+        }
 
     @Then("^I check the Mailinator account for the Reset Password email$")
     public void iCheckTheMailinatorAccountForResetPasswordEmail() throws Throwable {
@@ -80,6 +99,16 @@ public class MailClientsStepDefs {
                 mailinator.MailinatorMinorClickEmailLink().click();
                 break;
         }
+    }
+
+    @And("^I click on the link to confirm the Gmail email address$")
+    public void iClickOnTheLinkToConfirmTheGmailEmailAddress() throws Throwable {
+        Gmail gmail = new Gmail();
+        String language = FileReader.readProperties().get("language");
+
+        Driver.switchToFrame("iframe#hist_frame.invrf");
+        Thread.sleep(2000);
+        gmail.GmailMacmillanEmail().click();
     }
 
     @And("^I click on the link to confirm the email address$")
