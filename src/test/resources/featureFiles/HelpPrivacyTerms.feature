@@ -18,6 +18,8 @@ Then I select a date of birth of "<day>" "<month>" "<year>"
 And I have clicked on the Next button
 Then I select the Terms of Use link
 Then I select the Privacy Policy link
+  And I select the Cookie Policy link
+
 
 Examples:
 | Language | Firstname | Surname | Country | day | month | year |

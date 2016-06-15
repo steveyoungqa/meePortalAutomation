@@ -183,6 +183,20 @@ public class RegisterStepDefs {
         Thread.sleep(2000);
     }
 
+    @Then("^I select the Cookie Policy link$")
+    public void iSelectTheCookiePolicyLink() throws Throwable {
+        Register register = new Register();
+        windowHandleBefore = Driver.getWindowHandle();
+        register.CookiePolicy().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+        Driver.waitForUrlToContain("http://www.macmillanenglish.com/privacy-policy/#OnlineTracking", 50);
+        Driver.close();
+        Thread.sleep(2000);
+    }
+
     @Then("^I should see the Email sent confirmation page$")
     public void iShouldSeeTheEmailSentConfirmationPage() throws Throwable {
         Register register = new Register();

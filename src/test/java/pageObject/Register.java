@@ -43,11 +43,15 @@ public class Register {
     }
 
     public WebElement TermsLink() {
-        return Driver.findElement(By.id("_TermsOfUse"));
+        return Driver.findElement(By.xpath("//*[@href='#'][contains(text(), 'terms')]"));
     }
 
     public WebElement PrivacyPolicy() {
-        return Driver.findElement(By.id("_PrivacyPolicy"));
+        return Driver.findElement(By.xpath("//*[@href='#'][contains(text(), 'Privacy')]"));
+    }
+
+    public WebElement CookiePolicy() {
+        return Driver.findElement(By.xpath("//*[@href='#'][contains(text(), 'Cookie')]"));
     }
 
     public WebElement OptInCheckbox() {
