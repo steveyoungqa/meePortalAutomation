@@ -11,25 +11,30 @@ Feature: Regression tests for registering a new user
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
     And I have clicked on the Next button
-    Then I enter a unique email address
-    Then I enter a confirmation of the unique email address
+    Then I enter a unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
+    Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
     Then I should see the Email sent confirmation page
 
-    Then I check the Mailinator account for the email
-    And I click on the link to confirm the email address
+    Then I check the Test Gmail account for the email
+    And I click on the link to confirm the Gmail email address
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
     Then I log out of MEE
 
+    Then I switch back to Gmail
+    And I delete the Test Gmail Email
+    Then I log out of Gmail
+
 
     Examples:
       | Language           | Firstname | Surname    | Country | day | month  | year |
-      | English            | Bill      | Tester     | GB      | 7   | May    | 1956 |
+      | English            | Ted       | Tester     | GB      | 7   | May    | 1956 |
       | Spanish            | Jose      | Automation | ES      | 10  | August | 1980 |
       | Japanese           | Kim       | QA         | JP      | 1   | June   | 1975 |
       | Korean             | Seung     | Tester     | KR      | 24  | Oct    | 1989 |
@@ -37,8 +42,6 @@ Feature: Regression tests for registering a new user
       | Vitenamese         | Nguyen    | Automation | VN      | 17  | Feb    | 1997 |
       | Chinese            | Zhang Wei | Robot      | CN      | 28  | July   | 1942 |
       | ChineseTraditional | Liu Fang  | QA         | HK      | 2   | April  | 1980 |
-
-
 
 
 

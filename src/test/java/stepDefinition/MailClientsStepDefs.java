@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.apache.commons.lang.RandomStringUtils;
@@ -51,13 +52,24 @@ public class MailClientsStepDefs {
             System.out.println(winHandle);
         }
 
-            gmail.GmailInboxField().sendKeys(email);
-            gmail.GmailNextButton().click();
-            gmail.GmailPasswordField().sendKeys(password);
-            gmail.GmailStaySignedInCheckbox().click();
-            gmail.GmailSignIn().click();
+        gmail.GmailInboxField().sendKeys(email);
+        gmail.GmailNextButton().click();
+        gmail.GmailPasswordField().sendKeys(password);
 
+        WebElement signedInCheckBox = gmail.GmailStaySignedInCheckbox();
+        if
+                (signedInCheckBox.isSelected()) {
+            signedInCheckBox.click();
         }
+
+        gmail.GmailSignIn().click();
+
+    }
+
+    @Then("^I open the logged in Gmail page$")
+    public void iCheckLoggedInTheGmail() throws Throwable {
+        Driver.loadPage("https://mail.google.com/");
+    }
 
     @Then("^I check the Mailinator account for the Reset Password email$")
     public void iCheckTheMailinatorAccountForResetPasswordEmail() throws Throwable {
@@ -101,14 +113,65 @@ public class MailClientsStepDefs {
         }
     }
 
+    @And("^I click on the link to confirm the Gmail Minor email address$")
+    public void iClickOnTheLinkToConfirmTheMinorGmailEmailAddress() throws Throwable {
+        Gmail gmail = new Gmail();
+        gmail.GmailMacmillanEmail().click();
+        RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+        gmail.GmailMinorClickEmailLink().click();
+    }
+
     @And("^I click on the link to confirm the Gmail email address$")
     public void iClickOnTheLinkToConfirmTheGmailEmailAddress() throws Throwable {
         Gmail gmail = new Gmail();
+        Mailinator mailinator = new Mailinator();
         String language = FileReader.readProperties().get("language");
 
-        Driver.switchToFrame("iframe#hist_frame.invrf");
-        Thread.sleep(2000);
-        gmail.GmailMacmillanEmail().click();
+        switch (language) {
+            case "English":
+                gmail.GmailMacmillanEmail().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                gmail.GmailClickEmailLink().click();
+                break;
+            case "Spanish":
+                gmail.GmailMacmillanEmailSpanish().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                gmail.GmailClickEmailLinkSpanish().click();
+                break;
+            case "Japanese":
+                gmail.GmailMacmillanEmailJapanese().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                gmail.GmailClickEmailLinkJapanese().click();
+                break;
+            case "Korean":
+                gmail.GmailMacmillanEmailKorean().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                gmail.GmailClickEmailLinkKorean().click();
+                break;
+            case "Taiwanese":
+                gmail.GmailMacmillanEmailTaiwanese().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                gmail.GmailClickEmailLinkTaiwan().click();
+                break;
+            case "Vitenamese":
+                gmail.GmailMacmillanEmailVietnamese().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                gmail.GmailClickEmailLinkVietnamese().click();
+                break;
+            case "Chinese":
+                gmail.GmailMacmillanEmailChinese().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                mailinator.MailinatorClickEmailLinkChinese().click();
+                break;
+            case "ChineseTraditional":
+                gmail.GmailMacmillanEmailChineseTraditional().click();
+                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                mailinator.MailinatorClickEmailLinkChineseTraditional().click();
+                break;
+
+        }
+
+
     }
 
     @And("^I click on the link to confirm the email address$")
@@ -176,6 +239,14 @@ public class MailClientsStepDefs {
 
     }
 
+    @And("^I click the Gmail Reset Password link$")
+    public void iClickTheGmailResetPasswordLink() throws Throwable {
+        Register register = new Register();
+        Gmail gmail = new Gmail();
+        gmail.GmailResetYourPassword().click();
+        register.ResetPasswordLink().click();
+    }
+
 
     @And("^I reset the password by following the link and Login$")
     public void aCheckIsMadeThatThePasswordReminderIsCorrect() throws Throwable {
@@ -199,12 +270,56 @@ public class MailClientsStepDefs {
 
     @And("^a check is made that the Username reminder is correct$")
     public void aCheckIsMadeThatTheUsernameReminderIsCorrect() throws Throwable {
-        Driver.switchToFrame("publicshowmaildivcontent");
-        Thread.sleep(2000);
+        Gmail gmail = new Gmail();
+        gmail.GmailYourUsernameEmail().click();
 
-        String username = Driver.findElement(By.xpath("//html/body/p[1]/span[1]")).getText().replace("Username: ", "");
-        String forgotUsername = Driver.findElement(By.xpath("//html/body/b")).getText();
-        FileReader.addData("ForgotUsername", forgotUsername);
-        assertEquals(forgotUsername, username);
+        String username = FileReader.readProperties().get("username");
+        String ForgotUsername = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Username:')]")).getText().replace("Username: ", "");
+        FileReader.addData("ForgotUsername", ForgotUsername);
+        assertEquals(ForgotUsername, username);
+        gmail.GmailClickEmailLink().click();
+    }
+
+    @And("^I delete the Test Gmail Email$")
+    public void iDeleteTheTestGmailEmail() throws Throwable {
+        Gmail gmail = new Gmail();
+        gmail.GmailAnyMacmillanEmail().click();
+        Thread.sleep(5000);
+        gmail.GmailExpandEmail().click();
+        gmail.GmailDeleteEmail().click();
+    }
+
+    @Then("^I switch back to Gmail$")
+    public void iSwitchBackToGmail() throws Throwable {
+        windowHandleBefore = Driver.getWindowHandle();
+        Driver.loadPage("https://mail.google.com/");
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+    }
+
+    @Then("^I log out of Gmail$")
+    public void iLogOutOfGmail() throws Throwable {
+        Gmail gmail = new Gmail();
+        gmail.GmailSignOutLogo().click();
+        Thread.sleep(2000);
+        gmail.GmailSignOutLink().click();
+
+
+    }
+
+    @And("^a check is made that the Password has been changed$")
+    public void aCheckIsMadeThatThePasswordHasBeenChanged() throws Throwable {
+        Gmail gmail = new Gmail();
+        gmail.GmailPasswordChanged().isDisplayed();
+
+    }
+
+    @And("^a check is made that Details have been changed$")
+    public void aCheckIsMadeThatDetailsHasBeenChanged() throws Throwable {
+        Gmail gmail = new Gmail();
+        gmail.GmailDetailsChanged().isDisplayed();
+
     }
 }

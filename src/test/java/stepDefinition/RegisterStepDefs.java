@@ -110,6 +110,14 @@ public class RegisterStepDefs {
         register.Email().sendKeys(email);
     }
 
+    @Then("^I enter a Parent/Guardian Gmail address$")
+    public void iEnterAParentGmailAddressOf() throws Throwable {
+        Register register = new Register();
+        String email = "springertester" + "+" +RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "@gmail.com";
+        FileReader.addData("parentEmailAddress", email);
+        register.Email().sendKeys(email);
+    }
+
     @Then("^I enter a confirmation of the unique email address$")
     public void iEnterAConfirmationEmailAddressOf() throws Throwable {
         Register register = new Register();
@@ -138,6 +146,13 @@ public class RegisterStepDefs {
         Register register = new Register();
         register.optInCheckbox().click();
     }
+
+    @Then("^I select the Terms & Conditions checkbox$")
+    public void iSelectTheTermsConditionsCheckbox() throws Throwable {
+        Register register = new Register();
+        register.TermsConditionsCheckbox().click();
+    }
+
 
     @Then("^I select the Terms of Use link$")
     public void iSelectTheTermsOfUseLink() throws Throwable {
@@ -172,12 +187,18 @@ public class RegisterStepDefs {
     public void iShouldSeeTheEmailSentConfirmationPage() throws Throwable {
         Register register = new Register();
         register.MailNotification().isDisplayed();
+        Thread.sleep(3000);
     }
 
     @Then("^I should see the Registration Completed screen$")
     public void iShouldSeeTheRegistrationCompletedScreen() throws Throwable {
         Register register = new Register();
-        Thread.sleep(3000);
+        String windowHandleBefore = Driver.getWindowHandle();
+        Driver.switchToWindow(windowHandleBefore);
+        Thread.sleep(2000);
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+        }
         register.RegistrationComplete().isDisplayed();
     }
 
@@ -277,6 +298,92 @@ public class RegisterStepDefs {
                 FileReader.addData("password", password);
                 break;
         }
+    }
+
+    public static void iStoreTheGmailUsernameAndPassword() throws Throwable {
+        String language = FileReader.readProperties().get("language");
+
+        switch (language) {
+            case "English":
+
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Username:')]")).getText().replace("Username: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Password:')]")).getText().replace("Password: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "Spanish":
+
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Nombre de usuario:')]")).getText().replace("Nombre de usuario: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Contraseña:')]")).getText().replace("Contraseña: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "Japanese":
+
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'ユーザー名:')]")).getText().replace("ユーザー名: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'パスワード:')]")).getText().replace("パスワード: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "Korean":
+
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '사용자명:')]")).getText().replace("사용자명: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '비밀번호:')]")).getText().replace("비밀번호: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "Taiwanese":
+
+                String username = Driver.findElement(By.xpath("//*[contains(text(), 'ชื่อผู้ใช้:')]")).getText().replace("ชื่อผู้ใช้: ", "");
+                String password = Driver.findElement(By.xpath("//*[contains(text(), 'รหัสผ่าน:')]")).getText().replace("รหัสผ่าน: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "Vitenamese":
+
+                String username = Driver.findElement(By.xpath("//*[contains(text(), 'Tên người dùng:')]")).getText().replace("Tên người dùng: ", "");
+                String password = Driver.findElement(By.xpath("//*[contains(text(), 'Mật khẩu:')]")).getText().replace("Mật khẩu: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "Chinese":
+
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '用户名:')]")).getText().replace("用户名: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '密码:')]")).getText().replace("密码: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+        switch (language) {
+            case "ChineseTraditional":
+
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '使用者名稱::')]")).getText().replace("使用者名稱:: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '密碼::')]")).getText().replace("密碼:: ", "");
+                FileReader.addData("username", username);
+                FileReader.addData("password", password);
+                break;
+        }
+
+
     }
 
     @Then("^I select Change Password$")

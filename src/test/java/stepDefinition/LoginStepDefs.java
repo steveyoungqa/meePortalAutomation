@@ -17,6 +17,7 @@ import org.apache.http.impl.client.SystemDefaultCredentialsProvider;
 import org.apache.http.impl.entity.StrictContentLengthStrategy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import pageObject.Gmail;
 import pageObject.LoginPage;
 import pageObject.Mailinator;
 import pageObject.Register;
@@ -28,6 +29,8 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
 public class LoginStepDefs {
+
+    private static String windowHandleBefore = "";
 
 
     @Given("^I have clicked on the Landing Page login button$")
@@ -61,6 +64,7 @@ public class LoginStepDefs {
     @When("^I click the Forgot Password link$")
     public void i_click_the_forgot_password_link() throws Throwable {
         LoginPage login = new LoginPage();
+//        Thread.sleep(3000);
         login.ForgotPassword().click();
     }
 
@@ -125,7 +129,7 @@ public class LoginStepDefs {
     @And("^I enter the newly created Email address$")
     public void iEnterTheNewlyCreatedEmailAddress() throws Throwable {
         Register register = new Register();
-        String forgotEmail = FileReader.readProperties().get("emailAddress");
+        String forgotEmail = FileReader.readProperties().get("uniqueEmailAddress");
         register.EmailAddress().sendKeys(forgotEmail);
     }
 
@@ -133,11 +137,18 @@ public class LoginStepDefs {
     public void aSuccessScreenThatTheEmailHasBeenSentIsShown() throws Throwable {
         Register register = new Register();
         register.ForgotEmailSent().isDisplayed();
+        Thread.sleep(3000);
     }
 
     @Then("^I Login and change my Password$")
     public void iLoginWithNewPassword() throws Throwable {
         LoginPage login = new LoginPage();
+
+        windowHandleBefore = Driver.getWindowHandle();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
 
         String resetPassword = RandomStringUtils.randomAlphabetic(6) + RandomStringUtils.randomNumeric(2);
         FileReader.addData("resetPassword", resetPassword);
@@ -151,9 +162,14 @@ public class LoginStepDefs {
 
     @Then("^I Login with the forgotten Username details$")
     public void iLoginWithTheForgottenDetails() throws Throwable {
-        Mailinator mailinator = new Mailinator();
         LoginPage login = new LoginPage();
-        mailinator.MailinatorGoHereToLoginLink().click();
+
+        windowHandleBefore = Driver.getWindowHandle();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+
         String username = FileReader.readProperties().get("ForgotUsername");
         String password = FileReader.readProperties().get("password");
         login.UsernameField().sendKeys(username);
@@ -183,6 +199,7 @@ public class LoginStepDefs {
     public void aSuccessScreenThatTheEmailWithTheUsernameAndPasswordHasBeenSentIsShown() throws Throwable {
         Register register = new Register();
         register.ForgotEmailUserAndPassword().isDisplayed();
+        Thread.sleep(3000);
     }
 
     @And("^a Success screen that the email to reset the password has been sent is shown$")

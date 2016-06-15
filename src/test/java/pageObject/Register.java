@@ -30,6 +30,9 @@ public class Register {
     public WebElement optInCheckbox() {
         return Driver.findElement(By.id("_MacmillanOptIn"));
     }
+    public WebElement TermsConditionsCheckbox() {
+        return Driver.findElement(By.id("_AgreeToTermsOfUse"));
+    }
 
     public WebElement EmailAddress() {
         return Driver.findElement(By.id("_EmailAddress"));

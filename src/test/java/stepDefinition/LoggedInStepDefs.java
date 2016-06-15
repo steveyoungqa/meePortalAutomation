@@ -125,6 +125,7 @@ public class LoggedInStepDefs {
     public void aSuccessScreenThatThePasswordResetLinkHasBeenSentIsShown() throws Throwable {
         Register register = new Register();
         register.ResetPasswordSent().isDisplayed();
+        Thread.sleep(3000);
     }
 
     @And("^I select the Contact our Customer Service Team link$")

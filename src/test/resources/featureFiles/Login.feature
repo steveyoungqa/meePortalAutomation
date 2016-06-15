@@ -73,6 +73,15 @@ Feature: Regression tests for the login feature
       | username |          | Please enter your password                             |
       |          |          | Please enter your username, Please enter your password |
 
+  @validation
+  Scenario: Forgot User/Pass Validation errors
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    Then I click the Forgot Password link
+    And I select the Submit button
+    Then a message "Please enter your username" is displayed
+    And I click on the Close form icon
+
   @positive
   Scenario Outline: User successful login attempt (3a)
     Given I am on the MEE portal for "test"
