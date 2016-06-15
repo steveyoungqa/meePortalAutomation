@@ -180,6 +180,7 @@ public class RegisterStepDefs {
         }
         Driver.waitForUrlToContain("http://www.macmillanenglish.com/privacy-policy/", 50);
         Driver.close();
+        Driver.switchToWindow(windowHandleBefore);
         Thread.sleep(2000);
     }
 
@@ -194,6 +195,7 @@ public class RegisterStepDefs {
         }
         Driver.waitForUrlToContain("http://www.macmillanenglish.com/privacy-policy/#OnlineTracking", 50);
         Driver.close();
+        Driver.switchToWindow(windowHandleBefore);
         Thread.sleep(2000);
     }
 
