@@ -52,7 +52,7 @@ Feature: Edit User Profile
 
     Then I open the logged in Gmail page
     And a check is made that the Password has been changed
-    And I delete the Test Gmail Email
+    Then I delete ALL Test Gmail Emails
 
 
     #Edit Details
@@ -74,8 +74,7 @@ Feature: Edit User Profile
 
     Then I open the logged in Gmail page
     And a check is made that Details have been changed
-    And I delete the Test Gmail Email
-    And I delete the Test Gmail Email
+    Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
     And I switch Windows back to the MEE Portal

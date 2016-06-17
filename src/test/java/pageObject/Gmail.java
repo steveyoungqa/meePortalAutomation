@@ -146,6 +146,14 @@ public class Gmail {
         return Driver.findElement(By.xpath("//*[@src='images/cleardot.gif'][@role='menu']"));
     }
 
+    public WebElement GmailSelectAllMenu () {
+        return Driver.findElement(By.xpath("//*[@data-tooltip='Select']"));
+    }
+
+    public WebElement GmailTrashIcon() {
+        return Driver.findElement(By.xpath("//*[@data-tooltip='Delete']"));
+    }
+
     public WebElement GmailDeleteEmail () {
         return Driver.findElement(By.xpath("//*[contains(text(), 'Delete this message')]"));
     }

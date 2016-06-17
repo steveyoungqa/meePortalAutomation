@@ -286,7 +286,16 @@ public class MailClientsStepDefs {
         gmail.GmailAnyMacmillanEmail().click();
         Thread.sleep(5000);
         gmail.GmailExpandEmail().click();
+        Thread.sleep(5000);
         gmail.GmailDeleteEmail().click();
+    }
+
+    @And("^I delete ALL Test Gmail Emails$")
+    public void iDeleteAllGmailEmail() throws Throwable {
+        Gmail gmail = new Gmail();
+        gmail.GmailSelectAllMenu().click();
+        Thread.sleep(3000);
+        gmail.GmailTrashIcon().click();
     }
 
     @Then("^I switch back to Gmail$")

@@ -37,8 +37,7 @@ Feature: Forgot UserName
     Then I log out of MEE
 
     Then I switch back to Gmail
-    And I delete the Test Gmail Email
-    And I delete the Test Gmail Email
+    Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
     Examples:
