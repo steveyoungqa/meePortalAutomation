@@ -31,7 +31,6 @@ public class MeePortalStepDefs {
 			Driver.switchToWindow(winHandle);}
 		Driver.loadPage(MeePortal.getUrl());
 		Assert.assertEquals("Incorrect URL.", MeePortal.getUrl(), Driver.getCurrentUrl());
-        System.out.println("DRIVER USED IS: " + Driver.mDriver);
 	}
 
 	@When("^I select language \"(.*?)\"$")
@@ -108,7 +107,6 @@ public class MeePortalStepDefs {
         String windowHandleBefore = Driver.getWindowHandle();
         Driver.switchToWindow(windowHandleBefore);
         Thread.sleep(2000);
-//        Driver.close();
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
         }

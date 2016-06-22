@@ -46,6 +46,7 @@ public class MailClientsStepDefs {
         String password = FileReader.readProperties().get("emailPassword");
 
         windowHandleBefore = Driver.getWindowHandle();
+        Thread.sleep(5000);
         Driver.loadPage("https://mail.google.com/");
         for (String winHandle : Driver.getWindowHandles()) {
             Driver.switchToWindow(winHandle);
@@ -295,7 +296,11 @@ public class MailClientsStepDefs {
         Gmail gmail = new Gmail();
         gmail.GmailSelectAllMenu().click();
         Thread.sleep(3000);
-        gmail.GmailTrashIcon().click();
+
+        if
+                (gmail.GmailTrashIcon().isDisplayed()) {
+            gmail.GmailTrashIcon().click();
+        }
     }
 
     @Then("^I switch back to Gmail$")
@@ -314,21 +319,17 @@ public class MailClientsStepDefs {
         gmail.GmailSignOutLogo().click();
         Thread.sleep(2000);
         gmail.GmailSignOutLink().click();
-
-
     }
 
     @And("^a check is made that the Password has been changed$")
     public void aCheckIsMadeThatThePasswordHasBeenChanged() throws Throwable {
         Gmail gmail = new Gmail();
         gmail.GmailPasswordChanged().isDisplayed();
-
     }
 
     @And("^a check is made that Details have been changed$")
     public void aCheckIsMadeThatDetailsHasBeenChanged() throws Throwable {
         Gmail gmail = new Gmail();
         gmail.GmailDetailsChanged().isDisplayed();
-
     }
 }

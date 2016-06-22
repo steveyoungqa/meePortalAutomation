@@ -7,6 +7,11 @@ Feature: Edit User Profile
 #  This Test opens up multiple Mailinator windows and is problematic if run with other Tags
 #  So run on its own @profile tag only
 
+  Scenario: Delete ALL existing GMAIL's (if any)
+    Given I check the Test Gmail account for the email
+    Then I delete ALL Test Gmail Emails
+    Then I log out of Gmail
+
   Scenario Outline: Register a new user
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button

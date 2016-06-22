@@ -15,6 +15,11 @@ Feature: Forgot UserName & Password Journey
     Then a message "Email address required" is displayed
     And I click on the Close form icon
 
+  Scenario: Delete ALL existing GMAIL's (if any)
+    Given I check the Test Gmail account for the email
+    Then I delete ALL Test Gmail Emails
+    Then I log out of Gmail
+
   @forgotUserAndPass
   Scenario Outline: Forgotten UserName & Password Journey
     Given I am on the MEE portal for "test"

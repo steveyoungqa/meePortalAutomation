@@ -2,10 +2,11 @@
 Feature: Login and download the MEE app
   SIN-2108 - Download MEE App
 
-  Scenario Outline: Register a new user
+  Scenario Outline: Download App
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
+    When I select language "<Language>"
     When I log in as username "<username>" and password "<password>"
     Then I am logged into MEE
 
@@ -19,5 +20,5 @@ Feature: Login and download the MEE app
 
 
     Examples:
-      | username | password  |
-      | meeadmin | M4cmillan |
+      | Language | username | password  |
+      | English  | meeadmin | M4cmillan |

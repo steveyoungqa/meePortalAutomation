@@ -3,6 +3,11 @@ Feature: Forgot Password Journey
   SIN-2008 - Automation - Forgot UserName/Password journey
   SIN-2107 - Automation - Forgot User/Pass Validation errors
 
+  Scenario: Delete ALL existing GMAIL's (if any)
+    Given I check the Test Gmail account for the email
+    Then I delete ALL Test Gmail Emails
+    Then I log out of Gmail
+
   @forgotPassword
   Scenario Outline: Forgotten Password Journey
     Given I am on the MEE portal for "test"
