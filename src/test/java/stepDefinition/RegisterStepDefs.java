@@ -455,4 +455,34 @@ public class RegisterStepDefs {
         mailinator.MailinatorMinorClickEmailLink().click();
     }
 
+    @Then("^I enter an email address of \"([^\"]*)\"$")
+    public void iEnterAnEmailAddressOf(String email) throws Throwable {
+        Register register = new Register();
+        FileReader.addData("emailAddress", email);
+        register.Email().clear();
+        register.Email().sendKeys(email);
+    }
+
+    @And("^I enter a confirmation email address of \"([^\"]*)\"$")
+    public void iEnterAConfirmationEmailAddressOf(String email) throws Throwable {
+        Register register = new Register();
+        email = FileReader.readProperties().get("emailAddress");
+        register.EmailConfirm().clear();
+        register.EmailConfirm().sendKeys(email);
+    }
+
+    @And("^I select the Use the Same Email Address checkbox$")
+    public void iSelectTheUseTheSameEmailAddressCheckbox() throws Throwable {
+        Register register = new Register();
+        register.SameEmailAddressCheckbox().click();
+    }
+
+    @Then("^I register a Unique first name$")
+    public void iRegisterAUniqueFirstName() throws Throwable {
+        Register register = new Register();
+        register.FirstName().clear();
+        String firstName = RandomStringUtils.randomAlphabetic(8);
+        FileReader.addData("uniqueFirstName", firstName);
+        register.FirstName().sendKeys(firstName);
+    }
 }
