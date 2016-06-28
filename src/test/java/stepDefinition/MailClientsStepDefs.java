@@ -169,10 +169,7 @@ public class MailClientsStepDefs {
                 RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
                 mailinator.MailinatorClickEmailLinkChineseTraditional().click();
                 break;
-
         }
-
-
     }
 
     @And("^I click on the link to confirm the email address$")

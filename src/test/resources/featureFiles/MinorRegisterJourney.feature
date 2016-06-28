@@ -1,13 +1,14 @@
 @u16
-Feature: U16 Registration Journey
+Feature: Minor Registration Journey
   SIN-2006 - Automation - U16 Registration Journey
+  SIN-1936 - U12 Australia and U18 Mexico
 
   Scenario: Delete ALL existing GMAIL's (if any)
     Given I check the Test Gmail account for the email
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
-  Scenario Outline: U16 Registration
+  Scenario Outline: Minor Registration
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
@@ -25,7 +26,6 @@ Feature: U16 Registration Journey
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail Minor email address
 
-#    Then I switch Windows back to the MEE Portal
     Then I should see the Registration Completed screen
     And I select the Close button
 
@@ -41,3 +41,5 @@ Feature: U16 Registration Journey
     Examples:
       | Language | Firstname | Surname | Country | day | month  | year |
       | English  | Mikey     | Minor   | GB      | 11  | August | 2004 |
+      | English  | Adrian    | Aussie  | AU      | 11  | August | 2005 |
+      | English  | Pedro     | Mexico  | MX      | 11  | August | 2004 |

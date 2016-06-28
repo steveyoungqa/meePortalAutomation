@@ -44,7 +44,6 @@ Feature: Regression End to End Test Pack
     And I select the Submit button
     Then a message "Email address required" is displayed
 
-
   Scenario Outline: MANDATORY FIELDS LOGIN VALIDATION
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
@@ -155,7 +154,6 @@ Feature: Regression End to End Test Pack
     Then a message "Success! Your access code has been activated." is displayed
     Then I log out of MEE
 
-
     Examples:
       | username | password  |  AccessCode        | Resource                      | Resource2                       | NotPubCode       |
       | meeadmin | M4cmillan |  HFTL1199319198437 | TEST High Five! Level 1 Pupil | TEST High Five! Level 1 Teacher | TEST395894165646 |
@@ -193,6 +191,8 @@ Feature: Regression End to End Test Pack
     Examples:
       | Language | Firstname | Surname | Country | day | month  | year |
       | English  | Mikey     | Minor   | GB      | 11  | August | 2004 |
+      | English  | Adrian    | Aussie  | AU      | 11  | August | 2005 |
+      | English  | Pedro     | Mexico  | MX      | 11  | August | 2004 |
 
   Scenario Outline: T&C'S, PRIVACY, COOKIES
     Given I am on the MEE portal for "test"
@@ -251,7 +251,6 @@ Feature: Regression End to End Test Pack
     And I select the Submit button
     Then I should see the Password changed Success message
     And I select the Close button
-#    And I log out of MEE
 
     Then I open the logged in Gmail page
     And a check is made that the Password has been changed
@@ -425,8 +424,7 @@ Feature: Regression End to End Test Pack
     Examples:
       | Language | Firstname | Surname   | Country | day | month  | year |
       | English  | Fred      | Forgetful | GB      | 5   | August | 1976 |
-#
-#
+
   Scenario Outline: DOWNLOAD APP
 
     Given I am on the MEE portal for "test"
@@ -482,7 +480,6 @@ Feature: Regression End to End Test Pack
     Then I switch back to Gmail
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
-
 
     Examples:
       | Language | Firstname | Surname | Country | day | month | year | email                              |
