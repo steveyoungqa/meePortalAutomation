@@ -31,7 +31,6 @@ public class Driver {
 
 
     public static WebDriver webdriver;
-    public static WebDriver mDriver;
     public static DesiredCapabilities browser;
     public static Platform systemPlatform;
     public static DesiredCapabilities additionalCapabilities = new DesiredCapabilities();
@@ -42,7 +41,7 @@ public class Driver {
 
     public synchronized static WebDriver getCurrentDriver() {
 
-        if (mDriver == null) {
+        if (webdriver == null) {
             browser = new DesiredCapabilities();
             if (BrowserStack.useBrowserStack()) {
                 browser.merge(BrowserStack.setBrowserCapabilities());
@@ -58,7 +57,7 @@ public class Driver {
             String seleniumHub = GlobalVariables.config.get("seleniumHub");
 
             try {
-                mDriver = new RemoteWebDriver(new URL(seleniumHub), browser);
+                webdriver = new RemoteWebDriver(new URL(seleniumHub), browser);
             } catch (WebDriverException e) {
                 Driver.writeToReport("WebDriverException: " + e.getMessage());
                 Assert.fail(e.getMessage());
@@ -69,7 +68,7 @@ public class Driver {
                         new Thread(new BrowserCleanup()));
             }
         }
-        return mDriver;
+        return webdriver;
     }
 
     private static class BrowserCleanup implements Runnable {
@@ -147,7 +146,7 @@ public class Driver {
     }
 
     public static void refreshPage() {
-        mDriver.navigate().refresh();
+        webdriver.navigate().refresh();
     }
 
     public static String getTitle() {
@@ -258,19 +257,19 @@ public class Driver {
     }
 
     public static void scrollToTopOfPage() throws Throwable {
-        JavascriptExecutor jse = (JavascriptExecutor) mDriver;
+        JavascriptExecutor jse = (JavascriptExecutor) webdriver;
         jse.executeScript("scrollBy(0, -6000);");
         Thread.sleep(2000);
     }
 
     public static void scrollToBottomOfPage() throws Throwable {
-        JavascriptExecutor jse = (JavascriptExecutor) mDriver;
+        JavascriptExecutor jse = (JavascriptExecutor) webdriver;
         jse.executeScript("window.scrollTo(0,document.body.scrollHeight);");
         Thread.sleep(2000);
     }
 
     public static void scrollToElement(WebElement element) throws Throwable {
-        Actions actions = new Actions(mDriver);
+        Actions actions = new Actions(webdriver);
 //        actions.moveToElement(element).perform();
         actions.moveToElement(element).click(element).perform();
         Thread.sleep(2000);
@@ -294,7 +293,7 @@ public class Driver {
 
    public static void waitFor(ExpectedCondition<WebElement> condition, Integer timeout) {
         timeout = timeout != null ? timeout : 5;
-        WebDriverWait wait = new WebDriverWait(Driver.mDriver, timeout);
+        WebDriverWait wait = new WebDriverWait(Driver.webdriver, timeout);
         wait.until(condition);
     }
 
