@@ -1,3 +1,4 @@
+#   !!WARNING THE FORGOT USERNAME & PASSWORD LINK HAS BEEN DEPRECATED!!!
 
 Feature: Forgot UserName & Password Journey
   SIN-2008 - Automation - Forgot UserName/Password journey

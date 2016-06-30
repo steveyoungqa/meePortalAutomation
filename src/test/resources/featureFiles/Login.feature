@@ -35,23 +35,6 @@ Feature: Regression tests for the login feature
       | Chinese            |
       | ChineseTraditional |
 
-  Scenario Outline: User is diverted to the forgot username webpage (1c)
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
-    When I select language "<Language>"
-    And I click the forgot username and password link
-
-    Examples:
-      | Language           |
-      | Korean             |
-      | English            |
-      | Spanish            |
-      | Japanese           |
-      | Taiwanese          |
-      | Vitenamese         |
-      | Chinese            |
-      | ChineseTraditional |
-
   @negative
   Scenario: User failed login attempt (2a)
     Given I am on the MEE portal for "test"
@@ -94,9 +77,3 @@ Feature: Regression tests for the login feature
       | username | password  |
       | meeadmin | M4cmillan |
       | meetest  | meetest   |
-
-
-
-
-
-
