@@ -3,12 +3,10 @@ package stepDefinition;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
 import org.openqa.selenium.WebDriverException;
 
 import testRunner.TestRunner;
 import webDriver.Driver;
-import webDriver.GlobalVariables;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -30,7 +28,7 @@ public class Hooks {
 	@Before
 	public void before(Scenario scenario) {
 		
-		GlobalVariables.scenario = scenario;
+		TestRunner.scenario = scenario;
 	}
 	
 	@After
