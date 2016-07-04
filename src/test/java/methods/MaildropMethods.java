@@ -44,9 +44,9 @@ public class MaildropMethods {
 		return Maildrop.emailLink().isEmpty();
 	}
 	
-	public void switchToEmailBody() {
-		Driver.switchToFrame(Maildrop.messageBody());
-	}
+//	public void switchToEmailBody() {
+//		Driver.switchToFrame(Maildrop.messageBody());
+//	}
 	
 	public void clickRefresh() {
 		Maildrop.refresh().click();

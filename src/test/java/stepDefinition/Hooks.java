@@ -6,6 +6,7 @@ import java.io.IOException;
 import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
 import org.openqa.selenium.WebDriverException;
 
+import testRunner.TestRunner;
 import webDriver.Driver;
 import webDriver.GlobalVariables;
 import cucumber.api.Scenario;
@@ -21,7 +22,7 @@ public class Hooks {
 	@Before
 	public void readConfigFileAtStart() throws FileNotFoundException, IOException {
 		if (!runOnce) {
-			GlobalVariables.config = FileReader.readProperties();
+			TestRunner.config = FileReader.readProperties();
 			runOnce = true;
 		}
 	}

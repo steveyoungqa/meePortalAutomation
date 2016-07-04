@@ -1,5 +1,5 @@
 @debug
-Feature: Existing Account Registered to this Email
+Feature: Debug
 
-  Scenario: Delete ALL existing GMAIL's (if any)
+  Scenario: Debug
     Given I am on the MEE portal for "test"

@@ -8,12 +8,14 @@ import cucumber.api.java.en.When;
 import enums.Language;
 import enums.MeePortal;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.WebElement;
 import pageObject.HelpPage;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class MeePortalStepDefs {
 
@@ -24,11 +26,11 @@ public class MeePortalStepDefs {
 
 		EnvironmentStepDefs.environment = environment;
 		Thread.sleep(5000);
-		String windowHandleBefore = Driver.getWindowHandle();
-		Driver.switchToWindow(windowHandleBefore);
-		Thread.sleep(2000);
-		for (String winHandle : Driver.getWindowHandles()) {
-			Driver.switchToWindow(winHandle);}
+//		String windowHandleBefore = Driver.getWindowHandle();
+//		Driver.switchToWindow(windowHandleBefore);
+//		Thread.sleep(2000);
+//		for (String winHandle : Driver.getWindowHandles()) {
+//			Driver.switchToWindow(winHandle);}
 		Driver.loadPage(MeePortal.getUrl());
 		Assert.assertEquals("Incorrect URL.", MeePortal.getUrl(), Driver.getCurrentUrl());
 	}
@@ -116,4 +118,23 @@ public class MeePortalStepDefs {
     public void iRefreshThePage() throws Throwable {
         Driver.refreshPage();
     }
+
+//    public static void scrollToTopOfPage() throws Throwable {
+//        JavascriptExecutor jse = (JavascriptExecutor) ;
+//        jse.executeScript("scrollBy(0, -6000);");
+//        Thread.sleep(2000);
+//    }
+//
+//    public static void scrollToBottomOfPage() throws Throwable {
+//        JavascriptExecutor jse = (JavascriptExecutor) webdriver;
+//        jse.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+//        Thread.sleep(2000);
+//    }
+//
+//    public static void scrollToElement(WebElement element) throws Throwable {
+//        Actions actions = new Actions(webdriver);
+////        actions.moveToElement(element).perform();
+//        actions.moveToElement(element).click(element).perform();
+//        Thread.sleep(2000);
+//    }
 }

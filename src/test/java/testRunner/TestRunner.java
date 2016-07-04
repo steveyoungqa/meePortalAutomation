@@ -4,13 +4,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.Scenario;
 import cucumber.api.junit.Cucumber;
 
-import org.apache.maven.model.Model;
-import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.apache.maven.project.MavenProject;
 import org.junit.runner.RunWith;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Map;
 
 
