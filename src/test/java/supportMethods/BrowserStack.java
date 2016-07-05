@@ -7,10 +7,10 @@ import testRunner.TestRunner;
 
 public class BrowserStack {
 	public static Boolean useBrowserStack() {
-		
+
 		return Boolean.valueOf(TestRunner.config.get("useBrowserstack"));
 	}
-	
+
 	public static void setSeleniumHub() {
 		
 		String browserstackUsername = System.getProperty("browserstackUsername", TestRunner.config.get("browserstackUsername"));

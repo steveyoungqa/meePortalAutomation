@@ -1,6 +1,8 @@
 package supportFactory;
 
 import enums.Platform;
+import testRunner.TestRunner;
+
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 

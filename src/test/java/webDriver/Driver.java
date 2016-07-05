@@ -61,6 +61,7 @@ public class Driver {
     }
 
     public static void quit() {
+
         getCurrentDriver().quit();
     }
 
@@ -102,6 +103,7 @@ public class Driver {
     }
 
     public static List<WebElement> findElements(By element) {
+
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
