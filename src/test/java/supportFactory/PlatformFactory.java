@@ -4,13 +4,13 @@ import enums.Platform;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import webDriver.GlobalVariables;
+import testRunner.TestRunner;
 
 public class PlatformFactory {
 	
 	public static Platform platform() {
 	
-		return Platform.valueOf(GlobalVariables.config.get("platform"));
+		return Platform.valueOf(TestRunner.config.get("platform"));
 	}
 	
 	public static DesiredCapabilities selectPlatform(DesiredCapabilities caps) {

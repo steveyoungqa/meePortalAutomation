@@ -4,13 +4,13 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import enums.Browser;
-import webDriver.GlobalVariables;
+import testRunner.TestRunner;
 
 public class BrowserFactory {
 	
 	public static Browser browser() {
 		
-		return Browser.valueOf(GlobalVariables.config.get("browser"));
+		return Browser.valueOf(TestRunner.config.get("browser"));
 	}
 
 	public static DesiredCapabilities selectBrowser(DesiredCapabilities caps) {

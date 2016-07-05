@@ -23,7 +23,9 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import supportFactory.BrowserFactory;
 import supportFactory.PlatformFactory;
+import supportFactory.WebdriverFactory;
 import supportMethods.BrowserStack;
+import testRunner.TestRunner;
 
 import static org.apache.commons.io.FileUtils.waitFor;
 
@@ -36,37 +38,13 @@ public class Driver {
     public static DesiredCapabilities additionalCapabilities = new DesiredCapabilities();
 
     public static Boolean useBrowserStack() {
-        return Boolean.valueOf(GlobalVariables.config.get("useBrowserstack"));
+        return Boolean.valueOf(TestRunner.config.get("useBrowserstack"));
     }
 
     public synchronized static WebDriver getCurrentDriver() {
 
         if (webdriver == null) {
-            browser = new DesiredCapabilities();
-            if (BrowserStack.useBrowserStack()) {
-                browser.merge(BrowserStack.setBrowserCapabilities());
-                browser.merge(BrowserStack.setProjectDetails());
-                BrowserStack.setSeleniumHub();
-            }
-
-            PlatformFactory.selectPlatform(browser);
-            BrowserFactory.selectBrowser(browser);
-            browser.merge(additionalCapabilities);
-            browser.setCapability("app", GlobalVariables.config.get("mobileApp"));
-
-            String seleniumHub = GlobalVariables.config.get("seleniumHub");
-
-            try {
-                webdriver = new RemoteWebDriver(new URL(seleniumHub), browser);
-            } catch (WebDriverException e) {
-                Driver.writeToReport("WebDriverException: " + e.getMessage());
-                Assert.fail(e.getMessage());
-            } catch (Exception e) {
-                Driver.writeToReport(e.getMessage());
-            } finally {
-                Runtime.getRuntime().addShutdownHook(
-                        new Thread(new BrowserCleanup()));
-            }
+            webdriver = WebdriverFactory.createWebdriver();
         }
         return webdriver;
     }
@@ -164,11 +142,11 @@ public class Driver {
     public static void embedScreenshot() {
 
         byte[] screenshot = ((TakesScreenshot) getCurrentDriver()).getScreenshotAs(OutputType.BYTES);
-        GlobalVariables.scenario.embed(screenshot, "image/png");
+        TestRunner.scenario.embed(screenshot, "image/png");
     }
 
     public static void writeToReport(String string) {
-        GlobalVariables.scenario.write(string);
+        TestRunner.scenario.write(string);
     }
 
     public static WebDriver switchToWindow(String window) {
@@ -195,41 +173,41 @@ public class Driver {
         return getCurrentDriver().getWindowHandles();
     }
 
-    public static void nextTab() {
-        ArrayList<String> tabs = new ArrayList<String>(Driver.getWindowHandles());
-        int index = 0;
-        for (String tab : tabs) {
-            if (tab == GlobalVariables.mainWindowHandle) {
-                index = tabs.indexOf(tab);
-            }
-        }
-        Driver.switchToWindow(tabs.get(index + 1));
-    }
-
-    /**
-     * Designed when there are only two tabs. Avoids issues where the order of window handles differs between browsers
-     */
-    public static void otherTab() {
-        ArrayList<String> tabs = new ArrayList<String>(Driver.getWindowHandles());
-        int index = 0;
-        for (String tab : tabs) {
-            if (tab != GlobalVariables.mainWindowHandle) {
-                index = tabs.indexOf(tab);
-            }
-        }
-        Driver.switchToWindow(tabs.get(index));
-    }
-
-    public static void mainTab() {
-        ArrayList<String> tabs = new ArrayList<String>(Driver.getWindowHandles());
-        int index = 0;
-        for (String tab : tabs) {
-            if (tab == GlobalVariables.mainWindowHandle) {
-                index = tabs.indexOf(tab);
-            }
-        }
-        Driver.switchToWindow(tabs.get(index));
-    }
+//    public static void nextTab() {
+//        ArrayList<String> tabs = new ArrayList<String>(Driver.getWindowHandles());
+//        int index = 0;
+//        for (String tab : tabs) {
+//            if (tab == TestRunner.mainWindowHandle) {
+//                index = tabs.indexOf(tab);
+//            }
+//        }
+//        Driver.switchToWindow(tabs.get(index + 1));
+//    }
+//
+//    /**
+//     * Designed when there are only two tabs. Avoids issues where the order of window handles differs between browsers
+//     */
+//    public static void otherTab() {
+//        ArrayList<String> tabs = new ArrayList<String>(Driver.getWindowHandles());
+//        int index = 0;
+//        for (String tab : tabs) {
+//            if (tab != TestRunner.mainWindowHandle) {
+//                index = tabs.indexOf(tab);
+//            }
+//        }
+//        Driver.switchToWindow(tabs.get(index));
+//    }
+//
+//    public static void mainTab() {
+//        ArrayList<String> tabs = new ArrayList<String>(Driver.getWindowHandles());
+//        int index = 0;
+//        for (String tab : tabs) {
+//            if (tab == TestRunner.mainWindowHandle) {
+//                index = tabs.indexOf(tab);
+//            }
+//        }
+//        Driver.switchToWindow(tabs.get(index));
+//    }
 
     public static Dimension getResolution() {
         return getCurrentDriver().manage().window().getSize();
