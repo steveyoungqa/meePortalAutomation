@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c84423d3-94aa-4647-81a7-b2ed50c8d33a" name="Default" comment="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/supportFactory/BrowserFactory.java" afterPath="$PROJECT_DIR$/src/test/java/supportFactory/BrowserFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/supportFactory/PlatformFactory.java" afterPath="$PROJECT_DIR$/src/test/java/supportFactory/PlatformFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/supportMethods/BrowserStack.java" afterPath="$PROJECT_DIR$/src/test/java/supportMethods/BrowserStack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/webDriver/Driver.java" afterPath="$PROJECT_DIR$/src/test/java/webDriver/Driver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/config.properties" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" />
     </list>
     <ignored path="Selenium-Cucumber-Framework.iws" />
@@ -117,8 +112,8 @@
       <file leaf-file-name="Register.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/Register.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="15">
+              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -137,8 +132,8 @@
       <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/resources/config.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -204,7 +199,6 @@
         <option value="$PROJECT_DIR$/src/test/java/supportFactory/WebdriverFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/enums/Browser.java" />
         <option value="$PROJECT_DIR$/src/test/java/supportFactory/BrowserFactory.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/test/java/methods/MaildropMethods.java" />
         <option value="$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/enums/Platform.java" />
@@ -214,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/test/java/stepDefinition/Hooks.java" />
         <option value="$PROJECT_DIR$/src/test/java/supportFactory/PlatformFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/webDriver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/config.properties" />
       </list>
     </option>
   </component>
@@ -239,8 +234,8 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1757" />
-    <option name="y" value="32" />
+    <option name="x" value="1673" />
+    <option name="y" value="23" />
     <option name="width" value="1598" />
     <option name="height" value="922" />
   </component>
@@ -1167,18 +1162,26 @@
       <workItem from="1466676767119" duration="2714000" />
       <workItem from="1466688090538" duration="265000" />
       <workItem from="1466688991958" duration="45135000" />
-      <workItem from="1467730218369" duration="740000" />
+      <workItem from="1467730218369" duration="1070000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;">
+      <created>1467730977166</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1467730977166</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__Login - 2016.07.04 at 14h 20m 34s.xml">
-      <configuration name="Feature: Login" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature__Register - 2016.07.04 at 14h 17m 10s.xml">
       <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__Register - 2016.07.05 at 15h 51m 14s.xml">
+      <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__Register - 2016.07.05 at 16h 05m 44s.xml">
       <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__debugOnly - 2016.07.04 at 14h 10m 09s.xml">
@@ -1204,7 +1207,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="652450000" />
+    <option name="totallyTimeSpent" value="652780000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1216,12 +1219,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1757" y="32" width="1598" height="922" extended-state="0" />
-    <editor active="false" />
+    <frame x="1673" y="23" width="1598" height="922" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31986532" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3482587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3482587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5603448" sideWeight="0.5027285" order="7" side_tool="true" content_ui="tabs" />
@@ -1664,14 +1667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/Register.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/webDriver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1635">
@@ -1732,10 +1727,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/Register.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
