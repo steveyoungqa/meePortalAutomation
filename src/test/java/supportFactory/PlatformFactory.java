@@ -27,6 +27,7 @@ public class PlatformFactory {
 		}
 	}
 
+
 	public static DesiredCapabilities selectPlatform(DesiredCapabilities caps) {
 
 		switch (desiredPlatform()) {

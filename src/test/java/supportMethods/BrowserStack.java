@@ -34,7 +34,6 @@ public class BrowserStack {
 
 		caps.setCapability("browserstack.debug", "true");
 		caps.setCapability("resolution", System.getProperty("browserstackResolution", TestRunner.config.get("browserstackResolution")));
-
 		return caps;
 	}
 

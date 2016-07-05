@@ -12,8 +12,8 @@ public class BrowserFactory {
 
 	static Browser desiredBrowser() {
 
-		return Browser.valueOf(TestRunner.config.get("browser"));
-	}
+        return Browser.valueOf(TestRunner.config.get("browser"));
+    }
 
 	public static DesiredCapabilities selectBrowser(DesiredCapabilities caps) {
 
