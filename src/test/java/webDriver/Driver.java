@@ -33,13 +33,6 @@ public class Driver {
 
 
     public static WebDriver webdriver;
-    public static DesiredCapabilities browser;
-    public static Platform systemPlatform;
-    public static DesiredCapabilities additionalCapabilities = new DesiredCapabilities();
-
-    public static Boolean useBrowserStack() {
-        return Boolean.valueOf(TestRunner.config.get("useBrowserstack"));
-    }
 
     public synchronized static WebDriver getCurrentDriver() {
 
@@ -47,17 +40,6 @@ public class Driver {
             webdriver = WebdriverFactory.createWebdriver();
         }
         return webdriver;
-    }
-
-    private static class BrowserCleanup implements Runnable {
-        public void run() {
-            System.out.println("Cleaning up the browser");
-            try {
-                quit();
-            } catch (Exception e) {
-                System.out.println("Browser already shut down.");
-            }
-        }
     }
 
     public static void quit() {
