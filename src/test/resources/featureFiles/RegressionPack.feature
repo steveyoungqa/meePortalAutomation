@@ -83,6 +83,8 @@ Feature: Regression End to End Test Pack
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
 
+    And I switch Windows back to the MEE Portal
+
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
@@ -269,7 +271,7 @@ Feature: Regression End to End Test Pack
 
 
   @forgotPassword
-  Scenario Outline: Forgotten Password Journey
+  Scenario Outline: FORGOTTEN PASSWORD JOURNEY
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
@@ -316,7 +318,7 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
   @forgotUsername
-  Scenario Outline: Forgotten Username Journey
+  Scenario Outline: FORGOTTEN USERNAME JOURNEY
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
@@ -402,6 +404,8 @@ Feature: Regression End to End Test Pack
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
+
+    And I switch Windows back to the MEE Portal
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button

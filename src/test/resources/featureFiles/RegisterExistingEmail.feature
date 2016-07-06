@@ -34,6 +34,8 @@ Feature: Existing Account Registered to this Email
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
 
+    And I switch Windows back to the MEE Portal
+
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
