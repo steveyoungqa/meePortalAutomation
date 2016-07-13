@@ -45,7 +45,6 @@ Feature: Existing Account Registered to this Email
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
-
     Examples:
       | Language | Firstname | Surname | Country | day | month | year | email                              |
       | English  | Ted       | Tester  | GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |

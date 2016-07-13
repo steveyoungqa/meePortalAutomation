@@ -82,38 +82,14 @@ public class Gmail {
         return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), '感謝您建立Macmillan Education Everywhere (MEE) 帳戶')]"));
     }
 
-    public WebElement MailinatorEmailLink() {
-        return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education')]"));
-    }
-
-    public WebElement MailinatorResetPasswordEmailLink() {
-        return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education Everywhere - Reset your password')]"));
-    }
-
-    public WebElement MailinatorEmailUsernameLink() {
-        return Driver.findElement(By.xpath("//*[@class='innermail ng-binding'][contains(text(), 'Macmillan Education Everywhere - Your username')]"));
-    }
-
     public WebElement GmailClickEmailLink() {
-        return Driver.findElement(By.xpath("//*[contains(text(), 'Go here to login')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Go here to login')]"));
     }
 
     public WebElement GmailMinorClickEmailLink() {
-        return Driver.findElement(By.xpath("//*[contains(text(), 'Click this link to confirm your email address.')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Click this link to confirm your email address.')]"));
     }
-
-    public WebElement MailinatorMinorClickEmailLink() {
-        return Driver.findElement(By.xpath("//*[contains(text(), 'Click this link to confirm your email address.')]"));
-    }
-
-    public WebElement MailinatorGoHereToLoginLink() {
-        return Driver.findElement(By.xpath("//*[contains(text(), 'Go here to login')]"));
-    }
-
-    public WebElement MailinatorResetYourPasswordHereLink() {
-        return Driver.findElement(By.xpath("//span[1]//*[contains(text(), 'here')]"));
-    }
-
+    
     public WebElement GmailClickEmailLinkSpanish() {
         return Driver.findElement(By.xpath("//*[contains(text(), 'Entra aquí para acceder')]"));
     }
