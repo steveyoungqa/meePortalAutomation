@@ -55,7 +55,7 @@ public class Mailinator {
     }
 
     public WebElement MailinatorClickEmailLinkTaiwan() {
-        return Driver.findElement(By.xpath("//*[contains(text(), 'เข้าสู่ระบบตรงนี้')]"));
+        return Driver.findElement(By.xpath("//*[text()='เข้าสู่ระบบตรงนี้']"));
     }
 
     public WebElement MailinatorClickEmailLinkVietnamese() {
@@ -63,10 +63,10 @@ public class Mailinator {
     }
 
     public WebElement MailinatorClickEmailLinkChinese() {
-        return Driver.findElement(By.xpath("//*[contains(text(), '转至此处登录')]"));
+        return Driver.findElement(By.xpath("//*[text()= '转至此处登录']"));
     }
 
     public WebElement MailinatorClickEmailLinkChineseTraditional() {
-        return Driver.findElement(By.xpath("//*[contains(text(), '請點這裡登入')]"));
+        return Driver.findElement(By.xpath("//*[text()= '請點這裡登入']"));
     }
 }

@@ -119,11 +119,11 @@ public class Gmail {
     }
 
     public WebElement GmailClickEmailLinkJapanese() {
-        return Driver.findElement(By.xpath("//*[contains(text(), 'ログインはこちらから')]"));
+        return Driver.findElement(By.xpath("//*[@href='https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ja/Login']"));
     }
 
     public WebElement GmailClickEmailLinkKorean() {
-        return Driver.findElement(By.xpath("//*[contains(text(), '로그인하려면 여기로 이동하세요.')]"));
+        return Driver.findElement(By.xpath("//*[text()='로그인하려면 여기로 이동하세요.']"));
     }
 
     public WebElement GmailClickEmailLinkTaiwan() {

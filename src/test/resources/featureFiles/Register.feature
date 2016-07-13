@@ -3,7 +3,7 @@ Feature: Regression tests for registering a new user
   SIN-2078 - Email Address Handling
   Register a new User with unique email address and Login in each language
 
-  Scenario: Delete ALL existing GMAIL's (if any)
+  Background: Delete ALL existing GMAIL's (if any)
     Given I check the Test Gmail account for the email
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail

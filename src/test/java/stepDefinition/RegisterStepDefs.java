@@ -362,8 +362,8 @@ public class RegisterStepDefs {
         switch (language) {
             case "Taiwanese":
 
-                String username = Driver.findElement(By.xpath("//*[contains(text(), 'ชื่อผู้ใช้:')]")).getText().replace("ชื่อผู้ใช้: ", "");
-                String password = Driver.findElement(By.xpath("//*[contains(text(), 'รหัสผ่าน:')]")).getText().replace("รหัสผ่าน: ", "");
+                String username = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'ชื่อผู้ใช้:')]")).getText().replace("ชื่อผู้ใช้: ", "");
+                String password = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'รหัสผ่าน:')]")).getText().replace("รหัสผ่าน: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
                 break;
@@ -372,8 +372,8 @@ public class RegisterStepDefs {
         switch (language) {
             case "Vitenamese":
 
-                String username = Driver.findElement(By.xpath("//*[contains(text(), 'Tên người dùng:')]")).getText().replace("Tên người dùng: ", "");
-                String password = Driver.findElement(By.xpath("//*[contains(text(), 'Mật khẩu:')]")).getText().replace("Mật khẩu: ", "");
+                String username = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Tên người dùng:')]")).getText().replace("Tên người dùng: ", "");
+                String password = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Mật khẩu:')]")).getText().replace("Mật khẩu: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
                 break;
