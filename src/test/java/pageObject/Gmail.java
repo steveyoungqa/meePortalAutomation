@@ -59,7 +59,7 @@ public class Gmail {
     }
 
     public WebElement GmailMacmillanEmailJapanese() {
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education Everywhere (MEE) アカウントを作成していただき')]"));
+        return Driver.findElement(By.xpath("//*[@name='noreply']"));
     }
 
     public WebElement GmailMacmillanEmailKorean() {
@@ -75,11 +75,11 @@ public class Gmail {
     }
 
     public WebElement GmailMacmillanEmailChinese() {
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), '感谢您创建Macmillan Education Everywhere (MEE)账户。')]"));
+        return Driver.findElement(By.xpath("//*[@name='noreply']"));
     }
 
     public WebElement GmailMacmillanEmailChineseTraditional() {
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), '感謝您建立Macmillan Education Everywhere (MEE) 帳戶')]"));
+        return Driver.findElement(By.xpath("//*[@name='noreply']"));
     }
 
     public WebElement GmailClickEmailLink() {
@@ -95,7 +95,7 @@ public class Gmail {
     }
 
     public WebElement GmailClickEmailLinkJapanese() {
-        return Driver.findElement(By.xpath("//*[@href='https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ja/Login']"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'ログインはこちらから')]"));
     }
 
     public WebElement GmailClickEmailLinkKorean() {
@@ -111,11 +111,11 @@ public class Gmail {
     }
 
     public WebElement GmailClickEmailLinkChinese() {
-        return Driver.findElement(By.xpath("//*[contains(text(), '转至此处登录')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), '转至此处登录')]"));
     }
 
     public WebElement GmailClickEmailLinkChineseTraditional() {
-        return Driver.findElement(By.xpath("//*[contains(text(), '請點這裡登入')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), '請點這裡登入')]"));
     }
 
     public WebElement GmailExpandEmail () {

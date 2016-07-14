@@ -19,25 +19,25 @@ public class MailClientsStepDefs {
 
     private static String windowHandleBefore = "";
 
-    @Then("^I check the Mailinator account for the email$")
-    public void iCheckTheMailinatorAccountForTheEmail() throws Throwable {
-        Mailinator mailinator = new Mailinator();
-        String email = FileReader.readProperties().get("emailAddress");
-
-        windowHandleBefore = Driver.getWindowHandle();
-        Driver.loadPage("https://www.mailinator.com/");
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToWindow(winHandle);
-            System.out.println(winHandle);
-        }
-
-        Thread.sleep(25000);
-        mailinator.MailinatorInboxField().sendKeys(email);
-        mailinator.MailinatorGoButton().click();
-        Thread.sleep(2000);
-        mailinator.MailinatorEmailLink().click();
-        Thread.sleep(2000);
-    }
+//    @Then("^I check the Mailinator account for the email$")
+//    public void iCheckTheMailinatorAccountForTheEmail() throws Throwable {
+//        Mailinator mailinator = new Mailinator();
+//        String email = FileReader.readProperties().get("emailAddress");
+//
+//        windowHandleBefore = Driver.getWindowHandle();
+//        Driver.loadPage("https://www.mailinator.com/");
+//        for (String winHandle : Driver.getWindowHandles()) {
+//            Driver.switchToWindow(winHandle);
+//            System.out.println(winHandle);
+//        }
+//
+//        Thread.sleep(25000);
+//        mailinator.MailinatorInboxField().sendKeys(email);
+//        mailinator.MailinatorGoButton().click();
+//        Thread.sleep(2000);
+//        mailinator.MailinatorEmailLink().click();
+//        Thread.sleep(2000);
+//    }
 
     @Then("^I check the Test Gmail account for the email$")
     public void iCheckTheGmail() throws Throwable {
@@ -72,47 +72,47 @@ public class MailClientsStepDefs {
         Driver.loadPage("https://mail.google.com/");
     }
 
-    @Then("^I check the Mailinator account for the Reset Password email$")
-    public void iCheckTheMailinatorAccountForResetPasswordEmail() throws Throwable {
-        Mailinator mailinator = new Mailinator();
-        String email = FileReader.readProperties().get("emailAddress");
-
-        windowHandleBefore = Driver.getWindowHandle();
-        Driver.loadPage("https://www.mailinator.com/");
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToWindow(winHandle);
-            System.out.println(winHandle);
-        }
-
-        Thread.sleep(25000);
-        mailinator.MailinatorInboxField().sendKeys(email);
-        mailinator.MailinatorGoButton().click();
-        Thread.sleep(2000);
-        mailinator.MailinatorResetPasswordEmailLink().click();
-    }
-
-    @Then("^I check the Parent/Guardian Mailinator account for the email$")
-    public void iCheckTheParentMailinatorAccountForTheEmail() throws Throwable {
-        Mailinator mailinator = new Mailinator();
-        String email = FileReader.readProperties().get("parentEmailAddress");
-        Driver.loadPage("https://www.mailinator.com/");
-        Thread.sleep(25000);
-        mailinator.MailinatorInboxField().sendKeys(email);
-        mailinator.MailinatorGoButton().click();
-        Thread.sleep(2000);
-        mailinator.MailinatorEmailLink().click();
-        Thread.sleep(2000);
-        String language = FileReader.readProperties().get("language");
-
-        Driver.switchToFrame("publicshowmaildivcontent");
-        Thread.sleep(2000);
-        switch (language) {
-            case "English":
-                RegisterStepDefs.iStoreTheMinorUsernameAndPassword();
-                mailinator.MailinatorMinorClickEmailLink().click();
-                break;
-        }
-    }
+//    @Then("^I check the Mailinator account for the Reset Password email$")
+//    public void iCheckTheMailinatorAccountForResetPasswordEmail() throws Throwable {
+//        Mailinator mailinator = new Mailinator();
+//        String email = FileReader.readProperties().get("emailAddress");
+//
+//        windowHandleBefore = Driver.getWindowHandle();
+//        Driver.loadPage("https://www.mailinator.com/");
+//        for (String winHandle : Driver.getWindowHandles()) {
+//            Driver.switchToWindow(winHandle);
+//            System.out.println(winHandle);
+//        }
+//
+//        Thread.sleep(25000);
+//        mailinator.MailinatorInboxField().sendKeys(email);
+//        mailinator.MailinatorGoButton().click();
+//        Thread.sleep(2000);
+//        mailinator.MailinatorResetPasswordEmailLink().click();
+//    }
+//
+//    @Then("^I check the Parent/Guardian Mailinator account for the email$")
+//    public void iCheckTheParentMailinatorAccountForTheEmail() throws Throwable {
+//        Mailinator mailinator = new Mailinator();
+//        String email = FileReader.readProperties().get("parentEmailAddress");
+//        Driver.loadPage("https://www.mailinator.com/");
+//        Thread.sleep(25000);
+//        mailinator.MailinatorInboxField().sendKeys(email);
+//        mailinator.MailinatorGoButton().click();
+//        Thread.sleep(2000);
+//        mailinator.MailinatorEmailLink().click();
+//        Thread.sleep(2000);
+//        String language = FileReader.readProperties().get("language");
+//
+//        Driver.switchToFrame("publicshowmaildivcontent");
+//        Thread.sleep(2000);
+//        switch (language) {
+//            case "English":
+//                RegisterStepDefs.iStoreTheMinorUsernameAndPassword();
+//                mailinator.MailinatorMinorClickEmailLink().click();
+//                break;
+//        }
+//    }
 
     @And("^I click on the link to confirm the Gmail Minor email address$")
     public void iClickOnTheLinkToConfirmTheMinorGmailEmailAddress() throws Throwable {
@@ -162,12 +162,12 @@ public class MailClientsStepDefs {
             case "Chinese":
                 gmail.GmailMacmillanEmailChinese().click();
                 RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
-                mailinator.MailinatorClickEmailLinkChinese().click();
+                gmail.GmailClickEmailLinkChinese().click();
                 break;
             case "ChineseTraditional":
                 gmail.GmailMacmillanEmailChineseTraditional().click();
                 RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
-                mailinator.MailinatorClickEmailLinkChineseTraditional().click();
+                gmail.GmailClickEmailLinkChineseTraditional().click();
                 break;
         }
     }

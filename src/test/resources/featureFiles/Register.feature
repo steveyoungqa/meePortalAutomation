@@ -25,6 +25,7 @@ Feature: Regression tests for registering a new user
     Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
+    Then I Pause for 5 seconds
     And I click on the link to confirm the Gmail email address
 
     And I switch Windows back to the MEE Portal
