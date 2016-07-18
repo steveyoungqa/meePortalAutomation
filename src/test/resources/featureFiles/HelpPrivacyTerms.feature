@@ -2,10 +2,22 @@
 Feature: Regression tests for Help Page Links, Privacy Policy, Terms & Conditions
 
 @help
-Scenario: SIN-2109 Help Page Links Test
+Scenario Outline: SIN-2109 Help Page Links Test
 Given I am on the MEE portal for "test"
 Then I select the Help icon
+  And I select the main page language of "<Language>"
 And I select all of the Help section links
+
+Examples:
+  |Language|
+  |Spanish|
+  |Korean|
+  |Chinese|
+  |Japanese|
+  |Taiwanese|
+  |Vitenamese|
+  |ChineseTraditional|
+  |English|
 
 @privacyTerms
 Scenario Outline: SIN-2423 Privacy Policy and T&C's

@@ -119,6 +119,13 @@ public class MeePortalStepDefs {
         Driver.refreshPage();
     }
 
+    @And("^I select the main page language of \"([^\"]*)\"$")
+    public void iSelectMainPageLanguageOf(String language) throws Throwable {
+        int languageValue = Language.valueOf(language).getLanguageValue();
+        LoginPage login = new LoginPage();
+        login.topRightLanguageSelector().selectByIndex(languageValue);
+    }
+
 //    public static void scrollToTopOfPage() throws Throwable {
 //        JavascriptExecutor jse = (JavascriptExecutor) ;
 //        jse.executeScript("scrollBy(0, -6000);");

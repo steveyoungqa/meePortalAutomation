@@ -92,4 +92,8 @@ public class LoginPage {
     public WebElement helpIcon() {
         return Driver.findElement(By.xpath("//*[@class='mee-icon-help-white mee-vertical-center']"));
     }
+
+    public Select topRightLanguageSelector () {
+        return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-white-select mee-vertical-center']//*[@data-reactid = '.0.1.1.0.0']")));
+    }
 }
