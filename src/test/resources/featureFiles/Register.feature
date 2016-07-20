@@ -19,6 +19,7 @@ Feature: Regression tests for registering a new user
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
+    Then I select Third Party checkbox
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button

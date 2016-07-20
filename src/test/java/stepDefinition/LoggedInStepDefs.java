@@ -63,7 +63,7 @@ public class LoggedInStepDefs {
         register.AccessCodeField().sendKeys(code);
     }
 
-    @Then("^I should see an Activate message for \"([^\"]*)\"$")
+    @Then("^I should see (?:a|an) (?:Activate|display) message (?:for|of) \"([^\"]*)\"$")
     public void iShouldSeeAnActivateMessageFor(String activate) throws Throwable {
         Register register = new Register();
         register.activate(activate).isDisplayed();

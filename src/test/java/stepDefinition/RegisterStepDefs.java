@@ -16,6 +16,7 @@ import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.LoginPage;
 import pageObject.Mailinator;
@@ -44,25 +45,121 @@ public class RegisterStepDefs {
         register.FirstName().sendKeys(first);
         register.Surname().clear();
         register.Surname().sendKeys(last);
+        FileReader.addData("firstName", first);
+        FileReader.addData("surname", last);
+    }
+
+    @Then("^the registered first name and surname is validated$")
+    public void theRegisteredFirstNameOfAndSurnameOfIsValidated() throws Throwable {
+        Register register = new Register();
+        String firstOnScreen = register.FirstName().getAttribute("value");
+        String lastOnScreen = register.Surname().getAttribute("value");
+
+        String firstRegistered = FileReader.readProperties().get("firstName");
+        String lastRegistered = FileReader.readProperties().get("surname");
+        assertEquals(firstOnScreen, firstRegistered);
+        assertEquals(lastOnScreen, lastRegistered);
+    }
+
+    @Then("^the Registration form should be empty$")
+    public void registrationFormShouldBeEmpty() throws Throwable {
+        Register register = new Register();
+        if(register.FirstName().getAttribute("value").isEmpty()) {
+
+        }
+        else {
+           Assert.fail("First name field is NOT empty!!");
+        }
+
+        if(register.Surname().getAttribute("value").isEmpty()) {
+
+        }
+        else {
+            Assert.fail("Surname name field is NOT empty!!");
+        }
+
+        if(register.CountrySelector().getFirstSelectedOption().getAttribute("value").contains("")) {
+
+        }
+        else {
+            Assert.fail("Country field is NOT empty!!");
+        }
+
+        if(register.DaySelector().getFirstSelectedOption().getAttribute("value").contains("0")) {
+
+        }
+        else {
+            Assert.fail("Day field has not been reset");
+        }
+
+        if(register.MonthSelector().getFirstSelectedOption().getAttribute("value").contains("")) {
+
+        }
+        else {
+            Assert.fail("Month field has not been reset");
+        }
+
+        if(register.YearSelector().getFirstSelectedOption().getAttribute("value").contains("")) {
+
+        }
+        else {
+            Assert.fail("Year field has not been reset");
+        }
+
     }
 
     @And("^I select a Country of residence of \"([^\"]*)\"$")
     public void iSelectACountryOfResidenceOf(String country) throws Throwable {
         Register.CountrySelector().selectByValue(country);
+        FileReader.addData("country", country);
+    }
+
+    @Then("^the Country of Residence is validated$")
+    public void theCountryOfResidenceIsValidated() throws Throwable {
+        Register register = new Register();
+        String countryRegistered = FileReader.readProperties().get("country");
+        String residence = register.CountrySelector().getFirstSelectedOption().getAttribute("value");
+        assertEquals(countryRegistered, residence);
     }
 
     @Then("^I select a date of birth of \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
     public void iSelectADateOfBirthOf(String day, String month, String year) throws Throwable {
-        Register.DaySelector().selectByValue(day);
         int monthValue = Month.valueOf(month).getMonthValue();
+        Register.DaySelector().selectByValue(day);
         Register.MonthSelector().selectByIndex(monthValue);
         Register.YearSelector().selectByValue(year);
+        FileReader.addData("dayOfBirth", day);
+        FileReader.addData("monthOfBirth", month);
+        FileReader.addData("yearOfBirth", year);
+    }
+
+    @And("^the Date of Birth is validated$")
+    public void theDateOfBirthIsValidated() throws Throwable {
+        Register register = new Register();
+        String dayOfBirthRegistered = FileReader.readProperties().get("dayOfBirth");
+        String monthOfBirthRegistered = FileReader.readProperties().get("monthOfBirth");
+        String yearOfBirthRegistered = FileReader.readProperties().get("yearOfBirth");
+        String dayBirth = Register.DaySelector().getFirstSelectedOption().getAttribute("value");
+        String monthBirth = Register.MonthSelector().getFirstSelectedOption().getAttribute("value");
+        String yearBirth = Register.YearSelector().getFirstSelectedOption().getAttribute("value");
+
+        String monthValue = Integer.toString(Month.valueOf(monthOfBirthRegistered).getMonthValue());
+
+        assertEquals(dayOfBirthRegistered, dayBirth);
+        assertEquals(monthValue, monthBirth);
+        assertEquals(yearOfBirthRegistered, yearBirth);
     }
 
     @And("^I have clicked on the Next button$")
     public void iHaveClickedOnTheNextButton() throws Throwable {
         Register register = new Register();
         register.NextButton().click();
+    }
+
+    @And("^I have clicked on the Continue button$")
+    public void iHaveClickedOnTheContinue() throws Throwable {
+        Register register = new Register();
+        register.ContinueButton().click();
     }
 
     @Then("^I enter an email address and confirmation of \"([^\"]*)\"$")
@@ -145,6 +242,12 @@ public class RegisterStepDefs {
     public void iSelectTheOptInCheckbox() throws Throwable {
         Register register = new Register();
         register.optInCheckbox().click();
+    }
+
+    @And("^I select Third Party checkbox$")
+    public void iSelectTheThirdPartyCheckbox() throws Throwable {
+        Register register = new Register();
+        register.thirdPartyCheckbox().click();
     }
 
     @Then("^I select the Terms & Conditions checkbox$")
@@ -485,4 +588,7 @@ public class RegisterStepDefs {
         FileReader.addData("uniqueFirstName", firstName);
         register.FirstName().sendKeys(firstName);
     }
+
+
+
 }

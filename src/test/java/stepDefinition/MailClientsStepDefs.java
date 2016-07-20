@@ -122,6 +122,18 @@ public class MailClientsStepDefs {
         gmail.GmailMinorClickEmailLink().click();
     }
 
+    public void storeGmailDetails () throws Throwable{
+        RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+    }
+
+    public void checkGmailContents () throws Throwable {
+        Gmail gmail = new Gmail();
+        String firstRegistered = FileReader.readProperties().get("firstName");
+        String lastRegistered = FileReader.readProperties().get("surname");
+        gmail.EmailBodyContains(firstRegistered).isDisplayed();
+        gmail.EmailBodyContains(lastRegistered).isDisplayed();
+    }
+
     @And("^I click on the link to confirm the Gmail email address$")
     public void iClickOnTheLinkToConfirmTheGmailEmailAddress() throws Throwable {
         Gmail gmail = new Gmail();
@@ -131,42 +143,50 @@ public class MailClientsStepDefs {
         switch (language) {
             case "English":
                 gmail.GmailMacmillanEmail().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLink().click();
                 break;
             case "Spanish":
                 gmail.GmailMacmillanEmailSpanish().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkSpanish().click();
                 break;
             case "Japanese":
                 gmail.GmailMacmillanEmailJapanese().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkJapanese().click();
                 break;
             case "Korean":
                 gmail.GmailMacmillanEmailKorean().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkKorean().click();
                 break;
             case "Taiwanese":
                 gmail.GmailMacmillanEmailTaiwanese().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkTaiwan().click();
                 break;
             case "Vitenamese":
                 gmail.GmailMacmillanEmailVietnamese().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkVietnamese().click();
                 break;
             case "Chinese":
                 gmail.GmailMacmillanEmailChinese().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkChinese().click();
                 break;
             case "ChineseTraditional":
                 gmail.GmailMacmillanEmailChineseTraditional().click();
-                RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
+                storeGmailDetails();
+                checkGmailContents();
                 gmail.GmailClickEmailLinkChineseTraditional().click();
                 break;
         }
@@ -182,35 +202,35 @@ public class MailClientsStepDefs {
 
         switch (language) {
             case "English":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLink().click();
                 break;
             case "Spanish":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkSpanish().click();
                 break;
             case "Japanese":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkJapanese().click();
                 break;
             case "Korean":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkKorean().click();
                 break;
             case "Taiwanese":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkTaiwan().click();
                 break;
             case "Vitenamese":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkVietnamese().click();
                 break;
             case "Chinese":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkChinese().click();
                 break;
             case "ChineseTraditional":
-                RegisterStepDefs.iStoreTheUsernameAndPassword();
+                storeGmailDetails();
                 mailinator.MailinatorClickEmailLinkChineseTraditional().click();
                 break;
 
@@ -329,4 +349,5 @@ public class MailClientsStepDefs {
         Gmail gmail = new Gmail();
         gmail.GmailDetailsChanged().isDisplayed();
     }
+
 }

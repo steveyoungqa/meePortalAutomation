@@ -1,4 +1,4 @@
-Feature: Validation Error Messages
+Feature: Validation Tests
 
   @validation
   Scenario: Login Validation Errors
@@ -28,6 +28,7 @@ Feature: Validation Error Messages
     Then a message "First name must not contain special characters" is displayed
     Then a message "Last name must not contain special characters" is displayed
 
+  Scenario: Registration Validation Errors Second Page
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     Then I register a first name of "Vera" and surname of "Validation"
@@ -37,6 +38,10 @@ Feature: Validation Error Messages
     Then I Pause for 3 seconds
     And I select the Submit button
     Then a message "Email address required" is displayed
+    Then I enter a unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    And I select the Submit button
+    Then a message "You must agree to the terms and conditions to continue" is displayed
 
   Scenario: Incorrect Login Validation
     Given I am on the MEE portal for "test"
@@ -56,4 +61,15 @@ Feature: Validation Error Messages
       |          | password | Please enter your username                             |
       | username |          | Please enter your password                             |
       |          |          | Please enter your username, Please enter your password |
+
+  Scenario: Changing the Language resets the Registration from
+    Given I am on the MEE portal for "test"
+    And I have clicked on the Register button
+    When I select language "English"
+    Then I register a first name of "Change" and surname of "Language"
+    And I select a Country of residence of "GB"
+    Then I select a date of birth of "8" "May" "1950"
+    When I select language "Spanish"
+    Then the Registration form should be empty
+
 

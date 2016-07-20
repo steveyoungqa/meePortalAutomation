@@ -31,6 +31,10 @@ public class Register {
         return Driver.findElement(By.id("_MacmillanOptIn"));
     }
 
+    public WebElement thirdPartyCheckbox() {
+        return Driver.findElement(By.id("_ThirdPartyOptIn"));
+    }
+
     public WebElement TermsConditionsCheckbox() {
         return Driver.findElement(By.id("_AgreeToTermsOfUse"));
     }
@@ -161,10 +165,10 @@ public class Register {
 
     public WebElement CustomerServiceLink () {
         return Driver.findElement(By.xpath("//*[@class='mee-footer mee-error mee-align-text-center mee-error-container']//*[contains(text(), 'contact our Customer Service team')]"));
-
     }
 
-
-
+    public WebElement ContinueButton() {
+        return Driver.findElement(By.xpath("//*[@class='mee-align-text-center']//*[contains(text(), 'Continue')]"));
+    }
 
 }

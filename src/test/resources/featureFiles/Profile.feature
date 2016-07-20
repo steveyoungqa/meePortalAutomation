@@ -4,9 +4,6 @@ Feature: Edit User Profile
   Register a new User with unique email address, Login, View Profile and change password
   SIN-2631 - Validation on edit Password for special characters
 
-#  This Test opens up multiple Mailinator windows and is problematic if run with other Tags
-#  So run on its own @profile tag only
-
   Scenario: Delete ALL existing GMAIL's (if any)
     Given I check the Test Gmail account for the email
     Then I delete ALL Test Gmail Emails
@@ -53,12 +50,10 @@ Feature: Edit User Profile
     And I select the Submit button
     Then I should see the Password changed Success message
     And I select the Close button
-#    And I log out of MEE
 
     Then I open the logged in Gmail page
     And a check is made that the Password has been changed
     Then I delete ALL Test Gmail Emails
-
 
     #Edit Details
     Given I am on the MEE portal for "test"
@@ -66,6 +61,10 @@ Feature: Edit User Profile
     Then I Login with the forgotten Password details
     And I select the Profile icon
     Then I select Edit Details
+    Then the registered first name and surname is validated
+    Then the Country of Residence is validated
+    And the Date of Birth is validated
+
     Then I register a first name of "<EditFirstName>" and surname of "<EditSurname>"
     Then I select a date of birth of "<editDay>" "<editMonth>" "<editYear>"
     And I have clicked on the Next button

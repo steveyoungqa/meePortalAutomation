@@ -75,6 +75,7 @@ Feature: Regression End to End Test Pack
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
+    Then I select Third Party checkbox
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
@@ -242,6 +243,10 @@ Feature: Regression End to End Test Pack
     Then I Login with the forgotten Password details
     And I select the Profile icon
     Then I select Edit Details
+    Then the registered first name and surname is validated
+    Then the Country of Residence is validated
+    And the Date of Birth is validated
+
     Then I register a first name of "<EditFirstName>" and surname of "<EditSurname>"
     Then I select a date of birth of "<editDay>" "<editMonth>" "<editYear>"
     And I have clicked on the Next button

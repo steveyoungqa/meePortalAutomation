@@ -43,3 +43,20 @@ Feature: Minor Registration Journey
       | English  | Mikey     | Minor   | GB      | 11  | August | 2004 |
       | English  | Adrian    | Aussie  | AU      | 11  | August | 2005 |
       | English  | Pedro     | Mexico  | MX      | 11  | August | 2004 |
+
+     #Edit Details
+  Scenario: Updating the email address of a Minor will log the user out
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    Then I Login with the newly created username and password
+    And I select the Profile icon
+    Then I select Edit Details
+    And I have clicked on the Next button
+    Then I enter a unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    And I select the Submit button
+    Then a message "Check your email and click on the link to validate your contact details." is displayed
+    And I have clicked on the Continue button
+    Then I have clicked on the Landing Page login button
+    And I switch Windows back to the MEE Portal
+

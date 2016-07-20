@@ -141,4 +141,8 @@ public class Gmail {
     public WebElement GmailSignOutLink() {
         return Driver.findElement(By.xpath("//*[@aria-label='Account Information']//*[contains(text(), 'Sign out')]"));
     }
+
+    public WebElement EmailBodyContains (String contains) {
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(),'" + contains + "')]"));
+    }
 }
