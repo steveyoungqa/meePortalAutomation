@@ -74,10 +74,10 @@ Make sure you now download the latest Selenium Standalone Server into the above 
 http://www.seleniumhq.org/download/
 
 Start the HUB in Terminal with:
-**java -jar selenium-server-standalone-2.53.0.jar -role hub**
+**java -jar selenium.jar -role hub**
 
 Start the NODE in a new Terminal window with:
-**java -jar selenium-server-standalone-2.53.0.jar -role node -nodeConfig macNodeConfig.json**
+**java -jar selenium.jar -role node -nodeConfig macNodeConfig.json**
 
 The output should inform you that the node is registered and ready to use
 *INFO - Registering the node to the hub: http://localhost:4444/grid/register*

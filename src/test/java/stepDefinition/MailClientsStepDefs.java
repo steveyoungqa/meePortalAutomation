@@ -62,7 +62,7 @@ public class MailClientsStepDefs {
                 (signedInCheckBox.isSelected()) {
             signedInCheckBox.click();
         }
-
+        Thread.sleep(5000);
         gmail.GmailSignIn().click();
 
     }
