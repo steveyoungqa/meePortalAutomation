@@ -18,14 +18,7 @@ Feature: Existing Account Registered to this Email
     And I enter a confirmation email address of "<email>"
     Then I select the Terms & Conditions checkbox
     And I select the Submit button
-    Then a message "An account with these details already exists in our database." is displayed
-    And I select the Submit button
-
-    Then I select the Back button
-    Then I register a Unique first name
-    And I have clicked on the Next button
-    And I select the Submit button
-
+    And I Pause for 5 seconds
     Then a message "There is an existing account registered with this email address. Please tick the box if you’d like to continue and use the email address again." is displayed
     And I select the Use the Same Email Address checkbox
     And I select the Submit button
