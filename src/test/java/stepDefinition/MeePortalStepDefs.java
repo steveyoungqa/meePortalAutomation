@@ -26,11 +26,6 @@ public class MeePortalStepDefs {
 
 		EnvironmentStepDefs.environment = environment;
 		Thread.sleep(5000);
-//		String windowHandleBefore = Driver.getWindowHandle();
-//		Driver.switchToWindow(windowHandleBefore);
-//		Thread.sleep(2000);
-//		for (String winHandle : Driver.getWindowHandles()) {
-//			Driver.switchToWindow(winHandle);}
 		Driver.loadPage(MeePortal.getUrl());
 		Assert.assertEquals("Incorrect URL.", MeePortal.getUrl(), Driver.getCurrentUrl());
 	}

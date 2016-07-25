@@ -24,6 +24,10 @@ public class WebdriverFactory {
 		}
 	}
 
+	public static void removeGridTest () {
+
+	}
+
 	public static WebDriver createWebdriver() {
 		caps = new DesiredCapabilities();
 		if (BrowserStack.useBrowserStack()) {

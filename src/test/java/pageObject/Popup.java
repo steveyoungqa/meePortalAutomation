@@ -37,10 +37,10 @@ public class Popup {
 	
 	public void WaitUntilFinished() throws Exception {
 		
-		new WebDriverWait(Driver.getCurrentDriver(), 2).until(ExpectedConditions.visibilityOfElementLocated(Downloading()));
+		new WebDriverWait(Driver.webdriver, 2).until(ExpectedConditions.visibilityOfElementLocated(Downloading()));
 		System.out.println("Downloading");
 		try {
-			new WebDriverWait(Driver.getCurrentDriver(), 600).until(ExpectedConditions.visibilityOfElementLocated(Success()));
+			new WebDriverWait(Driver.webdriver, 600).until(ExpectedConditions.visibilityOfElementLocated(Success()));
 		} catch (TimeoutException e) {
 			Driver.writeToReport("Downloaded not successful after 10 minutes.");
 			if (Driver.findElement(Failure()).isDisplayed()) {

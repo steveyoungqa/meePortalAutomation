@@ -32,26 +32,19 @@ import static org.apache.commons.io.FileUtils.waitFor;
 public class Driver {
 
 
-    public static WebDriver webdriver;
+    public static WebDriver webdriver= new ChromeDriver();
 
-    public synchronized static WebDriver getCurrentDriver() {
-
-        if (webdriver == null) {
-            webdriver = WebdriverFactory.createWebdriver();
-        }
-        return webdriver;
-    }
 
     public static void quit() {
-        getCurrentDriver().quit();
+        webdriver.quit();
     }
 
     public static void close() {
-        getCurrentDriver().close();
+        webdriver.close();
     }
 
     public static void loadPage(String url) {
-        getCurrentDriver().get(url);
+        webdriver.get(url);
         maximise();
     }
 
@@ -61,16 +54,16 @@ public class Driver {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-        getCurrentDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        webdriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         try {
-            new WebDriverWait(getCurrentDriver(), 5).until(ExpectedConditions.elementToBeClickable((By) element));
+            new WebDriverWait(webdriver, 5).until(ExpectedConditions.elementToBeClickable((By) element));
         } catch (Exception e) {
 
         }
         WebElement foundElement;
 
         try {
-            foundElement = getCurrentDriver().findElement(element);
+            foundElement = webdriver.findElement(element);
         } catch (Exception e) {
             try {
                 Thread.sleep(5000);
@@ -78,7 +71,7 @@ public class Driver {
                 e1.printStackTrace();
             }
             System.out.println("Waiting 5 seconds.");
-            foundElement = getCurrentDriver().findElement(element);
+            foundElement = webdriver.findElement(element);
         }
         return foundElement;
     }
@@ -89,19 +82,19 @@ public class Driver {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        getCurrentDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        webdriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         try {
-            new WebDriverWait(getCurrentDriver(), 1).until(ExpectedConditions
+            new WebDriverWait(webdriver, 1).until(ExpectedConditions
                     .presenceOfAllElementsLocatedBy((By) element));
         } catch (TimeoutException e) {
             System.out.println("Supressed: " + e.getMessage());
         }
-        return getCurrentDriver().findElements(element);
+        return webdriver.findElements(element);
 
     }
 
     public static String getCurrentUrl() {
-        return getCurrentDriver().getCurrentUrl();
+        return webdriver.getCurrentUrl();
 
     }
 
@@ -110,11 +103,11 @@ public class Driver {
     }
 
     public static String getTitle() {
-        return getCurrentDriver().getTitle();
+        return webdriver.getTitle();
     }
 
     public static String screenshot(String filename) throws IOException {
-        File file = ((TakesScreenshot) getCurrentDriver())
+        File file = ((TakesScreenshot) webdriver)
                 .getScreenshotAs(OutputType.FILE);
         String filePath = ("./screenshot/" + filename + ".jpg");
         FileUtils.copyFile(file, new File(filePath));
@@ -123,7 +116,7 @@ public class Driver {
 
     public static void embedScreenshot() {
 
-        byte[] screenshot = ((TakesScreenshot) getCurrentDriver()).getScreenshotAs(OutputType.BYTES);
+        byte[] screenshot = ((TakesScreenshot) webdriver).getScreenshotAs(OutputType.BYTES);
         TestRunner.scenario.embed(screenshot, "image/png");
     }
 
@@ -132,44 +125,44 @@ public class Driver {
     }
 
     public static WebDriver switchToWindow(String window) {
-        return getCurrentDriver().switchTo().window(window);
+        return webdriver.switchTo().window(window);
     }
 
     public static WebDriver switchToFrame(String name) {
-        return getCurrentDriver().switchTo().frame(name);
+        return webdriver.switchTo().frame(name);
     }
 
     public static WebDriver switchToFrame(int index) {
-        return getCurrentDriver().switchTo().frame(index);
+        return webdriver.switchTo().frame(index);
     }
 
     public static WebDriver switchToFrame(WebElement iframe) {
-        return getCurrentDriver().switchTo().frame(iframe);
+        return webdriver.switchTo().frame(iframe);
     }
 
     public static String getWindowHandle() {
-        return getCurrentDriver().getWindowHandle();
+        return webdriver.getWindowHandle();
     }
 
     public static Set<String> getWindowHandles() {
-        return getCurrentDriver().getWindowHandles();
+        return webdriver.getWindowHandles();
     }
 
 
     public static Dimension getResolution() {
-        return getCurrentDriver().manage().window().getSize();
+        return webdriver.manage().window().getSize();
     }
 
     public static void setResolution(int x, int y) {
-        getCurrentDriver().manage().window().setSize(new Dimension(x, y));
+        webdriver.manage().window().setSize(new Dimension(x, y));
     }
 
     public static void maximise() {
-        getCurrentDriver().manage().window().maximize();
+        webdriver.manage().window().maximize();
     }
 
     public static Actions actions() {
-        return new Actions(getCurrentDriver());
+        return new Actions(webdriver);
     }
 
     public static void dragAndDrop(WebElement start, WebElement finish) {
@@ -202,7 +195,7 @@ public class Driver {
 
 
     public static Boolean waitForUrlToContain(String url, int time) {
-        return new WebDriverWait(getCurrentDriver(), time).until(ExpectedConditions.urlContains(url));
+        return new WebDriverWait(webdriver, time).until(ExpectedConditions.urlContains(url));
     }
 
     public static Boolean waitForIsDisplayed (By locator, Integer...timeout) {

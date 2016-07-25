@@ -53,7 +53,7 @@ public class MaildropMethods {
 	}
 	
 	public WebElement waitForActivationLink() {
-		return new WebDriverWait(Driver.getCurrentDriver(), 10).until(ExpectedConditions.visibilityOf(Maildrop.activationLink()));
+		return new WebDriverWait(Driver.webdriver, 10).until(ExpectedConditions.visibilityOf(Maildrop.activationLink()));
 	}
 	
 	public void clickActivationLink() {
