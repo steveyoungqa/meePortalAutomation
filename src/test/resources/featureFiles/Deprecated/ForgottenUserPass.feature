@@ -4,7 +4,7 @@ Feature: Forgot UserName & Password Journey
   SIN-2008 - Automation - Forgot UserName/Password journey
   SIN-2107 - Automation - Forgot User/Pass Validation errors
 
-  @validation
+
   Scenario: Forgot User/Pass Validation errors
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
@@ -21,7 +21,7 @@ Feature: Forgot UserName & Password Journey
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
-  @forgotUserAndPass
+
   Scenario Outline: Forgotten UserName & Password Journey
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
