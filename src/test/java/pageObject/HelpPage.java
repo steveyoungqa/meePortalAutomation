@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import webDriver.Driver;
 
+import java.io.IOException;
+
 /**
  * Created by syn3286 on 18/05/2016.
  */
@@ -11,79 +13,79 @@ public class HelpPage {
 
     //Help Section links
 
-    public WebElement HelpHeader() {
+    public WebElement HelpHeader() throws IOException {
         return Driver.findElement(By.xpath("//*[@name='_Help']"));
     }
 
-    public WebElement SystemReqs() {
+    public WebElement SystemReqs() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_System_Requirements']"));
     }
 
-    public WebElement HowAccess() {
+    public WebElement HowAccess() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I']"));
     }
 
-    public WebElement HowMeeLinux() {
+    public WebElement HowMeeLinux() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_Linux']"));
     }
 
-    public WebElement HowRegister() {
+    public WebElement HowRegister() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_1"));
     }
 
-    public WebElement HowLogin() {
+    public WebElement HowLogin() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_2"));
     }
 
-    public WebElement HowRequestUserPass() {
+    public WebElement HowRequestUserPass() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_3"));
     }
 
-    public WebElement HowFindCode() {
+    public WebElement HowFindCode() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_4"));
     }
 
-    public WebElement HowActivateCode() {
+    public WebElement HowActivateCode() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_5"));
     }
 
-    public WebElement HowAccessResource() {
+    public WebElement HowAccessResource() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_6"));
     }
 
-    public WebElement WhyResource() {
+    public WebElement WhyResource() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_Why_cant_I"));
     }
 
-    public WebElement WhyNoDownload() {
+    public WebElement WhyNoDownload() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_Why_can_I"));
     }
 
-    public WebElement HowChangeProfile() {
+    public WebElement HowChangeProfile() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_7"));
     }
 
-    public WebElement HowNewVersion() {
+    public WebElement HowNewVersion() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_will_I"));
     }
 
-    public WebElement UpdateLinux() {
+    public WebElement UpdateLinux() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_update_Linux"));
     }
 
-    public WebElement RemoveResource() {
+    public WebElement RemoveResource() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_8"));
     }
 
-    public WebElement ChangeLanguage() {
+    public WebElement ChangeLanguage() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_9"));
     }
 
-    public WebElement CloseMeeApp() {
+    public WebElement CloseMeeApp() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_10"));
     }
 
-    public WebElement GetMoreHelp() {
+    public WebElement GetMoreHelp() throws IOException{
         return Driver.findElement(By.cssSelector("a[href='#_How_do_I_11"));
     }
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriverException;
 
+import supportFactory.WebdriverFactory;
 import testRunner.TestRunner;
 import webDriver.Driver;
 import cucumber.api.Scenario;
@@ -44,6 +45,7 @@ public class Hooks {
 		{
 			System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 		}
+		Runtime.getRuntime().addShutdownHook(new Thread(new WebdriverFactory.BrowserCleanup()));
 	}
 
 }

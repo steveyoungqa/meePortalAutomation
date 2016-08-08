@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import webDriver.Driver;
 
+import java.io.IOException;
+
 public class Popup {
 
 	public By InstallState(int state) {
@@ -28,7 +30,7 @@ public class Popup {
 		return InstallState(3);
 	}
 	
-	public Boolean DownloadSuccessful() {
+	public Boolean DownloadSuccessful() throws IOException {
 		if (Driver.findElement(Success()).isDisplayed()) {
 			return true;
 		}

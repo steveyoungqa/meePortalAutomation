@@ -19,7 +19,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.LoginPage;
-import pageObject.Mailinator;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
@@ -545,18 +544,7 @@ public class RegisterStepDefs {
         register.PasswordChangedMessage().isDisplayed();
     }
 
-    @And("^I click on the link to confirm the Edited email address$")
-    public void iClickOnTheLinkToConfirmTheEditedEmailAddress() throws Throwable {
-        Mailinator mailinator = new Mailinator();
-        String language = FileReader.readProperties().get("language");
 
-        String windowHandleBefore = Driver.getWindowHandle();
-        for (String winHandle : Driver.getWindowHandles()) {
-            Driver.switchToFrame("publicshowmaildivcontent");
-            Thread.sleep(2000);
-        }
-        mailinator.MailinatorMinorClickEmailLink().click();
-    }
 
     @Then("^I enter an email address of \"([^\"]*)\"$")
     public void iEnterAnEmailAddressOf(String email) throws Throwable {

@@ -1,5 +1,6 @@
 package methods;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,15 +15,15 @@ public class MaildropMethods {
 
 	public static String uuid;
 	
-	public void loadEmail() {
+	public void loadEmail() throws IOException {
 		Driver.loadPage("http://maildrop.cc/inbox/" + uuid);
 	}
 	
-	public String[] getBodyText() {
+	public String[] getBodyText()throws IOException {
 		return Maildrop.emailBody().getText().split("\n");
 	}
 	
-	public Map<String, String> getUsernameAndPassword() {
+	public Map<String, String> getUsernameAndPassword() throws IOException{
 		String[] emailContent = getBodyText();
 		Map<String, String> usernameAndPassword = new HashMap<String, String>();
 		for (String line : emailContent) {
@@ -36,11 +37,11 @@ public class MaildropMethods {
 		return usernameAndPassword;
 	}
 	
-	public void clickEmailLink() {
+	public void clickEmailLink() throws IOException{
 		Maildrop.emailLink().get(0).click();
 	}
 	
-	public Boolean emailIsUnavailable() {
+	public Boolean emailIsUnavailable()throws IOException {
 		return Maildrop.emailLink().isEmpty();
 	}
 	
@@ -48,15 +49,15 @@ public class MaildropMethods {
 //		Driver.switchToFrame(Maildrop.messageBody());
 //	}
 	
-	public void clickRefresh() {
+	public void clickRefresh()throws IOException {
 		Maildrop.refresh().click();
 	}
 	
-	public WebElement waitForActivationLink() {
+	public WebElement waitForActivationLink() throws IOException{
 		return new WebDriverWait(Driver.webdriver, 10).until(ExpectedConditions.visibilityOf(Maildrop.activationLink()));
 	}
 	
-	public void clickActivationLink() {
+	public void clickActivationLink()throws IOException {
 		waitForActivationLink().click();
 	}
 }

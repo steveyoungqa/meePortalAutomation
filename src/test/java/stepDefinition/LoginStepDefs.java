@@ -19,10 +19,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import pageObject.Gmail;
 import pageObject.LoginPage;
-import pageObject.Mailinator;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
+
+import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
@@ -75,7 +76,7 @@ public class LoginStepDefs {
     }
 
     @When("^I log in as username \"(.*?)\" and password \"(.*?)\"$")
-    public void i_log_in_as_username_and_password(String username, String password) {
+    public void i_log_in_as_username_and_password(String username, String password) throws IOException {
         LoginPage login = new LoginPage();
         login.UsernameField().sendKeys(username);
         login.PasswordField().sendKeys(password);
