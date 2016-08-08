@@ -1,4 +1,4 @@
-``# MEE PORTAL Selenium Framework
+# MEE PORTAL Selenium Framework
 
 ### Prepare your machine:
 JDK Install (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -66,33 +66,29 @@ Next Clone this Repo which contains all of the required Selenium Servers and Dri
 **git clone https://User.Name@stash.macmillan.education/scm/qtt/selenium-server-and-drivers.git**
 
 
-#### Start the Selenium Hub and Node
-In Terminal navigate to the project folder i.e:
-/Users/username/Documents/Repos/MacMillan/selenium_cucumber_framework
-
-Make sure you now download the latest Selenium Standalone Server into the above project folder
-http://www.seleniumhq.org/download/
-
-Start the HUB in Terminal with:
-**java -jar selenium.jar -role hub**
-
-Start the NODE in a new Terminal window with:
-**java -jar selenium.jar -role node -nodeConfig macNodeConfig.json**
-
-The output should inform you that the node is registered and ready to use
-*INFO - Registering the node to the hub: http://localhost:4444/grid/register*
-*INFO - The node is registered to the hub and ready to use*
-
-See the hub in the browser here:
-http://localhost:4444/grid/console?config=true&configDebug=true#
-
-#### Run the Tests locally
+#### Run the Tests within a IDE 
 
 Open the Selenium_Cucumber_Framework project in the IDE of your choice and open the folder **testRunner** and the file **TestRunner**
 
 Right click on the file and choose Run TestRunner and a Chrome browser should open and run through the SampleGoogleSearch.feature file tests
  
 Open **config.properties** to make changes to the local browser, its default setting should be **browser:Chrome**
+
+
+#### Run the Tests a Terminal command line
+
+Navigate to the directory where you cloned the repo and run this command
+
+**mvn test -Dcucumber.options=" --tags @debug" -Dbrowser=Chrome**
+
+Change the @debug to other tags to run various Feature files
+Chrome can be replaced with Firefox to run those browser tests
+
+When running via the Terminal the tests generate a report for each test run which can be found in this folder
+**mee_portal_automation/target/reports/html2/feature-overview.html**
+
+If there are any errors in the test run screenshots are recorded and can be seen in the feature breakdown reports here:
+**mee_portal_automation/target/html/index.html**
 
 
 ## PC:
