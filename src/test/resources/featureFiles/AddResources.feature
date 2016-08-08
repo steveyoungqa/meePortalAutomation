@@ -12,12 +12,12 @@ Feature: Activate an Access code and Access Resource
     And I select the Add Resource icon
     Then I enter an incorrect Access code
     And I have clicked on the Access code Next button
-    Then a message "Invalid access code. Please check your code and try again." is displayed
+    Then a message "This is not a valid access code. Please try again" is displayed
     And I refresh the page
 
     And I enter a not yet published code of "<NotPubCode>"
     And I have clicked on the Access code Next button
-    Then a message "The digital content for this code has not yet been published." is displayed
+    Then a message "We are sorry but the digital content for this code is not yet available. Your code has not been activated." is displayed
     And I select the Contact our Customer Service Team link
 
     Then I switch Windows back to the MEE Portal
