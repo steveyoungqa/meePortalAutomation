@@ -24,13 +24,13 @@ Feature: Regression End to End Test Pack
   Scenario: REGISTRATION VALIDATION ERRORS
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then a message "Please enter your first name" is displayed
     Then a message "Please enter your last name" is displayed
     Then a message "Please select your country of residence" is displayed
     Then a message "Please enter a valid date of birth" is displayed
     Then I register a first name of "Vera&" and surname of "Validation<"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then a message "First name must not contain special characters" is displayed
     Then a message "Last name must not contain special characters" is displayed
 
@@ -39,7 +39,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "Vera" and surname of "Validation"
     And I select a Country of residence of "GB"
     Then I select a date of birth of "3" "Oct" "1994"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I Pause for 3 seconds
     And I select the Submit button
     Then a message "Email address required" is displayed
@@ -71,7 +71,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
@@ -139,7 +139,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a Parent/Guardian Gmail address
     Then I enter a confirmation of the unique Parent/Guardian email address
     Then I select the Terms & Conditions checkbox
@@ -175,7 +175,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I select the Terms of Use link
     Then I select the Privacy Policy link
     And I select the Cookie Policy link
@@ -191,7 +191,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
@@ -242,7 +242,7 @@ Feature: Regression End to End Test Pack
 
     Then I register a first name of "<EditFirstName>" and surname of "<EditSurname>"
     Then I select a date of birth of "<editDay>" "<editMonth>" "<editYear>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
@@ -276,7 +276,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
@@ -323,7 +323,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox
@@ -379,29 +379,23 @@ Feature: Regression End to End Test Pack
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
-    Then I register a first name of "<Firstname>" and surname of "<Surname>"
+    Then I register a Unique first name
+    And I register a Unique Surname
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter an email address of "<email>"
     And I enter a confirmation email address of "<email>"
     Then I select the Terms & Conditions checkbox
     And I select the Submit button
-    Then a message "An account with these details already exists in our database." is displayed
-    And I select the Submit button
-
-    Then I select the Back button
-    Then I register a Unique first name
-    And I have clicked on the Next button
-    And I select the Submit button
-
+    And I Pause for 5 seconds
     Then a message "There is an existing account registered with this email address. Please tick the box if you’d like to continue and use the email address again." is displayed
     And I select the Use the Same Email Address checkbox
     And I select the Submit button
     Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
-    And I click on the link to confirm the Gmail email address
+    And I click on the link to confirm the Gmail email address resgistered with unique First and Last names
 
     And I switch Windows back to the MEE Portal
 
@@ -415,5 +409,5 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
     Examples:
-      | Language | Firstname | Surname | Country | day | month | year | email                              |
-      | English  | Ted       | Tester  | GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |
+      | Language |  Country | day | month | year | email                              |
+      | English  |  GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |

@@ -15,7 +15,7 @@ Feature: Minor Registration Journey
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a Parent/Guardian Gmail address
     Then I enter a confirmation of the unique Parent/Guardian email address
     Then I select the Terms & Conditions checkbox
@@ -51,7 +51,7 @@ Feature: Minor Registration Journey
     Then I Login with the newly created username and password
     And I select the Profile icon
     Then I select Edit Details
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Submit button

@@ -128,6 +128,10 @@ public class Gmail {
         return Driver.findElement(By.xpath("//*[@data-tooltip='Select']"));
     }
 
+    public WebElement AllOptionDropdown () throws IOException {
+        return Driver.findElement(By.xpath("//*[@selector='all']"));
+    }
+
     public WebElement GmailTrashIcon() throws IOException {
         return Driver.findElement(By.xpath("//*[@data-tooltip='Delete']"));
     }

@@ -15,7 +15,7 @@ Feature: Regression tests for registering a new user
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Opt In checkbox

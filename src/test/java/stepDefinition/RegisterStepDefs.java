@@ -572,9 +572,18 @@ public class RegisterStepDefs {
     public void iRegisterAUniqueFirstName() throws Throwable {
         Register register = new Register();
         register.FirstName().clear();
-        String firstName = RandomStringUtils.randomAlphabetic(8);
+        String firstName = RandomStringUtils.randomAlphabetic(5);
         FileReader.addData("uniqueFirstName", firstName);
         register.FirstName().sendKeys(firstName);
+    }
+
+    @Then("^I register a Unique Surname$")
+    public void iRegisterAUniqueSurname() throws Throwable {
+        Register register = new Register();
+        register.Surname().clear();
+        String surname = RandomStringUtils.randomAlphabetic(5);
+        FileReader.addData("uniqueSurname", surname);
+        register.Surname().sendKeys(surname);
     }
 
 

@@ -10,10 +10,11 @@ Feature: Existing Account Registered to this Email
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     When I select language "<Language>"
-    Then I register a first name of "<Firstname>" and surname of "<Surname>"
+    Then I register a Unique first name
+    And I register a Unique Surname
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    And I have clicked on the Next button
+    #And I have clicked on the Next button
     Then I enter an email address of "<email>"
     And I enter a confirmation email address of "<email>"
     Then I select the Terms & Conditions checkbox
@@ -25,7 +26,7 @@ Feature: Existing Account Registered to this Email
     Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
-    And I click on the link to confirm the Gmail email address
+    And I click on the link to confirm the Gmail email address resgistered with unique First and Last names
 
     And I switch Windows back to the MEE Portal
 
@@ -39,7 +40,7 @@ Feature: Existing Account Registered to this Email
     Then I log out of Gmail
 
     Examples:
-      | Language | Firstname | Surname | Country | day | month | year | email                              |
-      | English  | Ted       | Tester  | GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |
+      | Language |  Country | day | month | year | email                              |
+      | English  |  GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |
 
 

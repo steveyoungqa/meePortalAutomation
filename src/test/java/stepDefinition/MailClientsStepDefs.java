@@ -73,6 +73,24 @@ public class MailClientsStepDefs {
         gmail.EmailBodyContains(lastRegistered).isDisplayed();
     }
 
+    public void checkUniqueFirstAndSurnameGmailContents () throws Throwable {
+        Gmail gmail = new Gmail();
+        String firstRegistered = FileReader.readProperties().get("uniqueFirstName");
+        String lastRegistered = FileReader.readProperties().get("uniqueSurname");
+        gmail.EmailBodyContains(firstRegistered).isDisplayed();
+        gmail.EmailBodyContains(lastRegistered).isDisplayed();
+    }
+
+    @And("^I click on the link to confirm the Gmail email address resgistered with unique First and Last names$")
+    public void iClickOnTheLinkToConfirmTheGmailEmailAddressUnique() throws Throwable {
+        Gmail gmail = new Gmail();
+
+        gmail.GmailMacmillanEmail().click();
+        storeGmailDetails();
+        checkUniqueFirstAndSurnameGmailContents();
+        gmail.GmailClickEmailLink().click();
+    }
+
     @And("^I click on the link to confirm the Gmail email address$")
     public void iClickOnTheLinkToConfirmTheGmailEmailAddress() throws Throwable {
         Gmail gmail = new Gmail();
@@ -201,7 +219,11 @@ public class MailClientsStepDefs {
     public void iDeleteAllGmailEmail() throws Throwable {
         Gmail gmail = new Gmail();
         gmail.GmailSelectAllMenu().click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
+
+        if (gmail.AllOptionDropdown().isDisplayed()) {
+            gmail.AllOptionDropdown().click();
+        }
 
         if
                 (gmail.GmailTrashIcon().isDisplayed()) {
