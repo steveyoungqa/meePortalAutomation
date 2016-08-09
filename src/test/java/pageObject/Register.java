@@ -98,7 +98,7 @@ public class Register {
     }
 
     public WebElement MailNotification()throws IOException {
-        return Driver.findElement(By.className("mee-module-mail-notification"));
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Thank you for registering!')]"));
     }
 
     public WebElement PasswordChangedMessage() throws IOException{

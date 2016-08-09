@@ -23,6 +23,7 @@ Feature: Forgot Password Journey
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
+    And I Pause for 10 seconds
     Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email

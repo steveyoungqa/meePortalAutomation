@@ -25,14 +25,17 @@ Feature: Regression End to End Test Pack
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     #And I have clicked on the Next button
+    And I select the Submit button
     Then a message "Please enter your first name" is displayed
     Then a message "Please enter your last name" is displayed
     Then a message "Please select your country of residence" is displayed
     Then a message "Please enter a valid date of birth" is displayed
     Then I register a first name of "Vera&" and surname of "Validation<"
+    And I select the Submit button
     #And I have clicked on the Next button
     Then a message "First name must not contain special characters" is displayed
     Then a message "Last name must not contain special characters" is displayed
+
 
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
@@ -103,18 +106,17 @@ Feature: Regression End to End Test Pack
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    When I select language "English"
     When I log in as username "<username>" and password "<password>"
     Then I am logged into MEE
     And I select the Add Resource icon
     Then I enter an incorrect Access code
     And I have clicked on the Access code Next button
-    Then a message "Invalid access code. Please check your code and try again." is displayed
+    Then a message "This is not a valid access code. Please try again" is displayed
     And I refresh the page
 
     And I enter a not yet published code of "<NotPubCode>"
     And I have clicked on the Access code Next button
-    Then a message "The digital content for this code has not yet been published." is displayed
+    Then a message "We are sorry but the digital content for this code is not yet available. Your code has not been activated." is displayed
     And I select the Contact our Customer Service Team link
 
     Then I switch Windows back to the MEE Portal
@@ -183,6 +185,26 @@ Feature: Regression End to End Test Pack
     Examples:
       | Language | Firstname | Surname | Country | day | month | year |
       | English  | Private   | Terms   | GB      | 7   | May   | 1956 |
+
+  Scenario Outline: DOWNLOAD APP
+
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    When I select language "<Language>"
+    When I log in as username "<username>" and password "<password>"
+    Then I am logged into MEE
+
+    Then I should be redirected to the Download App page
+    And I confirm the Download is functioning for "Windows"
+    And I confirm the Download is functioning for "MAC"
+    And I confirm the Download is functioning for "Linux32"
+    And I confirm the Download is functioning for "Linux64"
+    Then I log out of MEE
+
+    Examples:
+      | Language | username | password  |
+      | English  | meeadmin | M4cmillan |
+
 #
   Scenario Outline: PROFILE FEATURE
     Given I am on the MEE portal for "test"
@@ -225,6 +247,7 @@ Feature: Regression End to End Test Pack
     And I select the Submit button
     Then I should see the Password changed Success message
     And I select the Close button
+    And I Pause for 10 seconds
 
     Then I open the logged in Gmail page
     And a check is made that the Password has been changed
@@ -283,6 +306,7 @@ Feature: Regression End to End Test Pack
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
+    And I Pause for 10 seconds
     Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
@@ -294,6 +318,7 @@ Feature: Regression End to End Test Pack
     And I select the Submit button
     And a Success screen that the password reset link has been sent is shown
 
+    And I Pause for 5 seconds
     Then I open the logged in Gmail page
     And I click the Gmail Reset Password link
     Then I Login and change my Password
@@ -356,24 +381,6 @@ Feature: Regression End to End Test Pack
       | Language | Firstname | Surname   | Country | day | month  | year |
       | English  | Fred      | Forgetful | GB      | 5   | August | 1976 |
 
-  Scenario Outline: DOWNLOAD APP
-
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
-    When I select language "<Language>"
-    When I log in as username "<username>" and password "<password>"
-    Then I am logged into MEE
-
-    Then I should be redirected to the Download App page
-    And I confirm the Download is functioning for "Windows"
-    And I confirm the Download is functioning for "MAC"
-    And I confirm the Download is functioning for "Linux32"
-    And I confirm the Download is functioning for "Linux64"
-    Then I log out of MEE
-
-    Examples:
-      | Language | username | password  |
-      | English  | meeadmin | M4cmillan |
 
   Scenario Outline: REGISTER AN EXISTING EMAIL ADDRESS
     Given I am on the MEE portal for "test"

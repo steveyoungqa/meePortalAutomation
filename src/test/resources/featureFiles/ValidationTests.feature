@@ -19,11 +19,13 @@ Feature: Validation Tests
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
     #And I have clicked on the Next button
+    And I select the Submit button
     Then a message "Please enter your first name" is displayed
     Then a message "Please enter your last name" is displayed
     Then a message "Please select your country of residence" is displayed
     Then a message "Please enter a valid date of birth" is displayed
     Then I register a first name of "Vera&" and surname of "Validation<"
+    And I select the Submit button
     #And I have clicked on the Next button
     Then a message "First name must not contain special characters" is displayed
     Then a message "Last name must not contain special characters" is displayed
