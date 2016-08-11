@@ -303,8 +303,50 @@ public class RegisterStepDefs {
 
     @Then("^I should see the Email sent confirmation page$")
     public void iShouldSeeTheEmailSentConfirmationPage() throws Throwable {
+        String language = FileReader.readProperties().get("language");
         Register register = new Register();
-        register.MailNotification().isDisplayed();
+
+        switch (language){
+            case "English":
+                 register.MailNotification().isDisplayed();
+                    break;
+        }
+        switch (language){
+            case "Spanish":
+                register.MailNotificationSpanish().isDisplayed();
+                break;
+        }
+        switch (language){
+            case "Korean":
+                register.MailNotificationKorean().isDisplayed();
+                break;
+        }
+        switch (language){
+            case "Japanese":
+                register.MailNotificationJapanese().isDisplayed();
+                break;
+        }
+        switch (language){
+            case "Taiwanese":
+                register.MailNotificationTaiwan().isDisplayed();
+                break;
+        }
+        switch (language){
+            case "Vitenamese":
+                register.MailNotificationVitenamese().isDisplayed();
+                break;
+        }
+        switch (language){
+            case "Chinese":
+                register.MailNotificationChinese().isDisplayed();
+                break;
+        }
+        switch (language){
+            case "ChineseTraditional":
+                register.MailNotificationChineseTraditional().isDisplayed();
+                break;
+        }
+
         Thread.sleep(3000);
     }
 
@@ -464,7 +506,7 @@ public class RegisterStepDefs {
         switch (language) {
             case "Taiwanese":
 
-                String username = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'ชื่อผู้ใช้:')]")).getText().replace("ชื่อผู้ใช้: ", "");
+                String username = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'ชื่อบัญชีผู้ใช้:')]")).getText().replace("ชื่อบัญชีผู้ใช้: ", "");
                 String password = Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'รหัสผ่าน:')]")).getText().replace("รหัสผ่าน: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
@@ -494,8 +536,8 @@ public class RegisterStepDefs {
         switch (language) {
             case "ChineseTraditional":
 
-                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '使用者名稱::')]")).getText().replace("使用者名稱:: ", "");
-                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '密碼::')]")).getText().replace("密碼:: ", "");
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '使用者名稱：:')]")).getText().replace("使用者名稱：: ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), '密碼：:')]")).getText().replace("密碼：: ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
                 break;

@@ -101,6 +101,34 @@ public class Register {
         return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Thank you for registering!')]"));
     }
 
+    public WebElement MailNotificationSpanish()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), '¡Gracias por registrarse!')]"));
+    }
+
+    public WebElement MailNotificationKorean()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), '등록해 주셔서 감사합니다!')]"));
+    }
+
+    public WebElement MailNotificationJapanese()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'ご登録いただきありがとうございます')]"));
+    }
+
+    public WebElement MailNotificationTaiwan()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'ขอบคุณสำหรับการลงทะเบียน!')]"));
+    }
+
+    public WebElement MailNotificationVitenamese()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'Cảm ơn bạn đã đăng ký!')]"));
+    }
+
+    public WebElement MailNotificationChinese()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), '感谢您注册')]"));
+    }
+
+    public WebElement MailNotificationChineseTraditional()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), '感謝您的註冊')]"));
+    }
+
     public WebElement PasswordChangedMessage() throws IOException{
         return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'You have changed your password')]"));
     }

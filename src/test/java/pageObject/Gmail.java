@@ -57,7 +57,7 @@ public class Gmail {
     }
 
     public WebElement GmailMacmillanEmailSpanish() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Gracias por registrarte en Macmillan Education Everywhere')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Gracias por crear su cuenta Macmillan Education Everywhere')]"));
     }
 
     public WebElement GmailMacmillanEmailJapanese()throws IOException {
@@ -65,7 +65,7 @@ public class Gmail {
     }
 
     public WebElement GmailMacmillanEmailKorean() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education Everywhere (MEE) 계정을 만들어 주셔서 감사합니다')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education Everywhere(MEE) 계정을 만들어 주셔서 감사합니다')]"));
     }
 
     public WebElement GmailMacmillanEmailTaiwanese() throws IOException{
@@ -93,7 +93,7 @@ public class Gmail {
     }
     
     public WebElement GmailClickEmailLinkSpanish() throws IOException{
-        return Driver.findElement(By.xpath("//*[contains(text(), 'Entra aquí para acceder')]"));
+        return Driver.findElement(By.xpath("//*[contains(text(), 'Vaya aquí para ingresar')]"));
     }
 
     public WebElement GmailClickEmailLinkJapanese() throws IOException{
@@ -101,7 +101,7 @@ public class Gmail {
     }
 
     public WebElement GmailClickEmailLinkKorean() throws IOException{
-        return Driver.findElement(By.xpath("//*[text()='로그인하려면 여기로 이동하세요.']"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), '로그인은 여기에서 하십시오.')]"));
     }
 
     public WebElement GmailClickEmailLinkTaiwan() throws IOException{
@@ -117,7 +117,7 @@ public class Gmail {
     }
 
     public WebElement GmailClickEmailLinkChineseTraditional() throws IOException{
-        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), '請點這裡登入')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), '點擊這裡登入')]"));
     }
 
     public WebElement GmailExpandEmail () throws IOException{
