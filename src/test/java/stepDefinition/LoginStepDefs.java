@@ -173,6 +173,8 @@ public class LoginStepDefs {
 
         String username = FileReader.readProperties().get("ForgotUsername");
         String password = FileReader.readProperties().get("password");
+        login.UsernameField().clear();
+        login.UsernameField().clear();
         login.UsernameField().sendKeys(username);
         login.PasswordField().sendKeys(password);
         login.LoginButton().click();
