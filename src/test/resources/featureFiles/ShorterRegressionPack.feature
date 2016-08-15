@@ -77,8 +77,8 @@ Feature: SHORTER Regression End to End Test Pack
     #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
-    And I select the Opt In checkbox
-    Then I select Third Party checkbox
+    #And I select the Opt In checkbox
+    #Then I select Third Party checkbox
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
@@ -165,7 +165,7 @@ Feature: SHORTER Regression End to End Test Pack
     #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
-    And I select the Opt In checkbox
+    #And I select the Opt In checkbox
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
@@ -217,7 +217,7 @@ Feature: SHORTER Regression End to End Test Pack
     #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
-    And I select the Opt In checkbox
+    #And I select the Opt In checkbox
     And I select the Submit button
     Then a message "Personal details updated" is displayed
     And I log out of MEE
@@ -256,7 +256,7 @@ Feature: SHORTER Regression End to End Test Pack
     #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
-    And I select the Opt In checkbox
+    #And I select the Opt In checkbox
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
