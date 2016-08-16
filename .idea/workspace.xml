@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c84423d3-94aa-4647-81a7-b2ed50c8d33a" name="Default" comment="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;" />
+    <list default="true" id="c84423d3-94aa-4647-81a7-b2ed50c8d33a" name="Default" comment="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/resources/chromedriverWINDOWS.exe" afterPath="$PROJECT_DIR$/chromedriverWINDOWS.exe" />
+    </list>
     <ignored path="Selenium-Cucumber-Framework.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -178,8 +180,8 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1994" />
-    <option name="y" value="23" />
+    <option name="x" value="1835" />
+    <option name="y" value="39" />
     <option name="width" value="1587" />
     <option name="height" value="1024" />
   </component>
@@ -302,6 +304,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test/resources/featureFiles/Deprecated" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -933,7 +936,7 @@
       <workItem from="1470648702369" duration="13758000" />
       <workItem from="1470668861463" duration="15039000" />
       <workItem from="1470729654010" duration="26866000" />
-      <workItem from="1471259521434" duration="4609000" />
+      <workItem from="1471259521434" duration="5230000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;">
       <created>1467730977166</created>
@@ -978,7 +981,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="861334000" />
+    <option name="totallyTimeSpent" value="861955000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -990,7 +993,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1994" y="23" width="1587" height="1024" extended-state="0" />
+    <frame x="1835" y="39" width="1587" height="1024" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
