@@ -230,6 +230,32 @@ public class RegisterStepDefs {
         register.EmailConfirm().sendKeys(emailConfirm);
     }
 
+    @Then("^I attempt to Paste confirmation of the unique Gmail email address$")
+    public void attemptPaste() throws Throwable {
+
+
+        Register register = new Register();
+
+        Actions doubleclick = new Actions(Driver.webdriver).contextClick(register.Email());
+        doubleclick.sendKeys(Keys.COMMAND, "a");
+
+
+        Actions action1 = new Actions(Driver.webdriver).contextClick(register.Email());
+        action1.sendKeys(Keys.ARROW_DOWN);
+        action1.sendKeys(Keys.ARROW_DOWN);
+        action1.sendKeys(Keys.ARROW_DOWN);
+        action1.sendKeys(Keys.ENTER);
+        action1.perform();
+
+
+        register.FirstName().click();
+        Actions action2 = new Actions(Driver.webdriver).contextClick(register.FirstName());
+        action2.sendKeys(Keys.ARROW_DOWN);
+        action2.sendKeys(Keys.ENTER);
+        action2.perform();
+
+    }
+
     @Then("^I enter a confirmation of the unique Parent/Guardian email address$")
     public void iEnterAConfirmationParentEmailAddressOf() throws Throwable {
         Register register = new Register();

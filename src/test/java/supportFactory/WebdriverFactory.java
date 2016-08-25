@@ -26,39 +26,13 @@ public class WebdriverFactory {
 		}
 	}
 
-	public static void removeGridTest () {
-
-	}
-
 	public static WebDriver createWebdriver() throws Throwable {
 
-//
-//		PlatformFactory.selectPlatform(caps);
-//		BrowserFactory.selectBrowser(caps);
-//		WebdriverFactory.caps.merge(additionalCapabilities);
-
 		String browser = FileReader.readProperties().get("browser");
-
-
-		
-//		String seleniumHub = TestRunner.config.get("seleniumHub");
-					
-//		try {
-//			return new RemoteWebDriver(new URL(seleniumHub), caps);
-//		} catch (WebDriverException e) {
-//			Driver.writeToReport("WebDriverException: " + e.getMessage());
-//			Assert.fail(e.getMessage());
-//		}
-//		catch (Exception e) {
-//			Driver.writeToReport(e.getMessage());
-//		}
-
 		Runtime.getRuntime().addShutdownHook(new Thread(new BrowserCleanup()));
-
 		return null;
 	}
 
-//	public static DesiredCapabilities caps;
-//	public static DesiredCapabilities additionalCapabilities = new DesiredCapabilities();
+
 
 }
