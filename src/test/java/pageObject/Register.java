@@ -54,15 +54,15 @@ public class Register {
     }
 
     public WebElement TermsLink()throws IOException {
-        return Driver.findElement(By.xpath("//*[@href='#'][contains(text(), 'terms')]"));
+        return Driver.findElement(By.xpath("//*[@id='_AgreeToTermsOfUseLabel']/span/a[1]"));
     }
 
     public WebElement PrivacyPolicy() throws IOException{
-        return Driver.findElement(By.xpath("//*[@href='#'][contains(text(), 'Privacy')]"));
+        return Driver.findElement(By.xpath("//*[@id='_AgreeToTermsOfUseLabel']/span/a[2]"));
     }
 
     public WebElement CookiePolicy() throws IOException{
-        return Driver.findElement(By.xpath("//*[@href='#'][contains(text(), 'Cookie')]"));
+        return Driver.findElement(By.xpath("//*[@id='_AgreeToTermsOfUseLabel']/span/a[3]"));
     }
 
     public WebElement OptInCheckbox()throws IOException {

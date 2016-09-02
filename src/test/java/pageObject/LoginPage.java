@@ -20,7 +20,7 @@ public class LoginPage {
     }
 
     public WebElement CloseForm()throws IOException {
-        return Driver.findElement(By.xpath("//*[@class='mee-icon-close']"));
+        return Driver.findElement(By.xpath("//*[@id='close']/button"));
     }
 
     public WebElement RegisterLandingPage()throws IOException {
