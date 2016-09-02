@@ -56,7 +56,7 @@ public class MailClientsStepDefs {
     @And("^I click on the link to confirm the Gmail Minor email address$")
     public void iClickOnTheLinkToConfirmTheMinorGmailEmailAddress() throws Throwable {
         Gmail gmail = new Gmail();
-        gmail.GmailMacmillanEmail().click();
+        gmail.GmailMacmillanEmailMinor().click();
         RegisterStepDefs.iStoreTheGmailUsernameAndPassword();
         gmail.GmailMinorClickEmailLink().click();
     }
@@ -197,11 +197,8 @@ public class MailClientsStepDefs {
     public void aCheckIsMadeThatTheUsernameReminderIsCorrect() throws Throwable {
         Gmail gmail = new Gmail();
         gmail.GmailYourUsernameEmail().click();
-
         String username = FileReader.readProperties().get("username");
-        String ForgotUsername = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Username:')]")).getText().replace("Username: ", "");
-        FileReader.addData("ForgotUsername", ForgotUsername);
-        assertEquals(ForgotUsername, username);
+        gmail.EmailBodyContains(username).isDisplayed();
         gmail.GmailClickEmailLink().click();
     }
 

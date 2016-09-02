@@ -89,8 +89,6 @@ Feature: Regression End to End Test Pack
 
     And I switch Windows back to the MEE Portal
 
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
     Then I log out of MEE
 
@@ -157,7 +155,7 @@ Feature: Regression End to End Test Pack
 
     Then I have clicked on the Landing Page login button
     And I select language "<Language>"
-    Then I Login with the newly created username and password
+    Then I Login with the newly created Minor username and password
     Then I log out of MEE
 
     Then I switch back to Gmail
@@ -187,7 +185,6 @@ Feature: Regression End to End Test Pack
       | English  | Private   | Terms   | GB      | 7   | May   | 1956 |
 
   Scenario Outline: DOWNLOAD APP
-
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     When I select language "<Language>"
@@ -213,7 +210,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    #And I have clicked on the Next button
+#    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     #And I select the Opt In checkbox
@@ -227,12 +224,12 @@ Feature: Regression End to End Test Pack
 
     And I switch Windows back to the MEE Portal
 
- #LogIn with new UserName & Password
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
+    #LogIn with new UserName & Password
+#    Given I am on the MEE portal for "test"
+#    Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
 
- #Change Password in Profile section
+    #Change Password in Profile section
     And I select the Profile icon
     Then I select Change Password
     And I select the Submit button
@@ -247,13 +244,12 @@ Feature: Regression End to End Test Pack
     And I select the Submit button
     Then I should see the Password changed Success message
     And I select the Close button
-    And I Pause for 10 seconds
 
     Then I open the logged in Gmail page
     And a check is made that the Password has been changed
     Then I delete ALL Test Gmail Emails
 
- #Edit Details
+    #Edit Details
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
     Then I Login with the forgotten Password details
@@ -348,7 +344,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    #And I have clicked on the Next button
+#    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     #And I select the Opt In checkbox
@@ -390,13 +386,12 @@ Feature: Regression End to End Test Pack
     And I register a Unique Surname
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-    #And I have clicked on the Next button
     Then I enter an email address of "<email>"
     And I enter a confirmation email address of "<email>"
     Then I select the Terms & Conditions checkbox
     And I select the Submit button
     And I Pause for 5 seconds
-    Then a message "There is an existing account registered with this email address. Please tick the box if you’d like to continue and use the email address again." is displayed
+    Then a message "There is an existing account registered with this email address." is displayed
     And I select the Use the Same Email Address checkbox
     And I select the Submit button
     Then I should see the Email sent confirmation page
@@ -408,7 +403,7 @@ Feature: Regression End to End Test Pack
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    Then I Login with the newly created username and password
+    Then I Login with the newly created Minor username and password
     Then I log out of MEE
 
     Then I switch back to Gmail

@@ -31,8 +31,8 @@ Feature: Edit User Profile
     And I switch Windows back to the MEE Portal
 
     #LogIn with new UserName & Password
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
+#    Given I am on the MEE portal for "test"
+#    Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
 
     #Change Password in Profile section

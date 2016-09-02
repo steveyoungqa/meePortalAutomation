@@ -115,6 +115,16 @@ public class LoginStepDefs {
     @Then("^I Login with the newly created username and password$")
     public void iLogInAsNewlyCreatedUsernameAndPassword() throws Throwable {
         LoginPage login = new LoginPage();
+//        String username = FileReader.readProperties().get("username");
+        String password = FileReader.readProperties().get("password");
+//        login.UsernameField().sendKeys(username);
+        login.PasswordField().sendKeys(password);
+        login.LoginButton().click();
+    }
+
+    @Then("^I Login with the newly created Minor username and password$")
+    public void iLogInAsNewlyCreatedMinorUsernameAndPassword() throws Throwable {
+        LoginPage login = new LoginPage();
         String username = FileReader.readProperties().get("username");
         String password = FileReader.readProperties().get("password");
         login.UsernameField().sendKeys(username);
@@ -171,7 +181,7 @@ public class LoginStepDefs {
             System.out.println(winHandle);
         }
 
-        String username = FileReader.readProperties().get("ForgotUsername");
+        String username = FileReader.readProperties().get("username");
         String password = FileReader.readProperties().get("password");
         login.UsernameField().clear();
         login.UsernameField().clear();

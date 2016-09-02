@@ -34,26 +34,30 @@ public class Gmail {
     }
 
     public WebElement GmailAnyMacmillanEmail () throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education Everywhere')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education')]"));
     }
 
     public WebElement GmailResetYourPassword() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Reset your password ')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: Password reset')]"));
     }
 
     public WebElement GmailPasswordChanged() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education Everywhere - Password changed')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: Password has been changed')]"));
     }
     public WebElement GmailDetailsChanged() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education Everywhere - Details changed')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: Profile details have been changed')]"));
     }
 
     public WebElement GmailYourUsernameEmail () throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Your username for your Macmillan')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: Username and password reset')]"));
     }
 
     public WebElement GmailMacmillanEmail()throws IOException {
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Thank you for creating your Macmillan Education Everywhere (MEE) account')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: New registration')]"));
+    }
+
+    public WebElement GmailMacmillanEmailMinor()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: Confirm email address to complete registration')]"));
     }
 
     public WebElement GmailMacmillanEmailSpanish() throws IOException{
@@ -85,11 +89,11 @@ public class Gmail {
     }
 
     public WebElement GmailClickEmailLink() throws IOException{
-        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Go here to login')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'If this is your own account, you can now log in here.')]"));
     }
 
     public WebElement GmailMinorClickEmailLink() throws IOException{
-        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Click this link to confirm your email address.')]"));
+        return Driver.findElement(By.xpath("//*[@role='main']//*[contains(text(), 'Please click here to confirm your email address.')]"));
     }
     
     public WebElement GmailClickEmailLinkSpanish() throws IOException{

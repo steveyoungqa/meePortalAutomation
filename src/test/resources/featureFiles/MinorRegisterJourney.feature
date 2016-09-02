@@ -31,11 +31,11 @@ Feature: Minor Registration Journey
 
     Then I have clicked on the Landing Page login button
     And I select language "<Language>"
-    Then I Login with the newly created username and password
+    Then I Login with the newly created Minor username and password
     Then I log out of MEE
 
     Then I switch back to Gmail
-    And I delete the Test Gmail Email
+    Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
     Examples:
@@ -48,7 +48,7 @@ Feature: Minor Registration Journey
   Scenario: Updating the email address of a Minor will log the user out
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    Then I Login with the newly created username and password
+    Then I Login with the newly created Minor username and password
     And I select the Profile icon
     Then I select Edit Details
     #And I have clicked on the Next button

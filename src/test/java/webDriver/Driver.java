@@ -70,7 +70,7 @@ public class Driver {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-        getCurrentDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        getCurrentDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         try {
             new WebDriverWait(getCurrentDriver(), 5).until(ExpectedConditions.elementToBeClickable((By) element));
         } catch (Exception e) {

@@ -130,7 +130,7 @@ public class Register {
     }
 
     public WebElement PasswordChangedMessage() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'You have changed your password')]"));
+        return Driver.findElement(By.xpath("//*[@class='mee-module-mail-notification']//*[contains(text(), 'You have successfully changed your password. Please log in with your new password.')]"));
     }
 
     public WebElement ForgotEmailSent() throws IOException{
@@ -146,7 +146,7 @@ public class Register {
     }
 
     public WebElement ResetPasswordLink()throws IOException {
-        return Driver.findElement(By.xpath("//*[text()='here']"));
+        return Driver.findElement(By.xpath("//*[text()='Please click here to reset the password.']"));
     }
 
     public WebElement ProfileIcon()throws IOException {
