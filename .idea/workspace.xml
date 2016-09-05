@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c84423d3-94aa-4647-81a7-b2ed50c8d33a" name="Default" comment="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java" afterPath="$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/pageObject/Register.java" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Register.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/RegisterStepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/RegisterStepDefs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/config.properties" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature" afterPath="$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature" afterPath="$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature" afterPath="$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature" />
     </list>
     <ignored path="Selenium-Cucumber-Framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,51 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RegisterExistingEmail.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/RegisterExistingEmail.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MeePortalStepDefs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+            <state relative-caret-position="363">
+              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginPage.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java">
+      <file leaf-file-name="RegressionPack.feature" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginStepDefs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/LoginStepDefs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+            <state relative-caret-position="34">
+              <caret line="385" column="12" selection-start-line="385" selection-start-column="12" selection-end-line="385" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -87,48 +59,18 @@
       <file leaf-file-name="Register.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/Register.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MailClientsStepDefs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/MailClientsStepDefs.java">
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/config.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2835">
-              <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gmail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/Gmail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValidationTests.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HelpPrivacyTerms.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/HelpPrivacyTerms.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+            <state relative-caret-position="405">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -167,7 +109,6 @@
         <option value="$PROJECT_DIR$/src/test/java/pageObject/Mailinator.java" />
         <option value="$PROJECT_DIR$/src/test/java/stepDefinition/LoggedInStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/HelpPrivacyTerms.feature" />
-        <option value="$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/pageObject/Maildrop.java" />
         <option value="$PROJECT_DIR$/src/test/java/pageObject/HelpPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/findBy/Errors.java" />
@@ -182,7 +123,6 @@
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegisterLanguages/RegisterTaiwanese.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegisterLanguages/RegisterVitenamese.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/AddResources.feature" />
-        <option value="$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegisterLanguages/RegisterSpanish.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/ForgotUsername.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/ForgotPassword.feature" />
@@ -194,10 +134,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/experimental.java" />
         <option value="$PROJECT_DIR$/src/test/java/rightclick.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature" />
-        <option value="$PROJECT_DIR$/src/test/java/stepDefinition/RegisterStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/webDriver/Driver.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegisterLanguages/RegisterEnglish.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/MinorRegisterJourney.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/Profile.feature" />
@@ -205,9 +142,14 @@
         <option value="$PROJECT_DIR$/src/test/java/stepDefinition/MailClientsStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/stepDefinition/LoginStepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegisterExistingEmail.feature" />
-        <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature" />
         <option value="$PROJECT_DIR$/src/test/java/pageObject/Register.java" />
         <option value="$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/stepDefinition/RegisterStepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature" />
+        <option value="$PROJECT_DIR$/src/test/resources/config.properties" />
       </list>
     </option>
   </component>
@@ -233,10 +175,10 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2295" />
-    <option name="y" value="139" />
-    <option name="width" value="1948" />
-    <option name="height" value="1041" />
+    <option name="x" value="1548" />
+    <option name="y" value="37" />
+    <option name="width" value="1562" />
+    <option name="height" value="1014" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -263,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -403,7 +346,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="testRunner" />
+              <option name="myItemId" value="stepDefinition" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -438,7 +381,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -486,18 +428,18 @@
       <recent name="supportFactory" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber java.Scenario: LOGIN VALIDATION ERRORS">
-    <configuration default="false" name="Feature: ForgotUsername" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber java.Scenario: REGISTER AN EXISTING EMAIL ADDRESS">
+    <configuration default="false" name="Feature: debugOnly" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="cucumber.api.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/ForgotUsername.feature" />
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature" />
       <option name="GLUE" value="stepDefinition" />
       <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: ForgotUsername" />
+      <option name="myGeneratedName" value="Feature: debugOnly" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -511,20 +453,44 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Feature: RegisterExistingEmail" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Scenario: Registration Validation Errors Second Page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="cucumber.api.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/RegisterExistingEmail.feature" />
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature" />
       <option name="GLUE" value="stepDefinition" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: RegisterExistingEmail" />
+      <option name="myNameFilter" value="^Registration Validation Errors Second Page$" />
+      <option name="myGeneratedName" value="Scenario: Registration Validation Errors Second Page" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Registration Validation Errors Second Page$&quot;" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="MeePortalAutomation" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Scenario: Registration Validation Errors Second Page (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature" />
+      <option name="GLUE" value="stepDefinition" />
+      <option name="myNameFilter" value="^Registration Validation Errors Second Page$" />
+      <option name="myGeneratedName" value="Scenario: Registration Validation Errors Second Page" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Registration Validation Errors Second Page$&quot;" />
       <option name="WORKING_DIRECTORY" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -559,7 +525,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Scenario: T&amp;C'S, PRIVACY, COOKIES" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="cucumber.api.cli.*" />
@@ -568,35 +534,11 @@
       </extension>
       <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature" />
       <option name="GLUE" value="stepDefinition" />
-      <option name="myNameFilter" value="^T\&amp;C\'S\, PRIVACY\, COOKIES$" />
-      <option name="myGeneratedName" value="Scenario: T&amp;C'S, PRIVACY, COOKIES" />
+      <option name="myNameFilter" value="^REGISTER AN EXISTING EMAIL ADDRESS$" />
+      <option name="myGeneratedName" value="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^T\&amp;C\'S\, PRIVACY\, COOKIES$&quot;" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MeePortalAutomation" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Scenario: LOGIN VALIDATION ERRORS" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature" />
-      <option name="GLUE" value="stepDefinition" />
-      <option name="myNameFilter" value="^LOGIN VALIDATION ERRORS$" />
-      <option name="myGeneratedName" value="Scenario: LOGIN VALIDATION ERRORS" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^LOGIN VALIDATION ERRORS$&quot;" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^REGISTER AN EXISTING EMAIL ADDRESS$&quot;" />
       <option name="WORKING_DIRECTORY" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -1041,19 +983,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: ForgotUsername" />
-      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: RegisterExistingEmail" />
-      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: RegressionPack" />
-      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Scenario: T&amp;C'S, PRIVACY, COOKIES" />
-      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Scenario: LOGIN VALIDATION ERRORS" />
+      <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: debugOnly" />
+      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Scenario: Registration Validation Errors Second Page" />
+      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Scenario: Registration Validation Errors Second Page (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: RegressionPack" />
+      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Scenario: REGISTER AN EXISTING EMAIL ADDRESS" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Scenario: LOGIN VALIDATION ERRORS" />
-        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Scenario: T&amp;C'S, PRIVACY, COOKIES" />
-        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: RegressionPack" />
-        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: RegisterExistingEmail" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: ForgotUsername" />
+        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Scenario: REGISTER AN EXISTING EMAIL ADDRESS" />
+        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: RegressionPack" />
+        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Scenario: Registration Validation Errors Second Page (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: debugOnly" />
+        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Scenario: Registration Validation Errors Second Page" />
       </list>
     </recent_temporary>
   </component>
@@ -1107,6 +1049,7 @@
       <workItem from="1471259521434" duration="44221000" />
       <workItem from="1472800922938" duration="11333000" />
       <workItem from="1472817738873" duration="1180000" />
+      <workItem from="1473063911437" duration="11411000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'bambooFix' of https://stash.macmillan.education/scm/qtt/mee_portal_automation&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/supportFactory/BrowserFactory.java&#10;#&#9;src/test/java/supportFactory/PlatformFactory.java&#10;#&#9;src/test/java/supportMethods/BrowserStack.java&#10;#&#9;src/test/java/webDriver/Driver.java&#10;#&#9;src/test/resources/config.properties&#10;">
       <created>1467730977166</created>
@@ -1119,39 +1062,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__ForgotUsername - 2016.09.02 at 11h 10m 33s.xml">
-      <configuration name="Feature: ForgotUsername" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__RegressionPack - 2016.09.05 at 14h 27m 53s.xml">
+      <configuration name="Feature: RegressionPack" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__Profile - 2016.09.02 at 10h 34m 44s.xml">
-      <configuration name="Feature: Profile" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__debugOnly - 2016.09.05 at 12h 20m 07s.xml">
+      <configuration name="Feature: debugOnly" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__Profile - 2016.09.02 at 10h 41m 11s.xml">
-      <configuration name="Feature: Profile" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__debugOnly - 2016.09.05 at 12h 31m 07s.xml">
+      <configuration name="Feature: debugOnly" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__RegisterExistingEmail - 2016.09.02 at 11h 14m 52s.xml">
-      <configuration name="Feature: RegisterExistingEmail" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__REGISTER_AN_EXISTING_EMAIL_ADDRESS - 2016.09.05 at 14h 30m 23s.xml">
+      <configuration name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__RegisterExistingEmail - 2016.09.02 at 11h 19m 17s.xml">
-      <configuration name="Feature: RegisterExistingEmail" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__REGISTER_AN_EXISTING_EMAIL_ADDRESS - 2016.09.05 at 14h 35m 31s.xml">
+      <configuration name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__RegisterExistingEmail - 2016.09.02 at 11h 26m 02s.xml">
-      <configuration name="Feature: RegisterExistingEmail" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__REGISTER_AN_EXISTING_EMAIL_ADDRESS - 2016.09.05 at 14h 44m 43s.xml">
+      <configuration name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__LOGIN_VALIDATION_ERRORS - 2016.09.02 at 13h 25m 28s.xml">
-      <configuration name="Scenario: LOGIN VALIDATION ERRORS" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__REGISTER_AN_EXISTING_EMAIL_ADDRESS - 2016.09.05 at 14h 58m 14s.xml">
+      <configuration name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__LOGIN_VALIDATION_ERRORS - 2016.09.02 at 13h 25m 57s.xml">
-      <configuration name="Scenario: LOGIN VALIDATION ERRORS" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__REGISTER_AN_EXISTING_EMAIL_ADDRESS - 2016.09.05 at 15h 04m 21s.xml">
+      <configuration name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__T&amp;C'S,_PRIVACY,_COOKIES - 2016.09.02 at 13h 06m 43s.xml">
-      <configuration name="Scenario: T&amp;C'S, PRIVACY, COOKIES" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__REGISTER_AN_EXISTING_EMAIL_ADDRESS - 2016.09.05 at 15h 07m 54s.xml">
+      <configuration name="Scenario: REGISTER AN EXISTING EMAIL ADDRESS" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__T&amp;C'S,_PRIVACY,_COOKIES - 2016.09.02 at 13h 22m 16s.xml">
-      <configuration name="Scenario: T&amp;C'S, PRIVACY, COOKIES" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__Registration_Validation_Errors_Second_Page_(1) - 2016.09.05 at 14h 05m 18s.xml">
+      <configuration name="Scenario: Registration Validation Errors Second Page (1)" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="913459000" />
+    <option name="totallyTimeSpent" value="924870000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1163,28 +1106,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2295" y="139" width="1948" height="1041" extended-state="0" />
+    <frame x="1548" y="37" width="1562" height="1014" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31692573" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31601733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31560692" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5603448" sideWeight="0.5027285" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35511065" sideWeight="0.49727148" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32154697" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2779018" sideWeight="0.49727148" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32596686" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19832109" sideWeight="0.48686245" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23026316" sideWeight="0.48686245" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39984825" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28025478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2501856" sideWeight="0.5131376" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28025478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1244,14 +1187,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepDefinition/RegisterStepDefs.java</url>
-          <line>497</line>
-          <properties />
-          <option name="timeStamp" value="161" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="162" />
     </breakpoint-manager>
     <watches-manager />
@@ -1261,20 +1196,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/Deprecated/ForgottenUserPass.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reports/tmp.text">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1466,37 +1387,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/experimental.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#965#966#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/webDriver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/RegisterLanguages/RegisterEnglish.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -1528,30 +1423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/MailClientsStepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
-          <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/Gmail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/ForgotUsername.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
@@ -1559,10 +1430,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/LoginStepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/RegisterLanguages/RegisterEnglish.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+        <state relative-caret-position="465">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1575,58 +1454,120 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/LoginStepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/experimental.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/MailClientsStepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3165">
+          <caret line="248" column="39" selection-start-line="248" selection-start-column="36" selection-end-line="248" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/Gmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="633" column="19" selection-start-line="633" selection-start-column="19" selection-end-line="633" selection-end-column="19" />
+          <folding>
+            <element signature="e#23072#23073#0" expanded="false" />
+            <element signature="e#23112#23113#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding>
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/ValidationTests.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        <state relative-caret-position="555">
+          <caret line="37" column="53" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/RegisterStepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="288" column="21" selection-start-line="288" selection-start-column="21" selection-end-line="288" selection-end-column="21" />
+        <state relative-caret-position="393">
+          <caret line="648" column="0" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/HelpPrivacyTerms.feature">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/debugOnly.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        <state relative-caret-position="120">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/Register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/stepDefinition/MeePortalStepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+        <state relative-caret-position="363">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/HelpPrivacyTerms.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/featureFiles/RegressionPack.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pageObject/LoginPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+        <state relative-caret-position="34">
+          <caret line="385" column="12" selection-start-line="385" selection-start-column="12" selection-end-line="385" selection-end-column="12" />
           <folding />
         </state>
       </provider>

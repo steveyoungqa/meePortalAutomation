@@ -46,6 +46,11 @@ Feature: Regression End to End Test Pack
     Then I Pause for 3 seconds
     And I select the Submit button
     Then a message "Email address required" is displayed
+    Then I enter a unique Gmail email address
+    And I attempt to Paste confirmation of the unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    And I select the Submit button
+    Then a message "You must agree to the terms and conditions to continue" is displayed
 
   Scenario Outline: MANDATORY FIELDS LOGIN VALIDATION
     Given I am on the MEE portal for "test"
@@ -411,5 +416,5 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
     Examples:
-      | Language |  Country | day | month | year | email                              |
-      | English  |  GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |
+      | Language |  Country | day | month | year | email                             |
+      | English  |  GB      | 7   | May   | 1956 | springertester+testemail@gmail.com|

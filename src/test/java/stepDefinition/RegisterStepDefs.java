@@ -5,6 +5,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.runtime.CucumberException;
 import enums.Language;
 import enums.Month;
 import org.apache.commons.lang.RandomStringUtils;
@@ -231,28 +232,29 @@ public class RegisterStepDefs {
     }
 
     @Then("^I attempt to Paste confirmation of the unique Gmail email address$")
-    public void attemptPaste() throws Throwable {
-
+    public void attemptPaste() throws Exception {
 
         Register register = new Register();
 
-        Actions doubleclick = new Actions(Driver.webdriver).contextClick(register.Email());
-        doubleclick.sendKeys(Keys.COMMAND, "a");
-
-
-        Actions action1 = new Actions(Driver.webdriver).contextClick(register.Email());
-        action1.sendKeys(Keys.ARROW_DOWN);
-        action1.sendKeys(Keys.ARROW_DOWN);
-        action1.sendKeys(Keys.ARROW_DOWN);
-        action1.sendKeys(Keys.ENTER);
-        action1.perform();
-
+        register.Email().click();
+        register.Email().sendKeys(Keys.COMMAND, "a");
+        Thread.sleep(2000);
+        register.Email().sendKeys(Keys.COMMAND, "c");
+        Thread.sleep(2000);
 
         register.FirstName().click();
-        Actions action2 = new Actions(Driver.webdriver).contextClick(register.FirstName());
+        Actions action2 = new Actions(Driver.webdriver).contextClick(register.EmailConfirm());
         action2.sendKeys(Keys.ARROW_DOWN);
         action2.sendKeys(Keys.ENTER);
         action2.perform();
+
+        if (register.EmailConfirm().getText().trim().equals("")) {
+
+        }
+        else {
+            throw new Exception("PASTE SHOULD NOT BE ALLOWED IN THIS FORM FIELD");
+        }
+
 
     }
 

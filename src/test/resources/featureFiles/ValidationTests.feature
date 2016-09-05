@@ -41,6 +41,7 @@ Feature: Validation Tests
     And I select the Submit button
     Then a message "Email address required" is displayed
     Then I enter a unique Gmail email address
+    And I attempt to Paste confirmation of the unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
     And I select the Submit button
     Then a message "You must agree to the terms and conditions to continue" is displayed
