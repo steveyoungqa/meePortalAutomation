@@ -73,6 +73,10 @@ public class Register {
         return Driver.findElement(By.xpath("//*[@type='submit']"));
     }
 
+    public WebElement AlreadyRegisteredLink() throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='mee-white']"));
+    }
+
     public WebElement ForgotSubmitButton()throws IOException {
         return Driver.findElement(By.xpath("//*[@type='submit']"));
     }
