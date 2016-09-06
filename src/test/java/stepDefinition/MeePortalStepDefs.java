@@ -80,7 +80,7 @@ public class MeePortalStepDefs {
         Register register = new Register();
         WebElement submit = register.SubmitButton();
         Driver.scrollToElement(submit);
-//        Thread.sleep(2000);
+        Thread.sleep(2000);
         submit.click();
     }
 
