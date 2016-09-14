@@ -1,34 +1,21 @@
 package webDriver;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
-
-import supportFactory.BrowserFactory;
-import supportFactory.PlatformFactory;
-import supportFactory.WebdriverFactory;
-import supportMethods.BrowserStack;
 import supportMethods.FileReader;
 import testRunner.TestRunner;
 
-import static org.apache.commons.io.FileUtils.waitFor;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
@@ -46,6 +33,7 @@ public class Driver {
                 if (browser.equals("Firefox")) {
                     webdriver = new FirefoxDriver();
                 }
+
             }
           return webdriver;
     }
