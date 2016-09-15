@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.apache.http.HttpResponse;
@@ -92,7 +91,7 @@ public class LoggedInStepDefs {
         if (Platform.equals("Windows")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.exe";
             type = "application/octet-stream";
-            size = 29455520;
+            size = 29461136;
         }
         if (Platform.equals("MAC")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.dmg";
@@ -102,12 +101,12 @@ public class LoggedInStepDefs {
         if (Platform.equals("Linux32")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest32.deb";
             type = "application/x-debian-package";
-            size = 46613672;
+            size = 46620928;
         }
         if (Platform.equals("Linux64")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest64.deb";
             type = "application/x-debian-package";
-            size = 44405482;
+            size = 44410408;
         }
 
         HttpClient httpClient = HttpClientBuilder.create().build();

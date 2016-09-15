@@ -42,7 +42,7 @@ public class Register {
     }
 
     public WebElement SameEmailAddressCheckbox()throws IOException {
-        return Driver.findElement(By.id("_IsGuardian"));
+        return Driver.findElement(By.id("_ReuseEmailAddress"));
     }
 
     public WebElement EmailAddress()throws IOException {
@@ -166,7 +166,7 @@ public class Register {
     }
 
     public WebElement AccessCodeNextButton()throws IOException {
-        return Driver.findElement(By.xpath("//*[@class='mee-align-center']"));
+        return Driver.findElement(By.id("_submitBtn"));
     }
 
     public WebElement ProfileHelpIcon()throws IOException {
