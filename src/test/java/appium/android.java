@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pageObject.LoginPage;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -30,7 +31,7 @@ public class android {
         caps.setCapability("avd",avd);// Mention the created AVD name
         caps.setCapability(MobileCapabilityType.APP_PACKAGE,"uk.co.nationalrail.google");
 //        caps.setCapability(MobileCapabilityType.APP_ACTIVITY,"uk.co.fortunecookie.nre.activities.SplashScreen");
-//        caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
+        caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
         driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
@@ -59,15 +60,16 @@ public class android {
         WebElement goButton  = driver.findElement(By.id("uk.co.nationalrail.google:id/goButton"));
         goButton.click();
         Thread.sleep(5000);
+
     }
 
     @Test
     public void webTest() throws IOException {
 
-//        LoginPage login = new LoginPage();
-//        driver.get("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/");
-//        WebElement registerButton = driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
-//        registerButton.click();
+        LoginPage login = new LoginPage();
+        driver.get("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/");
+        WebElement registerButton = driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
+        registerButton.click();
     }
 
     @AfterClass
