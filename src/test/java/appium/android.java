@@ -30,8 +30,8 @@ public class android {
         caps.setCapability(MobileCapabilityType.DEVICE_NAME,"Nantucket");
         caps.setCapability("avd",avd);// Mention the created AVD name
         caps.setCapability(MobileCapabilityType.APP_PACKAGE,"uk.co.nationalrail.google");
-//        caps.setCapability(MobileCapabilityType.APP_ACTIVITY,"uk.co.fortunecookie.nre.activities.SplashScreen");
-        caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
+        caps.setCapability(MobileCapabilityType.APP_ACTIVITY,"uk.co.fortunecookie.nre.activities.SplashScreen");
+//        caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
         driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
