@@ -8,17 +8,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pageObject.LoginPage;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class android {
+public class androidAPK {
     AndroidDriver driver;
 
-    String apk = "/Users/syn3286/Documents/Appium/uk.co.nationalrail.google.8.2.2.apk";
-    String avd = "Samsung_Galaxy_S7_Edge_API_22";
+    String apk = "/Users/youngey/Documents/JVMProjects/Appium/uk.co.nationalrail.google.8.2.2.apk";
+    String avd = "Nexus_7_API_22";
 
     @BeforeClass
     public void setUp() throws MalformedURLException{
@@ -26,7 +27,7 @@ public class android {
         caps.setCapability(MobileCapabilityType.APP, apk);
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1");
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME,"Nantucket");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME,"Device");
         caps.setCapability("avd",avd);// Mention the created AVD name
         caps.setCapability(MobileCapabilityType.APP_PACKAGE,"uk.co.nationalrail.google");
 //        caps.setCapability(MobileCapabilityType.APP_ACTIVITY,"uk.co.fortunecookie.nre.activities.SplashScreen");
@@ -41,33 +42,33 @@ public class android {
         planner.click();
         WebElement stationFrom=driver.findElement(By.id("uk.co.nationalrail.google:id/stationFrom"));
         stationFrom.click();
-        WebElement stationOrPostcodeSearch=driver.findElement(By.id("uk.co.nationalrail.google:id/stationSearchEditText"));
-        stationOrPostcodeSearch.sendKeys("London Bridge");
-        Thread.sleep(2000);
-        WebElement selectSearchResult=driver.findElement(By.id("uk.co.nationalrail.google:id/name"));
-        selectSearchResult.click();
-
-        WebElement stationTo = driver.findElement(By.id("uk.co.nationalrail.google:id/stationTo"));
-        stationTo.click();
-        stationOrPostcodeSearch.sendKeys("Maidstone East");
-        Thread.sleep(2000);
-        selectSearchResult.click();
-
-        WebElement nowDeparture = driver.findElement(By.id("uk.co.nationalrail.google:id/nowButton"));
-        nowDeparture.click();
-
-        WebElement goButton  = driver.findElement(By.id("uk.co.nationalrail.google:id/goButton"));
-        goButton.click();
-        Thread.sleep(5000);
+//        WebElement stationOrPostcodeSearch=driver.findElement(By.id("uk.co.nationalrail.google:id/stationSearchEditText"));
+//        stationOrPostcodeSearch.sendKeys("London Bridge");
+//        Thread.sleep(2000);
+//        WebElement selectSearchResult=driver.findElement(By.id("uk.co.nationalrail.google:id/name"));
+//        selectSearchResult.click();
+//
+//        WebElement stationTo = driver.findElement(By.id("uk.co.nationalrail.google:id/stationTo"));
+//        stationTo.click();
+//        stationOrPostcodeSearch.sendKeys("Maidstone East");
+//        Thread.sleep(2000);
+//        selectSearchResult.click();
+//
+//        WebElement nowDeparture = driver.findElement(By.id("uk.co.nationalrail.google:id/nowButton"));
+//        nowDeparture.click();
+//
+//        WebElement goButton  = driver.findElement(By.id("uk.co.nationalrail.google:id/goButton"));
+//        goButton.click();
+//        Thread.sleep(5000);
     }
 
-    @Test
+//    @Test
     public void webTest() throws IOException {
 
-//        LoginPage login = new LoginPage();
-//        driver.get("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/");
-//        WebElement registerButton = driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
-//        registerButton.click();
+        LoginPage login = new LoginPage();
+        driver.get("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/");
+        WebElement registerButton = driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
+        registerButton.click();
     }
 
     @AfterClass
