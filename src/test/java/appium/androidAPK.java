@@ -42,7 +42,7 @@ public class androidAPK {
         planner.click();
         WebElement stationFrom=driver.findElement(By.id("uk.co.nationalrail.google:id/stationFrom"));
         stationFrom.click();
-<<<<<<< HEAD:src/test/java/appium/androidAPK.java
+
 //        WebElement stationOrPostcodeSearch=driver.findElement(By.id("uk.co.nationalrail.google:id/stationSearchEditText"));
 //        stationOrPostcodeSearch.sendKeys("London Bridge");
 //        Thread.sleep(2000);
@@ -61,27 +61,6 @@ public class androidAPK {
 //        WebElement goButton  = driver.findElement(By.id("uk.co.nationalrail.google:id/goButton"));
 //        goButton.click();
 //        Thread.sleep(5000);
-=======
-        WebElement stationOrPostcodeSearch=driver.findElement(By.id("uk.co.nationalrail.google:id/stationSearchEditText"));
-        stationOrPostcodeSearch.sendKeys("London Bridge");
-        Thread.sleep(2000);
-        WebElement selectSearchResult=driver.findElement(By.id("uk.co.nationalrail.google:id/name"));
-        selectSearchResult.click();
-
-        WebElement stationTo = driver.findElement(By.id("uk.co.nationalrail.google:id/stationTo"));
-        stationTo.click();
-        stationOrPostcodeSearch.sendKeys("Maidstone East");
-        Thread.sleep(2000);
-        selectSearchResult.click();
-
-        WebElement nowDeparture = driver.findElement(By.id("uk.co.nationalrail.google:id/nowButton"));
-        nowDeparture.click();
-
-        WebElement goButton  = driver.findElement(By.id("uk.co.nationalrail.google:id/goButton"));
-        goButton.click();
-        Thread.sleep(5000);
-
->>>>>>> 28e2797e9b411f868292b76e75d6b09115cc6054:src/test/java/appium/android.java
     }
 
 //    @Test
