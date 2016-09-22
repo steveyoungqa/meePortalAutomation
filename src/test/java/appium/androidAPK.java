@@ -18,8 +18,12 @@ import java.util.concurrent.TimeUnit;
 public class androidAPK {
     AndroidDriver driver;
 
-    String apk = "/Users/youngey/Documents/JVMProjects/Appium/uk.co.nationalrail.google.8.2.2.apk";
-    String avd = "Nexus_7_API_22";
+    String apk = "/Users/syn3286/Documents/Appium/uk.co.nationalrail.google.8.2.2.apk";
+    String avdGalaxyS7 = "Samsung_Galaxy_S7_Edge_API_22";
+    String avdNexus7 = "Nexus_7_API_22";
+    String avdNexus1 = "Nexus_One_API_23";
+    String avdGalaxyTab4 = "Galaxy_Tab_4_0_API_23";
+    String apiVersion = "6.0";
 
     @BeforeClass
     public void setUp() throws MalformedURLException{
@@ -28,10 +32,9 @@ public class androidAPK {
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1");
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME,"Device");
-        caps.setCapability("avd",avd);// Mention the created AVD name
+        caps.setCapability("avd",avdGalaxyS7);
         caps.setCapability(MobileCapabilityType.APP_PACKAGE,"uk.co.nationalrail.google");
         caps.setCapability(MobileCapabilityType.APP_ACTIVITY,"uk.co.fortunecookie.nre.activities.SplashScreen");
-//        caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
         driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
