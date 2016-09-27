@@ -1,33 +1,19 @@
 package stepDefinition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import enums.Language;
 import enums.MeePortal;
 import findBy.Errors;
 import org.apache.commons.lang.RandomStringUtils;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.SystemDefaultCredentialsProvider;
-import org.apache.http.impl.entity.StrictContentLengthStrategy;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import pageObject.Gmail;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
 
 import java.io.IOException;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertThat;
 
 public class LoginStepDefs {
 
@@ -116,6 +102,8 @@ public class LoginStepDefs {
     public void iLogInAsNewlyCreatedUsernameAndPassword() throws Throwable {
         LoginPage login = new LoginPage();
         String username = FileReader.readProperties().get("username");
+        login.UsernameField().clear();
+        login.UsernameField().clear();
         String password = FileReader.readProperties().get("password");
         login.UsernameField().sendKeys(username);
         login.PasswordField().sendKeys(password);
