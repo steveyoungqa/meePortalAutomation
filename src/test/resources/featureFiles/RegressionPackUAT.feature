@@ -7,71 +7,6 @@ Feature: Regression End to End Test Pack
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
-  Scenario: LOGIN VALIDATION ERRORS
-    Given I am on the MEE portal for "UAT"
-    Then I have clicked on the Landing Page login button
-    And I press the Login button
-    Then a message "Please enter your username" is displayed
-    Then a message "Please enter your password" is displayed
-    Then I click the Forgot username link
-    And I select the Submit button
-    Then a message "Please enter your first name" is displayed
-    Then a message "Please enter your last name" is displayed
-    Then a message "Please enter a valid date of birth" is displayed
-    Then a message "Email address required" is displayed
-    And I click on the Close form icon
-
-  Scenario: REGISTRATION VALIDATION ERRORS
-    Given I am on the MEE portal for "UAT"
-    And I have clicked on the Register button
-    #And I have clicked on the Next button
-    And I select the Submit button
-    Then a message "Please enter your first name" is displayed
-    Then a message "Please enter your last name" is displayed
-    Then a message "Please select your country of residence" is displayed
-    Then a message "Please enter a valid date of birth" is displayed
-    Then I register a first name of "Vera&" and surname of "Validation<"
-    And I select the Submit button
-    #And I have clicked on the Next button
-    Then a message "First name must not contain special characters" is displayed
-    Then a message "Last name must not contain special characters" is displayed
-
-
-    Given I am on the MEE portal for "UAT"
-    And I have clicked on the Register button
-    Then I register a first name of "Vera" and surname of "Validation"
-    And I select a Country of residence of "GB"
-    Then I select a date of birth of "3" "Oct" "1994"
-    #And I have clicked on the Next button
-    Then I Pause for 3 seconds
-    And I select the Submit button
-    Then a message "Email address required" is displayed
-    Then I enter a unique Gmail email address
-    And I attempt to Paste confirmation of the unique Gmail email address
-    And I enter a confirmation of the unique Gmail email address
-    And I select the Submit button
-    Then a message "You must agree to the terms and conditions to continue" is displayed
-
-  Scenario Outline: MANDATORY FIELDS LOGIN VALIDATION
-    Given I am on the MEE portal for "UAT"
-    Then I have clicked on the Landing Page login button
-    When I log in as username "<username>" and password "<password>"
-    Then A "<validation error>" is displayed
-
-    Examples:
-      | username | password | validation error                                       |
-      |          | password | Please enter your username                             |
-      | username |          | Please enter your password                             |
-      |          |          | Please enter your username, Please enter your password |
-
-  Scenario: INCORRECT LOGIN DETAILS VALIDATION
-    Given I am on the MEE portal for "UAT"
-    Then I have clicked on the Landing Page login button
-    And I select language "English"
-    When I log in as username "noSuchUser" and password "completelyMadeUpRandom"
-    Then A message is displayed informing the user that the login process has failed
-
-
   Scenario Outline: REGISTER A NEW USER (ALL LANGUAGES)
     Given I am on the MEE portal for "UAT"
     And I have clicked on the Register button
@@ -102,15 +37,32 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
     Examples:
-      | Language           | Firstname | Surname    | Country | day | month  | year |
-      | English            | Ted       | Tester     | GB      | 7   | May    | 1956 |
+      | Language | Firstname | Surname | Country | day | month | year |
+      | English  | Ted       | Tester  | GB      | 7   | May   | 1956 |
 
-  Scenario Outline: ACCESS CODE TO DOWNLOAD RESOURCES
+  Scenario Outline: Register,Login, enter Access code for Resource. Download APP tests
+
+    Given I am on the MEE portal for "UAT"
+    And I have clicked on the Register button
+    When I select language "<Language>"
+    Then I register a first name of "<Firstname>" and surname of "<Surname>"
+    And I select a Country of residence of "<Country>"
+    Then I select a date of birth of "<day>" "<month>" "<year>"
+    Then I enter a unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    Then I select the Terms & Conditions checkbox
+
+    And I select the Submit button
+    Then I should see the Email sent confirmation page
+
+    Then I check the Test Gmail account for the email
+    And I click on the link to confirm the Gmail email address
+
+    And I switch Windows back to the MEE Portal
 
     Given I am on the MEE portal for "UAT"
     Then I have clicked on the Landing Page login button
-    When I log in as username "<username>" and password "<password>"
-    Then I am logged into MEE
+    Then I Login with the newly created username and password
     And I select the Add Resource icon
     Then I enter an incorrect Access code
     And I have clicked on the Access code Next button
@@ -119,23 +71,30 @@ Feature: Regression End to End Test Pack
 
     And I enter a not yet published code of "<NotPubCode>"
     And I have clicked on the Access code Next button
-    Then a message "We are sorry but the digital content for this code is not yet available. Your code has not been activated." is displayed
-    And I select the Contact our Customer Service Team link
-
-    Then I switch Windows back to the MEE Portal
-    Given I am on the MEE portal for "UAT"
+    Then a message "This is not a valid access code. Please try again" is displayed
     And I select the Add Resource icon
     Then I enter an Access code of "<AccessCode>"
     And I have clicked on the Access code Next button
-    Then I should see an Activate message for "<Resource>"
-    Then I should see an Activate message for "<Resource2>"
+#    Then I should see an Activate message for "<Resource>"
+#    Then I should see an Activate message for "<Resource2>"
+    Then I Pause for 3 seconds
     And I select Activate
     Then a message "Success! Your access code has been activated." is displayed
+    And I click on the Close form icon
+    And I confirm the Download is functioning for "Windows"
+    And I confirm the Download is functioning for "MAC"
+    And I confirm the Download is functioning for "Linux32"
+    And I confirm the Download is functioning for "Linux64"
     Then I log out of MEE
 
+    Then I switch back to Gmail
+    Then I delete ALL Test Gmail Emails
+    Then I log out of Gmail
+
+
     Examples:
-      | username | password  |  AccessCode        | Resource                      | Resource2                       | NotPubCode       |
-      | meeadmin | M4cmillan |  HFTL1199319198437 | TEST High Five! Level 1 Pupil | TEST High Five! Level 1 Teacher | TEST395894165646 |
+      | Language | Firstname | Surname | Country | day | month | year | AccessCode        | Resource                          | Resource2                               | NotPubCode       |
+      | English  | Ted       | Tester  | GB      | 7   | May   | 1956 | HFTL1396776065122 | High Five! 1 Pupil's Practice Kit | High Five! 1 Teacher's Presentation Kit | TEST395894165646 |
 
   Scenario Outline: U16 REGISTRATION JOURNEY
     Given I am on the MEE portal for "UAT"
@@ -173,41 +132,9 @@ Feature: Regression End to End Test Pack
       | English  | Adrian    | Aussie  | AU      | 11  | August | 2005 |
       | English  | Pedro     | Mexico  | MX      | 11  | August | 2004 |
 
-  Scenario Outline: T&C'S, PRIVACY, COOKIES
-    Given I am on the MEE portal for "UAT"
-    And I have clicked on the Register button
-    When I select language "<Language>"
-    Then I register a first name of "<Firstname>" and surname of "<Surname>"
-    And I select a Country of residence of "<Country>"
-    Then I select a date of birth of "<day>" "<month>" "<year>"
-    #And I have clicked on the Next button
-    Then I select the Terms of Use link
-    Then I select the Privacy Policy link
-    And I select the Cookie Policy link
 
-    Examples:
-      | Language | Firstname | Surname | Country | day | month | year |
-      | English  | Private   | Terms   | GB      | 7   | May   | 1956 |
 
-  Scenario Outline: DOWNLOAD APP
-    Given I am on the MEE portal for "UAT"
-    Then I have clicked on the Landing Page login button
-    When I select language "<Language>"
-    When I log in as username "<username>" and password "<password>"
-    Then I am logged into MEE
 
-    Then I should be redirected to the Download App page
-    And I confirm the Download is functioning for "Windows"
-    And I confirm the Download is functioning for "MAC"
-    And I confirm the Download is functioning for "Linux32"
-    And I confirm the Download is functioning for "Linux64"
-    Then I log out of MEE
-
-    Examples:
-      | Language | username | password  |
-      | English  | meeadmin | M4cmillan |
-
-#
   Scenario Outline: PROFILE FEATURE
     Given I am on the MEE portal for "UAT"
     And I have clicked on the Register button
@@ -215,10 +142,8 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
-#    #And I have clicked on the Next button
     Then I enter a unique Gmail email address
     And I enter a confirmation of the unique Gmail email address
-    #And I select the Opt In checkbox
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
@@ -229,9 +154,6 @@ Feature: Regression End to End Test Pack
 
     And I switch Windows back to the MEE Portal
 
-    #LogIn with new UserName & Password
-#    Given I am on the MEE portal for "UAT"
-#    Then I have clicked on the Landing Page login button
     Then I Login with the newly created username and password
 
     #Change Password in Profile section
@@ -416,5 +338,85 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
     Examples:
-      | Language |  Country | day | month | year | email                             |
-      | English  |  GB      | 7   | May   | 1956 | springerUATer+UATemail@gmail.com|
+      | Language | Country | day | month | year | email                            |
+      | English  | GB      | 7   | May   | 1956 | springerUATer+UATemail@gmail.com |
+
+  Scenario: LOGIN VALIDATION ERRORS
+    Given I am on the MEE portal for "UAT"
+    Then I have clicked on the Landing Page login button
+    And I press the Login button
+    Then a message "Please enter your username" is displayed
+    Then a message "Please enter your password" is displayed
+    Then I click the Forgot username link
+    And I select the Submit button
+    Then a message "Please enter your first name" is displayed
+    Then a message "Please enter your last name" is displayed
+    Then a message "Please enter a valid date of birth" is displayed
+    Then a message "Email address required" is displayed
+    And I click on the Close form icon
+
+  Scenario: REGISTRATION VALIDATION ERRORS
+    Given I am on the MEE portal for "UAT"
+    And I have clicked on the Register button
+    #And I have clicked on the Next button
+    And I select the Submit button
+    Then a message "Please enter your first name" is displayed
+    Then a message "Please enter your last name" is displayed
+    Then a message "Please select your country of residence" is displayed
+    Then a message "Please enter a valid date of birth" is displayed
+    Then I register a first name of "Vera&" and surname of "Validation<"
+    And I select the Submit button
+    #And I have clicked on the Next button
+    Then a message "First name must not contain special characters" is displayed
+    Then a message "Last name must not contain special characters" is displayed
+
+
+    Given I am on the MEE portal for "UAT"
+    And I have clicked on the Register button
+    Then I register a first name of "Vera" and surname of "Validation"
+    And I select a Country of residence of "GB"
+    Then I select a date of birth of "3" "Oct" "1994"
+    #And I have clicked on the Next button
+    Then I Pause for 3 seconds
+    And I select the Submit button
+    Then a message "Email address required" is displayed
+    Then I enter a unique Gmail email address
+    And I attempt to Paste confirmation of the unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    And I select the Submit button
+    Then a message "You must agree to the terms and conditions to continue" is displayed
+
+  Scenario Outline: MANDATORY FIELDS LOGIN VALIDATION
+    Given I am on the MEE portal for "UAT"
+    Then I have clicked on the Landing Page login button
+    When I log in as username "<username>" and password "<password>"
+    Then A "<validation error>" is displayed
+
+    Examples:
+      | username | password | validation error                                       |
+      |          | password | Please enter your username                             |
+      | username |          | Please enter your password                             |
+      |          |          | Please enter your username, Please enter your password |
+
+  Scenario: INCORRECT LOGIN DETAILS VALIDATION
+    Given I am on the MEE portal for "UAT"
+    Then I have clicked on the Landing Page login button
+    And I select language "English"
+    When I log in as username "noSuchUser" and password "completelyMadeUpRandom"
+    Then A message is displayed informing the user that the login process has failed
+
+  Scenario Outline: T&C'S, PRIVACY, COOKIES
+    Given I am on the MEE portal for "UAT"
+    And I have clicked on the Register button
+    When I select language "<Language>"
+    Then I register a first name of "<Firstname>" and surname of "<Surname>"
+    And I select a Country of residence of "<Country>"
+    Then I select a date of birth of "<day>" "<month>" "<year>"
+ #And I have clicked on the Next button
+    Then I select the Terms of Use link
+    Then I select the Privacy Policy link
+    And I select the Cookie Policy link
+
+    Examples:
+      | Language | Firstname | Surname | Country | day | month | year |
+      | English  | Private   | Terms   | GB      | 7   | May   | 1956 |

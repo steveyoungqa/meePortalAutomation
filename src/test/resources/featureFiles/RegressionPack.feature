@@ -102,15 +102,32 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
     Examples:
-      | Language           | Firstname | Surname    | Country | day | month  | year |
-      | English            | Ted       | Tester     | GB      | 7   | May    | 1956 |
+      | Language | Firstname | Surname | Country | day | month | year |
+      | English  | Ted       | Tester  | GB      | 7   | May   | 1956 |
 
-  Scenario Outline: ACCESS CODE TO DOWNLOAD RESOURCES
+  Scenario Outline: Register,Login, enter Access code for Resource
+
+    Given I am on the MEE portal for "test"
+    And I have clicked on the Register button
+    When I select language "<Language>"
+    Then I register a first name of "<Firstname>" and surname of "<Surname>"
+    And I select a Country of residence of "<Country>"
+    Then I select a date of birth of "<day>" "<month>" "<year>"
+    Then I enter a unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    Then I select the Terms & Conditions checkbox
+
+    And I select the Submit button
+    Then I should see the Email sent confirmation page
+
+    Then I check the Test Gmail account for the email
+    And I click on the link to confirm the Gmail email address
+
+    And I switch Windows back to the MEE Portal
 
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
-    When I log in as username "<username>" and password "<password>"
-    Then I am logged into MEE
+    Then I Login with the newly created username and password
     And I select the Add Resource icon
     Then I enter an incorrect Access code
     And I have clicked on the Access code Next button
@@ -120,10 +137,6 @@ Feature: Regression End to End Test Pack
     And I enter a not yet published code of "<NotPubCode>"
     And I have clicked on the Access code Next button
     Then a message "We are sorry but the digital content for this code is not yet available. Your code has not been activated." is displayed
-    And I select the Contact our Customer Service Team link
-
-    Then I switch Windows back to the MEE Portal
-    Given I am on the MEE portal for "test"
     And I select the Add Resource icon
     Then I enter an Access code of "<AccessCode>"
     And I have clicked on the Access code Next button
@@ -133,9 +146,14 @@ Feature: Regression End to End Test Pack
     Then a message "Success! Your access code has been activated." is displayed
     Then I log out of MEE
 
+    Then I switch back to Gmail
+    Then I delete ALL Test Gmail Emails
+    Then I log out of Gmail
+
+
     Examples:
-      | username | password  |  AccessCode        | Resource                      | Resource2                       | NotPubCode       |
-      | meeadmin | M4cmillan |  HFTL1199319198437 | TEST High Five! Level 1 Pupil | TEST High Five! Level 1 Teacher | TEST395894165646 |
+      | Language | Firstname | Surname | Country | day | month | year | AccessCode        | Resource                      | Resource2                       | NotPubCode       |
+      | English  | Ted       | Tester  | GB      | 7   | May   | 1956 | HFTL1199319198437 | TEST High Five! Level 1 Pupil | TEST High Five! Level 1 Teacher | TEST395894165646 |
 
   Scenario Outline: U16 REGISTRATION JOURNEY
     Given I am on the MEE portal for "test"
@@ -416,5 +434,5 @@ Feature: Regression End to End Test Pack
     Then I log out of Gmail
 
     Examples:
-      | Language |  Country | day | month | year | email                             |
-      | English  |  GB      | 7   | May   | 1956 | springertester+testemail@gmail.com|
+      | Language | Country | day | month | year | email                              |
+      | English  | GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |
