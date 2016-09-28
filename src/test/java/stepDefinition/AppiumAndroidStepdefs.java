@@ -6,10 +6,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
+import supportMethods.FileReader;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -55,6 +57,9 @@ public class AppiumAndroidStepdefs {
         WebElement surname = driver.findElement(By.id("_LastName"));
         surname.clear();
         surname.sendKeys(last);
+        FileReader.addData("firstName", first);
+        FileReader.addData("surname", last);
+        FileReader.addData("country", country);
     }
 
 
@@ -71,9 +76,41 @@ public class AppiumAndroidStepdefs {
         WebElement yearSelect = driver.findElement(By.xpath("//*[@id='_DateOfBirth_Year']"));
         Select yearValue = new Select(yearSelect);
         yearValue.selectByValue(year);
+        FileReader.addData("dayOfBirth", day);
+        FileReader.addData("monthOfBirth", month);
+        FileReader.addData("yearOfBirth", year);
 
     }
+    @Then("^I use a unique Gmail email address$")
+    public void iUseAUniqueGmailEmailAddress() throws Throwable {
+        String email = "springertester" + "+" + RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "@gmail.com";
+        FileReader.addData("uniqueEmailAddress", email);
+
+        WebElement emailElement = driver.findElement(By.id("_EmailAddress"));
+        emailElement.clear();
+        emailElement.sendKeys(email);
+    }
+
+    @And("^I use a confirmation of the unique Gmail email address$")
+    public void iUseAConfirmationOfTheUniqueGmailEmailAddress() throws Throwable {
+        String emailConfirm = FileReader.readProperties().get("uniqueEmailAddress");
+        WebElement emailElement = driver.findElement(By.id("_ConfirmEmailAddress"));
+        emailElement.clear();
+        emailElement.sendKeys(emailConfirm);
+    }
+
+    @Then("^select the Terms & Conditions checkbox$")
+    public void selectTheTermsConditionsCheckbox() throws Throwable {
+        WebElement termsBox = driver.findElement(By.id("_AgreeToTermsOfUse"));
+        termsBox.click();
+    }
+
+    @And("^I use the Submit button$")
+    public void iUseTheSubmitButton() throws Throwable {
+        WebElement submit = driver.findElement(By.id("_submitBtn"));
+        submit.click();
+    }
+
     @After
     public void tearDown() {driver.closeApp();}
-
 }

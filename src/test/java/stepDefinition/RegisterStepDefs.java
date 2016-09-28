@@ -1,32 +1,19 @@
 package stepDefinition;
 
-import com.sun.media.jfxmedia.logging.Logger;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import cucumber.runtime.CucumberException;
-import enums.Language;
 import enums.Month;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.internal.Coordinates;
-import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.SystemClock;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class RegisterStepDefs {
 
@@ -294,6 +281,21 @@ public class RegisterStepDefs {
             System.out.println(winHandle);
         }
         Driver.waitForUrlToContain("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/en/Docs/Terms", 50);
+        Driver.close();
+        Driver.switchToWindow(windowHandleBefore);
+        Thread.sleep(2000);
+    }
+
+    @Then("^I select the UAT Terms of Use link$")
+    public void iSelectTheUATTermsOfUseLink() throws Throwable {
+        Register register = new Register();
+        windowHandleBefore = Driver.getWindowHandle();
+        register.TermsLink().click();
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchToWindow(winHandle);
+            System.out.println(winHandle);
+        }
+        Driver.waitForUrlToContain("https://mee-uat-useraccesscontrolmanager.ws.macmillaneducation.com/en/Docs/Terms", 50);
         Driver.close();
         Driver.switchToWindow(windowHandleBefore);
         Thread.sleep(2000);

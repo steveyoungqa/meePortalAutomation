@@ -412,8 +412,7 @@ Feature: Regression End to End Test Pack
     Then I register a first name of "<Firstname>" and surname of "<Surname>"
     And I select a Country of residence of "<Country>"
     Then I select a date of birth of "<day>" "<month>" "<year>"
- #And I have clicked on the Next button
-    Then I select the Terms of Use link
+    Then I select the UAT Terms of Use link
     Then I select the Privacy Policy link
     And I select the Cookie Policy link
 
