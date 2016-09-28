@@ -19,16 +19,37 @@ import java.util.concurrent.TimeUnit;
 
 public class AppiumAndroidStepdefs {
     AndroidDriver driver;
+    DesiredCapabilities caps = new DesiredCapabilities();
 
-    @Given("^I am using Appium to run automation tests for device \"([^\"]*)\" and Android version \"([^\"]*)\"$")
+    @Given("^I am using Appium to run Mobile Browser automation tests for device \"([^\"]*)\" and Android version \"([^\"]*)\"$")
     public void iAmUsingAppiumToRunAutomationTestsForDevice(String device, String version) throws Throwable {
-        DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
         caps.setCapability(MobileCapabilityType.DEVICE_NAME,device);
         caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
         caps.setCapability("avd",device);
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
+
+    @Given("^I am using Appium to run APK automation tests for device \"([^\"]*)\" and Android version \"([^\"]*)\"$")
+    public void iAmUsingAppiumToRunAPKAutomationTestsForDeviceAndAndroidVersion(String device, String version) throws Throwable {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
+        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME,device);
+        caps.setCapability("avd",device);
+    }
+
+    @And("^I am using the \"([^\"]*)\" local path$")
+    public void iAmUsingTheLocalPath(String apk) throws Throwable {
+        caps.setCapability(MobileCapabilityType.APP, apk);
+
+    }
+
+    @Then("^I launch the App on the Device$")
+    public void iLaunchTheAppOnTheDevice() throws Throwable {
+        driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), caps);
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
 
     @And("^I am using the \"([^\"]*)\" url for the mobile browser$")
@@ -109,6 +130,15 @@ public class AppiumAndroidStepdefs {
     public void iUseTheSubmitButton() throws Throwable {
         WebElement submit = driver.findElement(By.id("_submitBtn"));
         submit.click();
+    }
+
+
+    @And("^I run some Example Tests$")
+    public void iRunSomeExampleTests() throws Throwable {
+        WebElement planner=driver.findElement(By.id("uk.co.nationalrail.google:id/journeyPlannerTabButton"));
+        planner.click();
+        WebElement stationFrom=driver.findElement(By.id("uk.co.nationalrail.google:id/stationFrom"));
+        stationFrom.click();
     }
 
     @After

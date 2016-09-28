@@ -1,7 +1,7 @@
 @download
 Feature: Login and download the MEE app
   SIN-2108 - Download MEE App
-
+#DO NOT USE THIS FEATURE OF MEEADMIN LOGON
   Scenario Outline: Download App
 
     Given I am on the MEE portal for "test"
