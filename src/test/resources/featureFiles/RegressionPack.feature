@@ -105,7 +105,7 @@ Feature: Regression End to End Test Pack
       | Language | Firstname | Surname | Country | day | month | year |
       | English  | Ted       | Tester  | GB      | 7   | May   | 1956 |
 
-  Scenario Outline: Register,Login, enter Access code for Resource
+  Scenario Outline: Register,Login, enter Access code for Resource. Download APP tests
 
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
@@ -142,8 +142,14 @@ Feature: Regression End to End Test Pack
     And I have clicked on the Access code Next button
     Then I should see an Activate message for "<Resource>"
     Then I should see an Activate message for "<Resource2>"
+    Then I Pause for 3 seconds
     And I select Activate
     Then a message "Success! Your access code has been activated." is displayed
+    And I click on the Close form icon
+    And I confirm the Download is functioning for "Windows"
+    And I confirm the Download is functioning for "MAC"
+    And I confirm the Download is functioning for "Linux32"
+    And I confirm the Download is functioning for "Linux64"
     Then I log out of MEE
 
     Then I switch back to Gmail
@@ -206,24 +212,6 @@ Feature: Regression End to End Test Pack
     Examples:
       | Language | Firstname | Surname | Country | day | month | year |
       | English  | Private   | Terms   | GB      | 7   | May   | 1956 |
-
-  Scenario Outline: DOWNLOAD APP
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
-    When I select language "<Language>"
-    When I log in as username "<username>" and password "<password>"
-    Then I am logged into MEE
-
-    Then I should be redirected to the Download App page
-    And I confirm the Download is functioning for "Windows"
-    And I confirm the Download is functioning for "MAC"
-    And I confirm the Download is functioning for "Linux32"
-    And I confirm the Download is functioning for "Linux64"
-    Then I log out of MEE
-
-    Examples:
-      | Language | username | password  |
-      | English  | meeadmin | M4cmillan |
 
 #
   Scenario Outline: PROFILE FEATURE

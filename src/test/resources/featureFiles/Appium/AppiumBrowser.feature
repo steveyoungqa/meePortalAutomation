@@ -11,9 +11,9 @@ Feature: Debug
     And I use a confirmation of the unique Gmail email address
     Then select the Terms & Conditions checkbox
 
-    And I use the Submit button
+#    And I use the Submit button
     Then I Pause for 5 seconds
 
     Examples:
-      | Device         | Version | Language | Firstname | Surname | Country | day | month | year | Url                                                                  |
-      | Nexus_7_API_22 | 5.1     | English  | Ted       | Tester  | GB      | 7   | 5     | 1956 | https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ |
+      | Device         | Version | Url                                                                  | Language | Firstname | Surname | Country | day | month | year |
+      | Nexus_7_API_22 | 5.1     | https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ | English  | Ted       | Tester  | GB      | 7   | 5     | 1956 |

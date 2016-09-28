@@ -83,7 +83,7 @@ public class AppiumAndroidStepdefs {
     }
     @Then("^I use a unique Gmail email address$")
     public void iUseAUniqueGmailEmailAddress() throws Throwable {
-        String email = "springertester" + "+" + RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "@gmail.com";
+        String email = "springertester" + "+" + RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "Appium@gmail.com";
         FileReader.addData("uniqueEmailAddress", email);
 
         WebElement emailElement = driver.findElement(By.id("_EmailAddress"));
