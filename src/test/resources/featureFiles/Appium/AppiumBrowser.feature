@@ -12,6 +12,7 @@ Feature: Debug
     Then select the Terms & Conditions checkbox
 #    And I use the Submit button
     Then I Pause for 5 seconds
+    And I close the Mobile Browser
 
     Examples:
       | Device         | Version | Url                                                                  | Language | Firstname | Surname | Country | day | month | year |

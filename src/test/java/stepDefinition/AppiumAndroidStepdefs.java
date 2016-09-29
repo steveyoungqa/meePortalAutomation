@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -141,6 +140,12 @@ public class AppiumAndroidStepdefs {
         stationFrom.click();
     }
 
-    @After
-    public void tearDown() {driver.closeApp();}
+
+    @And("^I close the Mobile Browser$")
+    public void iCloseTheMobileBrowser() throws Throwable {
+        driver.closeApp();
+    }
+
+//    @After
+//    public void tearDown() {driver.closeApp();}
 }
