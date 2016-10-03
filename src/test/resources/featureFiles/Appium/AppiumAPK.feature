@@ -1,4 +1,4 @@
-@appium
+@appiumAPK
 Feature: Debug
 
   Scenario Outline: Register a New User on a Mobile Device (Chrome)

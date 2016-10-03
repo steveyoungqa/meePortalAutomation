@@ -1,4 +1,4 @@
-@appium
+@appiumChrome
 Feature: Debug
 
   Scenario Outline: Register a New User on a Mobile Device (Chrome)
@@ -14,6 +14,9 @@ Feature: Debug
     Then I Pause for 5 seconds
     And I close the Mobile Browser
 
+
     Examples:
-      | Device         | Version | Url                                                                  | Language | Firstname | Surname | Country | day | month | year |
-      | Nexus_7_API_22 | 5.1     | https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ | English  | Ted       | Tester  | GB      | 7   | 5     | 1956 |
+      | Device                        | Version | Url                                                                  | Language | Firstname | Surname | Country | day | month | year |
+      | Nexus_7_API_22                | 5.1     | https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ | English  | Ted       | Tester  | GB      | 7   | 5     | 1956 |
+      | Galaxy_Tab_4.0_API_22         | 5.1     | https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ | English  | Ted       | Tester  | GB      | 7   | 5     | 1956 |
+      | Samsung_Galaxy_S7_Edge_API_22 | 5.1     | https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/ | English  | Ted       | Tester  | GB      | 7   | 5     | 1956 |

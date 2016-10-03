@@ -144,8 +144,9 @@ public class AppiumAndroidStepdefs {
     @And("^I close the Mobile Browser$")
     public void iCloseTheMobileBrowser() throws Throwable {
         driver.closeApp();
+        driver.quit();
+//        Actions action2 = new Actions(driver);
+//        action2.sendKeys(Keys.COMMAND + "Q");
     }
 
-//    @After
-//    public void tearDown() {driver.closeApp();}
 }
