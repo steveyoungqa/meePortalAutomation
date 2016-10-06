@@ -91,7 +91,7 @@ public class LoggedInStepDefs {
         if (Platform.equals("Windows")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.exe";
             type = "application/octet-stream";
-            size = 29461136;
+            size = 29453064;
         }
         if (Platform.equals("MAC")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.dmg";
@@ -101,12 +101,12 @@ public class LoggedInStepDefs {
         if (Platform.equals("Linux32")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest32.deb";
             type = "application/x-debian-package";
-            size = 46620928;
+            size = 46613300;
         }
         if (Platform.equals("Linux64")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest64.deb";
             type = "application/x-debian-package";
-            size = 44410408;
+            size = 44404464;
         }
 
         HttpClient httpClient = HttpClientBuilder.create().build();
