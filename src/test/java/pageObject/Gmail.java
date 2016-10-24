@@ -145,7 +145,7 @@ public class Gmail {
     }
 
     public WebElement GmailSignOutLogo ()throws IOException {
-        return Driver.findElement(By.xpath("//*[@class='gb_7a gbii']"));
+        return Driver.findElement(By.xpath(".//*[@href='https://accounts.google.com/SignOutOptions?hl=en&continue=https://mail.google.com/mail&service=mail']"));
     }
 
     public WebElement GmailSignOutLink() throws IOException{
