@@ -91,22 +91,22 @@ public class LoggedInStepDefs {
         if (Platform.equals("Windows")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.exe";
             type = "application/octet-stream";
-            size = 29453064;
+            size = 29453496;
         }
         if (Platform.equals("MAC")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest.dmg";
             type = "application/x-apple-diskimage";
-            size = 40586626;
+            size = 40587376;
         }
         if (Platform.equals("Linux32")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest32.deb";
             type = "application/x-debian-package";
-            size = 46613300;
+            size = 46614196;
         }
         if (Platform.equals("Linux64")) {
             link = "https://mee-cdn-test.ws.macmillaneducation.com/Releases/MEE-latest64.deb";
             type = "application/x-debian-package";
-            size = 44404464;
+            size = 44405580;
         }
 
         HttpClient httpClient = HttpClientBuilder.create().build();

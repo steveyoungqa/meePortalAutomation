@@ -21,49 +21,6 @@ Feature: Regression End to End Test Pack
     Then a message "Email address required" is displayed
     And I click on the Close form icon
 
-  Scenario: REGISTRATION VALIDATION ERRORS
-    Given I am on the MEE portal for "test"
-    And I have clicked on the Register button
-    #And I have clicked on the Next button
-    And I select the Submit button
-    Then a message "Please enter your first name" is displayed
-    Then a message "Please enter your last name" is displayed
-    Then a message "Please select your country of residence" is displayed
-    Then a message "Please enter a valid date of birth" is displayed
-    Then I register a first name of "Vera&" and surname of "Validation<"
-    And I select the Submit button
-    #And I have clicked on the Next button
-    Then a message "First name must not contain special characters" is displayed
-    Then a message "Last name must not contain special characters" is displayed
-
-
-    Given I am on the MEE portal for "test"
-    And I have clicked on the Register button
-    Then I register a first name of "Vera" and surname of "Validation"
-    And I select a Country of residence of "GB"
-    Then I select a date of birth of "3" "Oct" "1994"
-    #And I have clicked on the Next button
-    Then I Pause for 3 seconds
-    And I select the Submit button
-    Then a message "Email address required" is displayed
-    Then I enter a unique Gmail email address
-    And I attempt to Paste confirmation of the unique Gmail email address
-    And I enter a confirmation of the unique Gmail email address
-    And I select the Submit button
-    Then a message "You must agree to the terms and conditions to continue" is displayed
-
-  Scenario Outline: MANDATORY FIELDS LOGIN VALIDATION
-    Given I am on the MEE portal for "test"
-    Then I have clicked on the Landing Page login button
-    When I log in as username "<username>" and password "<password>"
-    Then A "<validation error>" is displayed
-
-    Examples:
-      | username | password | validation error                                       |
-      |          | password | Please enter your username                             |
-      | username |          | Please enter your password                             |
-      |          |          | Please enter your username, Please enter your password |
-
   Scenario: INCORRECT LOGIN DETAILS VALIDATION
     Given I am on the MEE portal for "test"
     Then I have clicked on the Landing Page login button
@@ -424,3 +381,46 @@ Feature: Regression End to End Test Pack
     Examples:
       | Language | Country | day | month | year | email                              |
       | English  | GB      | 7   | May   | 1956 | springertester+testemail@gmail.com |
+
+  Scenario: REGISTRATION VALIDATION ERRORS
+    Given I am on the MEE portal for "test"
+    And I have clicked on the Register button
+ #And I have clicked on the Next button
+    And I select the Submit button
+    Then a message "Please enter your first name" is displayed
+    Then a message "Please enter your last name" is displayed
+    Then a message "Please select your country of residence" is displayed
+    Then a message "Please enter a valid date of birth" is displayed
+    Then I register a first name of "Vera&" and surname of "Validation<"
+    And I select the Submit button
+ #And I have clicked on the Next button
+    Then a message "First name must not contain special characters" is displayed
+    Then a message "Last name must not contain special characters" is displayed
+
+
+    Given I am on the MEE portal for "test"
+    And I have clicked on the Register button
+    Then I register a first name of "Vera" and surname of "Validation"
+    And I select a Country of residence of "GB"
+    Then I select a date of birth of "3" "Oct" "1994"
+ #And I have clicked on the Next button
+    Then I Pause for 3 seconds
+    And I select the Submit button
+    Then a message "Email address required" is displayed
+    Then I enter a unique Gmail email address
+    And I attempt to Paste confirmation of the unique Gmail email address
+    And I enter a confirmation of the unique Gmail email address
+    And I select the Submit button
+    Then a message "You must agree to the terms and conditions to continue" is displayed
+
+  Scenario Outline: MANDATORY FIELDS LOGIN VALIDATION
+    Given I am on the MEE portal for "test"
+    Then I have clicked on the Landing Page login button
+    When I log in as username "<username>" and password "<password>"
+    Then A "<validation error>" is displayed
+
+    Examples:
+      | username | password | validation error                                       |
+      |          | password | Please enter your username                             |
+      | username |          | Please enter your password                             |
+      |          |          | Please enter your username, Please enter your password |

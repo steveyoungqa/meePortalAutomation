@@ -506,8 +506,8 @@ public class RegisterStepDefs {
         switch (language) {
             case "Spanish":
 
-                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Nombre de usuario:')]")).getText().replace("Nombre de usuario: ", "");
-                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Contraseña:')]")).getText().replace("Contraseña: ", "");
+                String username = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Nombre de usuario')]")).getText().replace("Nombre de usuario ", "");
+                String password = Driver.findElement(By.xpath("//*[@class='adn ads']//*[contains(text(), 'Contraseña')]")).getText().replace("Contraseña ", "");
                 FileReader.addData("username", username);
                 FileReader.addData("password", password);
                 break;

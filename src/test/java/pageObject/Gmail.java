@@ -61,7 +61,7 @@ public class Gmail {
     }
 
     public WebElement GmailMacmillanEmailSpanish() throws IOException{
-        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Gracias por crear su cuenta Macmillan Education Everywhere')]"));
+        return Driver.findElement(By.xpath("//*[@class='y6']//*[contains(text(), 'Macmillan Education: Nuevo Registro')]"));
     }
 
     public WebElement GmailMacmillanEmailJapanese()throws IOException {
