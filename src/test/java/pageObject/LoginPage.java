@@ -2,9 +2,7 @@ package pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-
 import webDriver.Driver;
 
 import java.io.IOException;
@@ -19,13 +17,26 @@ public class LoginPage {
         return Driver.findElement(By.xpath("//*[@data-reactid='.1.2.1.0']"));
     }
 
+    public WebElement NewLoginLandingPage() throws IOException{
+        return Driver.findElement(By.xpath("//*[@id='_SubmitLogin']"));
+    }
+
     public WebElement CloseForm()throws IOException {
         return Driver.findElement(By.xpath("//*[@id='close']/button"));
+    }
+
+    public WebElement CancelLink()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='editorial']//*[contains(text(), 'Cancel')]"));
     }
 
     public WebElement RegisterLandingPage()throws IOException {
         return Driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
     }
+
+    public WebElement NewRegisterLandingPage()throws IOException {
+        return Driver.findElement(By.xpath("//*[@class='button style-1']"));
+    }
+
 
     public WebElement UsernameApp() throws IOException{
         return Driver.findElement(By.xpath("//input['Username' = translate(@id, 'u', 'U')]"));
@@ -85,6 +96,10 @@ public class LoginPage {
 
     public static Select LanguageSelector() throws IOException{
         return new Select(Driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.1.0']")));
+    }
+
+    public static Select NewLanguageSelector() throws IOException{
+        return new Select(Driver.findElement(By.xpath("//*[@id='frm-site-language']")));
     }
 
     public static WebElement errorMessage(String dataValmsgFor) throws IOException{

@@ -25,6 +25,12 @@ public class RegisterStepDefs {
         login.RegisterLandingPage().click();
     }
 
+    @And("^I have clicked on the New Register button$")
+    public void iHaveClickedOnTheNewRegisterButton() throws Throwable {
+        LoginPage login = new LoginPage();
+        login.NewRegisterLandingPage().click();
+    }
+
     @Then("^I (?:register|enter) a first name of \"([^\"]*)\" and surname of \"([^\"]*)\"$")
     public void iRegisterAFirstNameOfAndSurnameOf(String first, String last) throws Throwable {
         Register register = new Register();
@@ -268,6 +274,12 @@ public class RegisterStepDefs {
     public void iSelectTheTermsConditionsCheckbox() throws Throwable {
         Register register = new Register();
         register.TermsConditionsCheckbox().click();
+    }
+
+    @Then("^I select the New Terms & Conditions checkbox$")
+    public void iSelectTheNewTermsConditionsCheckbox() throws Throwable {
+        Register register = new Register();
+        register.NewTermsConditionsCheckbox().click();
     }
 
 

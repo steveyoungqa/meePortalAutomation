@@ -26,6 +26,12 @@ public class LoginStepDefs {
         login.LoginLandingPage().click();
     }
 
+    @Given("^I have clicked on the New Landing Page login button$")
+    public void i_have_clicked_on_the_New_login_button() throws Throwable {
+        LoginPage login = new LoginPage();
+        login.NewLoginLandingPage().click();
+    }
+
     @When("^I enter incorrect user credentials$")
     public void i_enter_incorrect_user_credentials() throws Throwable {
 
@@ -67,6 +73,16 @@ public class LoginStepDefs {
         login.UsernameField().sendKeys(username);
         login.PasswordField().sendKeys(password);
         login.LoginButton().click();
+    }
+
+    @When("^I New log in as username \"(.*?)\" and password \"(.*?)\"$")
+    public void i_Newlog_in_as_username_and_password(String username, String password) throws Throwable {
+        LoginPage login = new LoginPage();
+        login.UsernameField().sendKeys(username);
+        login.PasswordField().sendKeys(password);
+        Driver.scrollToElement(login.NewLoginLandingPage());
+        Thread.sleep(1000);
+        login.NewLoginLandingPage().click();
     }
 
     @Then("^A \"(.*?)\" is displayed$")

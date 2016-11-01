@@ -62,6 +62,13 @@ public class LoggedInStepDefs {
         register.AccessCodeField().sendKeys(code);
     }
 
+    @Then("^I enter a New Access code of \"([^\"]*)\"$")
+    public void iEnterANewAccessCodeOf(String code) throws Throwable {
+        Register register = new Register();
+        register.AccessCodeField().clear();
+        register.AccessCodeField().sendKeys(code);
+    }
+
     @Then("^I should see (?:a|an) (?:Activate|display) message (?:for|of) \"([^\"]*)\"$")
     public void iShouldSeeAnActivateMessageFor(String activate) throws Throwable {
         Register register = new Register();

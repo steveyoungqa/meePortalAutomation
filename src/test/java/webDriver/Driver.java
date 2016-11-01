@@ -192,6 +192,8 @@ public class Driver {
 
     public static void scrollToElement(WebElement element) throws Throwable {
         Actions actions = new Actions(getCurrentDriver());
+        JavascriptExecutor js = (JavascriptExecutor)webdriver;
+        js.executeScript("window.scrollBy(0,250)", "");
         actions.moveToElement(element).perform();
         Thread.sleep(2000);
     }

@@ -41,6 +41,10 @@ public class Register {
         return Driver.findElement(By.id("_AgreeToTermsOfUse"));
     }
 
+    public WebElement NewTermsConditionsCheckbox()throws IOException {
+        return Driver.findElement(By.id("_AgreeToTermsOfUseLabel"));
+    }
+
     public WebElement SameEmailAddressCheckbox()throws IOException {
         return Driver.findElement(By.id("_ReuseEmailAddress"));
     }

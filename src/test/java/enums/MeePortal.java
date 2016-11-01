@@ -6,8 +6,10 @@ public enum MeePortal {
 	test("https://mee-test-useraccesscontrolmanager.ws.macmillaneducation.com/"),
 	dev("http://mee-dev-useraccesscontrolmanager.cloudapp.net/"),
 	UAT("https://mee-uat-useraccesscontrolmanager.ws.macmillaneducation.com/"),
-	production("https://www.macmillaneducationeverywhere.com/");
-	
+	production("https://www.macmillaneducationeverywhere.com/"),
+	newTest("http://converged-test.macmillan.education/"),
+	newUAT("http://converged-uat.macmillan.education/");
+
 	private String value;
 	private MeePortal(String value){
 		

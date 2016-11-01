@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -8,14 +7,12 @@ import cucumber.api.java.en.When;
 import enums.Language;
 import enums.MeePortal;
 import org.junit.Assert;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.WebElement;
 import pageObject.HelpPage;
 import pageObject.LoginPage;
 import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
-import org.openqa.selenium.JavascriptExecutor;
 
 public class MeePortalStepDefs {
 
@@ -36,6 +33,13 @@ public class MeePortalStepDefs {
 		FileReader.addData("language", language);
 		LoginPage.LanguageSelector().selectByIndex(languageValue);
 	}
+
+    @When("^I select New language \"(.*?)\"$")
+    public void i_select_Newlanguage(String language) throws Throwable {
+        int languageValue = Language.valueOf(language).getLanguageValue();
+        FileReader.addData("language", language);
+        LoginPage.NewLanguageSelector().selectByIndex(languageValue);
+    }
 
     @Then("^I select the Help icon$")
     public void iSelectTheHelpIcon() throws Throwable {
@@ -122,6 +126,15 @@ public class MeePortalStepDefs {
         int languageValue = Language.valueOf(language).getLanguageValue();
         LoginPage login = new LoginPage();
         login.topRightLanguageSelector().selectByIndex(languageValue);
+    }
+
+    @And("^I click on the Cancel link$")
+    public void iClickOnTheCancelLink() throws Throwable {
+        LoginPage login = new LoginPage();
+        Driver.scrollToElement(login.CancelLink());
+        Thread.sleep(1000);
+        login.CancelLink().click();
+
     }
 
 //    public static void scrollToTopOfPage() throws Throwable {
