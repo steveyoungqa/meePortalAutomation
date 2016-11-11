@@ -13,7 +13,7 @@ import java.util.Map;
 @CucumberOptions(
 		features = { "src/test/resources/featureFiles" },
 		glue = { "webDriver", "stepDefinition", "testRunner" },
-		tags = { "@regression" },
+		tags = { "@debug" },
 		plugin = {"pretty", "html:target/html", "json:target/reports/cucumber.json" })
 public class TestRunner {
 

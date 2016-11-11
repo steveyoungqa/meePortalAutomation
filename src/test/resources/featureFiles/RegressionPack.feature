@@ -131,7 +131,7 @@ Feature: Regression End to End Test Pack
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail Minor email address
