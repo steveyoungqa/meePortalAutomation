@@ -40,20 +40,20 @@
       And I enter a confirmation of the unique Gmail email address
       Then I select the New Terms & Conditions checkbox
 
-      And I select the Submit button
-      Then I should see the Email sent confirmation page
-
-      Then I check the Test Gmail account for the email
-      And I click on the link to confirm the Gmail email address
-
-      And I switch Windows back to the MEE Portal
-
-      Then I Login with the newly created username and password
-      Then I log out of MEE
-
-      Then I switch back to Gmail
-      Then I delete ALL Test Gmail Emails
-      Then I log out of Gmail
+      And I select Register and Activate Code
+#      Then I should see the Email sent confirmation page
+#
+#      Then I check the Test Gmail account for the email
+#      And I click on the link to confirm the Gmail email address
+#
+#      And I switch Windows back to the MEE Portal
+#
+#      Then I Login with the newly created username and password
+#      Then I log out of MEE
+#
+#      Then I switch back to Gmail
+#      Then I delete ALL Test Gmail Emails
+#      Then I log out of Gmail
 
       Examples:
         | Language | Firstname | Surname | Country | day | month | year |AccessCode  |

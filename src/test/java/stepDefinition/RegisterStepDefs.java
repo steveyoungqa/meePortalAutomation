@@ -279,6 +279,7 @@ public class RegisterStepDefs {
     @Then("^I select the New Terms & Conditions checkbox$")
     public void iSelectTheNewTermsConditionsCheckbox() throws Throwable {
         Register register = new Register();
+        Driver.scrollToBottomOfPage();
         register.NewTermsConditionsCheckbox().click();
     }
 
@@ -671,5 +672,9 @@ public class RegisterStepDefs {
     }
 
 
-
+    @And("^I select Register and Activate Code$")
+    public void iSelectRegisterAndActivateCode() throws Throwable {
+        Register register = new Register();
+        register.ResgisterAndActivateCode().click();
+    }
 }

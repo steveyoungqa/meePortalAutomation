@@ -82,10 +82,7 @@ public class MeePortalStepDefs {
     @Then("^I select the Submit button$")
     public void iSelectTheSubmitButton() throws Throwable {
         Register register = new Register();
-        WebElement submit = register.SubmitButton();
-        Driver.scrollToElement(submit);
-        Thread.sleep(2000);
-        submit.click();
+        register.SubmitButton().click();
     }
 
     @And("^I select the Close button$")
