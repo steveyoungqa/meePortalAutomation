@@ -34,7 +34,7 @@ public class LoginPage {
     }
 
     public WebElement NewRegisterLandingPage()throws IOException {
-        return Driver.findElement(By.xpath("//*[@class='button style-1']"));
+        return Driver.findElement(By.xpath("//*[@href='http://converged-uat.macmillan.education/register/']"));
     }
 
 
