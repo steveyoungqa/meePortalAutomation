@@ -76,6 +76,7 @@ public class MeePortalStepDefs {
     @Then("^a message \"([^\"]*)\" is displayed$")
     public void aMessageIsDisplayed(String message) throws Throwable {
         Register register = new Register();
+        Driver.scrollToTopOfPage();
         register.message(message).isDisplayed();
     }
 

@@ -7,7 +7,8 @@
     Then I delete ALL Test Gmail Emails
     Then I log out of Gmail
 
-  Scenario: LOGIN VALIDATION ERRORS
+  @steve
+    Scenario: LOGIN VALIDATION ERRORS
     Given I am on the MEE portal for "newUAT"
     Then I have clicked on the New Landing Page login button
     Then a message "Please enter your username" is displayed
