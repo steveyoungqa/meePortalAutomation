@@ -29,6 +29,8 @@ public class LoginStepDefs {
     @Given("^I have clicked on the New Landing Page login button$")
     public void i_have_clicked_on_the_New_login_button() throws Throwable {
         LoginPage login = new LoginPage();
+        Driver.scrollToElement(login.NewLoginLandingPage());
+        Thread.sleep(1000);
         login.NewLoginLandingPage().click();
     }
 
@@ -51,6 +53,8 @@ public class LoginStepDefs {
     @When("^I click the Forgot username link$")
     public void i_click_the_forgot_username_link() throws Throwable {
         LoginPage login = new LoginPage();
+//        Driver.scrollToElement(login.ForgotUsername());
+//        Thread.sleep(1000);
         login.ForgotUsername().click();
     }
 

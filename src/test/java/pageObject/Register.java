@@ -77,6 +77,10 @@ public class Register {
         return Driver.findElement(By.xpath("//*[@type='submit']"));
     }
 
+    public WebElement CancelButton()throws IOException {
+        return Driver.findElement(By.xpath(".//*[@class='editorial']//*[contains(text(), 'Cancel')]"));
+    }
+
     public WebElement ResgisterAndActivateCode()throws IOException {
         return Driver.findElement(By.xpath("//*[@value='Register and activate code']"));
     }

@@ -77,14 +77,14 @@ public class MeePortalStepDefs {
     @Then("^a message \"([^\"]*)\" is displayed$")
     public void aMessageIsDisplayed(String message) throws Throwable {
         Register register = new Register();
-        Driver.scrollToTopOfPage();
         register.message(message).isDisplayed();
     }
 
     @Then("^I select the Submit button$")
     public void iSelectTheSubmitButton() throws Throwable {
         Register register = new Register();
-        Driver.scrollToBottomOfPage();
+        Driver.scrollToElement(register.CancelButton());
+        Thread.sleep(1000);
         register.SubmitButton().click();
     }
 
