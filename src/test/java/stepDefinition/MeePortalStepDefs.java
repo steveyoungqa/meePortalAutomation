@@ -24,6 +24,7 @@ public class MeePortalStepDefs {
 		EnvironmentStepDefs.environment = environment;
 		Thread.sleep(5000);
 		Driver.loadPage(MeePortal.getUrl());
+        Driver.maximise();
 		Assert.assertEquals("Incorrect URL.", MeePortal.getUrl(), Driver.getCurrentUrl());
 	}
 
