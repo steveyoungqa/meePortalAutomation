@@ -177,6 +177,10 @@ public class Register {
         return Driver.findElement(By.id("_AccessCode"));
     }
 
+    public WebElement ClickAwayFromAccessField()throws IOException {
+        return Driver.findElement(By.id("js-page-content"));
+    }
+
     public WebElement AccessCodeNextButton()throws IOException {
         return Driver.findElement(By.id("_submitBtn"));
     }

@@ -26,6 +26,7 @@
     When I New log in as username "noSuchUser" and password "completelyMadeUpRandom"
     Then a message "Your details do not match our database. Please try again or register" is displayed
 
+    @steve
     Scenario Outline: REGISTER A NEW USER (ALL LANGUAGES)
       Given I am on the MEE portal for "newUAT"
       And I have clicked on the New Register button

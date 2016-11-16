@@ -68,7 +68,9 @@ public class LoggedInStepDefs {
         register.AccessCodeField().clear();
         Thread.sleep(1000);
         register.AccessCodeField().sendKeys(code);
-        Thread.sleep(5000);
+        Thread.sleep(1000);
+        register.ClickAwayFromAccessField().click();
+        Thread.sleep(3000);
     }
 
     @Then("^I should see (?:a|an) (?:Activate|display) message (?:for|of) \"([^\"]*)\"$")
