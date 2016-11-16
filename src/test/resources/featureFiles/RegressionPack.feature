@@ -74,7 +74,7 @@ Feature: Regression End to End Test Pack
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
@@ -184,7 +184,7 @@ Feature: Regression End to End Test Pack
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
@@ -270,7 +270,7 @@ Feature: Regression End to End Test Pack
 
     And I select the Submit button
     And I Pause for 10 seconds
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
@@ -318,7 +318,7 @@ Feature: Regression End to End Test Pack
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
@@ -361,7 +361,7 @@ Feature: Regression End to End Test Pack
     Then a message "There is an existing account registered with this email address." is displayed
     And I select the Use the Same Email Address checkbox
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address resgistered with unique First and Last names
