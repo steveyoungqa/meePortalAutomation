@@ -28,6 +28,8 @@ public class RegisterStepDefs {
     @And("^I have clicked on the New Register button$")
     public void iHaveClickedOnTheNewRegisterButton() throws Throwable {
         LoginPage login = new LoginPage();
+        Driver.scrollToElement(login.NewRegisterLandingPage());
+        Thread.sleep(2000);
         login.NewRegisterLandingPage().click();
     }
 
@@ -279,7 +281,8 @@ public class RegisterStepDefs {
     @Then("^I select the New Terms & Conditions checkbox$")
     public void iSelectTheNewTermsConditionsCheckbox() throws Throwable {
         Register register = new Register();
-        Driver.scrollToBottomOfPage();
+        Driver.scrollToElement(register.NewTermsConditionsCheckbox());
+        Thread.sleep(1000);
         register.NewTermsConditionsCheckbox().click();
     }
 

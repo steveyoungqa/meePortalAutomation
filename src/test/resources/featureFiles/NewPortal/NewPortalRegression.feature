@@ -13,7 +13,7 @@
     Then a message "Please enter your username" is displayed
     Then a message "Please enter your password" is displayed
     Then I click the Forgot username link
-    And I select the Submit button
+    And I select the New Portal Submit button
     Then a message "Please enter your first name" is displayed
     Then a message "Please enter your last name" is displayed
     Then a message "Please enter a valid date of birth" is displayed

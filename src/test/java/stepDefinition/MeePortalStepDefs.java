@@ -83,6 +83,12 @@ public class MeePortalStepDefs {
     @Then("^I select the Submit button$")
     public void iSelectTheSubmitButton() throws Throwable {
         Register register = new Register();
+        register.SubmitButton().click();
+    }
+
+    @Then("^I select the New Portal Submit button$")
+    public void iSelectTheNewPortalSubmitButton() throws Throwable {
+        Register register = new Register();
         Thread.sleep(2000);
         Driver.scrollToElement(register.CancelButton());
         Thread.sleep(2000);
