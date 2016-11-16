@@ -351,6 +351,7 @@ public class RegisterStepDefs {
     public void iShouldSeeTheEmailSentConfirmationPage() throws Throwable {
         String language = FileReader.readProperties().get("language");
         Register register = new Register();
+        Thread.sleep(3000);
 
         switch (language){
             case "English":
