@@ -66,8 +66,9 @@ public class LoggedInStepDefs {
     public void iEnterANewAccessCodeOf(String code) throws Throwable {
         Register register = new Register();
         register.AccessCodeField().clear();
+        Thread.sleep(1000);
         register.AccessCodeField().sendKeys(code);
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
 
     @Then("^I should see (?:a|an) (?:Activate|display) message (?:for|of) \"([^\"]*)\"$")
