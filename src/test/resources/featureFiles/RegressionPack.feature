@@ -27,7 +27,7 @@ Feature: Regression End to End Test Pack
     And I select language "English"
     When I log in as username "noSuchUser" and password "completelyMadeUpRandom"
     Then A message is displayed informing the user that the login process has failed
-    
+
   Scenario Outline: REGISTER A NEW USER (ALL LANGUAGES)
     Given I am on the MEE portal for "test"
     And I have clicked on the Register button
@@ -43,7 +43,7 @@ Feature: Regression End to End Test Pack
     Then I select the Terms & Conditions checkbox
 
     And I select the Submit button
-    Then I should see the Email sent confirmation page
+#    Then I should see the Email sent confirmation page
 
     Then I check the Test Gmail account for the email
     And I click on the link to confirm the Gmail email address
