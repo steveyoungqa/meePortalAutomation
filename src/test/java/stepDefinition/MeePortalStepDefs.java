@@ -144,12 +144,14 @@ public class MeePortalStepDefs {
 
     }
 
-//    public static void scrollToTopOfPage() throws Throwable {
-//        JavascriptExecutor jse = (JavascriptExecutor) ;
-//        jse.executeScript("scrollBy(0, -6000);");
-//        Thread.sleep(2000);
-//    }
-//
+    @Then("^I scroll to the Top of the page$")
+    public void iScrollToTheTopOfThePage() throws Throwable {
+        Driver.scrollToTopOfPage();
+        Thread.sleep(1000);
+    }
+
+
+
 //    public static void scrollToBottomOfPage() throws Throwable {
 //        JavascriptExecutor jse = (JavascriptExecutor) webdriver;
 //        jse.executeScript("window.scrollTo(0,document.body.scrollHeight);");
