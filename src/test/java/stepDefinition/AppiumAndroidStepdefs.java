@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import appium.RuntimeExec;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,9 +20,11 @@ import java.util.concurrent.TimeUnit;
 public class AppiumAndroidStepdefs {
     AndroidDriver driver;
     DesiredCapabilities caps = new DesiredCapabilities();
+    RuntimeExec appiumObj = new RuntimeExec();
 
     @Given("^I am using Appium to run Mobile Browser automation tests for device \"([^\"]*)\" and Android version \"([^\"]*)\"$")
     public void iAmUsingAppiumToRunAutomationTestsForDevice(String device, String version) throws Throwable {
+        appiumObj.startAppium("appium --address 127.0.0.1");
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
         caps.setCapability(MobileCapabilityType.DEVICE_NAME,device);
         caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Browser");
@@ -32,6 +35,7 @@ public class AppiumAndroidStepdefs {
 
     @Given("^I am using Appium to run APK automation tests for device \"([^\"]*)\" and Android version \"([^\"]*)\"$")
     public void iAmUsingAppiumToRunAPKAutomationTestsForDeviceAndAndroidVersion(String device, String version) throws Throwable {
+        appiumObj.startAppium("appium --address 127.0.0.1");
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
