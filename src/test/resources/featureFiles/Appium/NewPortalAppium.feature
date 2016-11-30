@@ -7,8 +7,8 @@ Feature: Appium Automation on New MEE Portal
     And I have clicked on the New Register button for mobile browser
     Then I enter a New Access code of "<AccessCode>" for mobile browser
     And I have clicked on the Access code Next button for mobile browser
-#    Then I register a first name of "<Firstname>" and surname of "<Surname>"
-#    And I select a Country of residence of "<Country>"
+    Then I register a first name of "<Firstname>" and surname of "<Surname>" for mobile browser
+    And I select a Country of residence of "<Country>" for mobile browser
 #    Then I select a date of birth of "<day>" "<month>" "<year>"
 #    Then I enter a unique Gmail email address
 #    And I enter a confirmation of the unique Gmail email address

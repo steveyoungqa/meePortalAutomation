@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import appium.RuntimeExec;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -46,6 +47,23 @@ public class AppiumAndroidStepdefs {
         caps.setCapability(MobileCapabilityType.APP, apk);
     }
 
+    @And("^I run some Example Tests$")
+    public void iRunSomeExampleTests() throws Throwable {
+        WebElement planner=driver.findElement(By.id("uk.co.nationalrail.google:id/journeyPlannerTabButton"));
+        planner.click();
+        WebElement stationFrom=driver.findElement(By.id("uk.co.nationalrail.google:id/stationFrom"));
+        stationFrom.click();
+    }
+
+
+    @And("^I close the Mobile Browser$")
+    public void iCloseTheMobileBrowser() throws Throwable {
+        driver.closeApp();
+        driver.quit();
+//        Actions action2 = new Actions(driver);
+//        action2.sendKeys(Keys.COMMAND + "Q");
+    }
+    
     @Then("^I launch the App on the Device$")
     public void iLaunchTheAppOnTheDevice() throws Throwable {
         driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), caps);
@@ -81,36 +99,26 @@ public class AppiumAndroidStepdefs {
 
     @Then("^I register a new user in the mobile browser in language \"([^\"]*)\"$")
     public void iRegisterANewUserInTheMobileBrowser(String language) throws Throwable {
-        WebElement registerButton = driver.findElement(By.xpath("//*[@data-reactid='.1.2.0.0']"));
-        registerButton.click();
-//        WebElement languageSelector = driver.findElement(By.xpath("//*[@class='mee-select mee-purple-select']//*[@data-reactid = '.1.0']"));
-//        Select languageSelect = new Select(languageSelector);
-//        languageSelect.selectByValue(language);
-//  Selector not functioning on Android
+      //TO DO - NOT REQUIRED TO CREATE NEW USER
+    }
+
+    @Then("^I register a first name of \"([^\"]*)\" and surname of \"([^\"]*)\" for mobile browser$")
+    public void iRegisterAFirstNameOfAndSurnameOfForMobileBrowser(String first, String last) throws Throwable {
+        AppiumBrowser appium = new AppiumBrowser();
+        driver.findElement(By.id(String.valueOf(appium.FirstName()))).clear();
+        Thread.sleep(1000);
+        driver.findElement(By.id(String.valueOf(appium.FirstName()))).sendKeys(first);
+        Thread.sleep(1000);
+        driver.findElement(By.id(String.valueOf(appium.Surname()))).clear();
+        Thread.sleep(1000);
     }
 
 
 
 
-
-
-    @And("^I run some Example Tests$")
-    public void iRunSomeExampleTests() throws Throwable {
-        WebElement planner=driver.findElement(By.id("uk.co.nationalrail.google:id/journeyPlannerTabButton"));
-        planner.click();
-        WebElement stationFrom=driver.findElement(By.id("uk.co.nationalrail.google:id/stationFrom"));
-        stationFrom.click();
+    @And("^I select a Country of residence of \"([^\"]*)\" for mobile browser$")
+    public void iSelectACountryOfResidenceOfForMobileBrowser(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
-
-
-    @And("^I close the Mobile Browser$")
-    public void iCloseTheMobileBrowser() throws Throwable {
-        driver.closeApp();
-        driver.quit();
-//        Actions action2 = new Actions(driver);
-//        action2.sendKeys(Keys.COMMAND + "Q");
-    }
-
-
-
 }

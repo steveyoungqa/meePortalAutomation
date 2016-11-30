@@ -21,4 +21,12 @@ public class AppiumBrowser {
     public String AccessCodeNextButton()throws IOException {
         return ("_submitBtn");
     }
+
+    public String FirstName()throws IOException {
+        return ("_FirstName");
+    }
+
+    public String Surname()throws IOException {
+        return ("_LastName");
+    }
 }
