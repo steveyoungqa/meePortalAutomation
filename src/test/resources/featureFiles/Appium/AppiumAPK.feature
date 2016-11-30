@@ -10,5 +10,5 @@ Feature: Debug
     Then I Pause for 5 seconds
 
     Examples:
-      | Device                        | Version | APK                                                                 |
-      | Samsung_Galaxy_S7_Edge_API_22 | 5.1     | /Users/syn3286/Documents/Appium/uk.co.nationalrail.google.8.2.2.apk |
+      | Device         | Version | APK                                                                 |
+      | Nexus_7_API_22 | 5.1     | /Users/syn3286/Documents/Appium/uk.co.nationalrail.google.8.2.2.apk |
