@@ -58,7 +58,6 @@
 
       Then I switch back to Gmail
       Then I delete ALL Test Gmail Emails
-      Then I log out of Gmail
 
       Examples:
         | Language | Firstname | Surname | Country | day | month | year |AccessCode  |
