@@ -17,6 +17,18 @@ public class Register {
         return Driver.findElement(By.id("_LastName"));
     }
 
+    public WebElement Username()throws IOException {
+        return Driver.findElement(By.id("_Username"));
+    }
+
+    public WebElement Password()throws IOException {
+        return Driver.findElement(By.id("_Password"));
+    }
+
+    public WebElement ConfirmPassword()throws IOException {
+        return Driver.findElement(By.id("_ConfirmPassword"));
+    }
+
     public WebElement NextButton()throws IOException {
         return Driver.findElement(By.id("_nextBtn"));
     }

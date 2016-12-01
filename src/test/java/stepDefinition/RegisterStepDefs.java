@@ -13,6 +13,7 @@ import pageObject.Register;
 import supportMethods.FileReader;
 import webDriver.Driver;
 
+import static org.apache.commons.lang.RandomStringUtils.randomNumeric;
 import static org.junit.Assert.assertEquals;
 
 public class RegisterStepDefs {
@@ -181,7 +182,7 @@ public class RegisterStepDefs {
     @Then("^I enter a unique email address$")
     public void iEnterAnEmailAddressOf() throws Throwable {
         Register register = new Register();
-        String email = RandomStringUtils.randomAlphabetic(10) + RandomStringUtils.randomNumeric(2) + "@mailinator.com";
+        String email = RandomStringUtils.randomAlphabetic(10) + randomNumeric(2) + "@mailinator.com";
         FileReader.addData("emailAddress", email);
         register.Email().clear();
         register.Email().sendKeys(email);
@@ -190,7 +191,7 @@ public class RegisterStepDefs {
     @Then("^I enter a unique Gmail email address$")
     public void iEnterAUniqueGmailEmailAddress() throws Throwable {
         Register register = new Register();
-        String email = "springertester" + "+" +RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "@gmail.com";
+        String email = "springertester" + "+" +RandomStringUtils.randomAlphabetic(3) + randomNumeric(2) + "@gmail.com";
         FileReader.addData("uniqueEmailAddress", email);
         register.Email().clear();
         register.Email().sendKeys(email);
@@ -199,7 +200,7 @@ public class RegisterStepDefs {
     @Then("^I enter a Parent/Guardian email address$")
     public void iEnterAParentEmailAddressOf() throws Throwable {
         Register register = new Register();
-        String email = RandomStringUtils.randomAlphabetic(7) + RandomStringUtils.randomNumeric(4) + "@mailinator.com";
+        String email = RandomStringUtils.randomAlphabetic(7) + randomNumeric(4) + "@mailinator.com";
         FileReader.addData("parentEmailAddress", email);
         register.Email().sendKeys(email);
     }
@@ -207,7 +208,7 @@ public class RegisterStepDefs {
     @Then("^I enter a Parent/Guardian Gmail address$")
     public void iEnterAParentGmailAddressOf() throws Throwable {
         Register register = new Register();
-        String email = "springertester" + "+" +RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(2) + "@gmail.com";
+        String email = "springertester" + "+" +RandomStringUtils.randomAlphabetic(3) + randomNumeric(2) + "@gmail.com";
         FileReader.addData("parentEmailAddress", email);
         register.Email().sendKeys(email);
     }
@@ -612,7 +613,7 @@ public class RegisterStepDefs {
         LoginPage login = new LoginPage();
         String currentPassword = FileReader.readProperties().get("password");
         login.CurrentPassword().sendKeys(currentPassword);
-        String resetPassword = RandomStringUtils.randomAlphabetic(5) + RandomStringUtils.randomNumeric(2);
+        String resetPassword = RandomStringUtils.randomAlphabetic(5) + randomNumeric(2);
         FileReader.addData("resetPassword", resetPassword);
         login.NewPasswordField().sendKeys(resetPassword);
         login.ConfirmNewPasswordField().sendKeys(resetPassword);
@@ -677,10 +678,13 @@ public class RegisterStepDefs {
         register.Surname().sendKeys(surname);
     }
 
-
     @And("^I select Register and Activate Code$")
     public void iSelectRegisterAndActivateCode() throws Throwable {
         Register register = new Register();
         register.ResgisterAndActivateCode().click();
     }
+
+
+
+
 }

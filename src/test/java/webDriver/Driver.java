@@ -28,7 +28,7 @@ public class Driver {
             if (webdriver == null) {
 
                 if (browser.equals("Chrome")) {
-//                    System.setProperty("webdriver.chrome.driver", "/Users/youngey/Documents/JVMProjects/SpringerNature/mee_portal_automation/selenium/chromedriverOSX");
+                    System.setProperty("webdriver.chrome.driver", "/Users/youngey/Documents/JVMProjects/SpringerNature/mee_portal_automation/selenium/chromedriverOSX");
 //                    ONLY USE THE ABOVE FOR RUNNING LOCALLY IN THE IDE
                     webdriver = new ChromeDriver();
                 }
