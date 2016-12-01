@@ -139,7 +139,7 @@ public class MeePortalStepDefs {
     public void iClickOnTheCancelLink() throws Throwable {
         LoginPage login = new LoginPage();
         Driver.scrollToElement(login.CancelLink());
-        Thread.sleep(1000);
+        Driver.scrollToElement(login.CancelLink());
         login.CancelLink().click();
 
     }
