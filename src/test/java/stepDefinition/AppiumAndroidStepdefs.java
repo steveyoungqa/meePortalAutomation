@@ -63,7 +63,7 @@ public class AppiumAndroidStepdefs {
 //        Actions action2 = new Actions(driver);
 //        action2.sendKeys(Keys.COMMAND + "Q");
     }
-    
+
     @Then("^I launch the App on the Device$")
     public void iLaunchTheAppOnTheDevice() throws Throwable {
         driver = new AndroidDriver (new URL("http://127.0.0.1:4723/wd/hub"), caps);
