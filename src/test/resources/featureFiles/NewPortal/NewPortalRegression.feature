@@ -56,9 +56,6 @@
       Then I have clicked on the New Landing Page login button
       And I log out of the New MEE Portal
 
-      Then I switch back to Gmail
-      Then I delete ALL Test Gmail Emails
-
       Examples:
         | Language | Firstname | Surname | Country | day | month | year |AccessCode  |
         | English  | New       | Portal  | GB      | 9   | May   | 1971 |892046730726|
