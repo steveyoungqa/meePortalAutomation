@@ -28,7 +28,7 @@ public class Driver {
             if (webdriver == null) {
 
                 if (browser.equals("Chrome")) {
-//                    System.setProperty("webdriver.chrome.driver", "/Users/youngey/Documents/JVMProjects/SpringerNature/mee_portal_automation/selenium/chromedriverOSX");
+                    System.setProperty("webdriver.chrome.driver", "/Users/steveyoung/Documents/JVMProjects (Archive)/SpringerNature OLD/mee_portal_automation/selenium/chromedriverOSX");
 //                    ONLY USE THE ABOVE FOR RUNNING LOCALLY IN THE IDE
                     webdriver = new ChromeDriver();
                 }
@@ -51,7 +51,7 @@ public class Driver {
 
     public static void loadPage(String url) throws IOException{
         getCurrentDriver().get(url);
-        maximise();
+//        maximise();
     }
 
     public static WebElement findElement(By element) throws IOException{
@@ -60,9 +60,9 @@ public class Driver {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-        getCurrentDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+        getCurrentDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         try {
-            new WebDriverWait(getCurrentDriver(), 5).until(ExpectedConditions.elementToBeClickable((By) element));
+            new WebDriverWait(getCurrentDriver(), 1).until(ExpectedConditions.elementToBeClickable((By) element));
         } catch (Exception e) {
 
         }
